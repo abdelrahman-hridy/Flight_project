@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="864.0" prefWidth="1542.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.searchFlightController">
+   <children>
+      <ListView fx:id="arrivalAirportList" fixedCellSize="30.0" focusTraversable="false" layoutX="244.0" layoutY="228.0" prefHeight="636.0" prefWidth="244.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ListView>
+      <ListView fx:id="departureTimeList" fixedCellSize="30.0" focusTraversable="false" layoutX="488.0" layoutY="228.0" prefHeight="636.0" prefWidth="298.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ListView>
+      <ListView fx:id="arrivalTimeList" fixedCellSize="30.0" focusTraversable="false" layoutX="785.0" layoutY="228.0" prefHeight="636.0" prefWidth="274.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ListView>
+      <ListView fx:id="flightDurationList" fixedCellSize="30.0" focusTraversable="false" layoutX="1059.0" layoutY="228.0" prefHeight="636.0" prefWidth="244.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ListView>
+      <ListView fx:id="priceList" fixedCellSize="30.0" focusTraversable="false" layoutX="1303.0" layoutY="228.0" prefHeight="636.0" prefWidth="244.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ListView>
+      <ListView fx:id="departureAirportList" fixedCellSize="30.0" focusTraversable="false" layoutY="228.0" prefHeight="636.0" prefWidth="244.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ListView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="244.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="244.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="244.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="488.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="298.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="786.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="274.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="1059.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="244.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="1303.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="244.0" />
+      <Label layoutX="32.0" layoutY="193.0" text="Departure Airport">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="277.0" layoutY="193.0" text="Arrival Airport">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="554.0" layoutY="193.0" text="Departure Time">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="853.0" layoutY="193.0" text="Arrival Time">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="1112.0" layoutY="193.0" text="Flight Duration">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="1380.0" layoutY="193.0" text="Base Price">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

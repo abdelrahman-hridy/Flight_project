@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="866.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.UserSign">
+   <children>
+      <Label layoutX="150.0" layoutY="319.0" text="You have an account already">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Button fx:id="signInButton" layoutX="278.0" layoutY="416.0" mnemonicParsing="false" onAction="#userSignIn" text="Sign in">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Button>
+      <Label layoutX="876.0" layoutY="321.0" text="You don't have an account">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Button fx:id="signUpButton" layoutX="1021.0" layoutY="413.0" mnemonicParsing="false" onAction="#userSignUp" text="Sign up">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Button>
+      <Button fx:id="backButton" layoutX="703.0" layoutY="687.0" mnemonicParsing="false" onAction="#backToLoginInterface" text="Back">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
