@@ -7,9 +7,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
@@ -32,6 +39,10 @@ public class searchFlightController implements Initializable, Serializable {
 
     ArrayList<Flight>flightsFiltered = new ArrayList<>();
 
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,6 +55,13 @@ public class searchFlightController implements Initializable, Serializable {
         flightDuration.setCellValueFactory(new PropertyValueFactory<FlightString, String>("flight_Duration"));
         price.setCellValueFactory(new PropertyValueFactory<FlightString, String>("price"));
         Action.setCellValueFactory(new PropertyValueFactory<FlightString, String>("button"));
+
+        Label placeholderLabel = new Label("No Flights Available With Your Demands");
+        placeholderLabel.setFont(Font.font("Arial", 20));  // Set font size and family
+        placeholderLabel.setTextFill(Color.RED);          // Set text color
+
+        // Set the custom placeholder
+        myTable.setPlaceholder(placeholderLabel);
 
         myTable.setStyle("-fx-font-size: 16px;");
 
@@ -85,10 +103,6 @@ public class searchFlightController implements Initializable, Serializable {
         arrivalDatePicker.setOnAction(this::changeDepartureAirport);
 
 
-//        departureDatePicker.setValue(LocalDate.now());
-//        arrivalDatePicker.setValue(LocalDate.now());
-
-
 
         try {
             flightsFiltered = p1.flightSearch("~All~", "~All~",
@@ -107,20 +121,35 @@ public class searchFlightController implements Initializable, Serializable {
                     , String.valueOf(hours) + ":" + String.valueOf(minutes), String.valueOf(flightsFiltered.get(i).getPrice()), i);
             assert false;
             data.add(row);
-            row.getButton().setId("Button" + (i + 1));
-            row.getButton().setOnAction(event -> {
-                // Identify the button clicked using its ID
-                Button clickedButton = (Button) event.getSource();
-                String buttonId = clickedButton.getId();
-                handleButtonClick(buttonId); // Pass ID to the handler method
-            });
+            row.getButton().setId(String.valueOf(i));
+            row.getButton().setOnAction(this::handleButtonClick);
         }
 
 
     }
-    public void handleButtonClick(String buttonId) {
-        System.out.println("Clicked: " + buttonId);
+    public void handleButtonClick(ActionEvent event) {
 
+        {
+            System.out.println(((Button) event.getSource()).getId());
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("flightShow.fxml"));
+                root = loader.load();
+
+                FlightShow flightShow = loader.getController();
+                flightShow.setAll(flightsFiltered.get(Integer.parseInt(((Button) event.getSource()).getId())));
+
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            } catch (
+                    IOException e) {
+                System.out.println("Can't Open flightShow.fxml");
+            }
+
+        }
     }
     public void changeDepartureAirport(ActionEvent ec){
         data.clear();
@@ -176,14 +205,24 @@ public class searchFlightController implements Initializable, Serializable {
                     , String.valueOf(hours) + ":" + String.valueOf(minutes), String.valueOf(flightsFiltered.get(i).getPrice()), i);
             assert false;
             data.add(row);
-            row.getButton().setId("Button" + (i + 1));
-            row.getButton().setOnAction(event -> {
-                // Identify the button clicked using its ID
-                Button clickedButton = (Button) event.getSource();
-                String buttonId = clickedButton.getId();
-                handleButtonClick(buttonId); // Pass ID to the handler method
-            });
+            row.getButton().setId(String.valueOf(i));
+            row.getButton().setOnAction(this::handleButtonClick);
+
         }
     }
 
+    public void backToSignIn(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
+            root = loader.load();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (
+                IOException e) {
+            System.out.println("Can't Open signInForm.fxml");
+        }
+    }
 }

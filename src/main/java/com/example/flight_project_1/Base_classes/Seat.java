@@ -5,11 +5,35 @@ public class Seat implements Serializable {
     private int seatNumber;
     private String seatClass;
     private boolean seatStatus;
-    private Flight flight;
 
     public Seat(int seatNumber,String seatClass,boolean seatStatus){
         this.seatNumber=seatNumber;
         this.seatStatus=seatStatus;
         this.seatClass=seatClass;
     }
+
+    public int getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public String getSeatClass() {
+        return seatClass;
+    }
+
+    public void setSeatClass(String seatClass) {
+        this.seatClass = seatClass;
+    }
+
+    public boolean isSeatStatus() {
+        return seatStatus;
+    }
+
+    public void setSeatStatus(boolean seatStatus) {
+        this.seatStatus = seatStatus;
+    }
+
 }
