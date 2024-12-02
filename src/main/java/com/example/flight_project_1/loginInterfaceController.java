@@ -30,8 +30,18 @@ public class loginInterfaceController {
         stage.setScene(scene);
         stage.show();
     }
-    public void adminEnter(){
-        System.out.println("Admin");
+    public void adminEnter(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
+            root = loader.load();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 

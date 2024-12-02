@@ -58,6 +58,7 @@ public class UserSign {
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

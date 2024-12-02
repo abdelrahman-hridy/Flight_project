@@ -133,6 +133,7 @@ public class searchFlightController implements Initializable, Serializable {
             assert false;
             data.add(row);
             row.getButton().setId(String.valueOf(i));
+            row.getButton().getStyleClass().add("tableButton");
             row.getButton().setOnAction(this::handleButtonClick);
         }
 
@@ -142,7 +143,6 @@ public class searchFlightController implements Initializable, Serializable {
     public void handleButtonClick(ActionEvent event) {
 
         {
-            System.out.println(((Button) event.getSource()).getId());
 
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("flightShow.fxml"));
@@ -220,6 +220,7 @@ public class searchFlightController implements Initializable, Serializable {
             assert false;
             data.add(row);
             row.getButton().setId(String.valueOf(i));
+            row.getButton().getStyleClass().add("tableButton");
             row.getButton().setOnAction(this::handleButtonClick);
 
         }
@@ -241,7 +242,6 @@ public class searchFlightController implements Initializable, Serializable {
     }
     public void clearDepartureDate(){
         departureDatePicker.setValue(null);
-        System.out.println("Cancel 1");
     }
     public void clearArrivalDate(){
         arrivalDatePicker.setValue(null);

@@ -29,12 +29,12 @@
             <Font size="53.0" />
          </font>
       </Label>
-      <Button fx:id="adminButton" layoutX="403.0" layoutY="575.0" mnemonicParsing="false" onAction="#adminEnter" prefHeight="79.0" prefWidth="138.0" style="-fx-background-color: blue;" text="ADMIN">
+      <Button fx:id="adminButton" layoutX="403.0" layoutY="575.0" mnemonicParsing="false" onAction="#adminEnter" prefHeight="79.0" prefWidth="138.0" text="ADMIN">
          <font>
             <Font size="30.0" />
          </font>
       </Button>
-      <Button fx:id="userButton" layoutX="955.0" layoutY="571.0" mnemonicParsing="false" onAction="#userEnter" prefHeight="76.0" prefWidth="142.0" style="-fx-background-color: Blue;" text="USER">
+      <Button fx:id="userButton" layoutX="955.0" layoutY="575.0" mnemonicParsing="false" onAction="#userEnter" prefHeight="76.0" prefWidth="142.0" text="USER">
          <font>
             <Font size="30.0" />
          </font>
