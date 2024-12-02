@@ -36,14 +36,4 @@ public class Seat implements Serializable {
         this.seatStatus = seatStatus;
     }
 
-<<<<<<< Updated upstream
-=======
-    public Flight getFlight() {
-        return flight;
-    }
-
-    public void setFlight(Flight flight) {
-        this.flight = flight;
-    }
->>>>>>> Stashed changes
 }
