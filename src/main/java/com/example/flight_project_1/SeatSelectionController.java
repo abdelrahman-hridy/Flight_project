@@ -1,5 +1,6 @@
 package com.example.flight_project_1;
 
+import com.example.flight_project_1.Base_classes.Flight;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,8 +20,14 @@ public class SeatSelectionController{
     @FXML
     private Button confirmSeat;
     private final ArrayList<String> seatSelected = new ArrayList<>();
+    private Flight flight;
+
+    public void passingFlight(Flight flight){
+        this.flight = flight;
+    }
 
     public void toggleSeat(ActionEvent event){
+        System.out.println(this.flight.toString());
 
         ToggleButton toggledButton = (ToggleButton) event.getSource();
         String seatID = toggledButton.getId();

@@ -59,6 +59,21 @@ public class FlightShow{
 
     public void backToSearch(ActionEvent event) {
         Multi_used_methods.openFlightSearch(event);
+    }
+    public void transferToChooseSeat(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("SeatSelection.fxml"));
+            root = loader.load();
 
+            SeatSelectionController seatSelectionController = loader.getController();
+            seatSelectionController.passingFlight(flight);
+
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("Can't Open SeatSelection.fxml");
+        }
     }
 }

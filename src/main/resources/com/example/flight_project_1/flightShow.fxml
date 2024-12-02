@@ -68,7 +68,7 @@
             <Font size="39.0" />
          </font>
       </Label>
-      <Button layoutX="955.0" layoutY="676.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="247.0" text="Choose Seat">
+      <Button layoutX="955.0" layoutY="676.0" mnemonicParsing="false" onAction="#transferToChooseSeat" prefHeight="78.0" prefWidth="247.0" text="Choose Seat">
          <font>
             <Font size="36.0" />
          </font>
