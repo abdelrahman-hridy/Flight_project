@@ -28,15 +28,15 @@ public class UserSignIn {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("searchFlightScene.fxml"));
             root = loader.load();
-
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            stage.setScene(scene);
+            stage.show();
         } catch (
                 IOException e) {
             System.out.println("Can't Open searchFlightScene.fxml");
         }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
     public void backToSign(ActionEvent event){
         try {

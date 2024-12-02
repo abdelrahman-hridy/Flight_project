@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1540.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.loginInterfaceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.loginInterfaceController">
    <children>
-      <ImageView fitHeight="866.0" fitWidth="1542.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1024.0" fitWidth="1540.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@plane.jpg" />
+            <Image url="@interface_background.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="250.0" fitWidth="250.0" layoutX="358.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">

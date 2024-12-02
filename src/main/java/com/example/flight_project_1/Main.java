@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -91,9 +92,14 @@ public class Main extends Application {
             System.out.println("Can't see loginInterface");
         }
         stage.setTitle("Hello GUI");
-        stage.setWidth(1920 / 1.25 + 10);
-        stage.setHeight(1080 / 1.25 - 40);
+//        stage.setWidth(1920 / 1.25 + 10);
+//        stage.setHeight(1080 / 1.25 - 40);
 //        stage.setFullScreenExitHint("");
+        try {
+            stage.getIcons().add(new Image(String.valueOf(getClass().getResource("DALL·E-2024-12-01-20.54.png"))));
+        } catch (Exception e) {
+            System.out.println("Can't open plane picture");
+        }
 
         stage.show();
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {

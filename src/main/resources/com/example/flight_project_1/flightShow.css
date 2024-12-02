@@ -1,0 +1,7 @@
+.custom-label {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+    -fx-background-color: lightgray;
+}

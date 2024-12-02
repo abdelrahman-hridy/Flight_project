@@ -26,7 +26,19 @@ import java.util.ResourceBundle;
 public class searchFlightController implements Initializable, Serializable {
 
     @FXML
-    private TableColumn<FlightString, String> departureAirport, arrivalAirport, departureTime, arrivalTime, flightDuration, price, Action;
+    private TableColumn<FlightString, String> departureAirport;
+    @FXML
+    private TableColumn<FlightString, String> arrivalAirport;
+    @FXML
+    private TableColumn<FlightString, String> departureTime;
+    @FXML
+    private TableColumn<FlightString, String> arrivalTime;
+    @FXML
+    private TableColumn<FlightString, String> flightDuration;
+    @FXML
+    private TableColumn<FlightString, Integer> price;
+    @FXML
+    private TableColumn<FlightString, String> Action;
     @FXML
     private TableView<FlightString> myTable;
     ObservableList<FlightString> data;
@@ -53,7 +65,7 @@ public class searchFlightController implements Initializable, Serializable {
         departureTime.setCellValueFactory(new PropertyValueFactory<FlightString, String>("departureTime"));
         arrivalTime.setCellValueFactory(new PropertyValueFactory<FlightString, String>("arrivalTime"));
         flightDuration.setCellValueFactory(new PropertyValueFactory<FlightString, String>("flight_Duration"));
-        price.setCellValueFactory(new PropertyValueFactory<FlightString, String>("price"));
+        price.setCellValueFactory(new PropertyValueFactory<FlightString, Integer>("price"));
         Action.setCellValueFactory(new PropertyValueFactory<FlightString, String>("button"));
 
         Label placeholderLabel = new Label("No Flights Available With Your Demands");
@@ -103,7 +115,6 @@ public class searchFlightController implements Initializable, Serializable {
         arrivalDatePicker.setOnAction(this::changeDepartureAirport);
 
 
-
         try {
             flightsFiltered = p1.flightSearch("~All~", "~All~",
                     0, 0, 0,
@@ -118,7 +129,7 @@ public class searchFlightController implements Initializable, Serializable {
             long hours = duration / (1000 * 60 * 60);
             row = new FlightString(flightsFiltered.get(i).getDeapartureAirport().getAirport_Name(), flightsFiltered.get(i).getArrivalAirport().getAirport_Name(),
                     flightsFiltered.get(i).getDepartureTime().toString(), flightsFiltered.get(i).getArrivalTime().toString()
-                    , String.valueOf(hours) + ":" + String.valueOf(minutes), String.valueOf(flightsFiltered.get(i).getPrice()), i);
+                    , String.valueOf(hours) + ":" + String.valueOf(minutes), flightsFiltered.get(i).getPrice(), i);
             assert false;
             data.add(row);
             row.getButton().setId(String.valueOf(i));
@@ -127,6 +138,7 @@ public class searchFlightController implements Initializable, Serializable {
 
 
     }
+    // Move to Show Flight Details Scene
     public void handleButtonClick(ActionEvent event) {
 
         {
@@ -141,6 +153,8 @@ public class searchFlightController implements Initializable, Serializable {
 
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
+                scene.getStylesheets().add(getClass().getResource("flightShow.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
                 stage.setScene(scene);
                 stage.show();
 
@@ -202,7 +216,7 @@ public class searchFlightController implements Initializable, Serializable {
             long hours = duration / (1000 * 60 * 60);
             row = new FlightString(flightsFiltered.get(i).getDeapartureAirport().getAirport_Name(), flightsFiltered.get(i).getArrivalAirport().getAirport_Name(),
                     flightsFiltered.get(i).getDepartureTime().toString(), flightsFiltered.get(i).getArrivalTime().toString()
-                    , String.valueOf(hours) + ":" + String.valueOf(minutes), String.valueOf(flightsFiltered.get(i).getPrice()), i);
+                    , String.valueOf(hours) + ":" + String.valueOf(minutes), flightsFiltered.get(i).getPrice(), i);
             assert false;
             data.add(row);
             row.getButton().setId(String.valueOf(i));
@@ -224,5 +238,12 @@ public class searchFlightController implements Initializable, Serializable {
                 IOException e) {
             System.out.println("Can't Open signInForm.fxml");
         }
+    }
+    public void clearDepartureDate(){
+        departureDatePicker.setValue(null);
+        System.out.println("Cancel 1");
+    }
+    public void clearArrivalDate(){
+        arrivalDatePicker.setValue(null);
     }
 }
