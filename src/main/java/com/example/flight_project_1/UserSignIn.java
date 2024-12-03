@@ -72,7 +72,8 @@ public class UserSignIn implements Serializable {
                 }
                 stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                 scene = new Scene(root);
-                stage.setScene(scene);
+            scene.getStylesheets().add(Multi_used_methods.class.getResource("style.css").toExternalForm());
+            stage.setScene(scene);
                 stage.show();
 //            }
 //            else if(1==1) {
