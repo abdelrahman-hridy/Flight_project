@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class UserSignIn {
 
@@ -28,6 +29,8 @@ public class UserSignIn {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    ArrayList<Passenger>passengers=new ArrayList<>();
 
 
     public void submitLogin(ActionEvent e)  {
@@ -45,12 +48,20 @@ public class UserSignIn {
             try {
                 FileInputStream fis = new FileInputStream("Passenger.txt");
                 ObjectInputStream ois = new ObjectInputStream(fis);
-                while (((p = (Passenger) ois.readObject()) != null)) {
-                    if (username.equals(p.getName()) && password.equals(p.getPassword())) {
-                        flag = true;
+                passengers=(ArrayList<Passenger>) ois.readObject();
+                int size=passengers.size();
+                for(int i=0;i<size;i++){
+                    if(username.toLowerCase().equals(passengers.get(i).getName().toLowerCase()) && password.equals(passengers.get(i).getPassword())){
+                        flag=true;
                         break;
                     }
                 }
+//                while (((p = (Passenger) ois.readObject()) != null)) {
+//                    if (username.equals(p.getName()) && password.equals(p.getPassword())) {
+//                        flag = true;
+//                        break;
+//                    }
+//                }
             }catch (Exception exe){
                 System.out.println("Error when login"+exe);
             }

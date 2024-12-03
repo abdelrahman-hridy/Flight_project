@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class UserSignUp implements Serializable{
 
@@ -28,6 +29,8 @@ public class UserSignUp implements Serializable{
     private PasswordField passup;
     @FXML
     private TextField contactUp;
+
+    ArrayList <Passenger> passengers=new ArrayList<>();
 
 
 //    public void login(ActionEvent event){
@@ -54,16 +57,25 @@ public void submitSignUp(ActionEvent e) {
         Passenger passenger;
         boolean flagOfNameNotFound = true;
         try {
+            ArrayList <Passenger>passengers1=new ArrayList<>();
             File file=new File("Passenger.txt");
-            FileInputStream fis = new FileInputStream(file);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            while ((file.length()>0 && fis.available()>0 && (passenger = (Passenger) ois.readObject()) != null)) { // casting(passenger)
-                if (username.equalsIgnoreCase(passenger.getName())) {
-                    flagOfNameNotFound = false;
+            FileInputStream fis=new FileInputStream(file);
+            ObjectInputStream ois=new ObjectInputStream(fis);
+            passengers1=(ArrayList<Passenger>) ois.readObject();
+            int size=passengers1.size();
+            for(int i=0;i<size;i++) {
+                if(username.toLowerCase().equals(passengers1.get(i).getName().toLowerCase())) {
+                    flagOfNameNotFound=false;
                     break;
                 }
             }
-            fis.close();
+//            while ((file.length()>0 && fis.available()>0 && (passenger = (Passenger) ois.readObject()) != null)) { // casting(passenger)
+//                if (username.equalsIgnoreCase(passenger.getName())) {
+//                    flagOfNameNotFound = false;
+//                    break;
+//                }
+//            }
+//            fis.close();
         } catch (Exception exe) {
             System.out.println("Error when searching for a unique user"+exe);
         }
@@ -75,15 +87,14 @@ public void submitSignUp(ActionEvent e) {
             alert.showAndWait();
         } else {
             try {
+                passengers.add(new Passenger(username.toLowerCase(), password, contact));
                 File file=new File("Passenger.txt");
-                FileOutputStream fos = new FileOutputStream(file, true);
+                FileOutputStream fos = new FileOutputStream(file);
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
-                Passenger creatPassenger = new Passenger(username, contact, password); // Passenger (Name,contactInfo,password)
-                oos.writeObject(creatPassenger);
-                fos.flush();
+//                Passenger creatPassenger = new Passenger(username, contact, password); // Passenger (Name,contactInfo,password)
+                oos.writeObject(passengers);
                 oos.flush();
-                fos.close();
-                oos.close();
+
                 System.out.println("User Added Successfuly");
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
