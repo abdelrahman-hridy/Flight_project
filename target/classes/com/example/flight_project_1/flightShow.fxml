@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -72,11 +73,28 @@
          <font>
             <Font size="36.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Button fx:id="backButton" layoutX="313.0" layoutY="672.0" mnemonicParsing="false" onAction="#backToSearch" prefHeight="78.0" prefWidth="193.0" text="Back">
          <font>
             <Font size="36.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
+      <ImageView fitHeight="52.0" fitWidth="71.0" layoutX="1365.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@account.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="brofileButton" layoutX="1365.0" layoutY="23.0" mnemonicParsing="false" onAction="#goToProfile" opacity="0.0" prefHeight="52.0" prefWidth="52.0" text="Profile">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="1424.0" layoutY="26.0" prefHeight="46.0" prefWidth="87.0" text="User Profile" />
    </children>
 </AnchorPane>

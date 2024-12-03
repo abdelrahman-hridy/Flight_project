@@ -46,6 +46,9 @@ public class searchFlightController implements Initializable, Serializable {
     private ChoiceBox<String> departureAirportChoiceBox, arrivalAirportChoiceBox;
     @FXML
     private DatePicker departureDatePicker, arrivalDatePicker;
+    @FXML
+    private Button brofileButton;
+
 
     Passenger p1 = new Passenger("Abdo", "01001277917", 5);
 
@@ -245,5 +248,8 @@ public class searchFlightController implements Initializable, Serializable {
     }
     public void clearArrivalDate(){
         arrivalDatePicker.setValue(null);
+    }
+    public void goToProfile(ActionEvent event){
+        Multi_used_methods.GoToProfile(event);
     }
 }

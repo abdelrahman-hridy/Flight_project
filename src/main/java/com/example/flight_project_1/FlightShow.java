@@ -76,4 +76,7 @@ public class FlightShow{
             System.out.println("Can't Open SeatSelection.fxml");
         }
     }
+    public void goToProfile(ActionEvent event){
+        Multi_used_methods.GoToProfile(event);
+    }
 }

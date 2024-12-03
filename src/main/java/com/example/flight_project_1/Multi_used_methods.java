@@ -29,5 +29,18 @@ public class Multi_used_methods {
             System.out.println("Can't Open searchFlightScene.fxml");
         }
     }
+    public static void GoToProfile(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("userProfileScene.fxml"));
+            root = loader.load();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (
+                IOException e) {
+            System.out.println("Can't Open userProfileScene.fxml");
+        }
+    }
 
 }
