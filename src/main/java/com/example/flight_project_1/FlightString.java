@@ -5,10 +5,11 @@ import javafx.scene.control.Button;
 public class FlightString {
     private String departureAirportName, arrivalAirportName;
     private String departureTime, arrivalTime;
-    private String flight_Duration, price;
+    private String flight_Duration;
+    private int price;
     private Button button;
 
-    public FlightString(String departureAirportName, String arrivalAirportName, String departureTime, String arrivalTime, String flight_Duration, String price, int i) {
+    public FlightString(String departureAirportName, String arrivalAirportName, String departureTime, String arrivalTime, String flight_Duration, int price, int i) {
         this.departureAirportName = departureAirportName;
         this.arrivalAirportName = arrivalAirportName;
         this.departureTime = departureTime;
@@ -59,11 +60,11 @@ public class FlightString {
         this.flight_Duration = flight_Duration;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

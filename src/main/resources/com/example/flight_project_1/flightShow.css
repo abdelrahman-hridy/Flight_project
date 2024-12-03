@@ -1,0 +1,10 @@
+.custom-label {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-background-color: lightgray;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 5, 5);
+
+}

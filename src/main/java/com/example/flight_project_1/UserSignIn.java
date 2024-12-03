@@ -24,19 +24,7 @@ public class UserSignIn {
     private Parent root;
 
     public void login(ActionEvent event){
-        System.out.println("Login Successfully");
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("searchFlightScene.fxml"));
-            root = loader.load();
-
-        } catch (
-                IOException e) {
-            System.out.println("Can't Open searchFlightScene.fxml");
-        }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        Multi_used_methods.openFlightSearch(event);
     }
     public void backToSign(ActionEvent event){
         try {

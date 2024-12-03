@@ -1,0 +1,13 @@
+.table-row-cell{
+    -fx-background-color: rgb(20, 45, 135);
+}
+.table-cell{
+    -fx-text-fill: white;
+}
+.table-view{
+    -fx-background-color: Black;
+}
+.tableButton{
+    -fx-text-fill: black;
+    -fx-background-radius: 20;
+}

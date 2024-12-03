@@ -7,9 +7,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
@@ -19,7 +26,19 @@ import java.util.ResourceBundle;
 public class searchFlightController implements Initializable, Serializable {
 
     @FXML
-    private TableColumn<FlightString, String> departureAirport, arrivalAirport, departureTime, arrivalTime, flightDuration, price, Action;
+    private TableColumn<FlightString, String> departureAirport;
+    @FXML
+    private TableColumn<FlightString, String> arrivalAirport;
+    @FXML
+    private TableColumn<FlightString, String> departureTime;
+    @FXML
+    private TableColumn<FlightString, String> arrivalTime;
+    @FXML
+    private TableColumn<FlightString, String> flightDuration;
+    @FXML
+    private TableColumn<FlightString, Integer> price;
+    @FXML
+    private TableColumn<FlightString, String> Action;
     @FXML
     private TableView<FlightString> myTable;
     ObservableList<FlightString> data;
@@ -27,10 +46,17 @@ public class searchFlightController implements Initializable, Serializable {
     private ChoiceBox<String> departureAirportChoiceBox, arrivalAirportChoiceBox;
     @FXML
     private DatePicker departureDatePicker, arrivalDatePicker;
+    @FXML
+    private Button brofileButton;
+
 
     Passenger p1 = new Passenger("Abdo", "01001277917", 5);
 
     ArrayList<Flight>flightsFiltered = new ArrayList<>();
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
 
     @Override
@@ -42,8 +68,15 @@ public class searchFlightController implements Initializable, Serializable {
         departureTime.setCellValueFactory(new PropertyValueFactory<FlightString, String>("departureTime"));
         arrivalTime.setCellValueFactory(new PropertyValueFactory<FlightString, String>("arrivalTime"));
         flightDuration.setCellValueFactory(new PropertyValueFactory<FlightString, String>("flight_Duration"));
-        price.setCellValueFactory(new PropertyValueFactory<FlightString, String>("price"));
+        price.setCellValueFactory(new PropertyValueFactory<FlightString, Integer>("price"));
         Action.setCellValueFactory(new PropertyValueFactory<FlightString, String>("button"));
+
+        Label placeholderLabel = new Label("No Flights Available With Your Demands");
+        placeholderLabel.setFont(Font.font("Arial", 20));  // Set font size and family
+        placeholderLabel.setTextFill(Color.RED);          // Set text color
+
+        // Set the custom placeholder
+        myTable.setPlaceholder(placeholderLabel);
 
         myTable.setStyle("-fx-font-size: 16px;");
 
@@ -85,11 +118,6 @@ public class searchFlightController implements Initializable, Serializable {
         arrivalDatePicker.setOnAction(this::changeDepartureAirport);
 
 
-//        departureDatePicker.setValue(LocalDate.now());
-//        arrivalDatePicker.setValue(LocalDate.now());
-
-
-
         try {
             flightsFiltered = p1.flightSearch("~All~", "~All~",
                     0, 0, 0,
@@ -104,23 +132,41 @@ public class searchFlightController implements Initializable, Serializable {
             long hours = duration / (1000 * 60 * 60);
             row = new FlightString(flightsFiltered.get(i).getDeapartureAirport().getAirport_Name(), flightsFiltered.get(i).getArrivalAirport().getAirport_Name(),
                     flightsFiltered.get(i).getDepartureTime().toString(), flightsFiltered.get(i).getArrivalTime().toString()
-                    , String.valueOf(hours) + ":" + String.valueOf(minutes), String.valueOf(flightsFiltered.get(i).getPrice()), i);
+                    , String.valueOf(hours) + ":" + String.valueOf(minutes), flightsFiltered.get(i).getPrice(), i);
             assert false;
             data.add(row);
-            row.getButton().setId("Button" + (i + 1));
-            row.getButton().setOnAction(event -> {
-                // Identify the button clicked using its ID
-                Button clickedButton = (Button) event.getSource();
-                String buttonId = clickedButton.getId();
-                handleButtonClick(buttonId); // Pass ID to the handler method
-            });
+            row.getButton().setId(String.valueOf(i));
+            row.getButton().getStyleClass().add("tableButton");
+            row.getButton().setOnAction(this::handleButtonClick);
         }
 
 
     }
-    public void handleButtonClick(String buttonId) {
-        System.out.println("Clicked: " + buttonId);
+    // Move to Show Flight Details Scene
+    public void handleButtonClick(ActionEvent event) {
 
+        {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("flightShow.fxml"));
+                root = loader.load();
+
+                FlightShow flightShow = loader.getController();
+                flightShow.setAll(flightsFiltered.get(Integer.parseInt(((Button) event.getSource()).getId())));
+
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add(getClass().getResource("flightShow.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
+                stage.setScene(scene);
+                stage.show();
+
+            } catch (
+                    IOException e) {
+                System.out.println("Can't Open flightShow.fxml");
+            }
+
+        }
     }
     public void changeDepartureAirport(ActionEvent ec){
         data.clear();
@@ -173,17 +219,37 @@ public class searchFlightController implements Initializable, Serializable {
             long hours = duration / (1000 * 60 * 60);
             row = new FlightString(flightsFiltered.get(i).getDeapartureAirport().getAirport_Name(), flightsFiltered.get(i).getArrivalAirport().getAirport_Name(),
                     flightsFiltered.get(i).getDepartureTime().toString(), flightsFiltered.get(i).getArrivalTime().toString()
-                    , String.valueOf(hours) + ":" + String.valueOf(minutes), String.valueOf(flightsFiltered.get(i).getPrice()), i);
+                    , String.valueOf(hours) + ":" + String.valueOf(minutes), flightsFiltered.get(i).getPrice(), i);
             assert false;
             data.add(row);
-            row.getButton().setId("Button" + (i + 1));
-            row.getButton().setOnAction(event -> {
-                // Identify the button clicked using its ID
-                Button clickedButton = (Button) event.getSource();
-                String buttonId = clickedButton.getId();
-                handleButtonClick(buttonId); // Pass ID to the handler method
-            });
+            row.getButton().setId(String.valueOf(i));
+            row.getButton().getStyleClass().add("tableButton");
+            row.getButton().setOnAction(this::handleButtonClick);
+
         }
     }
 
+    public void backToSignIn(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
+            root = loader.load();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (
+                IOException e) {
+            System.out.println("Can't Open signInForm.fxml");
+        }
+    }
+    public void clearDepartureDate(){
+        departureDatePicker.setValue(null);
+    }
+    public void clearArrivalDate(){
+        arrivalDatePicker.setValue(null);
+    }
+    public void goToProfile(ActionEvent event){
+        Multi_used_methods.GoToProfile(event);
+    }
 }

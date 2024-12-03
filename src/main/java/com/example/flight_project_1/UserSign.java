@@ -38,15 +38,15 @@ public class UserSign {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("signUpForm.fxml"));
             root = loader.load();
-
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (
                 IOException e) {
             System.out.println("Can't Open signUpForm.fxml");
         }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+
     }
     public void backToLoginInterface(ActionEvent event){
         try {
@@ -58,6 +58,7 @@ public class UserSign {
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

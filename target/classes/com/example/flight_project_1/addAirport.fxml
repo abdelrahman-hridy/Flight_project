@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="800.0" prefWidth="1362.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.AddAirport">
+    <children>
+        <Label layoutX="595.0" layoutY="366.0" text="Add Airport">
+            <font>
+                <Font name="System Bold" size="36" />
+            </font>
+        </Label>
+      <Label prefHeight="53.0" prefWidth="106.0" text="Sohaib">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="1257.0" layoutY="747.0" prefHeight="53.0" prefWidth="106.0" text="Sohaib">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+    </children>
+
+</Pane>
