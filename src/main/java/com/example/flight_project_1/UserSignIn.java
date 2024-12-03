@@ -65,7 +65,8 @@ public class UserSignIn {
                 }
                 stage = (Stage)((Node)e.getSource()).getScene().getWindow();
                 scene = new Scene(root);
-                stage.setScene(scene);
+            scene.getStylesheets().add(Multi_used_methods.class.getResource("style.css").toExternalForm());
+            stage.setScene(scene);
                 stage.show();
             } else {
                 alert = new Alert(Alert.AlertType.ERROR);

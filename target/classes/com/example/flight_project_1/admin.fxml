@@ -34,6 +34,11 @@
                         <Font size="23.0" />
                      </font>
                   </Button>
+                  <Button fx:id="exitButton" mnemonicParsing="false" onAction="#backToSignIn" prefHeight="69.0" prefWidth="177.0" text="Exit">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Button>
                </children>
             </VBox>
          </children>

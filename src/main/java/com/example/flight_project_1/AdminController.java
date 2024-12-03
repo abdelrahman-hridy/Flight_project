@@ -3,17 +3,24 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.example.flight_project_1.Multi_used_methods.stage;
+
 public class AdminController implements Initializable {
     @FXML
     private StackPane contentArea;
-
+    private Stage stage;
+    private Parent root;
+    private Scene scene;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -68,5 +75,18 @@ public class AdminController implements Initializable {
         } catch (IOException e) {
             System.out.println("Cant' Open deleteFlight.fxml");
         }
+    }
+    public void backToSignIn(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginInterface.fxml"));
+            root = loader.load();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Cant' Open deleteFlight.fxml");
+        }
+
     }
 }
