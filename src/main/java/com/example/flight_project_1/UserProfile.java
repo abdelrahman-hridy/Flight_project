@@ -6,12 +6,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class UserProfile {
     private Parent root;
     private Scene scene;
     private Stage stage;
+   @FXML
+   private Label username;
+   public void ShoeUserInfo(ActionEvent event) {
+       username.setText("Username: " );
+   }
     public void backToSearchFlight(ActionEvent e){
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SearchFlightScene.fxml"));
