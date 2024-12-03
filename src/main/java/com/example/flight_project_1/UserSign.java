@@ -63,5 +63,4 @@ public class UserSign {
         stage.show();
     }
 
-
 }

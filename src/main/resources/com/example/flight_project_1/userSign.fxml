@@ -2,32 +2,39 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.UserSign">
    <children>
-      <Label layoutX="150.0" layoutY="319.0" text="You have an account already">
+      <ImageView fitHeight="1030.0" fitWidth="1700.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@FlightViewBaseScene.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="977.0" layoutY="561.0" scaleX="0.5" scaleY="0.5" text="You have an account already">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <Button fx:id="signInButton" layoutX="278.0" layoutY="416.0" mnemonicParsing="false" onAction="#userSignIn" text="Sign in">
+      <Button fx:id="signInButton" layoutX="1082.0" layoutY="637.0" mnemonicParsing="false" onAction="#userSignIn" prefHeight="153.0" prefWidth="326.0" scaleX="0.5" scaleY="0.5" text="Sign in" textFill="#5984c9">
          <font>
             <Font size="42.0" />
          </font>
       </Button>
-      <Label layoutX="876.0" layoutY="321.0" text="You don't have an account">
+      <Label layoutX="993.0" layoutY="236.0" scaleX="0.5" scaleY="0.5" text="You don't have an account">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <Button fx:id="signUpButton" layoutX="1021.0" layoutY="413.0" mnemonicParsing="false" onAction="#userSignUp" text="Sign up">
+      <Button fx:id="signUpButton" layoutX="1106.0" layoutY="356.0" mnemonicParsing="false" onAction="#userSignUp" prefHeight="149.0" prefWidth="285.0" scaleX="0.5" scaleY="0.5" text="Sign up" textFill="#5984c9">
          <font>
             <Font size="42.0" />
          </font>
       </Button>
-      <Button fx:id="backButton" layoutX="703.0" layoutY="687.0" mnemonicParsing="false" onAction="#backToLoginInterface" text="Back">
+      <Button fx:id="backButton" layoutX="1391.0" layoutY="43.0" mnemonicParsing="false" onAction="#backToLoginInterface" prefHeight="81.0" prefWidth="148.0" scaleX="0.5" scaleY="0.5" text="Back" textFill="#5e8dd4">
          <font>
             <Font size="37.0" />
          </font>

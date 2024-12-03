@@ -50,7 +50,7 @@ public class searchFlightController implements Initializable, Serializable {
     private Button brofileButton;
 
 
-    Passenger p1 = new Passenger("Abdo", "01001277917", 5);
+    Passenger p1 = new Passenger("Abdo", "01001277917", "123456");
 
     ArrayList<Flight>flightsFiltered = new ArrayList<>();
 
@@ -231,12 +231,18 @@ public class searchFlightController implements Initializable, Serializable {
 
     public void backToSignIn(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
-            root = loader.load();
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Logout");
+            alert.setHeaderText("You Will Logout!!");
+            alert.showAndWait();
+            if(alert.getResult() == ButtonType.OK) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
+                root = loader.load();
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
 
         } catch (
                 IOException e) {

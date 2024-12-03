@@ -7,7 +7,9 @@ public class Passenger implements Serializable {
 
     private String name;
     private String phone;
-    private int passenger_ID;
+    private String password;
+    private final int passenger_ID;
+    private static int counterPassId=0;
 
     public String getName() {
         return name;
@@ -29,16 +31,18 @@ public class Passenger implements Serializable {
         this.phone = phone;
     }
 
-    public void setPassenger_ID(int passenger_ID) {
-        this.passenger_ID = passenger_ID;
+    public String getPassword() {
+        return password;
     }
 
-    public Passenger(String name, String phone, int passenger_ID) {
+    public Passenger(String name, String phone,String password) {
         this.name = name;
         this.phone = phone;
-        this.passenger_ID = passenger_ID;
+        this.passenger_ID = ++counterPassId;
+        this.password = password;
     }
     public Passenger() {
+        passenger_ID = ++counterPassId;
     }
 
     public ArrayList<Flight> flightSearch(String dearture_Airport, String arrival_Airport, int departure_Date_year, int departure_Date_month, int departure_Date_day, int arrival_Date_year, int arrival_Date_month, int arrival_Date_day) throws IOException, ClassNotFoundException {
