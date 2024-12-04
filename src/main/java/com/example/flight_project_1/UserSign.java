@@ -31,8 +31,9 @@ public class UserSign {
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+        scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
+        stage.setScene(scene);
+        stage.show();
     }
     public void userSignUp(ActionEvent event){
         try {
@@ -40,6 +41,7 @@ public class UserSign {
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         } catch (

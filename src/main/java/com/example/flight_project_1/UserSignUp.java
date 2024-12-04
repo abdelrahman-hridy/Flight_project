@@ -33,9 +33,6 @@ public class UserSignUp implements Serializable{
     ArrayList <Passenger> passengers=new ArrayList<>();
 
 
-//    public void login(ActionEvent event){
-//        Multi_used_methods.openFlightSearch(event);
-//    }
 public void submitSignUp(ActionEvent e) {
     String username = userup.getText();
     String password = passup.getText();
@@ -57,25 +54,19 @@ public void submitSignUp(ActionEvent e) {
         Passenger passenger;
         boolean flagOfNameNotFound = true;
         try {
-            ArrayList <Passenger>passengers1=new ArrayList<>();
             File file=new File("Passenger.txt");
             FileInputStream fis=new FileInputStream(file);
             ObjectInputStream ois=new ObjectInputStream(fis);
-            passengers1=(ArrayList<Passenger>) ois.readObject();
-            int size=passengers1.size();
-            for(int i=0;i<size;i++) {
-                if(username.toLowerCase().equals(passengers1.get(i).getName().toLowerCase())) {
-                    flagOfNameNotFound=false;
-                    break;
+            if(file.length() > 0) {
+                passengers = (ArrayList<Passenger>) ois.readObject();
+                int size = passengers.size();
+                for (int i = 0; i < size; i++) {
+                    if (username.toLowerCase().equals(passengers.get(i).getName().toLowerCase())) {
+                        flagOfNameNotFound = false;
+                        break;
+                    }
                 }
             }
-//            while ((file.length()>0 && fis.available()>0 && (passenger = (Passenger) ois.readObject()) != null)) { // casting(passenger)
-//                if (username.equalsIgnoreCase(passenger.getName())) {
-//                    flagOfNameNotFound = false;
-//                    break;
-//                }
-//            }
-//            fis.close();
         } catch (Exception exe) {
             System.out.println("Error when searching for a unique user"+exe);
         }
@@ -87,15 +78,13 @@ public void submitSignUp(ActionEvent e) {
             alert.showAndWait();
         } else {
             try {
-                passengers.add(new Passenger(username.toLowerCase(), password, contact));
+                passengers.add(new Passenger(username, contact, password));
                 File file=new File("Passenger.txt");
                 FileOutputStream fos = new FileOutputStream(file);
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
 //                Passenger creatPassenger = new Passenger(username, contact, password); // Passenger (Name,contactInfo,password)
                 oos.writeObject(passengers);
                 oos.flush();
-
-                System.out.println("User Added Successfuly");
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
                     root = loader.load();
@@ -104,6 +93,7 @@ public void submitSignUp(ActionEvent e) {
                 }
                 stage = (Stage)((Node)e.getSource()).getScene().getWindow();
                 scene = new Scene(root);
+                scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
                 stage.setScene(scene);
                 stage.show();
 
@@ -122,6 +112,7 @@ public void submitSignUp(ActionEvent e) {
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

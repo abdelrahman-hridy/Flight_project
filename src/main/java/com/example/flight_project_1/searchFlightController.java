@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -50,14 +51,17 @@ public class searchFlightController implements Initializable, Serializable {
     private Button brofileButton;
 
 
-    Passenger p1 = new Passenger("Abdo", "01001277917", "123456");
 
     ArrayList<Flight>flightsFiltered = new ArrayList<>();
 
     private Stage stage;
     private Scene scene;
     private Parent root;
+    Passenger user;
 
+    public void assignUser(Passenger p){
+        this.user = p;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -79,6 +83,7 @@ public class searchFlightController implements Initializable, Serializable {
         myTable.setPlaceholder(placeholderLabel);
 
         myTable.setStyle("-fx-font-size: 16px;");
+
 
         ObjectInputStream ois = null;
         ArrayList<Airport> airports = new ArrayList<>();
@@ -119,7 +124,7 @@ public class searchFlightController implements Initializable, Serializable {
 
 
         try {
-            flightsFiltered = p1.flightSearch("~All~", "~All~",
+            flightsFiltered = Passenger.flightSearch("~All~", "~All~",
                     0, 0, 0,
                     0, 0,0);
         } catch (Exception e) {
@@ -138,41 +143,22 @@ public class searchFlightController implements Initializable, Serializable {
             row.getButton().setId(String.valueOf(i));
             row.getButton().getStyleClass().add("tableButton");
             row.getButton().setOnAction(this::handleButtonClick);
+            row.getButton().setCursor(Cursor.HAND);
         }
 
 
     }
-    // Move to Show Flight Details Scene
+    // Move to Show Flight Show Scene
     public void handleButtonClick(ActionEvent event) {
 
-        {
-
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("flightShow.fxml"));
-                root = loader.load();
-
-                FlightShow flightShow = loader.getController();
-                flightShow.setAll(flightsFiltered.get(Integer.parseInt(((Button) event.getSource()).getId())));
-
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                scene.getStylesheets().add(getClass().getResource("flightShow.css").toExternalForm());
-                scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
-                stage.setScene(scene);
-                stage.show();
-
-            } catch (
-                    IOException e) {
-                System.out.println("Can't Open flightShow.fxml");
-            }
-
-        }
+        Multi_used_methods.GoToFlightShow(event, flightsFiltered.get(Integer.parseInt(((Button) event.getSource()).getId())), user);
     }
+
     public void changeDepartureAirport(ActionEvent ec){
         data.clear();
         if(departureDatePicker.getValue() != null && arrivalDatePicker.getValue() != null) {
             try {
-                flightsFiltered = p1.flightSearch(departureAirportChoiceBox.getValue(), arrivalAirportChoiceBox.getValue(),
+                flightsFiltered = Passenger.flightSearch(departureAirportChoiceBox.getValue(), arrivalAirportChoiceBox.getValue(),
                         departureDatePicker.getValue().getYear(), departureDatePicker.getValue().getMonthValue(),
                         departureDatePicker.getValue().getDayOfMonth(), arrivalDatePicker.getValue().getYear(), arrivalDatePicker.getValue().getMonthValue(),
                         arrivalDatePicker.getValue().getDayOfMonth());
@@ -183,7 +169,7 @@ public class searchFlightController implements Initializable, Serializable {
         else if(departureDatePicker.getValue() == null && arrivalDatePicker.getValue() == null)
         {
             try {
-                flightsFiltered = p1.flightSearch(departureAirportChoiceBox.getValue(), arrivalAirportChoiceBox.getValue(),
+                flightsFiltered = Passenger.flightSearch(departureAirportChoiceBox.getValue(), arrivalAirportChoiceBox.getValue(),
                         0, 0, 0,
                         0, 0,0);
             } catch (Exception e) {
@@ -192,7 +178,7 @@ public class searchFlightController implements Initializable, Serializable {
         }
         else if(departureDatePicker.getValue() == null){
             try {
-                flightsFiltered = p1.flightSearch(departureAirportChoiceBox.getValue(), arrivalAirportChoiceBox.getValue(),
+                flightsFiltered = Passenger.flightSearch(departureAirportChoiceBox.getValue(), arrivalAirportChoiceBox.getValue(),
                         0, 0, 0,
                         arrivalDatePicker.getValue().getYear(), arrivalDatePicker.getValue().getMonthValue(),
                         arrivalDatePicker.getValue().getDayOfMonth());
@@ -202,7 +188,7 @@ public class searchFlightController implements Initializable, Serializable {
         }
         else if(arrivalDatePicker.getValue() == null){
             try {
-                flightsFiltered = p1.flightSearch(departureAirportChoiceBox.getValue(), arrivalAirportChoiceBox.getValue(),
+                flightsFiltered = Passenger.flightSearch(departureAirportChoiceBox.getValue(), arrivalAirportChoiceBox.getValue(),
                         departureDatePicker.getValue().getYear(), departureDatePicker.getValue().getMonthValue(),
                         departureDatePicker.getValue().getDayOfMonth(),
                         0, 0, 0);
@@ -225,7 +211,7 @@ public class searchFlightController implements Initializable, Serializable {
             row.getButton().setId(String.valueOf(i));
             row.getButton().getStyleClass().add("tableButton");
             row.getButton().setOnAction(this::handleButtonClick);
-
+            row.getButton().setCursor(Cursor.HAND);
         }
     }
 
@@ -256,6 +242,6 @@ public class searchFlightController implements Initializable, Serializable {
         arrivalDatePicker.setValue(null);
     }
     public void goToProfile(ActionEvent event){
-        Multi_used_methods.GoToProfile(event);
+        Multi_used_methods.GoToProfile(event, user, 1);
     }
 }

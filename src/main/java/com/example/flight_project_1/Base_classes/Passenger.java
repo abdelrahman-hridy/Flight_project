@@ -45,7 +45,7 @@ public class Passenger implements Serializable {
         passenger_ID = ++counterPassId;
     }
 
-    public ArrayList<Flight> flightSearch(String dearture_Airport, String arrival_Airport, int departure_Date_year, int departure_Date_month, int departure_Date_day, int arrival_Date_year, int arrival_Date_month, int arrival_Date_day) throws IOException, ClassNotFoundException {
+    public static ArrayList<Flight> flightSearch(String dearture_Airport, String arrival_Airport, int departure_Date_year, int departure_Date_month, int departure_Date_day, int arrival_Date_year, int arrival_Date_month, int arrival_Date_day) throws IOException, ClassNotFoundException {
 
 
         File file = new File("Flights.txt");

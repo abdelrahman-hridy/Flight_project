@@ -1,6 +1,7 @@
 package com.example.flight_project_1;
 
 import com.example.flight_project_1.Base_classes.Flight;
+import com.example.flight_project_1.Base_classes.Passenger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,15 +24,15 @@ public class FlightShow{
     @FXML
     Button backButton;
     Flight flight;
+    private Passenger user;
 
     Stage stage;
     Scene scene;
     Parent root;
 
-
-    public void setAll(Flight flight){
-        System.out.println(flight.getDeapartureAirport().getAirport_Name());
+    public void setAll(Flight flight, Passenger user){
         this.flight = flight;
+        this.user = user;
         departureAirportLabel.setText(departureAirportLabel.getText() + flight.getDeapartureAirport().getAirport_Name());
         arrivalAirportLabel.setText(arrivalAirportLabel.getText() + flight.getArrivalAirport().getAirport_Name());
         departureTimeLabel.setText(departureTimeLabel.getText() + flight.getDepartureTime().toString());
@@ -58,25 +59,12 @@ public class FlightShow{
 
 
     public void backToSearch(ActionEvent event) {
-        Multi_used_methods.openFlightSearch(event);
+        Multi_used_methods.openFlightSearch(event, user);
     }
     public void transferToChooseSeat(ActionEvent event){
-        try {
-            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("SeatSelection.fxml"));
-            root = loader.load();
-
-            SeatSelectionController seatSelectionController = loader.getController();
-            seatSelectionController.passingFlight(flight);
-
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            System.out.println("Can't Open SeatSelection.fxml");
-        }
+        Multi_used_methods.GoToChooseSeat(event, flight, user);
     }
     public void goToProfile(ActionEvent event){
-        Multi_used_methods.GoToProfile(event);
+        Multi_used_methods.GoToProfile(event, user, 2, flight);
     }
 }
