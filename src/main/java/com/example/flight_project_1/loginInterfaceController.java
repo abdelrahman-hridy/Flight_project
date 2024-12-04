@@ -33,7 +33,7 @@ public class loginInterfaceController {
     }
     public void adminEnter(ActionEvent event){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("adminSignIn.fxml"));
             root = loader.load();
 
         } catch (Exception e) {
@@ -41,12 +41,9 @@ public class loginInterfaceController {
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
-
-
-
-
 
 }

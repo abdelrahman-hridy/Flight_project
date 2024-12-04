@@ -148,31 +148,12 @@ public class searchFlightController implements Initializable, Serializable {
 
 
     }
-    // Move to Show Flight Details Scene
+    // Move to Show Flight Show Scene
     public void handleButtonClick(ActionEvent event) {
 
-        {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("flightShow.fxml"));
-                root = loader.load();
-
-                FlightShow flightShow = loader.getController();
-                flightShow.setAll(flightsFiltered.get(Integer.parseInt(((Button) event.getSource()).getId())), user);
-
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                scene.getStylesheets().add(getClass().getResource("flightShow.css").toExternalForm());
-                scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
-                stage.setScene(scene);
-                stage.show();
-
-            } catch (
-                    IOException e) {
-                System.out.println("Can't Open flightShow.fxml");
-            }
-
-        }
+        Multi_used_methods.GoToFlightShow(event, flightsFiltered.get(Integer.parseInt(((Button) event.getSource()).getId())), user);
     }
+
     public void changeDepartureAirport(ActionEvent ec){
         data.clear();
         if(departureDatePicker.getValue() != null && arrivalDatePicker.getValue() != null) {
@@ -261,6 +242,6 @@ public class searchFlightController implements Initializable, Serializable {
         arrivalDatePicker.setValue(null);
     }
     public void goToProfile(ActionEvent event){
-        Multi_used_methods.GoToProfile(event, user);
+        Multi_used_methods.GoToProfile(event, user, 1);
     }
 }

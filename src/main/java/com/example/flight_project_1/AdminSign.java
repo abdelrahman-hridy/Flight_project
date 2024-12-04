@@ -1,5 +1,6 @@
 package com.example.flight_project_1;
 
+import com.example.flight_project_1.Base_classes.Admin;
 import com.example.flight_project_1.Base_classes.Passenger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,17 +9,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
-public class UserSignIn {
-
-
+public class AdminSign {
     @FXML
     private TextField userin;
     @FXML
@@ -30,8 +30,7 @@ public class UserSignIn {
     private Scene scene;
     private Parent root;
 
-    ArrayList<Passenger>passengers=new ArrayList<>();
-    Passenger user;
+    ArrayList<Admin> admins=new ArrayList<>();
 
 
     public void submitLogin(ActionEvent e)  {
@@ -46,14 +45,16 @@ public class UserSignIn {
             alert.showAndWait();
         } else {
             try {
-                FileInputStream fis = new FileInputStream("Passenger.txt");
+                FileInputStream fis = new FileInputStream("Admins.txt");
                 ObjectInputStream ois = new ObjectInputStream(fis);
-                passengers=(ArrayList<Passenger>) ois.readObject();
-                int size=passengers.size();
+                admins=(ArrayList<Admin>) ois.readObject();
+                int size1=admins.size();
+                for(int i = 0; i < size1; i++)
+                    System.out.println(admins.get(i).getUsername());
+                int size=admins.size();
                 for(int i=0;i<size;i++){
-                    if(username.toLowerCase().equals(passengers.get(i).getName().toLowerCase()) && password.equals(passengers.get(i).getPassword())){
+                    if(username.equalsIgnoreCase(admins.get(i).getUsername()) && password.equalsIgnoreCase(admins.get(i).getPassword())){
                         flag=true;
-                        user = passengers.get(i);
                         break;
                     }
                 }
@@ -61,8 +62,18 @@ public class UserSignIn {
                 System.out.println("Error when login"+exe);
             }
             if (flag) {
-                Multi_used_methods.openFlightSearch(e, user);
+                try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
+                root = loader.load();
 
+                stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add(Multi_used_methods.class.getResource("style.css").toExternalForm());
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException exe) {
+                System.out.println("Can't Open serchFlightScene.fxml"+exe);
+            }
             } else {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -87,4 +98,3 @@ public class UserSignIn {
         stage.show();
     }
 }
-

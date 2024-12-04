@@ -1,6 +1,7 @@
 package com.example.flight_project_1;
 
 import com.example.flight_project_1.Base_classes.Flight;
+import com.example.flight_project_1.Base_classes.Passenger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,9 +22,18 @@ public class SeatSelectionController{
     private Button confirmSeat;
     private final ArrayList<String> seatSelected = new ArrayList<>();
     private Flight flight;
+    private Passenger user;
+
+    public void assignUser(Passenger user){
+        this.user = user;
+    }
 
     public void passingFlight(Flight flight){
         this.flight = flight;
+    }
+
+    public void goToProfile(ActionEvent event){
+        Multi_used_methods.GoToProfile(event, user, 3, flight);
     }
 
     public void toggleSeat(ActionEvent event){

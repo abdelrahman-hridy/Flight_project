@@ -30,15 +30,9 @@ public class FlightShow{
     Scene scene;
     Parent root;
 
-    public void assignUser(Passenger user){
-        this.user = user;
-    }
-
     public void setAll(Flight flight, Passenger user){
-        System.out.println(flight.getDeapartureAirport().getAirport_Name());
         this.flight = flight;
         this.user = user;
-        System.out.println(user.getName());
         departureAirportLabel.setText(departureAirportLabel.getText() + flight.getDeapartureAirport().getAirport_Name());
         arrivalAirportLabel.setText(arrivalAirportLabel.getText() + flight.getArrivalAirport().getAirport_Name());
         departureTimeLabel.setText(departureTimeLabel.getText() + flight.getDepartureTime().toString());
@@ -68,22 +62,9 @@ public class FlightShow{
         Multi_used_methods.openFlightSearch(event, user);
     }
     public void transferToChooseSeat(ActionEvent event){
-        try {
-            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("SeatSelection.fxml"));
-            root = loader.load();
-
-            SeatSelectionController seatSelectionController = loader.getController();
-            seatSelectionController.passingFlight(flight);
-
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            System.out.println("Can't Open SeatSelection.fxml");
-        }
+        Multi_used_methods.GoToChooseSeat(event, flight, user);
     }
     public void goToProfile(ActionEvent event){
-        Multi_used_methods.GoToProfile(event, user);
+        Multi_used_methods.GoToProfile(event, user, 2, flight);
     }
 }

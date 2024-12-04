@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
@@ -226,5 +227,16 @@
             <Font size="61.0" />
          </font>
       </Label>
+      <ImageView fitHeight="52.0" fitWidth="71.0" layoutX="1385.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@account.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="brofileButton" layoutX="1385.0" layoutY="36.0" mnemonicParsing="false" onAction="#goToProfile" opacity="0.0" prefHeight="52.0" prefWidth="52.0" text="Profile" textFill="#0011ff">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="1444.0" layoutY="39.0" prefHeight="46.0" prefWidth="87.0" text="User Profile" textFill="#004dff" />
    </children>
 </AnchorPane>

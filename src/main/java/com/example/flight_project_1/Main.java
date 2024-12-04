@@ -1,9 +1,6 @@
 package com.example.flight_project_1;
 
-import com.example.flight_project_1.Base_classes.Airport;
-import com.example.flight_project_1.Base_classes.Flight;
-import com.example.flight_project_1.Base_classes.Passenger;
-import com.example.flight_project_1.Base_classes.Seat;
+import com.example.flight_project_1.Base_classes.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -25,6 +22,13 @@ public class Main extends Application {
 
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+
+        ArrayList<Admin> admins = new ArrayList<>();
+        admins.add(new Admin("Sohaib", "55435421"));
+        admins.add(new Admin("Tony", "55435422"));
+
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Admins.txt"));
+        oos.writeObject(admins);
 //        ArrayList<Airport> airports = new ArrayList<>();
 //        airports.add(new Airport(1, "Cairo", "Egypt"));
 //        airports.add(new Airport(2, "London", "England"));
