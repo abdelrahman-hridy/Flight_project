@@ -51,7 +51,12 @@ public class UserSignIn {
                 passengers=(ArrayList<Passenger>) ois.readObject();
                 int size=passengers.size();
                 for(int i=0;i<size;i++){
-                    if(username.toLowerCase().equals(passengers.get(i).getName().toLowerCase()) && password.equals(passengers.get(i).getPassword())){
+                    System.out.println(passengers.get(i).getName());
+                    System.out.println(passengers.get(i).getPassword());
+                    System.out.println(username);
+                    System.out.println(password);
+
+                    if(username.equals(passengers.get(i).getName()) && password.equals(passengers.get(i).getPassword())){
                         flag=true;
                         break;
                     }

@@ -57,14 +57,13 @@ public void submitSignUp(ActionEvent e) {
         Passenger passenger;
         boolean flagOfNameNotFound = true;
         try {
-            ArrayList <Passenger>passengers1=new ArrayList<>();
             File file=new File("Passenger.txt");
             FileInputStream fis=new FileInputStream(file);
             ObjectInputStream ois=new ObjectInputStream(fis);
-            passengers1=(ArrayList<Passenger>) ois.readObject();
-            int size=passengers1.size();
+            passengers=(ArrayList<Passenger>) ois.readObject();
+            int size=passengers.size();
             for(int i=0;i<size;i++) {
-                if(username.toLowerCase().equals(passengers1.get(i).getName().toLowerCase())) {
+                if(username.toLowerCase().equals(passengers.get(i).getName().toLowerCase())) {
                     flagOfNameNotFound=false;
                     break;
                 }
@@ -87,7 +86,7 @@ public void submitSignUp(ActionEvent e) {
             alert.showAndWait();
         } else {
             try {
-                passengers.add(new Passenger(username.toLowerCase(), password, contact));
+                passengers.add(new Passenger(username, contact, password));
                 File file=new File("Passenger.txt");
                 FileOutputStream fos = new FileOutputStream(file);
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -104,6 +103,7 @@ public void submitSignUp(ActionEvent e) {
                 }
                 stage = (Stage)((Node)e.getSource()).getScene().getWindow();
                 scene = new Scene(root);
+                scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
                 stage.setScene(scene);
                 stage.show();
 
@@ -122,6 +122,7 @@ public void submitSignUp(ActionEvent e) {
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
