@@ -1,9 +1,6 @@
 package com.example.flight_project_1;
 
-import com.example.flight_project_1.Base_classes.Airport;
-import com.example.flight_project_1.Base_classes.Flight;
-import com.example.flight_project_1.Base_classes.Passenger;
-import com.example.flight_project_1.Base_classes.Seat;
+import com.example.flight_project_1.Base_classes.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -25,6 +22,108 @@ public class Main extends Application {
 
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+
+        ArrayList <ArrayList<Seat>> AllSeats=new ArrayList<>();
+
+        for(int i=0;i<10;i++){
+            ArrayList<Seat> row1=new ArrayList<>();
+            for(int j=0;j<6;j++){
+               if(i<2){
+                   if(j==0){
+                       String id="A"+(i+1)+"F";
+                   row1.add(new FirstSeat(id,true));
+                   }
+                   else if(j==1){
+                       String id="B"+(i+1)+"F";
+                       row1.add(new FirstSeat(id,true));
+                   }
+                   else if(j==2){
+                       String id="C"+(i+1)+"F";
+                       row1.add(new FirstSeat(id,true));
+                   }
+                   else if(j==3){
+                       String id="D"+(i+1)+"F";
+                       row1.add(new FirstSeat(id,true));
+                   }
+                   else if(j==4){
+                       String id="E"+(i+1)+"F";
+                       row1.add(new FirstSeat(id,true));
+                   }
+                   else{
+                       String id="F"+(i+1)+"F";
+                       row1.add(new FirstSeat(id,true));
+                   }
+               }
+               else if(i<5){
+                   if(j==0){
+                       String id="A"+(i+1)+"B";
+                       row1.add(new BusinessSeat(id,true));
+                   }
+                   else if(j==1){
+                       String id="B"+(i+1)+"B";
+                       row1.add(new BusinessSeat(id,true));
+                   }
+                   else if(j==2){
+                       String id="C"+(i+1)+"B";
+                       row1.add(new BusinessSeat(id,true));
+                   }
+                   else if(j==3){
+                       String id="D"+(i+1)+"B";
+                       row1.add(new BusinessSeat(id,true));
+                   }
+                   else if(j==4){
+                       String id="E"+(i+1)+"B";
+                       row1.add(new BusinessSeat(id,true));
+                   }
+                   else{
+                       String id="F"+(i+1)+"B";
+                       row1.add(new BusinessSeat(id,true));
+                   }
+               }
+               else{
+                   if(j==0){
+                       String id="A"+(i+1)+"E";
+                       row1.add(new EconomySeat(id,true));
+                   }
+                   else if(j==1){
+                       String id="B"+(i+1)+"E";
+                       row1.add(new EconomySeat(id,true));
+                   }
+                   else if(j==2){
+                       String id="C"+(i+1)+"E";
+                       row1.add(new EconomySeat(id,true));
+                   }
+                   else if(j==3){
+                       String id="D"+(i+1)+"E";
+                       row1.add(new EconomySeat(id,true));
+                   }
+                   else if(j==4){
+                       String id="E"+(i+1)+"E";
+                       row1.add(new EconomySeat(id,true));
+                   }
+                   else {
+                       String id="F"+(i+1)+"E";
+                       row1.add(new EconomySeat(id,true));
+                   }
+               }
+            }
+            AllSeats.add(row1);
+        }
+
+
+      for(int i=0;i<10;i++){
+          for (int j=0;j<6;j++){
+              System.out.print(AllSeats.get(i).get(j).toString()+"  ");
+          }
+          System.out.println("\n==============================================");
+      }
+
+      File file =new File("AllSeats.txt");
+      FileOutputStream fileOutputStream = new FileOutputStream(file);
+      ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+      objectOutputStream.writeObject(AllSeats);
+
+
 //        ArrayList<Airport> airports = new ArrayList<>();
 //        airports.add(new Airport(1, "Cairo", "Egypt"));
 //        airports.add(new Airport(2, "London", "England"));
@@ -81,31 +180,31 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginInterface.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
-            stage.setScene(scene);
-        }catch (Exception e)
-        {
-            System.out.println("Can't see loginInterface");
-        }
-        stage.setTitle("Hello GUI");
-        try {
-            stage.getIcons().add(new Image(String.valueOf(getClass().getResource("DALL·E-2024-12-01-20.54.png"))));
-        } catch (Exception e) {
-            System.out.println("Can't open plane picture");
-        }
-
-        stage.show();
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent windowEvent) {
-                Platform.exit();
-                System.exit(0);
-            }
-        });
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginInterface.fxml"));
+//            Parent root = loader.load();
+//            Scene scene = new Scene(root);
+//            scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
+//            stage.setScene(scene);
+//        }catch (Exception e)
+//        {
+//            System.out.println("Can't see loginInterface");
+//        }
+//        stage.setTitle("Hello GUI");
+//        try {
+//            stage.getIcons().add(new Image(String.valueOf(getClass().getResource("DALL·E-2024-12-01-20.54.png"))));
+//        } catch (Exception e) {
+//            System.out.println("Can't open plane picture");
+//        }
+//
+//        stage.show();
+//        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+//            @Override
+//            public void handle(WindowEvent windowEvent) {
+//                Platform.exit();
+//                System.exit(0);
+//            }
+//        });
 
 //        stage.setOnCloseRequest(event ->{
 //            event.consume();

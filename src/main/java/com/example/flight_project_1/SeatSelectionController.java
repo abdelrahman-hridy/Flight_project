@@ -18,7 +18,7 @@ import java.util.Set;
 public class SeatSelectionController{
 
     @FXML
-    private Button confirmSeat;
+//    private Button confirmSeat;
     private final ArrayList<String> seatSelected = new ArrayList<>();
     private Flight flight;
 

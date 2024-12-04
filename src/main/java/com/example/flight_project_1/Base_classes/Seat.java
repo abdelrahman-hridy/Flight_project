@@ -1,23 +1,27 @@
 package com.example.flight_project_1.Base_classes;
 
 import java.io.Serializable;
-public class Seat implements Serializable {
-    private int seatNumber;
-    private String seatClass;
-    private boolean seatStatus;
+public abstract class Seat implements Serializable {
+    protected String seatId;
+    protected String seatClass;
+    protected boolean seatStatus;
 
-    public Seat(int seatNumber,String seatClass,boolean seatStatus){
-        this.seatNumber=seatNumber;
+    public Seat(String seatId,String seatClass,boolean seatStatus){
+        this.seatId=seatId;
         this.seatStatus=seatStatus;
         this.seatClass=seatClass;
     }
 
-    public int getSeatNumber() {
-        return seatNumber;
+    public String getSeatNumber() {
+        return seatId;
     }
 
-    public void setSeatNumber(int seatNumber) {
-        this.seatNumber = seatNumber;
+    public void setSeatId(String seatId) {
+        this.seatId = seatId;
+    }
+
+    public String getSeatId() {
+        return seatId;
     }
 
     public String getSeatClass() {
@@ -35,5 +39,7 @@ public class Seat implements Serializable {
     public void setSeatStatus(boolean seatStatus) {
         this.seatStatus = seatStatus;
     }
+
+    public abstract double calcSeatPrice(Flight flight);
 
 }
