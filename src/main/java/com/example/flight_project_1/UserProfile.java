@@ -1,5 +1,6 @@
 package com.example.flight_project_1;
 
+import com.example.flight_project_1.Base_classes.Passenger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,19 +18,17 @@ public class UserProfile {
     private Stage stage;
    @FXML
    private Label username;
+   private Passenger user;
+
+
    public void ShoeUserInfo(ActionEvent event) {
        username.setText("Username: " );
    }
-    public void backToSearchFlight(ActionEvent e){
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SearchFlightScene.fxml"));
-            root=fxmlLoader.load();
-        }catch (Exception ex){
-            System.out.println("Error on go Back to search Flight"+ex);
-        }
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+   public void assignUser(Passenger user){
+       this.user = user;
+       System.out.println(user.getPhone());
+   }
+    public void backToSearchFlight(ActionEvent e) {
+        Multi_used_methods.openFlightSearch(e, user);
     }
 }

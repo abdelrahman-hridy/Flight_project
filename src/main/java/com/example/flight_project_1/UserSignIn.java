@@ -31,12 +31,12 @@ public class UserSignIn {
     private Parent root;
 
     ArrayList<Passenger>passengers=new ArrayList<>();
+    Passenger user;
 
 
     public void submitLogin(ActionEvent e)  {
         String username = userin.getText();
         String password = passin.getText();
-        Passenger p =new Passenger(); // Passenger
         boolean flag = false;
         if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
@@ -51,39 +51,18 @@ public class UserSignIn {
                 passengers=(ArrayList<Passenger>) ois.readObject();
                 int size=passengers.size();
                 for(int i=0;i<size;i++){
-                    System.out.println(passengers.get(i).getName());
-                    System.out.println(passengers.get(i).getPassword());
-                    System.out.println(username);
-                    System.out.println(password);
-
                     if(username.equals(passengers.get(i).getName()) && password.equals(passengers.get(i).getPassword())){
                         flag=true;
+                        user = passengers.get(i);
                         break;
                     }
                 }
-//                while (((p = (Passenger) ois.readObject()) != null)) {
-//                    if (username.equals(p.getName()) && password.equals(p.getPassword())) {
-//                        flag = true;
-//                        break;
-//                    }
-//                }
             }catch (Exception exe){
                 System.out.println("Error when login"+exe);
             }
             if (flag) {
-                System.out.println("Login Successful"); //
-                System.out.println("Username: "+p.getName()+" ,Password: "+p.getPassword());
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("searchFlightScene.fxml"));
-                    root = loader.load();
-                } catch (IOException exe) {
-                    System.out.println("Can't Open userSign.fxml"+exe);
-                }
-                stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-            scene.getStylesheets().add(Multi_used_methods.class.getResource("style.css").toExternalForm());
-            stage.setScene(scene);
-                stage.show();
+                Multi_used_methods.openFlightSearch(e, user);
+
             } else {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -103,6 +82,7 @@ public class UserSignIn {
         }
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

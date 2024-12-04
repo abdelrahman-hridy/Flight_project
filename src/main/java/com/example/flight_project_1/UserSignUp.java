@@ -33,9 +33,6 @@ public class UserSignUp implements Serializable{
     ArrayList <Passenger> passengers=new ArrayList<>();
 
 
-//    public void login(ActionEvent event){
-//        Multi_used_methods.openFlightSearch(event);
-//    }
 public void submitSignUp(ActionEvent e) {
     String username = userup.getText();
     String password = passup.getText();
@@ -60,21 +57,16 @@ public void submitSignUp(ActionEvent e) {
             File file=new File("Passenger.txt");
             FileInputStream fis=new FileInputStream(file);
             ObjectInputStream ois=new ObjectInputStream(fis);
-            passengers=(ArrayList<Passenger>) ois.readObject();
-            int size=passengers.size();
-            for(int i=0;i<size;i++) {
-                if(username.toLowerCase().equals(passengers.get(i).getName().toLowerCase())) {
-                    flagOfNameNotFound=false;
-                    break;
+            if(file.length() > 0) {
+                passengers = (ArrayList<Passenger>) ois.readObject();
+                int size = passengers.size();
+                for (int i = 0; i < size; i++) {
+                    if (username.toLowerCase().equals(passengers.get(i).getName().toLowerCase())) {
+                        flagOfNameNotFound = false;
+                        break;
+                    }
                 }
             }
-//            while ((file.length()>0 && fis.available()>0 && (passenger = (Passenger) ois.readObject()) != null)) { // casting(passenger)
-//                if (username.equalsIgnoreCase(passenger.getName())) {
-//                    flagOfNameNotFound = false;
-//                    break;
-//                }
-//            }
-//            fis.close();
         } catch (Exception exe) {
             System.out.println("Error when searching for a unique user"+exe);
         }
@@ -93,8 +85,6 @@ public void submitSignUp(ActionEvent e) {
 //                Passenger creatPassenger = new Passenger(username, contact, password); // Passenger (Name,contactInfo,password)
                 oos.writeObject(passengers);
                 oos.flush();
-
-                System.out.println("User Added Successfuly");
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
                     root = loader.load();

@@ -1,6 +1,7 @@
 package com.example.flight_project_1;
 
 import com.example.flight_project_1.Base_classes.Flight;
+import com.example.flight_project_1.Base_classes.Passenger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,15 +24,21 @@ public class FlightShow{
     @FXML
     Button backButton;
     Flight flight;
+    private Passenger user;
 
     Stage stage;
     Scene scene;
     Parent root;
 
+    public void assignUser(Passenger user){
+        this.user = user;
+    }
 
-    public void setAll(Flight flight){
+    public void setAll(Flight flight, Passenger user){
         System.out.println(flight.getDeapartureAirport().getAirport_Name());
         this.flight = flight;
+        this.user = user;
+        System.out.println(user.getName());
         departureAirportLabel.setText(departureAirportLabel.getText() + flight.getDeapartureAirport().getAirport_Name());
         arrivalAirportLabel.setText(arrivalAirportLabel.getText() + flight.getArrivalAirport().getAirport_Name());
         departureTimeLabel.setText(departureTimeLabel.getText() + flight.getDepartureTime().toString());
@@ -58,7 +65,7 @@ public class FlightShow{
 
 
     public void backToSearch(ActionEvent event) {
-        Multi_used_methods.openFlightSearch(event);
+        Multi_used_methods.openFlightSearch(event, user);
     }
     public void transferToChooseSeat(ActionEvent event){
         try {
@@ -77,6 +84,6 @@ public class FlightShow{
         }
     }
     public void goToProfile(ActionEvent event){
-        Multi_used_methods.GoToProfile(event);
+        Multi_used_methods.GoToProfile(event, user);
     }
 }
