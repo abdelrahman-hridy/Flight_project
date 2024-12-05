@@ -18,10 +18,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Main extends Application {
+public class Main extends Application implements Serializable {
 
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args)  {
 
 //<<<<<<< HEAD
 //        ArrayList <ArrayList<Seat>> AllSeats=new ArrayList<>();
@@ -110,25 +110,117 @@ public class Main extends Application {
 //            }
 //            AllSeats.add(row1);
 //        }
+//        try {
+//            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("AllSeats.txt"));
+//            oos.writeObject(AllSeats);
 //
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        ArrayList <ArrayList<String>> AllSeatsIds=new ArrayList<>();
+//
+//        for(int i=0;i<10;i++){
+//            ArrayList<String> row1=new ArrayList<>();
+//            for(int j=0;j<6;j++){
+//                if(i<2){
+//                    if(j==0){
+//                        String id="A"+(i+1)+"F";
+//                        row1.add(id);
+//                    }
+//                    else if(j==1){
+//                        String id="B"+(i+1)+"F";
+//                        row1.add(id);
+//                    }
+//                    else if(j==2){
+//                        String id="C"+(i+1)+"F";
+//                        row1.add(id);
+//                    }
+//                    else if(j==3){
+//                        String id="D"+(i+1)+"F";
+//                        row1.add(id);
+//                    }
+//                    else if(j==4){
+//                        String id="E"+(i+1)+"F";
+//                        row1.add(id);
+//                    }
+//                    else{
+//                        String id="F"+(i+1)+"F";
+//                        row1.add(id);
+//                    }
+//                }
+//                else if(i<5){
+//                    if(j==0){
+//                        String id="A"+(i+1)+"B";
+//                        row1.add(id);
+//                    }
+//                    else if(j==1){
+//                        String id="B"+(i+1)+"B";
+//                        row1.add(id);
+//                    }
+//                    else if(j==2){
+//                        String id="C"+(i+1)+"B";
+//                        row1.add(id);
+//                    }
+//                    else if(j==3){
+//                        String id="D"+(i+1)+"B";
+//                        row1.add(id);
+//                    }
+//                    else if(j==4){
+//                        String id="E"+(i+1)+"B";
+//                        row1.add(id);
+//                    }
+//                    else{
+//                        String id="F"+(i+1)+"B";
+//                        row1.add(id);
+//                    }
+//                }
+//                else{
+//                    if(j==0){
+//                        String id="A"+(i+1)+"E";
+//                        row1.add(id);
+//                    }
+//                    else if(j==1){
+//                        String id="B"+(i+1)+"E";
+//                        row1.add(id);
+//                    }
+//                    else if(j==2){
+//                        String id="C"+(i+1)+"E";
+//                        row1.add(id);
+//                    }
+//                    else if(j==3){
+//                        String id="D"+(i+1)+"E";
+//                        row1.add(id);
+//                    }
+//                    else if(j==4){
+//                        String id="E"+(i+1)+"E";
+//                        row1.add(id);
+//                    }
+//                    else {
+//                        String id="F"+(i+1)+"E";
+//                        row1.add(id);
+//                    }
+//                }
+//            }
+//            AllSeatsIds.add(row1);
+//        }
 //
 //      for(int i=0;i<10;i++){
 //          for (int j=0;j<6;j++){
-//              System.out.print(AllSeats.get(i).get(j).toString()+"  ");
+//              System.out.print(AllSeatsIds.get(i).get(j)+"  ");
 //          }
 //          System.out.println("\n==============================================");
 //      }
-//
-//      File file =new File("AllSeats.txt");
+////
+//      File file =new File("test.txt");
 //      FileOutputStream fileOutputStream = new FileOutputStream(file);
 //      ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-//      objectOutputStream.writeObject(AllSeats);
+//      objectOutputStream.writeObject(AllSeatsIds);
 //
 //
 ////=======
 //        ArrayList<Admin> admins = new ArrayList<>();
 //        admins.add(new Admin("Sohaib", "55435421"));
-//        admins.add(new Admin("Tony", "55435422"));
+//        admins.add(new Admin("Shehab", "123456"));
 //
 //        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Admins.txt"));
 //        oos.writeObject(admins);

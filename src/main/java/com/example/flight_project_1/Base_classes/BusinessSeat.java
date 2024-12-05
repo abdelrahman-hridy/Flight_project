@@ -1,14 +1,14 @@
 package com.example.flight_project_1.Base_classes;
 
 public class BusinessSeat extends Seat {
-    double cost=1.3;
+    private double cost=1.3;
     public BusinessSeat(String seatId,boolean seatStatus) {
         super(seatId,"Business",seatStatus);
     }
 
     @Override
-    public double calcSeatPrice(Flight flight) {
-        return flight.getPrice()*cost;
+    public String calcSeatPrice(Flight flight) {
+        return String.valueOf(Integer.valueOf((int) (cost*flight.getPrice())));
     }
 
     @Override

@@ -105,7 +105,7 @@ public class Multi_used_methods {
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
-            System.out.println("Can't Open SeatSelection.fxml");
+            System.out.println("Can't Open SeatSelection.fxml"+e);
         }
     }
 

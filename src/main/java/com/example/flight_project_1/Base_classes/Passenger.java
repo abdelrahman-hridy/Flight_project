@@ -19,8 +19,8 @@ public class Passenger implements Serializable {
         return phone;
     }
 
-    public int getPassenger_ID() {
-        return passenger_ID;
+    public String getPassenger_ID() {
+        return String.valueOf(passenger_ID);
     }
 
     public void setName(String name) {

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dea871e6-0e98-4b7d-8fbc-c8c6e6ff4629" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/ShowSeatDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/Payment.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/ShowSeatDetail.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AllSeats.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AllSeats.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flights.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Flights.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Passenger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Passenger.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/BusinessSeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/BusinessSeat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/EconomySeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/EconomySeat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/FirstSeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/FirstSeat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Passenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Passenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Seat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Multi_used_methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Multi_used_methods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/SeatSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/SeatSelectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/SeatSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/SeatSelection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Base_classes/Passenger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Base_classes/Passenger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Multi_used_methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Multi_used_methods.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2pZy3qJAAO92Wm7VvrzMtqbB0Uk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Shell Script.main.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sheha/IdeaProjects/Flight_project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sheha\IdeaProjects\Flight_project" />
+      <recent name="C:\Users\sheha\IdeaProjects\Flight_project\target" />
+      <recent name="C:\Users\sheha\IdeaProjects\Flight_project\src\main\resources\com\example\flight_project_1" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.flight_project_1" />
+    </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="com.example.flight_project_1.Base_classes" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dea871e6-0e98-4b7d-8fbc-c8c6e6ff4629" name="Changes" comment="" />
+      <created>1732987696605</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732987696605</updated>
+      <workItem from="1732987698025" duration="267000" />
+      <workItem from="1733178283220" duration="114000" />
+      <workItem from="1733178815320" duration="5235000" />
+      <workItem from="1733223824875" duration="703000" />
+      <workItem from="1733231126595" duration="13205000" />
+      <workItem from="1733246761974" duration="6850000" />
+      <workItem from="1733257058425" duration="652000" />
+      <workItem from="1733337626297" duration="18324000" />
+      <workItem from="1733390933974" duration="11624000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Flight_project$Main.ic" NAME="Main Coverage Results" MODIFIED="1733232999201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.flight_project_1.*</FILTER>
+    </SUITE>
+  </component>
+</project>

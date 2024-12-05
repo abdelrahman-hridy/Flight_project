@@ -9,8 +9,8 @@ public class EconomySeat extends Seat {
     }
 
     @Override
-    public double calcSeatPrice(Flight flight) {
-        return flight.getPrice()*this.cost;
+    public String calcSeatPrice(Flight flight) {
+        return String.valueOf(Integer.valueOf((int) (cost*flight.getPrice())));
     }
 
     @Override

@@ -40,6 +40,6 @@ public abstract class Seat implements Serializable {
         this.seatStatus = seatStatus;
     }
 
-    public abstract double calcSeatPrice(Flight flight);
+    public abstract String calcSeatPrice(Flight flight);
 
 }
