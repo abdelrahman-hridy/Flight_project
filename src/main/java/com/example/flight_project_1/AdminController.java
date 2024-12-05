@@ -13,14 +13,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.flight_project_1.Multi_used_methods.stage;
-
 public class AdminController implements Initializable {
     @FXML
     private StackPane contentArea;
     private Stage stage;
     private Parent root;
-    private Scene scene;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -34,7 +31,6 @@ public class AdminController implements Initializable {
     }
 
     public void ToAddAirport(ActionEvent event){
-        System.out.println("1");
         try {
             Parent fxml = FXMLLoader.load(getClass().getResource("addAirport.fxml"));
             contentArea.getChildren().removeAll();
@@ -44,8 +40,6 @@ public class AdminController implements Initializable {
         }
     }
     public void ToDeleteAirport(ActionEvent event){
-        System.out.println("2");
-
         try {
             Parent fxml = FXMLLoader.load(getClass().getResource("deleteAirport.fxml"));
             contentArea.getChildren().removeAll();
@@ -55,8 +49,6 @@ public class AdminController implements Initializable {
         }
     }
     public void ToAddFlight(ActionEvent event){
-        System.out.println("3");
-
         try {
             Parent fxml = FXMLLoader.load(getClass().getResource("addFlight.fxml"));
             contentArea.getChildren().removeAll();
@@ -66,8 +58,6 @@ public class AdminController implements Initializable {
         }
     }
     public void ToDeleteFlight(ActionEvent event){
-        System.out.println("4");
-
         try {
             Parent fxml = FXMLLoader.load(getClass().getResource("deleteFlight.fxml"));
             contentArea.getChildren().removeAll();
@@ -82,6 +72,7 @@ public class AdminController implements Initializable {
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

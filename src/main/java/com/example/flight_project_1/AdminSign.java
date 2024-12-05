@@ -1,7 +1,6 @@
 package com.example.flight_project_1;
 
 import com.example.flight_project_1.Base_classes.Admin;
-import com.example.flight_project_1.Base_classes.Passenger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -63,17 +62,18 @@ public class AdminSign {
             }
             if (flag) {
                 try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
-                root = loader.load();
-
-                stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                scene.getStylesheets().add(Multi_used_methods.class.getResource("style.css").toExternalForm());
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException exe) {
-                System.out.println("Can't Open serchFlightScene.fxml"+exe);
-            }
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
+                    root = loader.load();
+                    stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    scene.getStylesheets().add(Multi_used_methods.class.getResource("style.css").toExternalForm());
+                    scene.getStylesheets().add(Multi_used_methods.class.getResource("buttonsStyle.css").toExternalForm());
+                    scene.getStylesheets().add(Multi_used_methods.class.getResource("airportDelete.css").toExternalForm());
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException exe) {
+                    System.out.println("Can't Open serchFlightScene.fxml"+exe);
+                }
             } else {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
