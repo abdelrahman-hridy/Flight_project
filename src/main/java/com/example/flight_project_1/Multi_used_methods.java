@@ -16,6 +16,8 @@ public class Multi_used_methods {
     static Stage stage;
     static Scene scene;
     static Parent root;
+    private Flight flight;
+    private Passenger user;
 
 
     public static void openFlightSearch(ActionEvent event, Passenger user){
@@ -108,5 +110,12 @@ public class Multi_used_methods {
             System.out.println("Can't Open SeatSelection.fxml"+e);
         }
     }
+//    public void assignUser(Passenger user){
+//        this.user = user;
+//    }
+//
+//    public void passingFlight(Flight flight){
+//        this.flight = flight;
+//    }
 
 }

@@ -104,6 +104,23 @@ public class ShowSeatDetail implements Serializable {
         }
     }
     public void ConfirmTheSeat(ActionEvent event){
-        System.out.println("Confirmed");
+//        System.out.println("Confirmed");
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Payment.fxml"));
+            root = fxmlLoader.load();
+
+            PaymentSceneController paymentSceneController = fxmlLoader.getController();
+            paymentSceneController.assignUser(user);
+            paymentSceneController.passingFlight(flight);
+            paymentSceneController.passingSeat(seat);
+
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println("Error when to go the payment"+e);
+        }
     }
+
 }

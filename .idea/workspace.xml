@@ -5,27 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dea871e6-0e98-4b7d-8fbc-c8c6e6ff4629" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/ShowSeatDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/Payment.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/ShowSeatDetail.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AllSeats.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AllSeats.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flights.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Flights.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Passenger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Passenger.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/BusinessSeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/BusinessSeat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/EconomySeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/EconomySeat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/FirstSeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/FirstSeat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Passenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Passenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Seat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Multi_used_methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Multi_used_methods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/SeatSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/SeatSelectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/SeatSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/SeatSelection.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Base_classes/Passenger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Base_classes/Passenger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/ShowSeatDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/ShowSeatDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/Payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/Payment.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Multi_used_methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Multi_used_methods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Payment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/PaymentSceneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/PaymentSceneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/ShowSeatDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/ShowSeatDetail.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +103,7 @@
       <workItem from="1733246761974" duration="6850000" />
       <workItem from="1733257058425" duration="652000" />
       <workItem from="1733337626297" duration="18324000" />
-      <workItem from="1733390933974" duration="11624000" />
+      <workItem from="1733390933974" duration="14165000" />
     </task>
     <servers />
   </component>
