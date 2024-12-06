@@ -1,6 +1,7 @@
 package com.example.flight_project_1;
 
 import com.example.flight_project_1.Base_classes.Airport;
+import com.example.flight_project_1.Base_classes.Files;
 import com.example.flight_project_1.Base_classes.Flight;
 import com.example.flight_project_1.Base_classes.Passenger;
 import javafx.collections.FXCollections;
@@ -85,29 +86,11 @@ public class searchFlightController implements Initializable, Serializable {
         myTable.setStyle("-fx-font-size: 16px;");
 
 
-        ObjectInputStream ois = null;
-        ArrayList<Airport> airports = new ArrayList<>();
-        try {
-            try {
-                File file1 = new File("Airports.txt");
-                ois = new ObjectInputStream(new FileInputStream(file1));
-            } catch (IOException e) {
-                System.out.println("Can't Find Airport.txt");
-            }
-            try {
-                airports = (ArrayList<Airport>) ois.readObject();
-            } catch (IOException | ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-
 
         ArrayList<String> airportsName = new ArrayList<>();
-        for(int i = 0; i < airports.size(); i++)
+        for(int i = 0; i < Files.getAirports().size(); i++)
         {
-            airportsName.add(airports.get(i).getAirport_Name());
+            airportsName.add(Files.getAirports().get(i).getAirport_Name());
         }
         departureAirportChoiceBox.getItems().add("~All~");
         arrivalAirportChoiceBox.getItems().add("~All~");

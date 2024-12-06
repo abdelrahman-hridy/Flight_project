@@ -1,5 +1,6 @@
 package com.example.flight_project_1;
 
+import com.example.flight_project_1.Base_classes.Files;
 import com.example.flight_project_1.Base_classes.Passenger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,7 +31,6 @@ public class UserSignIn {
     private Scene scene;
     private Parent root;
 
-    ArrayList<Passenger>passengers=new ArrayList<>();
     Passenger user;
 
 
@@ -46,14 +46,11 @@ public class UserSignIn {
             alert.showAndWait();
         } else {
             try {
-                FileInputStream fis = new FileInputStream("Passenger.txt");
-                ObjectInputStream ois = new ObjectInputStream(fis);
-                passengers=(ArrayList<Passenger>) ois.readObject();
-                int size=passengers.size();
+                int size= Files.getPassengers().size();
                 for(int i=0;i<size;i++){
-                    if(username.toLowerCase().equals(passengers.get(i).getName().toLowerCase()) && password.equals(passengers.get(i).getPassword())){
+                    if(username.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase()) && password.equals(Files.getPassengers().get(i).getPassword())){
                         flag=true;
-                        user = passengers.get(i);
+                        user = Files.getPassengers().get(i);
                         break;
                     }
                 }

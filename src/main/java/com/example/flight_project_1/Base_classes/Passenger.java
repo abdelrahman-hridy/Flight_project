@@ -48,39 +48,28 @@ public class Passenger implements Serializable {
     public static ArrayList<Flight> flightSearch(String dearture_Airport, String arrival_Airport, int departure_Date_year, int departure_Date_month, int departure_Date_day, int arrival_Date_year, int arrival_Date_month, int arrival_Date_day) throws IOException, ClassNotFoundException {
 
 
-        File file = new File("Flights.txt");
-        ObjectInputStream ois = null;
-        try {
-            ois = new ObjectInputStream(new FileInputStream(file));
-        } catch (IOException e) {
-            System.out.println("Cant't Find Flights.txt");
-        }
-        assert ois != null;
-        ArrayList<Flight> flights = (ArrayList<Flight>) ois.readObject();
+
 
         ArrayList<Flight> flightsToken = new ArrayList<>();
         int counter = 0;
         // loop to make new array and assigned to it the flights filtered
-            for (int i = 0; i < flights.size(); i++) {
-                if (((dearture_Airport.equals(flights.get(i).getDeapartureAirport().getAirport_Name())) || (dearture_Airport.equals("~All~")))
+            for (int i = 0; i < Files.getFlights().size(); i++) {
+                if (((dearture_Airport.equals(Files.getFlights().get(i).getDeapartureAirport().getAirport_Name())) || (dearture_Airport.equals("~All~")))
                         &&
-                        ((arrival_Airport.equals(flights.get(i).getArrivalAirport().getAirport_Name())) || (arrival_Airport.equals("~All~")))
+                        ((arrival_Airport.equals(Files.getFlights().get(i).getArrivalAirport().getAirport_Name())) || (arrival_Airport.equals("~All~")))
                         &&
-                        (((departure_Date_year == flights.get(i).getDepartureTime().getYear() + 1900) && (departure_Date_month == flights.get(i).getDepartureTime().getMonth() + 1) && (departure_Date_day == flights.get(i).getDepartureTime().getDate())) ||
+                        (((departure_Date_year == Files.getFlights().get(i).getDepartureTime().getYear() + 1900) && (departure_Date_month ==  Files.getFlights().get(i).getDepartureTime().getMonth() + 1) && (departure_Date_day ==  Files.getFlights().get(i).getDepartureTime().getDate())) ||
                         ((departure_Date_year == 0) && (departure_Date_month == 0) && (departure_Date_day == 0))
                         )
                         &&
-                        (((arrival_Date_year == flights.get(i).getArrivalTime().getYear() + 1900) && (arrival_Date_month == flights.get(i).getArrivalTime().getMonth() + 1) && (arrival_Date_day == flights.get(i).getArrivalTime().getDate())) ||
+                        (((arrival_Date_year == Files.getFlights().get(i).getArrivalTime().getYear() + 1900) && (arrival_Date_month ==  Files.getFlights().get(i).getArrivalTime().getMonth() + 1) && (arrival_Date_day ==  Files.getFlights().get(i).getArrivalTime().getDate())) ||
                         ((arrival_Date_year == 0) && (arrival_Date_month == 0) && (arrival_Date_day == 0))
                         )
 
                 ) {
-                    flightsToken.add(flights.get(i));
+                    flightsToken.add(Files.getFlights().get(i));
                 }
             }
-
-        System.out.println(flightsToken.size());
-
         return flightsToken;
     }
 

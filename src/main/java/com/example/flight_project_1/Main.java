@@ -23,6 +23,62 @@ public class Main extends Application implements Serializable {
 
     public static void main(String[] args)  {
 
+        // Read Airport
+        ObjectInputStream ois = null;
+        try {
+            File file1 = new File("Airports.txt");
+            ois = new ObjectInputStream(new FileInputStream(file1));
+            Files.setAirports((ArrayList<Airport>) ois.readObject());
+        } catch (IOException e) {
+            System.out.println("Can't Find Airport.txt");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        // Read Flights
+        File file = new File("Flights.txt");
+        try {
+            ois = new ObjectInputStream(new FileInputStream(file));
+            Files.setFlights((ArrayList<Flight>) ois.readObject());
+
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Cant't Find Flights.txt");
+        }
+        // Read Admins
+        try {
+            FileInputStream fis = new FileInputStream("Admins.txt");
+            ois = new ObjectInputStream(fis);
+            Files.setAdmins((ArrayList<Admin>) ois.readObject());
+        }catch (Exception exe){
+            System.out.println("Error when login"+exe);
+        }
+        // Read Passengers
+        try {
+            FileInputStream fis = new FileInputStream("Passenger.txt");
+            ois = new ObjectInputStream(fis);
+            Files.setPassengers((ArrayList<Passenger>) ois.readObject());
+        }catch (Exception exe){
+            System.out.println("Error when login"+exe);
+        }
+        // Read Seats
+        try {
+            FileInputStream fis = new FileInputStream("AllSeats.txt");
+            ois = new ObjectInputStream(fis);
+            Files.setSeats((ArrayList<Seat>) ois.readObject());
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+//        for(int i = 0; i < Files.getAdmins().size(); i++)
+//            System.out.println(Files.getAdmins().get(i).getUsername());
+//        for(int i = 0; i < Files.getPassengers().size(); i++)
+//            System.out.println(Files.getPassengers().get(i).getName());
+//        for(int i = 0; i < Files.getAirports().size(); i++)
+//            System.out.println(Files.getAirports().get(i).getAirport_Name());
+//        for(int i = 0; i < Files.getFlights().size(); i++)
+//            System.out.println(Files.getFlights().get(i).getDeapartureAirport().getAirport_Name());
+
+
+
 //<<<<<<< HEAD
 //        ArrayList <ArrayList<Seat>> AllSeats=new ArrayList<>();
 //

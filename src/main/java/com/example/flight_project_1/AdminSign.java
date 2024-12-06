@@ -1,6 +1,7 @@
 package com.example.flight_project_1;
 
 import com.example.flight_project_1.Base_classes.Admin;
+import com.example.flight_project_1.Base_classes.Files;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +30,6 @@ public class AdminSign {
     private Scene scene;
     private Parent root;
 
-    ArrayList<Admin> admins=new ArrayList<>();
 
 
     public void submitLogin(ActionEvent e)  {
@@ -44,15 +44,9 @@ public class AdminSign {
             alert.showAndWait();
         } else {
             try {
-                FileInputStream fis = new FileInputStream("Admins.txt");
-                ObjectInputStream ois = new ObjectInputStream(fis);
-                admins=(ArrayList<Admin>) ois.readObject();
-                int size1=admins.size();
-                for(int i = 0; i < size1; i++)
-                    System.out.println(admins.get(i).getUsername());
-                int size=admins.size();
+                int size= Files.getAdmins().size();
                 for(int i=0;i<size;i++){
-                    if(username.equalsIgnoreCase(admins.get(i).getUsername()) && password.equalsIgnoreCase(admins.get(i).getPassword())){
+                    if(username.equalsIgnoreCase(Files.getAdmins().get(i).getUsername()) && password.equalsIgnoreCase(Files.getAdmins().get(i).getPassword())){
                         flag=true;
                         break;
                     }
