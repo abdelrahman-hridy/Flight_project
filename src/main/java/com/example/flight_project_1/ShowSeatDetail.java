@@ -22,7 +22,7 @@ public class ShowSeatDetail implements Serializable {
     private Stage stage;
     private Scene scene;
     private double service;
-    private String allprice;
+    public String allprice;
     @FXML
     TextField SeatId=new TextField();
     @FXML
