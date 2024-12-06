@@ -1,6 +1,7 @@
 package com.example.flight_project_1;
 
 import com.example.flight_project_1.Base_classes.Airport;
+import com.example.flight_project_1.Base_classes.Files;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -15,7 +16,6 @@ public class AddAirportController {
     TextField nameTextField, codeTextField, locationTextField;
     @FXML
     Label codeInvalidMessage, nameInvalidMessage, airportAddedSuccessfulyMessage, codeInvalidMessage1;
-    private ArrayList<Airport> airports;
     private boolean isValid;
     private Airport airportAdded = null;
 
@@ -29,15 +29,6 @@ public class AddAirportController {
 
         if(!codeTextField.getText().isEmpty() && !nameTextField.getText().isEmpty() && !locationTextField.getText().isEmpty()) {
             isValid = true;
-            File file = new File("Airports.txt");
-            ObjectInputStream ois = null;
-            try {
-                ois = new ObjectInputStream(new FileInputStream(file));
-                airports = (ArrayList<Airport>) ois.readObject();
-                ois.close();
-            } catch (IOException | ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            }
             try {
                 int x = Integer.parseInt(codeTextField.getText());
             }catch (Exception e)
@@ -53,8 +44,8 @@ public class AddAirportController {
             }
 
             if(isValid) {
-                for (int i = 0; i < airports.size(); i++) {
-                    if (nameTextField.getText().equals(airports.get(i).getAirport_Name())) {
+                for (int i = 0; i < Files.getAirports().size(); i++) {
+                    if (nameTextField.getText().equals(Files.getAirports().get(i).getAirport_Name())) {
                         isValid = false;
                         nameInvalidMessage.setVisible(true);
                         nameTextField.textProperty().addListener(new ChangeListener<String>() {
@@ -64,7 +55,7 @@ public class AddAirportController {
                             }
                         });
                     }
-                    if (Integer.parseInt(codeTextField.getText()) == airports.get(i).getAirport_code()) {
+                    if (Integer.parseInt(codeTextField.getText()) == Files.getAirports().get(i).getAirport_code()) {
                         isValid = false;
                         codeInvalidMessage.setVisible(true);
                         codeTextField.textProperty().addListener(new ChangeListener<String>() {
@@ -78,11 +69,7 @@ public class AddAirportController {
                 if (isValid) {
                     try {
                         airportAdded = new Airport(Integer.parseInt(codeTextField.getText()), nameTextField.getText(), locationTextField.getText());
-                        airports.add(airportAdded);
-                        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-                        oos.writeObject(airports);
-                        oos.flush();
-                        oos.close();
+                        Files.getAirports().add(airportAdded);
                         airportAddedSuccessfulyMessage.setVisible(true);
                         codeTextField.clear();
                         nameTextField.clear();
@@ -111,12 +98,12 @@ public class AddAirportController {
         if(isValid) {
             nameInvalidMessage.setVisible(false);
             codeInvalidMessage.setVisible(false);
-            for (int i = 0; i < airports.size(); i++) {
-                if (nameTextField.getText().equals(airports.get(i).getAirport_Name())) {
+            for (int i = 0; i < Files.getAirports().size(); i++) {
+                if (nameTextField.getText().equals(Files.getAirports().get(i).getAirport_Name())) {
                     isValid = false;
                     nameInvalidMessage.setVisible(true);
                 }
-                if (Integer.parseInt(codeTextField.getText()) == airports.get(i).getAirport_code()) {
+                if (Integer.parseInt(codeTextField.getText()) == Files.getAirports().get(i).getAirport_code()) {
                     isValid = false;
                     codeInvalidMessage.setVisible(true);
                 }

@@ -72,8 +72,8 @@ public class Main extends Application implements Serializable {
 //            System.out.println(Files.getAdmins().get(i).getUsername());
 //        for(int i = 0; i < Files.getPassengers().size(); i++)
 //            System.out.println(Files.getPassengers().get(i).getName());
-//        for(int i = 0; i < Files.getAirports().size(); i++)
-//            System.out.println(Files.getAirports().get(i).getAirport_Name());
+        for(int i = 0; i < Files.getAirports().size(); i++)
+            System.out.println(Files.getAirports().get(i).getAirport_Name());
 //        for(int i = 0; i < Files.getFlights().size(); i++)
 //            System.out.println(Files.getFlights().get(i).getDeapartureAirport().getAirport_Name());
 
@@ -333,6 +333,7 @@ public class Main extends Application implements Serializable {
 
 
         launch(args);
+
     }
 
     @Override
@@ -363,10 +364,10 @@ public class Main extends Application implements Serializable {
             }
         });
 
-//        stage.setOnCloseRequest(event ->{
-//            event.consume();
-//            logout(stage);
-//        });
+        stage.setOnCloseRequest(event ->{
+            event.consume();
+            logout(stage);
+        });
     }
     public void logout(Stage stage){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -375,7 +376,52 @@ public class Main extends Application implements Serializable {
         alert.setContentText("Do you want to save before exiting?: ");
 
         if(alert.showAndWait().get() == ButtonType.OK){
-            System.out.println("You Succesfully logged out!");
+            //Here We will write
+
+            ObjectOutputStream oos;
+
+            // Write Airport
+            try {
+                File file1 = new File("Airports.txt");
+                oos = new ObjectOutputStream(new FileOutputStream(file1));
+                oos.writeObject(Files.getAirports());
+            } catch (IOException e) {
+                System.out.println("Can't Find Airport.txt");
+            }
+            // Write Flights
+            try {
+                File file = new File("Flights.txt");
+                oos = new ObjectOutputStream(new FileOutputStream(file));
+                oos.writeObject(Files.getFlights());
+            } catch (IOException e) {
+                System.out.println("Cant't Find Flights.txt");
+            }
+            // Write Admins
+            try {
+                File file = new File("Admins.txt");
+                oos = new ObjectOutputStream(new FileOutputStream(file));
+                oos.writeObject(Files.getAdmins());
+            }catch (Exception exe){
+                System.out.println("Error when login"+exe);
+            }
+            // Write Passengers
+            try {
+                File file = new File("Passenger.txt");
+                oos = new ObjectOutputStream(new FileOutputStream(file));
+                oos.writeObject(Files.getPassengers());
+            }catch (Exception exe){
+                System.out.println("Error when login"+exe);
+            }
+
+//        for(int i = 0; i < Files.getAdmins().size(); i++)
+//            System.out.println(Files.getAdmins().get(i).getUsername());
+//        for(int i = 0; i < Files.getPassengers().size(); i++)
+//            System.out.println(Files.getPassengers().get(i).getName());
+            System.out.println("");
+            for(int i = 0; i < Files.getAirports().size(); i++)
+                System.out.println(Files.getAirports().get(i).getAirport_Name());
+//        for(int i = 0; i < Files.getFlights().size(); i++)
+//            System.out.println(Files.getFlights().get(i).getDeapartureAirport().getAirport_Name());
             stage.close();
         }
 

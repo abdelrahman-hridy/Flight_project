@@ -1,6 +1,7 @@
 package com.example.flight_project_1;
 
 import com.example.flight_project_1.Base_classes.Airport;
+import com.example.flight_project_1.Base_classes.Files;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -23,7 +24,6 @@ public class DeleteAirport implements Initializable {
     @FXML
     private Label airportNameLabel, airportCodeLabel, airportLocationLabel, deleteAirportMessage;
 
-    private ArrayList<Airport> airports;
     private ArrayList<String> airportsName = new ArrayList<>();
     private Airport choosenAirport;
 
@@ -33,24 +33,9 @@ public class DeleteAirport implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        ObjectInputStream ois = null;
-
-        try {
-            File file1 = new File("Airports.txt");
-            ois = new ObjectInputStream(new FileInputStream(file1));
-        } catch (IOException e) {
-            System.out.println("Can't Find Airport.txt");
-        }
-        try {
-            airports = (ArrayList<Airport>) ois.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        for(int i = 0; i < airports.size(); i++)
+        for(int i = 0; i < Files.getAirports().size(); i++)
         {
-            airportsName.add(airports.get(i).getAirport_Name());
+            airportsName.add(Files.getAirports().get(i).getAirport_Name());
         }
 
 
@@ -62,11 +47,11 @@ public class DeleteAirport implements Initializable {
     }
 
     public void changeAirport(Event event){
-        for(int i = 0; i < airports.size(); i++)
+        for(int i = 0; i < Files.getAirports().size(); i++)
         {
-            if(airportNameChoiceBox.getValue().equals(airports.get(i).getAirport_Name()))
+            if(airportNameChoiceBox.getValue().equals(Files.getAirports().get(i).getAirport_Name()))
             {
-                choosenAirport = airports.get(i);
+                choosenAirport = Files.getAirports().get(i);
             }
         }
 
@@ -107,18 +92,7 @@ public class DeleteAirport implements Initializable {
             }
 
             if (confirm) {
-                airports.remove(choosenAirport);
-                ObjectOutputStream oos;
-                try {
-                    oos = new ObjectOutputStream(new FileOutputStream("Airports.txt"));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                try {
-                    oos.writeObject(airports);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                Files.getAirports().remove(choosenAirport);
                 airportNameChoiceBox.setValue("");
                 airportNameLabel.setText("");
                 airportCodeLabel.setText("");
