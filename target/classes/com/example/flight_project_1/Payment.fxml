@@ -1,28 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.PaymentSceneController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.PaymentSceneController">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1536.0" layoutX="-2.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="PaymentImage" fitHeight="800.0" fitWidth="1567.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@seat5.png" />
          </image>
-      </ImageView>
-      <Button fx:id="Back" layoutX="57.0" layoutY="31.0" mnemonicParsing="false" onAction="#BackToShowSeatDetails" text="Back" textFill="#2014ff">
+        </ImageView>
+   <Button fx:id="Back" layoutX="57.0" layoutY="31.0" mnemonicParsing="false" onAction="#BackToShowSeatDetails" text="Back" textFill="#2014ff">
+      <font>
+         <Font size="17.0" />
+      </font>
+   </Button>
+
+   <Label layoutX="179.0" layoutY="24.0" text="Payment Gate" textFill="#239fc4">
+      <font>
+         <Font size="34.0" />
+      </font>
+   </Label>
+      <Button fx:id="submit" layoutX="340.0" layoutY="636.0" mnemonicParsing="false" onAction="#handleSubmit" text="Submit">
          <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
-      <Label layoutX="665.0" layoutY="64.0" text="Payment Gate" textFill="#239fc4">
+            <Font size="22.0" />
+         </font></Button>
+      <ChoiceBox fx:id="paymentMethod" layoutX="131.0" layoutY="325.0" prefWidth="150.0" />
+      <Label fx:id="mylabeltoAlert" layoutX="21.0" layoutY="636.0" prefHeight="28.0" prefWidth="226.0" text="Click To Confirm Booking" textFill="#0e92f0">
          <font>
-            <Font size="34.0" />
+            <Font size="20.0" />
+         </font></Label>
+      <Label fx:id="mylabeltoShow1" layoutX="40.0" layoutY="281.0" prefHeight="34.0" prefWidth="406.0" text="Choice The Payment Method &amp; add Services :" textFill="#02cdf5">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <TextField fx:id="paymentAmount" layoutX="104.0" layoutY="528.0" prefHeight="43.0" prefWidth="298.0" promptText="Enter Your PaymentAmount">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <TextArea fx:id="payment_status" layoutX="984.0" layoutY="325.0" prefHeight="64.0" prefWidth="200.0" promptText="Payment Status">
+         <font>
+            <Font size="16.0" />
+         </font></TextArea>
+      <TextArea fx:id="total_cost" layoutX="738.0" layoutY="325.0" prefHeight="64.0" prefWidth="200.0" promptText="Total Cost">
+         <font>
+            <Font size="16.0" />
+         </font></TextArea>
+      <Label fx:id="mylabeltowelcome" alignment="CENTER" contentDisplay="CENTER" layoutX="399.0" layoutY="81.0" prefHeight="55.0" prefWidth="439.0" text="Finally! Payment&amp; Traval" textAlignment="CENTER" textFill="#00b1ec" underline="true">
+         <font>
+            <Font size="38.0" />
          </font>
       </Label>
+      <Label fx:id="mylabeltoData" layoutX="737.0" layoutY="276.0" prefHeight="43.0" prefWidth="298.0" text="Your Reservation Data :" textFill="#00c3f0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="addtional_Services" layoutX="304.0" layoutY="325.0" prefWidth="150.0" />
+      <Label fx:id="mylabeltoShow2" layoutX="41.0" layoutY="480.0" prefHeight="34.0" prefWidth="382.0" text="Enter  PaymentAmount TO Booking :" textFill="#0e88f0">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Card_Number" layoutX="93.0" layoutY="370.0" promptText="Card Number" />
+      <TextField fx:id="Expairy_Date" layoutX="93.0" layoutY="412.0" promptText="Expairy Date" />
+      <TextField fx:id="CVV" layoutX="93.0" layoutY="446.0" promptText="CVV" />
+      <TextField fx:id="PayPal_mail" layoutX="243.0" layoutY="399.0" promptText="PayPal Mail" />
+      <TextField fx:id="PayPal_Num" layoutX="243.0" layoutY="433.0" promptText="PayPal Number" />
+      <TextArea fx:id="PaymentID" layoutX="179.0" layoutY="197.0" prefHeight="46.0" prefWidth="106.0" />
+      <Label fx:id="Payment_id" layoutX="56.0" layoutY="183.0" prefHeight="28.0" prefWidth="117.0" text="Payment ID :" textFill="#07b6e3">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+
+
+
+
    </children>
 </AnchorPane>

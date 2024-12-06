@@ -116,6 +116,7 @@ public class ShowSeatDetail implements Serializable {
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("PaymentStyle.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         }catch (Exception e){
