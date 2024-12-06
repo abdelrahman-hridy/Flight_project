@@ -94,14 +94,7 @@ public class PaymentSceneController implements Initializable {
             }
         });
 
-        if (PaymentImage != null) {
-            Image image = new Image("seat5.png");
-            PaymentImage.setImage(image);
-
-        } else {
-            System.out.println("PaymentImage is null.");
-        }
-
+       
 
         total_cost.setEditable(false);
         payment_status.setEditable(false);
