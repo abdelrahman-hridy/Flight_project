@@ -43,13 +43,13 @@ public class ShowSeatDetail implements Serializable {
     public void assignUser(Passenger user){
         this.user = user;
     }
-
     public void passingFlight(Flight flight){
         this.flight = flight;
     }
     public void passingTheSeat(Seat seat){
         this.seat = seat;
     }
+
     public void SetDataOfTheSeat(ActionEvent event){
         SeatId.setText(seat.getSeatId());
         SeatId.setEditable(false);
@@ -58,9 +58,9 @@ public class ShowSeatDetail implements Serializable {
         SeatPrice.setText(seat.calcSeatPrice(flight));
         SeatPrice.setEditable(false);
         if(seat.getSeatId().startsWith("A") || seat.getSeatId().startsWith("F")){
-        service=500;
-        Service.setText("Window Seat: "+service);
-        Service.setEditable(false);
+            service=500;
+            Service.setText("Window Seat: "+service);
+            Service.setEditable(false);
             allprice= String.valueOf(Integer.parseInt(seat.calcSeatPrice(flight))+service);
 
         }

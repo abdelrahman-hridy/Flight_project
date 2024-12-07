@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="804.0" prefWidth="1572.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.BookingConfirmationCont">
+   <children>
+      <ImageView fitHeight="816.0" fitWidth="1587.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@seat5.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="85.0" layoutY="346.0" prefHeight="89.0" prefWidth="100.0" text="Seat : " textFill="#00ffe2">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="811.0" layoutY="171.0" prefHeight="104.0" prefWidth="231.0" text="Flight to :" textFill="#00ffe2">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="856.0" layoutY="455.0" prefHeight="101.0" prefWidth="192.0" text="Arrival date :" textFill="#00ffe2">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="502.0" layoutY="65.0" prefHeight="104.0" prefWidth="231.0" text="Username :" textFill="#00ffe2">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="820.0" layoutY="335.0" prefHeight="104.0" prefWidth="231.0" text="Seat Class :" textFill="#00ffe2">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="826.0" layoutY="593.0" prefHeight="104.0" prefWidth="231.0" text="Total Price :" textFill="#00ffe2">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="86.0" layoutY="591.0" prefHeight="104.0" prefWidth="272.0" text="Payment Method :" textFill="#00ffe2">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="flightFrom" layoutX="407.0" layoutY="222.0" prefWidth="173.0" />
+      <TextField fx:id="flightTo" layoutX="1195.0" layoutY="209.0" />
+      <TextField fx:id="seatID" layoutX="418.0" layoutY="381.0" />
+      <TextField fx:id="seatClass" layoutX="1195.0" layoutY="371.0" />
+      <TextField fx:id="arrivalDate" layoutX="1192.0" layoutY="496.0" />
+      <TextField fx:id="departureDate" layoutX="403.0" layoutY="495.0" />
+      <Label alignment="CENTER" layoutX="70.0" layoutY="190.0" prefHeight="89.0" prefWidth="191.0" text="Flight from :" textFill="#00ffe2">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="43.0" layoutY="449.0" prefHeight="118.0" prefWidth="333.0" text="Departure date :" textFill="#00ffe2">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="paymentMethod" layoutX="408.0" layoutY="629.0" />
+      <TextField fx:id="totalPrice" layoutX="1187.0" layoutY="630.0" />
+      <TextField fx:id="username" layoutX="805.0" layoutY="108.0" />
+   </children>
+</AnchorPane>
