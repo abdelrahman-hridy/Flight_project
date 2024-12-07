@@ -39,6 +39,14 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+                  <Button mnemonicParsing="false" onAction="#ToUpdateFlight" prefHeight="70.0" prefWidth="176.0" text="Update Flights">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button mnemonicParsing="false" onAction="#ToDeleteFlight" prefHeight="68.0" prefWidth="176.0" text="Delete Flights">
                      <font>
                         <Font size="23.0" />

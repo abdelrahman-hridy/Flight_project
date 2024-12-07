@@ -63,6 +63,7 @@ public class AdminSign {
                     scene.getStylesheets().add(Multi_used_methods.class.getResource("style.css").toExternalForm());
                     scene.getStylesheets().add(Multi_used_methods.class.getResource("buttonsStyle.css").toExternalForm());
                     scene.getStylesheets().add(Multi_used_methods.class.getResource("airportDelete.css").toExternalForm());
+                    scene.getStylesheets().add(getClass().getResource("flightUpdate.css").toExternalForm());
                     stage.setScene(scene);
                     stage.show();
                 } catch (IOException exe) {

@@ -1,0 +1,19 @@
+.l {
+    -fx-padding: 8;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-background-color: lightgray;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 5, 5);
+    -fx-text-fill: black;}
+.lLabel {
+    -fx-padding: 8;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-background-color: rgb(111, 115, 42);
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 5, 5);
+}

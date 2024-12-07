@@ -57,6 +57,15 @@ public class AdminController implements Initializable {
             System.out.println("Cant' Open addFlight.fxml");
         }
     }
+    public void ToUpdateFlight(ActionEvent event){
+        try {
+            Parent fxml = FXMLLoader.load(getClass().getResource("updateFlight.fxml"));
+            contentArea.getChildren().removeAll();
+            contentArea.getChildren().setAll(fxml);
+        } catch (IOException e) {
+            System.out.println("Cant' Open updateFlight.fxml");
+        }
+    }
     public void ToDeleteFlight(ActionEvent event){
         try {
             Parent fxml = FXMLLoader.load(getClass().getResource("deleteFlight.fxml"));

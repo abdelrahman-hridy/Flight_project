@@ -416,8 +416,8 @@ public class Main extends Application implements Serializable {
 //        for(int i = 0; i < Files.getAdmins().size(); i++)
 //            System.out.println(Files.getAdmins().get(i).getUsername());
             System.out.println("");
-        for(int i = 0; i < Files.getPassengers().size(); i++)
-            System.out.println(Files.getPassengers().get(i).getName());
+//        for(int i = 0; i < Files.getPassengers().size(); i++)
+//            System.out.println(Files.getPassengers().get(i).getName());
 
 //            for(int i = 0; i < Files.getAirports().size(); i++)
 //                System.out.println(Files.getAirports().get(i).getAirport_Name());
