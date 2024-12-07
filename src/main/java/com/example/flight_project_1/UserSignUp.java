@@ -1,5 +1,6 @@
 package com.example.flight_project_1;
 
+import com.example.flight_project_1.Base_classes.Files;
 import com.example.flight_project_1.Base_classes.Passenger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,79 +31,65 @@ public class UserSignUp implements Serializable{
     @FXML
     private TextField contactUp;
 
-    ArrayList <Passenger> passengers=new ArrayList<>();
 
+    public void submitSignUp(ActionEvent e) {
+        String username = userup.getText();
+        String password = passup.getText();
+        String contact = contactUp.getText();
 
-public void submitSignUp(ActionEvent e) {
-    String username = userup.getText();
-    String password = passup.getText();
-    String contact = contactUp.getText();
-
-    if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty() || contact == null || contact.trim().isEmpty()) {
-        alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("Username ,Contact Info Or Password Are Empty");
-        alert.setContentText("Username ,Contact Info and Password are Required");
-        alert.showAndWait();
-    } else if (password.length() < 6) {
-        alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("Password is less than 6 characters");
-        alert.setContentText("Password is required more than 6 chars");
-        alert.showAndWait();
-    } else {
-        Passenger passenger;
-        boolean flagOfNameNotFound = true;
-        try {
-            File file=new File("Passenger.txt");
-            FileInputStream fis=new FileInputStream(file);
-            ObjectInputStream ois=new ObjectInputStream(fis);
-            if(file.length() > 0) {
-                passengers = (ArrayList<Passenger>) ois.readObject();
-                int size = passengers.size();
+        if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty() || contact == null || contact.trim().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Username ,Contact Info Or Password Are Empty");
+            alert.setContentText("Username ,Contact Info and Password are Required");
+            alert.showAndWait();
+        } else if (password.length() < 6) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Password is less than 6 characters");
+            alert.setContentText("Password is required more than 6 chars");
+            alert.showAndWait();
+        } else {
+            Passenger passenger;
+            boolean flagOfNameNotFound = true;
+           try {
+                int size = Files.getPassengers().size();
                 for (int i = 0; i < size; i++) {
-                    if (username.toLowerCase().equals(passengers.get(i).getName().toLowerCase())) {
+                    if (username.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase())) {
                         flagOfNameNotFound = false;
                         break;
                     }
                 }
+            } catch (Exception exe) {
+                System.out.println("Error when searching for a unique user"+exe);
             }
-        } catch (Exception exe) {
-            System.out.println("Error when searching for a unique user"+exe);
-        }
-        if (!flagOfNameNotFound) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Username is used ");
-            alert.setContentText("Username must be unique");
-            alert.showAndWait();
-        } else {
-            try {
-                passengers.add(new Passenger(username, contact, password));
-                File file=new File("Passenger.txt");
-                FileOutputStream fos = new FileOutputStream(file);
-                ObjectOutputStream oos = new ObjectOutputStream(fos);
-//                Passenger creatPassenger = new Passenger(username, contact, password); // Passenger (Name,contactInfo,password)
-                oos.writeObject(passengers);
-                oos.flush();
+            if (!flagOfNameNotFound) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Username is used ");
+                alert.setContentText("Username must be unique");
+                alert.showAndWait();
+            } else {
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
-                    root = loader.load();
-                } catch (IOException exe) {
-                    System.out.println("Can't Open userSign.fxml"+exe);
-                }
-                stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
-                stage.setScene(scene);
-                stage.show();
+                    Files.getPassengers().add(new Passenger(username, contact, password));
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
+                        root = loader.load();
+                    } catch (IOException exe) {
+                        System.out.println("Can't Open userSign.fxml"+exe);
+                    }
+                    stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
+                    stage.setScene(scene);
+                    stage.show();
 
-            } catch (Exception exception) {
-                System.out.println("Error in adding user: " + exception);
+                } catch (Exception exception) {
+                    System.out.println("Error in adding user: " + exception);
+                }
             }
         }
     }
-}
     public void backToSign(ActionEvent event){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("userSign.fxml"));

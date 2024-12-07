@@ -72,8 +72,8 @@ public class Main extends Application implements Serializable {
 //            System.out.println(Files.getAdmins().get(i).getUsername());
 //        for(int i = 0; i < Files.getPassengers().size(); i++)
 //            System.out.println(Files.getPassengers().get(i).getName());
-        for(int i = 0; i < Files.getAirports().size(); i++)
-            System.out.println(Files.getAirports().get(i).getAirport_Name());
+//        for(int i = 0; i < Files.getAirports().size(); i++)
+//            System.out.println(Files.getAirports().get(i).getAirport_Name());
 //        for(int i = 0; i < Files.getFlights().size(); i++)
 //            System.out.println(Files.getFlights().get(i).getDeapartureAirport().getAirport_Name());
 
@@ -415,11 +415,12 @@ public class Main extends Application implements Serializable {
 
 //        for(int i = 0; i < Files.getAdmins().size(); i++)
 //            System.out.println(Files.getAdmins().get(i).getUsername());
-//        for(int i = 0; i < Files.getPassengers().size(); i++)
-//            System.out.println(Files.getPassengers().get(i).getName());
             System.out.println("");
-            for(int i = 0; i < Files.getAirports().size(); i++)
-                System.out.println(Files.getAirports().get(i).getAirport_Name());
+        for(int i = 0; i < Files.getPassengers().size(); i++)
+            System.out.println(Files.getPassengers().get(i).getName());
+
+//            for(int i = 0; i < Files.getAirports().size(); i++)
+//                System.out.println(Files.getAirports().get(i).getAirport_Name());
 //        for(int i = 0; i < Files.getFlights().size(); i++)
 //            System.out.println(Files.getFlights().get(i).getDeapartureAirport().getAirport_Name());
             stage.close();
