@@ -50,7 +50,7 @@ public class UserSignUp implements Serializable{
             alert.setContentText("Password is required more than 6 chars");
             alert.showAndWait();
         } else {
-            Passenger passenger;
+//            Passenger passenger;
             boolean flagOfNameNotFound = true;
            try {
                 int size = Files.getPassengers().size();

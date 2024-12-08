@@ -31,10 +31,11 @@ public class UserSignIn {
     private Scene scene;
     private Parent root;
 
-    Passenger user;
+
 
 
     public void submitLogin(ActionEvent e)  {
+        Passenger user = null;
         String username = userin.getText();
         String password = passin.getText();
         boolean flag = false;
@@ -47,25 +48,25 @@ public class UserSignIn {
         } else {
             try {
                 int size= Files.getPassengers().size();
-                for(int i=0;i<size;i++){
-                    if(username.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase()) && password.equals(Files.getPassengers().get(i).getPassword())){
-                        flag=true;
+                for(int i=0;i<size;i++) {
+                    if (username.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase()) && password.equals(Files.getPassengers().get(i).getPassword())) {
+                        flag = true;
                         user = Files.getPassengers().get(i);
                         break;
                     }
                 }
+                if (flag) {
+                    Multi_used_methods.openFlightSearch(e, user);
+                }
+                else {
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Login Failed");
+                    alert.setContentText("Login Failed");
+                    alert.showAndWait();
+                }
             }catch (Exception exe){
                 System.out.println("Error when login"+exe);
-            }
-            if (flag) {
-                Multi_used_methods.openFlightSearch(e, user);
-
-            } else {
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Login Failed");
-                alert.setContentText("Login Failed");
-                alert.showAndWait();
             }
         }
     }

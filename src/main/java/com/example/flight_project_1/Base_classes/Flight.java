@@ -1,6 +1,7 @@
 package com.example.flight_project_1.Base_classes;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Flight implements Serializable {
@@ -10,7 +11,7 @@ public class Flight implements Serializable {
     private Date departureTime;
     private Date arrivalTime;
     private int price;
-    private Seat []seats;
+    private ArrayList<ArrayList<Seat>> seats;
     private Passenger passengers[];
 
     public int getFlightNumber() {
@@ -53,11 +54,11 @@ public class Flight implements Serializable {
         this.arrivalTime = arrivalTime;
     }
 
-    public Seat[] getSeats() {
+    public ArrayList<ArrayList<Seat>> getSeats() {
         return seats;
     }
 
-    public void setSeats(Seat[] seats) {
+    public void setSeats(ArrayList<ArrayList<Seat>> seats) {
         this.seats = seats;
     }
 
@@ -81,7 +82,7 @@ public class Flight implements Serializable {
     }
 
     public Flight(int flightNumber, Airport deapartureAirport, Airport arrivalAirport, Date departureTime,
-                  Date arrivalTime, Seat[] seats, int price)
+                  Date arrivalTime, ArrayList<ArrayList<Seat>> seats, int price)
     {
         FlightNumber = flightNumber;
         this.deapartureAirport = deapartureAirport;

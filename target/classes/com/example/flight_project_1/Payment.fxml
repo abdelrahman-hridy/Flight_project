@@ -22,7 +22,7 @@
          <Font size="17.0" />
       </font>
    </Button>
-      <Button fx:id="submit" layoutX="330.0" layoutY="673.0" mnemonicParsing="false" onAction="#handleSubmit" text="Submit">
+      <Button fx:id="submit" layoutX="738.0" layoutY="662.0" mnemonicParsing="false" onAction="#handleSubmit" text="Submit">
          <font>
             <Font size="22.0" />
          </font></Button>
@@ -73,8 +73,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <TextArea fx:id="paymentID" layoutX="174.0" layoutY="197.0" prefHeight="46.0" prefWidth="82.0" />
-      <Button fx:id="ConfirmButton" layoutX="1190.0" layoutY="665.0" mnemonicParsing="false" onAction="#goToBookingCinfirmation" prefHeight="57.0" prefWidth="120.0" text="Confirm" />
+      <TextArea fx:id="paymentID" layoutX="174.0" layoutY="178.0" prefHeight="26.0" prefWidth="82.0" />
 
 
 

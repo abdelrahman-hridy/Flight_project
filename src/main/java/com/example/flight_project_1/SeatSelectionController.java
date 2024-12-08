@@ -50,6 +50,9 @@ public class SeatSelectionController  {
     public void passingFlight(Flight flight){
         this.flight = flight;
     }
+    public void getTheSeat(Seat seat){
+        
+    }
 
     public void goToProfile(ActionEvent event){
         Multi_used_methods.GoToProfile(event, user, 3, flight);

@@ -74,5 +74,10 @@
             <Font size="27.0" />
          </font>
       </Button>
+      <Button fx:id="BackTo" layoutX="53.0" layoutY="30.0" mnemonicParsing="false" onAction="#BackToPaymentGate" text="Back" textFill="#253ad7">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

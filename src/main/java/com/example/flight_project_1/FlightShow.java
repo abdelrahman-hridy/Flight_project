@@ -38,12 +38,12 @@ public class FlightShow{
         departureTimeLabel.setText(departureTimeLabel.getText() + flight.getDepartureTime().toString());
         arrivalTimeLabel.setText(arrivalTimeLabel.getText() + flight.getArrivalTime().toString());
         priceLabel.setText(priceLabel.getText() + flight.getPrice() + "$");
-        int n = 0;
-        for (int i = 0; i < 3; i++)
-        {
-            if((flight.getSeats())[i].isSeatStatus())
-                n++;
-        }
+        int n = 60;
+//        for (int i = 0; i < 3; i++)
+//        {
+//            if((flight.getSeats()).get(i).isSeatStatus())
+//                n++;
+//        }
         seatsLabel.setText(seatsLabel.getText() + n);
 
         departureAirportLabel.getStyleClass().add("custom-label");

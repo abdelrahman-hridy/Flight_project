@@ -5,14 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dea871e6-0e98-4b7d-8fbc-c8c6e6ff4629" name="Changes" comment="Payment first phase">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flights.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Flights.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Passenger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Passenger.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Flight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Payment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/BookingConfirmationCont.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/BookingConfirmationCont.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/FlightShow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/FlightShow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/SeatSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/SeatSelectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/ShowSeatDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/ShowSeatDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/UserSignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/UserSignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/UserSignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/UserSignUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/BookingConfrimScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/BookingConfrimScene.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/Payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/Payment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Base_classes/Flight.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Base_classes/Flight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Base_classes/Payment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Base_classes/Payment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/FlightShow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/FlightShow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/PaymentSceneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/PaymentSceneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/SeatSelectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/SeatSelectionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/ShowSeatDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/ShowSeatDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/UserSignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/UserSignIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/UserSignUp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/UserSignUp.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,14 +83,14 @@
     &quot;Shell Script.main.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/HP/Documents/Flight_project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sheha/Downloads/openjfx-23.0.1_windows-x64_bin-sdk/javafx-sdk-23.0.1/lib&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -102,6 +120,14 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -119,6 +145,7 @@
       <workItem from="1733257058425" duration="652000" />
       <workItem from="1733337626297" duration="18324000" />
       <workItem from="1733390933974" duration="14165000" />
+      <workItem from="1733674009059" duration="18137000" />
     </task>
     <task id="LOCAL-00001" summary="Payment first phase">
       <option name="closed" value="true" />
@@ -154,7 +181,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java</url>
-          <line>136</line>
+          <line>150</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

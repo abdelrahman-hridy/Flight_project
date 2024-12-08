@@ -6,9 +6,14 @@ import com.example.flight_project_1.Base_classes.Payment;
 import com.example.flight_project_1.Base_classes.Seat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import javax.print.DocFlavor;
 import java.net.URL;
@@ -41,6 +46,10 @@ public class BookingConfirmationCont  {
     private Flight flight;
     private Seat seat;
     private Payment payment;
+    private Parent root;
+    private Stage stage;
+    private Scene scene;
+//    private String allPrice;
 
 
     public void setData(Passenger user, Flight flight, Seat seat, Payment payment ){
@@ -48,6 +57,7 @@ public class BookingConfirmationCont  {
         this.payment=payment;
         this.flight=flight;
         this.seat=seat;
+//        this.allPrice=allPrice;
         ConfirmationInfo();
     }
 
@@ -97,13 +107,39 @@ public class BookingConfirmationCont  {
         paymentMethod.setEditable(false);
         totalPrice.setEditable(false);
     }
-//    @FXML
-//    public void initialize(URL url, ResourceBundle resources){
-//        try{
-//            ConfirmationInfo();
-//        }catch (NullPointerException e){
-//            System.out.println("There is an info has not been set  "+e);
-//        }
+    public void BackToPaymentGate(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Payment.fxml"));
+            root = fxmlLoader.load();
+
+            PaymentSceneController paymentSceneController = fxmlLoader.getController();
+            paymentSceneController.PassingSeatDetailsValues(user,flight,seat,payment.getPaymentAmount(),payment);
+
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception ex){
+            System.out.println("Error When Go to payment Gate"+ex);
+        }
+    }
+//    public void confirmTheFlight(ActionEvent event) {
+//        seat.setSeatStatus(false);
+//        try {
+//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeatSelection.fxml"));
+//            root = fxmlLoader.load();
 //
+//            SeatSelectionController seatSelectionController = fxmlLoader.getController();
+//            seatSelectionController.
+//
+//            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//            scene = new Scene(root);
+//            stage.setScene(scene);
+//            stage.show();
+//        }catch (Exception ex){
+//            System.out.println("Error When "+ex);
+//        }
 //    }
+
+
 }

@@ -2,21 +2,21 @@ package com.example.flight_project_1.Base_classes;
 
 public class Payment {
     private final int paymentId;
-    private double paymentAmount;
+    private String paymentAmount;
     private String paymentMethod;
     private String paymentStatus;
-    private static int counterPassId=0;
+    private static int counterPaymentId=0;
 
     // Constructor
-    public Payment(double paymentAmount, String paymentMethod, String paymentStatus) {
-        this.paymentId = ++counterPassId;
+    public Payment(String paymentAmount, String paymentMethod, String paymentStatus) {
+        this.paymentId = ++counterPaymentId;
         this.paymentAmount = paymentAmount;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
     }
 
     public  Payment() {
-      this.paymentId = ++counterPassId;
+      this.paymentId = ++counterPaymentId;
     }
     // Getters and Setters
 
@@ -24,11 +24,11 @@ public class Payment {
         return paymentId;
     }
 
-    public double getPaymentAmount() {
+    public String getPaymentAmount() {
         return paymentAmount;
     }
 
-    public void setPaymentAmount(double paymentAmount) {
+    public void setPaymentAmount(String paymentAmount) {
         this.paymentAmount = paymentAmount;
     }
 

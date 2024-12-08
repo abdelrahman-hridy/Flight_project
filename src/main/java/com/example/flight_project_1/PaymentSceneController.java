@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
+import javax.imageio.IIOParam;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLOutput;
@@ -21,13 +22,14 @@ import java.util.ResourceBundle;
 
 public class PaymentSceneController implements Initializable {
 
-
-
+    private Payment payment;
+//    private String allPrice;
+    private boolean payment_successful=false;
+//    private FXMLLoader fxmlLoader;
     @FXML
     private TextField   paymentAmount;
     @FXML
     private TextField Card_Number,Expairy_Date,CVV,PayPal_mail,PayPal_Num;
-    private Payment payment;
     @FXML
     private TextArea paymentID,  total_cost, payment_status;
     @FXML
@@ -52,26 +54,35 @@ public class PaymentSceneController implements Initializable {
    // ShowSeatDetail price=new ShowSeatDetail();
     ArrayList<Flight> flights = Files.getFlights();
 
-    public void assignPaymentID(Payment payment) {
-        this.payment = payment;
-        if (payment != null) {
-            paymentID.setText(String.valueOf(payment.getpaymentId()));
-        } else {
-            paymentID.setText("No payment assigned");
-        }
-    }
-    public void assignUser(Passenger user){
-        this.user = user;
-    }
+//    public void assignPaymentID(Payment payment) {
+//        this.payment = payment;
+//        if (payment != null) {
+//            paymentID.setText(String.valueOf(payment.getpaymentId()));
+//        } else {
+//            paymentID.setText("No payment assigned");
+//        }
+//    }
+//    public void assignUser(Passenger user){
+//        this.user = user;
+//    }
+//
+//    public void passingFlight(Flight flight){
+//        this.flight = flight;
+//    }
+//    public void passingSeat(Seat seat){
+//        this.seat = seat;
+//    }
 
-    public void passingFlight(Flight flight){
+
+    public void PassingSeatDetailsValues( Passenger user, Flight flight, Seat seat, String allPrice,Payment payment) {
         this.flight = flight;
-    }
-    public void passingSeat(Seat seat){
         this.seat = seat;
+        this.user = user;
+        payment.setPaymentAmount(allPrice);
+        this.payment=payment;
+        paymentID.setText(String.valueOf(payment.getpaymentId()));
+        total_cost.setText(String.valueOf(allPrice));
     }
-
-
 
     private String[] methods = {"~All~","Credit card", "Debit card", "Digital wallets"};
     private String[] addtionalServices={"~All~","Seat Upgrades"," addtional Packages"," Wi-Fi Access"};
@@ -86,10 +97,13 @@ public class PaymentSceneController implements Initializable {
        paymentMethod.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
            switch (newValue) {
                case "Credit card":
+                   payment.setPaymentMethod("Credit card");
                    case "Debit card":
+                       payment.setPaymentMethod("Debit card");
                    setPaymentFieldsVisibility(true, false); // Show card fields, hide wallet fields
                     break;
             case "Digital wallets":
+                payment.setPaymentMethod("Digital wallets");
                    setPaymentFieldsVisibility(false, true); // Show wallet fields, hide card fields
                     break;
                default:
@@ -115,10 +129,10 @@ public class PaymentSceneController implements Initializable {
     }
 
     // Calculate total cost
-    private double calc_totalCost(double baseFare, double fees) {
-        double taxes = flight.getPrice() * 0.14; // 14% tax
-        return flight.getPrice() + taxes + fees;
-    }
+//    private double calc_totalCost(double baseFare, double fees) {
+//        double taxes = flight.getPrice() * 0.14; // 14% tax
+//        return flight.getPrice() + taxes + fees;
+//    }
     @FXML
     public void handleSubmit(ActionEvent event) {
         System.out.println("Submit button clicked!");
@@ -128,20 +142,20 @@ public class PaymentSceneController implements Initializable {
 
             if ((Card_Number.getText().isEmpty() || Expairy_Date.getText().isEmpty() || CVV.getText().isEmpty())
                     && (PayPal_mail.getText().isEmpty() || PayPal_Num.getText().isEmpty())) {
-                mylabeltoAlert.setText("Invalid Data. Please check your input.");
+                mylabeltoAlert.setText("Invalid Data. Please check your Card Info.");
                 payment_status.setText("Payment Failed!");
                 return;
             }
 
 
 //double baseFare = Double.parseDouble(price.allprice );
-            double flight_Price=flight.getPrice();
-            System.out.println(flight_Price);
-            double baseFare = Double.parseDouble( flight_Price+seat.calcSeatPrice(flight));
-
-            double fees = 50;
-            double totalCost = calc_totalCost(baseFare, fees);
-            System.out.println(seat.calcSeatPrice(flight));
+//            double flight_Price=flight.getPrice();
+//            System.out.println(flight_Price);
+//            double baseFare = Double.parseDouble( flight_Price+seat.calcSeatPrice(flight));
+//
+//            double fees = 50;
+            double totalCost = Double.parseDouble(payment.getPaymentAmount());
+//            System.out.println(seat.calcSeatPrice(flight));
 
 
             if (paymentamont >= totalCost ) {
@@ -149,6 +163,27 @@ public class PaymentSceneController implements Initializable {
                 mylabeltoAlert.setText("Processing payment...");
                 payment_status.setText("Payment Completed!");
                 mylabeltoAlert.setStyle("-fx-text-fill: green;");
+                payment_successful=true;
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BookingConfrimScene.fxml"));
+                    root = fxmlLoader.load();
+
+                    BookingConfirmationCont booking = fxmlLoader.getController();
+                    booking.setData(user, flight, seat, payment);
+
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }catch (Exception e){
+                    System.out.println("Error to go to The Booking Confirmation"+e);
+                }
+
+
+//                    ShowSeatDetail showSeatDetail=new ShowSeatDetail();
+//                    showSeatDetail.passingPayment(new Payment());
+
+
             } else {
                 mylabeltoAlert.setText("PaymentAmount must be greater than or equal Total Cost.");
                 payment_status.setText("Payment Failed!");
@@ -161,23 +196,23 @@ public class PaymentSceneController implements Initializable {
             mylabeltoAlert.setStyle("-fx-text-fill: red;");
         }
     }
-    public void goToBookingCinfirmation(ActionEvent event){
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BookingConfrimScene.fxml"));
-            root =fxmlLoader.load();
-
-            BookingConfirmationCont booking = fxmlLoader.getController();
-            booking.setData(user,flight,seat,payment);
-
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-
-        } catch (Exception e) {
-            System.out.println("There is an error loading Booking confirmation  "+e);
-        }
-    }
+//    public void goToBookingCinfirmation(ActionEvent event){
+//        try{
+//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BookingConfrimScene.fxml"));
+//            root =fxmlLoader.load();
+//
+//            BookingConfirmationCont booking = fxmlLoader.getController();
+//            booking.setData(user,flight,seat,payment,allPrice);
+//
+//            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//            scene = new Scene(root);
+//            stage.setScene(scene);
+//            stage.show();
+//
+//        } catch (Exception e) {
+//            System.out.println("There is an error loading Booking confirmation  "+e);
+//        }
+//    }
 
 
     public void BackToShowSeatDetails(ActionEvent event){
@@ -189,6 +224,7 @@ public class PaymentSceneController implements Initializable {
             showSeatDetail.assignUser(user);
             showSeatDetail.passingFlight(flight);
             showSeatDetail.passingTheSeat(seat);
+            showSeatDetail.passingPayment(payment);
             showSeatDetail.SetDataOfTheSeat(event);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

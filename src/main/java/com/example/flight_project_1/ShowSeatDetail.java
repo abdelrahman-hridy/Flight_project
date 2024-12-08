@@ -2,6 +2,7 @@ package com.example.flight_project_1;
 
 import com.example.flight_project_1.Base_classes.Flight;
 import com.example.flight_project_1.Base_classes.Passenger;
+import com.example.flight_project_1.Base_classes.Payment;
 import com.example.flight_project_1.Base_classes.Seat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import java.io.Serializable;
 public class ShowSeatDetail implements Serializable {
     private Passenger user;
     private Flight flight;
+    private Payment payment;
     private Seat seat;
     private Parent root;
     private Stage stage;
@@ -49,6 +51,7 @@ public class ShowSeatDetail implements Serializable {
     public void passingTheSeat(Seat seat){
         this.seat = seat;
     }
+    public void passingPayment(Payment payment){this.payment = payment;}
 
     public void SetDataOfTheSeat(ActionEvent event){
         SeatId.setText(seat.getSeatId());
@@ -110,9 +113,7 @@ public class ShowSeatDetail implements Serializable {
             root = fxmlLoader.load();
 
             PaymentSceneController paymentSceneController = fxmlLoader.getController();
-            paymentSceneController.assignUser(user);
-            paymentSceneController.passingFlight(flight);
-            paymentSceneController.passingSeat(seat);
+            paymentSceneController.PassingSeatDetailsValues(user,flight,seat,allprice,payment);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -123,5 +124,8 @@ public class ShowSeatDetail implements Serializable {
             System.out.println("Error when to go the payment"+e);
         }
     }
+
+//    private Payment payment() {
+//    }
 
 }
