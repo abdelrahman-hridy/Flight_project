@@ -13,7 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -36,6 +38,8 @@ public class PaymentSceneController implements Initializable {
     private Button submit;
     @FXML
     public ImageView PaymentImage;
+    @FXML
+    private Button ConfirmButton;
     @FXML
     private ChoiceBox addtional_Services;
     private Parent root;
@@ -157,7 +161,23 @@ public class PaymentSceneController implements Initializable {
             mylabeltoAlert.setStyle("-fx-text-fill: red;");
         }
     }
+    public void goToBookingCinfirmation(ActionEvent event){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BookingConfrimScene.fxml"));
+            root =fxmlLoader.load();
 
+            BookingConfirmationCont booking = fxmlLoader.getController();
+            booking.setData(user,flight,seat,payment);
+
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (Exception e) {
+            System.out.println("There is an error loading Booking confirmation  "+e);
+        }
+    }
 
 
     public void BackToShowSeatDetails(ActionEvent event){
