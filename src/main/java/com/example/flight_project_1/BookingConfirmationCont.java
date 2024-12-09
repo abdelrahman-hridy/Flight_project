@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 import javax.print.DocFlavor;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BookingConfirmationCont  {
@@ -44,7 +45,7 @@ public class BookingConfirmationCont  {
 
     private Passenger user;
     private Flight flight;
-    private Seat seat;
+    private ArrayList <Seat> seats;
     private Payment payment;
     private Parent root;
     private Stage stage;
@@ -53,11 +54,11 @@ public class BookingConfirmationCont  {
 //    private String allPrice;
 
 
-    public void setData(Passenger user, Flight flight, Seat seat, Payment payment,int AvailbleSeats ) {
+    public void setData(Passenger user, Flight flight, ArrayList <Seat> seats, Payment payment,int AvailbleSeats ) {
         this.user=user;
         this.payment=payment;
         this.flight=flight;
-        this.seat=seat;
+        this.seats = seats;
         this.AvailbleSeats=AvailbleSeats;
 //        this.allPrice=allPrice;
         ConfirmationInfo();
@@ -81,9 +82,11 @@ public class BookingConfirmationCont  {
             arrivalDate.setText("Null value");
             departureDate.setText("Null value");
         }
-        if (seat != null) {
-            seatID.setText(seat.getSeatId());
-            seatClass.setText(seat.getSeatClass());
+        if (seats != null) {
+            for (int i = 0; i < seats.size(); i++) {
+                seatID.setText(seatID.getText() +seats.get(i).getSeatId());
+                seatClass.setText(seatClass.getText() +seats.get(i).getSeatClass());
+            }
         }else {
             seatID.setText("Null value");
             seatClass.setText("Null value");
@@ -115,7 +118,7 @@ public class BookingConfirmationCont  {
             root = fxmlLoader.load();
 
             PaymentSceneController paymentSceneController = fxmlLoader.getController();
-            paymentSceneController.PassingSeatDetailsValues(user,flight,seat,payment.getPaymentAmount(),payment,AvailbleSeats);
+            paymentSceneController.PassingSeatDetailsValues(user,flight,seats,payment.getPaymentAmount(),payment,AvailbleSeats);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -129,7 +132,7 @@ public class BookingConfirmationCont  {
 //        seat.setSeatStatus(false);
         for(int i=0;i<10;i++){
             for(int j=0;j<6;j++){
-                if(this.flight.getSeats().contains(this.seat)){
+                if(this.flight.getSeats().contains(this.seats)){
                     this.flight.getSeats().get(i).get(j).setSeatStatus(false);
                     break;
                 }

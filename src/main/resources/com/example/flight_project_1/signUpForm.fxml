@@ -8,29 +8,54 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.UserSignUp">
    <children>
-      <ImageView fx:id="BackInSign" fitHeight="1030.0" fitWidth="1700.0" layoutX="1.0" layoutY="-19.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="BackInSign" fitHeight="1060.0" fitWidth="1603.0" layoutY="-235.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@FlightViewBaseScene.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="Submit" layoutX="1139.0" layoutY="545.0" mnemonicParsing="false" onAction="#submitSignUp" prefHeight="25.0" prefWidth="158.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" text="Sign Up" textFill="#1b97fd">
+      <Button fx:id="Submit" layoutX="1119.0" layoutY="615.0" mnemonicParsing="false" onAction="#submitSignUp" prefHeight="26.0" prefWidth="112.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" text="Sign Up" textFill="#1b97fd">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <TextField fx:id="userup" layoutX="1173.0" layoutY="158.0" />
-      <PasswordField fx:id="passup" layoutX="1173.0" layoutY="354.0" />
-      <Label fx:id="UserNameLabel" layoutX="1000.0" layoutY="163.0" scaleX="2.0" scaleY="2.0" text="UserName" textFill="#71a9d9" />
-      <Label fx:id="PasswordLabel" layoutX="1005.0" layoutY="358.0" prefHeight="17.0" prefWidth="67.0" scaleX="2.0" scaleY="2.0" text="Password" textFill="#63a3e0" />
-      <Label fx:id="WelcomLabel" layoutX="1133.0" layoutY="59.0" scaleX="2.0" scaleY="2.0" text="Welcome To Sign Page" textFill="#000102" />
-      <Button fx:id="backToSign" layoutX="1452.0" layoutY="30.0" mnemonicParsing="false" onAction="#backToSign" text="Back">
+      <TextField fx:id="userup" layoutX="1214.0" layoutY="241.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <PasswordField fx:id="passup" layoutX="1221.0" layoutY="442.0" prefHeight="41.0" prefWidth="253.0">
+         <font>
+            <Font size="19.0" />
+         </font></PasswordField>
+      <Label fx:id="UserNameLabel" layoutX="1048.0" layoutY="251.0" scaleX="2.0" scaleY="2.0" text="UserName" textFill="#71a9d9">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="PasswordLabel" layoutX="1053.0" layoutY="446.0" prefHeight="30.0" prefWidth="90.0" scaleX="2.0" scaleY="2.0" text="Password" textFill="#63a3e0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="WelcomLabel" layoutX="725.0" layoutY="66.0" scaleX="2.0" scaleY="2.0" text="Welcome To Sign Page" textFill="#000102">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+      <Button fx:id="backToSign" layoutX="500.0" layoutY="609.0" mnemonicParsing="false" onAction="#backToSign" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <TextField fx:id="contactUp" layoutX="1173.0" layoutY="249.0" />
-      <Label fx:id="PasswordLabel1" layoutX="994.0" layoutY="253.0" prefHeight="17.0" prefWidth="67.0" scaleX="2.0" scaleY="2.0" text="Contact Info" textFill="#63a3e0" />
+         </cursor>
+         <font>
+            <Font size="21.0" />
+         </font></Button>
+      <TextField fx:id="contactUp" layoutX="1221.0" layoutY="337.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <Label fx:id="PasswordLabel1" layoutX="1042.0" layoutY="341.0" prefHeight="30.0" prefWidth="112.0" scaleX="2.0" scaleY="2.0" text="Contact Info" textFill="#63a3e0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
 
    </children>
 </AnchorPane>

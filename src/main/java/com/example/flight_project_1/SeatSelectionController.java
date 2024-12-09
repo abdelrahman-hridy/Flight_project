@@ -31,7 +31,7 @@ public class SeatSelectionController  {
 //    private static final long serialVersionUID = 3362544085469329324L;
 //    private final ArrayList<String> seatSelected = new ArrayList<>();
 //    private ArrayList<ArrayList<Seat>> AllSeats=new ArrayList<>();
-    private String seatSelected;
+    private ArrayList<String> seatsIDSelected = new ArrayList<>();
     private Flight flight;
     private Passenger user;
     private Stage stage;
@@ -42,7 +42,7 @@ public class SeatSelectionController  {
     private Label AvailableSeatLabel;
 //    ArrayList<String> AllSeatsIds = new ArrayList<>();
 //    private final ToggleGroup toggleGroup = new ToggleGroup();
-
+    private int numberOfSeatSelected = 0;
 
     public void assignUser(Passenger user){
         this.user = user;
@@ -67,28 +67,36 @@ public class SeatSelectionController  {
     }
 
     public void toggleSeat(ActionEvent event){
-        System.out.println(this.flight.toString());
+//        System.out.println(this.flight.toString());
 
-        ToggleButton toggledButton = (ToggleButton) event.getSource();
+         {
+            ToggleButton toggledButton = (ToggleButton) event.getSource();
 //        toggleButtonSelectedBefore=toggledButton;
-         seatSelected = toggledButton.getId();
 
+            if ((toggledButton.isSelected())) {
+                if(numberOfSeatSelected < 4) {
+//                    System.out.println(toggledButton.getId() + " is selected");
+                    toggledButton.setStyle("-fx-background-color:yellow;");
+                    seatsIDSelected.add(toggledButton.getId());
+                    numberOfSeatSelected++;
+                }
+                else {
+                    toggledButton.setSelected(false);
+                    return;
+                }
 
-        if((toggledButton.isSelected())){
-            System.out.println(seatSelected + " is selected");
-            toggledButton.setStyle("-fx-background-color:yellow;");
-//            seatSelected.add(seatID);
-
-        }else{
-            System.out.println(seatSelected + "is deselected");
-            if(seatSelected.endsWith("F")){
-                toggledButton.setStyle("-fx-background-color:blue;");
-            }else if(seatSelected.endsWith("B")){
-                toggledButton.setStyle("-fx-background-color:violet;");
-            }else{
-                toggledButton.setStyle("-fx-background-color:lightGreen;");
+            } else {
+//                System.out.println(toggledButton.getId() + "is deselected");
+                numberOfSeatSelected--;
+                if (toggledButton.getId().endsWith("F")) {
+                    toggledButton.setStyle("-fx-background-color:blue;");
+                } else if (toggledButton.getId().endsWith("B")) {
+                    toggledButton.setStyle("-fx-background-color:violet;");
+                } else {
+                    toggledButton.setStyle("-fx-background-color:lightGreen;");
+                }
+                seatsIDSelected.remove(toggledButton.getId());
             }
-//            seatSelected.remove(seatID);
         }
     }
 
@@ -98,45 +106,36 @@ public class SeatSelectionController  {
 //            AllSeats=(ArrayList<ArrayList<Seat>>) ois.readObject();
 //            System.out.println("Cols: "+AllSeats.get(0).size());
 //            System.out.println("Rows: "+AllSeats.size());
-            boolean seatAvailble=false;
-            Seat seatInfo = null;
+            ArrayList <Seat> seatsSelected = new ArrayList<>();
             for(int i=0;i<10;i++){
                 for(int j=0;j<6;j++){
-                    if(seatSelected.equals(flight.getSeats().get(i).get(j).getSeatId()) && flight.getSeats().get(i).get(j).isSeatStatus()){
-                        seatAvailble=true;
-                        seatInfo=flight.getSeats().get(i).get(j);
-                        break;
-                    }
-                    if(seatAvailble){
-                        break;
+                    for (int k = 0; k < seatsIDSelected.size(); k++) {
+                        if (seatsIDSelected.get(k).equals(flight.getSeats().get(i).get(j).getSeatId())) {
+                            seatsSelected.add(flight.getSeats().get(i).get(j));
+                            break;
+                        }
                     }
                 }
             }
-            if(seatAvailble){
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowSeatDetail.fxml"));
-                root = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowSeatDetail.fxml"));
+            root = loader.load();
 
-                ShowSeatDetail showSeatDetail = loader.getController();  // IMPPPPORTAANTT!!!!
-                showSeatDetail.passingFlight(flight);
-                showSeatDetail.assignUser(user);
-                showSeatDetail.passingTheSeat(seatInfo);
-                showSeatDetail.SetDataOfTheSeat(event);
+            ShowSeatDetail showSeatDetail = loader.getController();  // IMPPPPORTAANTT!!!!
+            showSeatDetail.passingFlight(flight);
+            showSeatDetail.assignUser(user);
+            showSeatDetail.passingTheSeats(seatsSelected);
+            showSeatDetail.SetDataOfTheSeat(event);
 
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
 
 
+
+            }catch(Exception e){
+                System.out.println("Error in recordSeat: "+e);
             }
-            else{
-                AvailableSeatLabel.setText("The Seat Is Not Available");
-                AvailableSeatLabel.setStyle("-fx-background-color:red;");
-            }
-
-        }catch(Exception e){
-            System.out.println("Error in recordSeat: "+e);
-        }
     }
 
 

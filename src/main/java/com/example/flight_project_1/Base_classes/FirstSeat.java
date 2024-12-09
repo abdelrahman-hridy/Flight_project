@@ -7,8 +7,8 @@ public class FirstSeat extends Seat{
     }
 
     @Override
-    public String calcSeatPrice(Flight flight) {
-        return String.valueOf(Integer.valueOf((int) (cost*flight.getPrice())));
+    public double calcSeatPrice(Flight flight) {
+        return cost * flight.getPrice();
     }
 
     @Override

@@ -52,7 +52,7 @@ public class PaymentSceneController implements Initializable {
 
     private Passenger user;
     private Flight flight;
-    private Seat seat;
+    private ArrayList <Seat> seats;
    // ShowSeatDetail price=new ShowSeatDetail();
     ArrayList<Flight> flights = Files.getFlights();
 
@@ -76,9 +76,9 @@ public class PaymentSceneController implements Initializable {
 //    }
 
 
-    public void PassingSeatDetailsValues( Passenger user, Flight flight, Seat seat, String allPrice,Payment payment,int AvailbleSeats) {
+    public void PassingSeatDetailsValues( Passenger user, Flight flight, ArrayList <Seat> seats, String allPrice,Payment payment,int AvailbleSeats) {
         this.flight = flight;
-        this.seat = seat;
+        this.seats = seats;
         this.user = user;
         payment.setPaymentAmount(allPrice);
         this.payment=payment;
@@ -87,8 +87,8 @@ public class PaymentSceneController implements Initializable {
         total_cost.setText(String.valueOf(allPrice));
     }
 
-    private String[] methods = {"~All~","Credit card", "Debit card", "Digital wallets"};
-    private String[] addtionalServices={"~All~","Seat Upgrades"," addtional Packages"," Wi-Fi Access"};
+    private String[] methods = {"Credit card", "Debit card", "Digital wallets"};
+    private String[] addtionalServices={"Seat Upgrades"," addtional Packages"," Wi-Fi Access"};
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         paymentMethod.getItems().addAll(methods);
@@ -124,7 +124,7 @@ public class PaymentSceneController implements Initializable {
    private void setPaymentFieldsVisibility(boolean showCardFields, boolean showWalletFields) {
 
       Card_Number.setVisible(showCardFields);
-     Expairy_Date.setVisible(showCardFields);
+      Expairy_Date.setVisible(showCardFields);
      CVV.setVisible(showCardFields);
 
         PayPal_mail.setVisible(showWalletFields);
@@ -172,7 +172,7 @@ public class PaymentSceneController implements Initializable {
                     root = fxmlLoader.load();
 
                     BookingConfirmationCont booking = fxmlLoader.getController();
-                    booking.setData(user, flight, seat, payment,AvailbleSeats);
+                    booking.setData(user, flight, seats, payment,AvailbleSeats);
 
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
@@ -226,7 +226,7 @@ public class PaymentSceneController implements Initializable {
             ShowSeatDetail showSeatDetail = fxmlLoader.getController();
             showSeatDetail.assignUser(user);
             showSeatDetail.passingFlight(flight);
-            showSeatDetail.passingTheSeat(seat);
+            showSeatDetail.passingTheSeats(seats);
             showSeatDetail.passingPayment(payment);
             showSeatDetail.passingAvailbleSeats(AvailbleSeats);
             showSeatDetail.SetDataOfTheSeat(event);

@@ -35,14 +35,17 @@ public class Main extends Application implements Serializable {
             throw new RuntimeException(e);
         }
         // Read Flights
-        File file = new File("Flights.txt");
         try {
+            File file = new File("Flights.txt");
             ois = new ObjectInputStream(new FileInputStream(file));
             Files.setFlights((ArrayList<Flight>) ois.readObject());
 
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
             System.out.println("Cant't Find Flights.txt");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
+
         // Read Admins
         try {
             FileInputStream fis = new FileInputStream("Admins.txt");
@@ -67,6 +70,7 @@ public class Main extends Application implements Serializable {
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
 
 //        for(int i = 0; i < Files.getAdmins().size(); i++)
 //            System.out.println(Files.getAdmins().get(i).getUsername());
@@ -266,6 +270,8 @@ public class Main extends Application implements Serializable {
 //          }
 //          System.out.println("\n==============================================");
 //      }
+
+
 ////
 //      File file =new File("test.txt");
 //      FileOutputStream fileOutputStream = new FileOutputStream(file);
@@ -302,7 +308,7 @@ public class Main extends Application implements Serializable {
 //        }catch (Exception e){
 //            System.out.println("Cant add Airports");
 //        }
-//
+////
 //          ArrayList<ArrayList<Seat>>AllFlightSeats=null;
 //          try {
 //              ObjectInputStream ois123 = new ObjectInputStream (new FileInputStream("AllSeats.txt"));
@@ -316,7 +322,6 @@ public class Main extends Application implements Serializable {
 //          }catch (Exception ex){
 //              System.out.println("Error cant Read The Seats For the flights");
 //          }
-//
 //
 //        ArrayList<Flight> flights_to_Write = new ArrayList<>();
 //        flights_to_Write.add(new Flight(1, airports.get(0), airports.get(1), new Date(2024 - 1900, Calendar.NOVEMBER, 4, 6, 0),
@@ -336,6 +341,9 @@ public class Main extends Application implements Serializable {
 //        }catch (Exception e){
 //            System.out.println("Cant write The Flights");
 //        }
+
+
+
 //
 //
 //        ArrayList<Flight> flights=null;
