@@ -14,9 +14,9 @@
 
 <AnchorPane maxHeight="800.0" maxWidth="1536.0" minHeight="800.0" minWidth="1536.0" prefHeight="800.0" prefWidth="1536.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.SeatSelectionController">
    <children>
-      <ImageView fitHeight="846.0" fitWidth="1595.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="895.0" fitWidth="1671.0" layoutX="-46.0" layoutY="-63.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@seat5.png" />
+            <Image url="@seat7.png" />
          </image>
       </ImageView>
       <GridPane hgap="10.0" layoutX="965.0" layoutY="182.0" prefHeight="523.0" prefWidth="573.0" vgap="10.0">
@@ -418,6 +418,29 @@
       <Label fx:id="AvailableSeatLabel" layoutX="1094.0" layoutY="122.0" prefHeight="46.0" prefWidth="378.0" style="-fx-text-alignment: center;" text="The Seat Is Availble " textFill="#00ffe2">
          <font>
             <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="98.0" layoutY="244.0" prefHeight="46.0" prefWidth="53.0" style="-fx-background-color: blue; -fx-background-radius: 5px;" textFill="RED" />
+      <Label layoutX="210.0" layoutY="244.0" style="-fx-background-radius: 5px;" text="First Class" textFill="BLUE">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="98.0" layoutY="364.0" prefHeight="46.0" prefWidth="53.0" style="-fx-background-color: violet; -fx-background-radius: 5px;" textFill="RED" />
+      <Label layoutX="210.0" layoutY="364.0" style="-fx-background-radius: 5px;" text="Business Class" textFill="VIOLET">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="98.0" layoutY="486.0" prefHeight="46.0" prefWidth="53.0" style="-fx-background-color: lightGreen; -fx-background-radius: 5px;" textFill="RED" />
+      <Label layoutX="206.0" layoutY="486.0" style="-fx-bacground-radius: 5px;" text="Economy Class" textFill="LIGHTGREEN">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="652.0" layoutY="247.0">
+         <font>
+            <Font size="25.0" />
          </font>
       </Label>
    </children>

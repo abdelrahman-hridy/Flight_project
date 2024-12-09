@@ -7,6 +7,7 @@
     <list default="true" id="dea871e6-0e98-4b7d-8fbc-c8c6e6ff4629" name="Changes" comment="Payment first phase">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/BookingConfirmationCont.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/BookingConfirmationCont.java" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/FlightShow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/FlightShow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Multi_used_methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Multi_used_methods.java" afterDir="false" />
@@ -20,6 +21,11 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/UserProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/UserProfile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/UserSignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/UserSignIn.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/searchFlightController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/searchFlightController.class" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/BookingConfrimScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/BookingConfrimScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/SeatSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/SeatSelection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/SeatSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/SeatSelection.fxml" afterDir="false" />
+>>>>>>> fbec0cf26dd6c84d4890dddcb603cedb7b750efd
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,14 +115,6 @@
       </method>
     </configuration>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -171,7 +169,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java</url>
-          <line>153</line>
+          <line>191</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

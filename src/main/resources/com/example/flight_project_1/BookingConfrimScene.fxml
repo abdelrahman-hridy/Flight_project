@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,65 +9,56 @@
 
 <AnchorPane prefHeight="804.0" prefWidth="1572.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.BookingConfirmationCont">
    <children>
-      <ImageView fitHeight="816.0" fitWidth="1587.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="891.0" fitWidth="1836.0" layoutX="-3.0" layoutY="-76.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@seat5.png" />
+            <Image url="@seat9.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="85.0" layoutY="346.0" prefHeight="89.0" prefWidth="100.0" text="Seat : " textFill="#00ffe2">
+      <Label alignment="CENTER" layoutX="88.0" layoutY="325.0" prefHeight="89.0" prefWidth="100.0" text="Seat : " textFill="BLUE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="811.0" layoutY="171.0" prefHeight="104.0" prefWidth="231.0" text="Flight to :" textFill="#00ffe2">
+      <Label alignment="CENTER" layoutX="811.0" layoutY="171.0" prefHeight="104.0" prefWidth="231.0" text="Flight to :" textFill="BLUE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="856.0" layoutY="455.0" prefHeight="101.0" prefWidth="192.0" text="Arrival date :" textFill="#00ffe2">
+      <Label alignment="CENTER" layoutX="856.0" layoutY="455.0" prefHeight="101.0" prefWidth="192.0" text="Arrival date :" textFill="BLUE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="502.0" layoutY="65.0" prefHeight="104.0" prefWidth="231.0" text="Username :" textFill="#00ffe2">
+      <Label alignment="CENTER" layoutX="502.0" layoutY="65.0" prefHeight="104.0" prefWidth="231.0" text="Username :" textFill="BLUE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="820.0" layoutY="335.0" prefHeight="104.0" prefWidth="231.0" text="Seat Class :" textFill="#00ffe2">
+      <Label alignment="CENTER" layoutX="821.0" layoutY="316.0" prefHeight="104.0" prefWidth="231.0" text="Seat Class :" textFill="BLUE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="826.0" layoutY="593.0" prefHeight="104.0" prefWidth="231.0" text="Total Price :" textFill="#00ffe2">
+      <Label alignment="CENTER" layoutX="826.0" layoutY="593.0" prefHeight="104.0" prefWidth="231.0" text="Total Price :" textFill="BLUE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="86.0" layoutY="591.0" prefHeight="104.0" prefWidth="272.0" text="Payment Method :" textFill="#00ffe2">
+      <Label alignment="CENTER" layoutX="86.0" layoutY="591.0" prefHeight="104.0" prefWidth="272.0" text="Payment Method :" textFill="BLUE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="flightFrom" layoutX="407.0" layoutY="222.0" prefWidth="173.0" />
-      <TextField fx:id="flightTo" layoutX="1195.0" layoutY="209.0" />
-      <TextField fx:id="seatID" layoutX="418.0" layoutY="381.0" />
-      <TextField fx:id="seatClass" layoutX="1195.0" layoutY="371.0" />
-      <TextField fx:id="arrivalDate" layoutX="1192.0" layoutY="496.0" />
-      <TextField fx:id="departureDate" layoutX="403.0" layoutY="495.0" />
-      <Label alignment="CENTER" layoutX="70.0" layoutY="190.0" prefHeight="89.0" prefWidth="191.0" text="Flight from :" textFill="#00ffe2">
+      <Label alignment="CENTER" layoutX="70.0" layoutY="190.0" prefHeight="89.0" prefWidth="191.0" text="Flight from :" textFill="BLUE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="43.0" layoutY="449.0" prefHeight="118.0" prefWidth="333.0" text="Departure date :" textFill="#00ffe2">
+      <Label alignment="CENTER" layoutX="43.0" layoutY="449.0" prefHeight="118.0" prefWidth="333.0" text="Departure date :" textFill="BLUE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="paymentMethod" layoutX="408.0" layoutY="629.0" />
-      <TextField fx:id="totalPrice" layoutX="1187.0" layoutY="630.0" />
-      <TextField fx:id="username" layoutX="805.0" layoutY="108.0" />
       <Button fx:id="confirmButton" layoutX="727.0" layoutY="708.0" mnemonicParsing="false" onAction="#confirmTheFlight" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: lightGreen;" text="Confirm">
          <font>
             <Font size="27.0" />
@@ -79,5 +69,50 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <Label fx:id="userLabel" alignment="CENTER" layoutX="767.0" layoutY="101.0" prefHeight="43.0" prefWidth="191.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="fromLabel" alignment="CENTER" layoutX="377.0" layoutY="202.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="seatLabel" alignment="CENTER" layoutX="375.0" layoutY="348.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="dDateLabel" alignment="CENTER" layoutX="382.0" layoutY="488.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="methodLabel" alignment="CENTER" layoutX="382.0" layoutY="624.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="toLabel" alignment="CENTER" layoutX="1147.0" layoutY="202.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="classLabel" alignment="CENTER" layoutX="1146.0" layoutY="347.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="aDateLabel" alignment="CENTER" layoutX="1147.0" layoutY="488.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="priceLabel" alignment="CENTER" layoutX="1145.0" layoutY="622.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
