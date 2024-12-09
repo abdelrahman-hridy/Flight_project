@@ -57,7 +57,7 @@ public class UserSignIn {
                     }
                 }
                 if (flag) {
-                    Multi_used_methods.openFlightSearch(e, user,AvailbleSeats);
+                    Multi_used_methods.openFlightSearch(e, user);
                 }
                 else {
                     alert = new Alert(Alert.AlertType.ERROR);

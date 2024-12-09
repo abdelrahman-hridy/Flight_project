@@ -132,9 +132,13 @@ public class BookingConfirmationCont  {
 //        seat.setSeatStatus(false);
         for(int i=0;i<10;i++){
             for(int j=0;j<6;j++){
-                if(this.flight.getSeats().contains(this.seats)){
-                    this.flight.getSeats().get(i).get(j).setSeatStatus(false);
-                    break;
+                for(int k=0;k<seats.size();k++){
+                    if(seats.get(k).getSeatId().equals(flight.getSeats().get(i).get(j).getSeatId())){
+                        flight.getSeats().get(i).get(j).setSeatStatus(false);
+                        break;
+//                        this.flight.getSeats().get(i).get(j).setSeatStatus(false);
+//                        break;
+                    }
                 }
             }
         }
@@ -143,9 +147,10 @@ public class BookingConfirmationCont  {
             root = fxmlLoader.load();
 
             SeatSelectionController seatSelectionController= fxmlLoader.getController();
-            seatSelectionController.paasingTheAvailbleSeats(--AvailbleSeats);
-            seatSelectionController.passingFlight(this.flight);
+            seatSelectionController.paasingTheAvailbleSeats(AvailbleSeats-seats.size());
+            seatSelectionController.passingFlight(flight);
             seatSelectionController.assignUser(user);
+//            Multi_used_methods.GoToFlightShow(event,flight,user,AvailbleSeats);
 
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

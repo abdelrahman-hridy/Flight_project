@@ -37,7 +37,7 @@ public class UserProfile {
     public void backFromUserProfile(ActionEvent e) {
        // To Flight Search scene
        if(sceneId == 1)
-            Multi_used_methods.openFlightSearch(e, user,AvailbleSeats);
+            Multi_used_methods.openFlightSearch(e, user);
        // To Flight Show scene
        else if(sceneId == 2)
            Multi_used_methods.GoToFlightShow(e, flight, user,AvailbleSeats);

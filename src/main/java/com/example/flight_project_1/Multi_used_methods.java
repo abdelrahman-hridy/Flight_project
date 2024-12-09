@@ -21,7 +21,7 @@ public class Multi_used_methods {
     private int AvailbleSeats;
 
 
-    public static void openFlightSearch(ActionEvent event, Passenger user,int AvailbleSeats) {
+    public static void openFlightSearch(ActionEvent event, Passenger user) {
         try {
             FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("searchFlightScene.fxml"));
             root = loader.load();

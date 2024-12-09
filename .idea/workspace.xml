@@ -10,19 +10,13 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/FlightShow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/FlightShow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Multi_used_methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Multi_used_methods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/SeatSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/SeatSelectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/ShowSeatDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/ShowSeatDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/UserProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/UserSignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/UserSignIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/searchFlightController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/searchFlightController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/BookingConfrimScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/BookingConfrimScene.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/FlightShow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/FlightShow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Multi_used_methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Multi_used_methods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/PaymentSceneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/PaymentSceneController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/SeatSelectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/SeatSelectionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/ShowSeatDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/ShowSeatDetail.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/UserProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/UserProfile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/UserSignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/UserSignIn.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/searchFlightController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/searchFlightController.class" afterDir="false" />
@@ -141,6 +135,7 @@
       <workItem from="1733337626297" duration="18324000" />
       <workItem from="1733390933974" duration="14165000" />
       <workItem from="1733674009059" duration="25212000" />
+      <workItem from="1733739638495" duration="10650000" />
     </task>
     <task id="LOCAL-00001" summary="Payment first phase">
       <option name="closed" value="true" />
@@ -178,6 +173,26 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java</url>
           <line>153</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/flight_project_1/searchFlightController.java</url>
+          <line>138</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/flight_project_1/FlightShow.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/flight_project_1/FlightShow.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/flight_project_1/BookingConfirmationCont.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
