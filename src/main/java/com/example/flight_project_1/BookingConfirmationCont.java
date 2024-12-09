@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -23,23 +24,12 @@ import java.util.ResourceBundle;
 public class BookingConfirmationCont  {
 
     @FXML
-    private TextField flightFrom;
-    @FXML
-    private TextField flightTo;
+    private Label userLabel,fromLabel,toLabel,classLabel,seatLabel,priceLabel,methodLabel,dDateLabel,aDateLabel;
     @FXML
     private TextField seatID;
     @FXML
     private TextField seatClass;
-    @FXML
-    private TextField arrivalDate;
-    @FXML
-    private TextField departureDate;
-    @FXML
-    private TextField username;
-    @FXML
-    private TextField paymentMethod;
-    @FXML
-    private TextField totalPrice;
+
     @FXML
     private Button confirmButton;
 
@@ -67,51 +57,44 @@ public class BookingConfirmationCont  {
     public void ConfirmationInfo(){
 
         if (user != null) {
-            username.setText(user.getName());
+            userLabel.setText(user.getName());
         }else {
-            username.setText("Null value");
+            userLabel.setText("Null value");
         }
         if (flight != null) {
-            flightFrom.setText(flight.getDeapartureAirport().getAirport_Name());
-            flightTo.setText(flight.getArrivalAirport().getAirport_Name());
-            arrivalDate.setText(flight.getArrivalTime().toString());
-            departureDate.setText(flight.getDepartureTime().toString());
+
+            fromLabel.setText(flight.getDeapartureAirport().getAirport_Name());
+            toLabel.setText(flight.getArrivalAirport().getAirport_Name());
+            aDateLabel.setText(flight.getArrivalTime().toString());
+            dDateLabel.setText(flight.getDepartureTime().toString());
+
         }else {
-            flightFrom.setText("Null value");
-            flightTo.setText("Null value");
-            arrivalDate.setText("Null value");
-            departureDate.setText("Null value");
+            fromLabel.setText("Null value");
+            toLabel.setText("Null value");
+            aDateLabel.setText("Null value");
+            dDateLabel.setText("Null value");
         }
         if (seats != null) {
             for (int i = 0; i < seats.size(); i++) {
-                seatID.setText(seatID.getText() +seats.get(i).getSeatId());
-                seatClass.setText(seatClass.getText() +seats.get(i).getSeatClass());
+                seatLabel.setText(seatLabel.getText() +", "+seats.get(i).getSeatId());
+                classLabel.setText(classLabel.getText()+", "+seats.get(i).getSeatClass());
             }
         }else {
-            seatID.setText("Null value");
-            seatClass.setText("Null value");
+            seatLabel.setText("Null value");
+            classLabel.setText("Null value");
         }
         if (payment != null) {
-            paymentMethod.setText(payment.getPaymentMethod());
-            totalPrice.setText(String.valueOf(payment.getPaymentAmount()));
+            methodLabel.setText(payment.getPaymentMethod());
+            priceLabel.setText(String.valueOf(payment.getPaymentAmount()));
+
         }else {
-            paymentMethod.setText("Null value");
-            totalPrice.setText("Null value");
+            methodLabel.setText("Null value");
+            priceLabel.setText("Null value");
         }
 
-        makeFieldsReadOnly();
+
     }
-    private void makeFieldsReadOnly(){
-        username.setEditable(false);
-        flightFrom.setEditable(false);
-        flightTo.setEditable(false);
-        seatID.setEditable(false);
-        seatClass.setEditable(false);
-        arrivalDate.setEditable(false);
-        departureDate.setEditable(false);
-        paymentMethod.setEditable(false);
-        totalPrice.setEditable(false);
-    }
+
     public void BackToPaymentGate(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Payment.fxml"));
