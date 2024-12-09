@@ -23,6 +23,7 @@ public class UserProfile {
    private Passenger user;
    private int sceneId;
    Flight flight;
+   private int AvailbleSeats;
 
    public void assignFlight(Flight flight){
        this.flight = flight;
@@ -36,13 +37,13 @@ public class UserProfile {
     public void backFromUserProfile(ActionEvent e) {
        // To Flight Search scene
        if(sceneId == 1)
-            Multi_used_methods.openFlightSearch(e, user);
+            Multi_used_methods.openFlightSearch(e, user,AvailbleSeats);
        // To Flight Show scene
        else if(sceneId == 2)
-           Multi_used_methods.GoToFlightShow(e, flight, user);
+           Multi_used_methods.GoToFlightShow(e, flight, user,AvailbleSeats);
        // To Flight Seat Selection scene
        else if (sceneId == 3)
-           Multi_used_methods.GoToChooseSeat(e, flight, user);
+           Multi_used_methods.GoToChooseSeat(e, flight, user,AvailbleSeats);
 
     }
 }

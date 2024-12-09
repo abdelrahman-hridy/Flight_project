@@ -25,12 +25,13 @@ public class FlightShow{
     Button backButton;
     Flight flight;
     private Passenger user;
+    private int AvailbleSeats;
 
     Stage stage;
     Scene scene;
     Parent root;
 
-    public void setAll(Flight flight, Passenger user){
+    public void setAll(Flight flight, Passenger user,int AvailbleSeats){
         this.flight = flight;
         this.user = user;
         departureAirportLabel.setText(departureAirportLabel.getText() + flight.getDeapartureAirport().getAirport_Name());
@@ -38,13 +39,13 @@ public class FlightShow{
         departureTimeLabel.setText(departureTimeLabel.getText() + flight.getDepartureTime().toString());
         arrivalTimeLabel.setText(arrivalTimeLabel.getText() + flight.getArrivalTime().toString());
         priceLabel.setText(priceLabel.getText() + flight.getPrice() + "$");
-        int n = 60;
+        this.AvailbleSeats = AvailbleSeats;
 //        for (int i = 0; i < 3; i++)
 //        {
 //            if((flight.getSeats()).get(i).isSeatStatus())
 //                n++;
 //        }
-        seatsLabel.setText(seatsLabel.getText() + n);
+        seatsLabel.setText(seatsLabel.getText() + AvailbleSeats);
 
         departureAirportLabel.getStyleClass().add("custom-label");
         arrivalAirportLabel.getStyleClass().add("custom-label");
@@ -59,10 +60,10 @@ public class FlightShow{
 
 
     public void backToSearch(ActionEvent event) {
-        Multi_used_methods.openFlightSearch(event, user);
+        Multi_used_methods.openFlightSearch(event, user,AvailbleSeats);
     }
     public void transferToChooseSeat(ActionEvent event){
-        Multi_used_methods.GoToChooseSeat(event, flight, user);
+        Multi_used_methods.GoToChooseSeat(event, flight, user,AvailbleSeats);
     }
     public void goToProfile(ActionEvent event){
         Multi_used_methods.GoToProfile(event, user, 2, flight);

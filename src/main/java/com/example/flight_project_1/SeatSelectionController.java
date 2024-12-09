@@ -30,13 +30,14 @@ import java.util.Set;
 public class SeatSelectionController  {
 //    private static final long serialVersionUID = 3362544085469329324L;
 //    private final ArrayList<String> seatSelected = new ArrayList<>();
-    private ArrayList<ArrayList<Seat>> AllSeats=new ArrayList<>();
+//    private ArrayList<ArrayList<Seat>> AllSeats=new ArrayList<>();
     private String seatSelected;
     private Flight flight;
     private Passenger user;
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private int AvailbleSeats;
     @FXML
     private Label AvailableSeatLabel;
 //    ArrayList<String> AllSeatsIds = new ArrayList<>();
@@ -50,16 +51,19 @@ public class SeatSelectionController  {
     public void passingFlight(Flight flight){
         this.flight = flight;
     }
-    public void getTheSeat(Seat seat){
-        
+    public void paasingTheAvailbleSeats(int AvailbleSeats){
+        this.AvailbleSeats=AvailbleSeats;
     }
+//    public void getTheSeat(Seat seat){
+//
+//    }
 
     public void goToProfile(ActionEvent event){
         Multi_used_methods.GoToProfile(event, user, 3, flight);
     }
 
     public void GoToFlightShow(ActionEvent event){
-        Multi_used_methods.GoToFlightShow(event,this.flight,this.user);
+        Multi_used_methods.GoToFlightShow(event,this.flight,this.user,this.AvailbleSeats);
     }
 
     public void toggleSeat(ActionEvent event){
@@ -90,17 +94,17 @@ public class SeatSelectionController  {
 
     public void recordSeats(ActionEvent event){
         try{
-            ObjectInputStream ois =new ObjectInputStream(new FileInputStream("AllSeats.txt"));
-            AllSeats=(ArrayList<ArrayList<Seat>>) ois.readObject();
-            System.out.println("Cols: "+AllSeats.get(0).size());
-            System.out.println("Rpws: "+AllSeats.size());
+//            ObjectInputStream ois =new ObjectInputStream(new FileInputStream("AllSeats.txt"));
+//            AllSeats=(ArrayList<ArrayList<Seat>>) ois.readObject();
+//            System.out.println("Cols: "+AllSeats.get(0).size());
+//            System.out.println("Rows: "+AllSeats.size());
             boolean seatAvailble=false;
             Seat seatInfo = null;
             for(int i=0;i<10;i++){
                 for(int j=0;j<6;j++){
-                    if(seatSelected.equals(AllSeats.get(i).get(j).getSeatId()) && AllSeats.get(i).get(j).isSeatStatus()==true){
+                    if(seatSelected.equals(flight.getSeats().get(i).get(j).getSeatId()) && flight.getSeats().get(i).get(j).isSeatStatus()){
                         seatAvailble=true;
-                        seatInfo=AllSeats.get(i).get(j);
+                        seatInfo=flight.getSeats().get(i).get(j);
                         break;
                     }
                     if(seatAvailble){

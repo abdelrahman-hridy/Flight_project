@@ -59,6 +59,7 @@ public class searchFlightController implements Initializable, Serializable {
     private Scene scene;
     private Parent root;
     Passenger user;
+    private int AvailbleSeats=60;
 
     public void assignUser(Passenger p){
         this.user = p;
@@ -134,7 +135,7 @@ public class searchFlightController implements Initializable, Serializable {
     // Move to Show Flight Show Scene
     public void handleButtonClick(ActionEvent event) {
 
-        Multi_used_methods.GoToFlightShow(event, flightsFiltered.get(Integer.parseInt(((Button) event.getSource()).getId())), user);
+        Multi_used_methods.GoToFlightShow(event, flightsFiltered.get(Integer.parseInt(((Button) event.getSource()).getId())), user,AvailbleSeats);
     }
 
     public void changeDepartureAirport(ActionEvent ec){

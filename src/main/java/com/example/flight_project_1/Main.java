@@ -282,74 +282,74 @@ public class Main extends Application implements Serializable {
 //        oos.writeObject(admins);
 //>>>>>>> e69380d5760ff1ffcafe54f99369bfb909840b61
 
-        Passenger passengers[] = new Passenger[3];
-        passengers[0] = new Passenger("Sohaib", "01067700658", "123");
-        passengers[1] = new Passenger("Shehab", "01151692506", "123");
-        passengers[2] = new Passenger("Tony", "01225641027", "123");
-
-
-        ArrayList<Airport> airports = new ArrayList<>();
-        airports.add(new Airport(1, "Cairo", "Egypt"));
-        airports.add(new Airport(2, "London", "England"));
-        airports.add(new Airport(3, "Los Angles", "USA"));
-        airports.add(new Airport(4, "Berlin", "England"));
-        try {
-            File file1 = new File("Airports.txt");
-            ObjectOutputStream oos90 = new ObjectOutputStream(new FileOutputStream(file1));
-            oos90.writeObject(airports);
-            oos90.flush();
-            oos90.close();
-        }catch (Exception e){
-            System.out.println("Cant add Airports");
-        }
+//        Passenger passengers[] = new Passenger[3];
+//        passengers[0] = new Passenger("Sohaib", "01067700658", "123");
+//        passengers[1] = new Passenger("Shehab", "01151692506", "123");
+//        passengers[2] = new Passenger("Tony", "01225641027", "123");
 //
-          ArrayList<ArrayList<Seat>>AllFlightSeats=null;
-          try {
-              ObjectInputStream ois123 = new ObjectInputStream (new FileInputStream("AllSeats.txt"));
-              AllFlightSeats= (ArrayList<ArrayList<Seat>>) ois123.readObject();
-              for(int i=0;i<10;i++){
-                  for(int j=0;j<6;j++){
-                      System.out.print(AllFlightSeats.get(i).get(j).getSeatId()+"  ");
-                  }
-                  System.out.println();
-              }
-          }catch (Exception ex){
-              System.out.println("Error cant Read The Seats For the flights");
-          }
-
-
-        ArrayList<Flight> flights_to_Write = new ArrayList<>();
-        flights_to_Write.add(new Flight(1, airports.get(0), airports.get(1), new Date(2024 - 1900, Calendar.NOVEMBER, 4, 6, 0),
-                new Date(2024 - 1900, Calendar.NOVEMBER, 4, 7, 20), AllFlightSeats, 2000));
-        flights_to_Write.add(new Flight(2, airports.get(1), airports.get(2), new Date(2024 - 1900, Calendar.NOVEMBER, 5, 5, 0),
-                new Date(2024 - 1900, Calendar.NOVEMBER, 5, 7, 0), AllFlightSeats, 3000));
-        flights_to_Write.add(new Flight(3, airports.get(2), airports.get(3), new Date(2024 - 1900, Calendar.NOVEMBER, 6, 8, 0),
-                new Date(2024 - 1900, Calendar.NOVEMBER, 6, 10, 0), AllFlightSeats, 4000));
-        flights_to_Write.add(new Flight(4, airports.get(3), airports.get(0), new Date(2024 - 1900, Calendar.NOVEMBER, 5, 2, 0),
-                new Date(2024 - 1900, Calendar.NOVEMBER, 5, 5, 0), AllFlightSeats, 1000));
-
-        try {
-            ObjectOutputStream oos7 = new ObjectOutputStream(new FileOutputStream("Flights.txt"));
-            oos7.writeObject(flights_to_Write);
-            oos7.flush();
-            oos7.close();
-        }catch (Exception e){
-            System.out.println("Cant write The Flights");
-        }
-
-
-        ArrayList<Flight> flights=null;
-        try {
-            ObjectInputStream ois11 = new ObjectInputStream(new FileInputStream("Flights.txt"));
-            flights = (ArrayList<Flight>) ois11.readObject();
-            System.out.println("==================================");
-            for(int i=0;i<flights.size();i++){
-            System.out.println(flights.get(i).getPrice());
-            }
-        }catch (Exception ex){
-            System.out.println("Error cant Read The Flights");
-        }
-        Files.setFlights(flights);
+//
+//        ArrayList<Airport> airports = new ArrayList<>();
+//        airports.add(new Airport(1, "Cairo", "Egypt"));
+//        airports.add(new Airport(2, "London", "England"));
+//        airports.add(new Airport(3, "Los Angles", "USA"));
+//        airports.add(new Airport(4, "Berlin", "England"));
+//        try {
+//            File file1 = new File("Airports.txt");
+//            ObjectOutputStream oos90 = new ObjectOutputStream(new FileOutputStream(file1));
+//            oos90.writeObject(airports);
+//            oos90.flush();
+//            oos90.close();
+//        }catch (Exception e){
+//            System.out.println("Cant add Airports");
+//        }
+//
+//          ArrayList<ArrayList<Seat>>AllFlightSeats=null;
+//          try {
+//              ObjectInputStream ois123 = new ObjectInputStream (new FileInputStream("AllSeats.txt"));
+//              AllFlightSeats= (ArrayList<ArrayList<Seat>>) ois123.readObject();
+//              for(int i=0;i<10;i++){
+//                  for(int j=0;j<6;j++){
+//                      System.out.println();
+//                  }
+//                  System.out.println();
+//              }
+//          }catch (Exception ex){
+//              System.out.println("Error cant Read The Seats For the flights");
+//          }
+//
+//
+//        ArrayList<Flight> flights_to_Write = new ArrayList<>();
+//        flights_to_Write.add(new Flight(1, airports.get(0), airports.get(1), new Date(2024 - 1900, Calendar.NOVEMBER, 4, 6, 0),
+//                new Date(2024 - 1900, Calendar.NOVEMBER, 4, 7, 20), AllFlightSeats, 2000));
+//        flights_to_Write.add(new Flight(2, airports.get(1), airports.get(2), new Date(2024 - 1900, Calendar.NOVEMBER, 5, 5, 0),
+//                new Date(2024 - 1900, Calendar.NOVEMBER, 5, 7, 0), AllFlightSeats, 3000));
+//        flights_to_Write.add(new Flight(3, airports.get(2), airports.get(3), new Date(2024 - 1900, Calendar.NOVEMBER, 6, 8, 0),
+//                new Date(2024 - 1900, Calendar.NOVEMBER, 6, 10, 0), AllFlightSeats, 4000));
+//        flights_to_Write.add(new Flight(4, airports.get(3), airports.get(0), new Date(2024 - 1900, Calendar.NOVEMBER, 5, 2, 0),
+//                new Date(2024 - 1900, Calendar.NOVEMBER, 5, 5, 0), AllFlightSeats, 1000));
+//
+//        try {
+//            ObjectOutputStream oos7 = new ObjectOutputStream(new FileOutputStream("Flights.txt"));
+//            oos7.writeObject(flights_to_Write);
+//            oos7.flush();
+//            oos7.close();
+//        }catch (Exception e){
+//            System.out.println("Cant write The Flights");
+//        }
+//
+//
+//        ArrayList<Flight> flights=null;
+//        try {
+//            ObjectInputStream ois11 = new ObjectInputStream(new FileInputStream("Flights.txt"));
+//            flights = (ArrayList<Flight>) ois11.readObject();
+//            System.out.println("==================================");
+//            for(int i=0;i<flights.size();i++){
+//            System.out.println(flights.get(i).getPrice());
+//            }
+//        }catch (Exception ex){
+//            System.out.println("Error cant Read The Flights");
+//        }
+//        Files.setFlights(flights);
 
 //            Flight flight = new Flight(5, airports.get(3), airports.get(1), new Date(2024 - 1900, Calendar.JULY, 4, 12, 0),
 //                    new Date(2024 - 1900, Calendar.JULY, 4, 14, 0), AllFlightSeats, 20000);

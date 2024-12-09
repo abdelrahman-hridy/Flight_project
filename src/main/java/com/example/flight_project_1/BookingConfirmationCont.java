@@ -49,14 +49,16 @@ public class BookingConfirmationCont  {
     private Parent root;
     private Stage stage;
     private Scene scene;
+    private static int AvailbleSeats;
 //    private String allPrice;
 
 
-    public void setData(Passenger user, Flight flight, Seat seat, Payment payment ){
+    public void setData(Passenger user, Flight flight, Seat seat, Payment payment,int AvailbleSeats ) {
         this.user=user;
         this.payment=payment;
         this.flight=flight;
         this.seat=seat;
+        this.AvailbleSeats=AvailbleSeats;
 //        this.allPrice=allPrice;
         ConfirmationInfo();
     }
@@ -113,7 +115,7 @@ public class BookingConfirmationCont  {
             root = fxmlLoader.load();
 
             PaymentSceneController paymentSceneController = fxmlLoader.getController();
-            paymentSceneController.PassingSeatDetailsValues(user,flight,seat,payment.getPaymentAmount(),payment);
+            paymentSceneController.PassingSeatDetailsValues(user,flight,seat,payment.getPaymentAmount(),payment,AvailbleSeats);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -123,23 +125,33 @@ public class BookingConfirmationCont  {
             System.out.println("Error When Go to payment Gate"+ex);
         }
     }
-//    public void confirmTheFlight(ActionEvent event) {
+    public void confirmTheFlight(ActionEvent event) {
 //        seat.setSeatStatus(false);
-//        try {
-//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeatSelection.fxml"));
-//            root = fxmlLoader.load();
-//
-//            SeatSelectionController seatSelectionController = fxmlLoader.getController();
-//            seatSelectionController.
-//
-//            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//            scene = new Scene(root);
-//            stage.setScene(scene);
-//            stage.show();
-//        }catch (Exception ex){
-//            System.out.println("Error When "+ex);
-//        }
-//    }
+        for(int i=0;i<10;i++){
+            for(int j=0;j<6;j++){
+                if(this.flight.getSeats().contains(this.seat)){
+                    this.flight.getSeats().get(i).get(j).setSeatStatus(false);
+                    break;
+                }
+            }
+        }
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeatSelection.fxml"));
+            root = fxmlLoader.load();
 
+            SeatSelectionController seatSelectionController= fxmlLoader.getController();
+            seatSelectionController.paasingTheAvailbleSeats(--AvailbleSeats);
+            seatSelectionController.passingFlight(this.flight);
+            seatSelectionController.assignUser(user);
+
+
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception ex){
+            System.out.println("Error When Confirm The FlightBooking "+ex);
+        }
+    }
 
 }

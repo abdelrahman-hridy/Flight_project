@@ -30,6 +30,7 @@ public class UserSignIn {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    int AvailbleSeats;
 
 
 
@@ -56,7 +57,7 @@ public class UserSignIn {
                     }
                 }
                 if (flag) {
-                    Multi_used_methods.openFlightSearch(e, user);
+                    Multi_used_methods.openFlightSearch(e, user,AvailbleSeats);
                 }
                 else {
                     alert = new Alert(Alert.AlertType.ERROR);

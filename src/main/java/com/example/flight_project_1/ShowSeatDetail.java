@@ -18,12 +18,13 @@ import java.io.Serializable;
 public class ShowSeatDetail implements Serializable {
     private Passenger user;
     private Flight flight;
-    private Payment payment;
+    private Payment payment=new Payment();
     private Seat seat;
     private Parent root;
     private Stage stage;
     private Scene scene;
     private double service;
+    private int AvailbleSeats;
     public String allprice;
     @FXML
     TextField SeatId=new TextField();
@@ -52,6 +53,7 @@ public class ShowSeatDetail implements Serializable {
         this.seat = seat;
     }
     public void passingPayment(Payment payment){this.payment = payment;}
+    public void passingAvailbleSeats(int AvailbleSeats){this.AvailbleSeats = AvailbleSeats;}
 
     public void SetDataOfTheSeat(ActionEvent event){
         SeatId.setText(seat.getSeatId());
@@ -113,7 +115,7 @@ public class ShowSeatDetail implements Serializable {
             root = fxmlLoader.load();
 
             PaymentSceneController paymentSceneController = fxmlLoader.getController();
-            paymentSceneController.PassingSeatDetailsValues(user,flight,seat,allprice,payment);
+            paymentSceneController.PassingSeatDetailsValues(user,flight,seat,allprice,payment,AvailbleSeats);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);

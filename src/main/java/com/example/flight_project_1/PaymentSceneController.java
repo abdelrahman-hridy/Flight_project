@@ -23,9 +23,11 @@ import java.util.ResourceBundle;
 public class PaymentSceneController implements Initializable {
 
     private Payment payment;
+    private int AvailbleSeats;
 //    private String allPrice;
-    private boolean payment_successful=false;
+//    private boolean payment_successful=false;
 //    private FXMLLoader fxmlLoader;
+
     @FXML
     private TextField   paymentAmount;
     @FXML
@@ -74,12 +76,13 @@ public class PaymentSceneController implements Initializable {
 //    }
 
 
-    public void PassingSeatDetailsValues( Passenger user, Flight flight, Seat seat, String allPrice,Payment payment) {
+    public void PassingSeatDetailsValues( Passenger user, Flight flight, Seat seat, String allPrice,Payment payment,int AvailbleSeats) {
         this.flight = flight;
         this.seat = seat;
         this.user = user;
         payment.setPaymentAmount(allPrice);
         this.payment=payment;
+        this.AvailbleSeats=AvailbleSeats;
         paymentID.setText(String.valueOf(payment.getpaymentId()));
         total_cost.setText(String.valueOf(allPrice));
     }
@@ -163,13 +166,13 @@ public class PaymentSceneController implements Initializable {
                 mylabeltoAlert.setText("Processing payment...");
                 payment_status.setText("Payment Completed!");
                 mylabeltoAlert.setStyle("-fx-text-fill: green;");
-                payment_successful=true;
+//                payment_successful=true;
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BookingConfrimScene.fxml"));
                     root = fxmlLoader.load();
 
                     BookingConfirmationCont booking = fxmlLoader.getController();
-                    booking.setData(user, flight, seat, payment);
+                    booking.setData(user, flight, seat, payment,AvailbleSeats);
 
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
@@ -225,6 +228,7 @@ public class PaymentSceneController implements Initializable {
             showSeatDetail.passingFlight(flight);
             showSeatDetail.passingTheSeat(seat);
             showSeatDetail.passingPayment(payment);
+            showSeatDetail.passingAvailbleSeats(AvailbleSeats);
             showSeatDetail.SetDataOfTheSeat(event);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

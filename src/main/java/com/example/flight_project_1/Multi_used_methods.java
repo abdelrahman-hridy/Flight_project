@@ -18,9 +18,10 @@ public class Multi_used_methods {
     static Parent root;
     private Flight flight;
     private Passenger user;
+    private int AvailbleSeats;
 
 
-    public static void openFlightSearch(ActionEvent event, Passenger user){
+    public static void openFlightSearch(ActionEvent event, Passenger user,int AvailbleSeats) {
         try {
             FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("searchFlightScene.fxml"));
             root = loader.load();
@@ -74,13 +75,13 @@ public class Multi_used_methods {
             System.out.println("Can't Open userProfileScene.fxml");
         }
     }
-    public static void GoToFlightShow(ActionEvent event, Flight flight, Passenger user){
+    public static void GoToFlightShow(ActionEvent event, Flight flight, Passenger user,int AvailbleSeats){
         try {
             FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("flightShow.fxml"));
             root = loader.load();
 
             FlightShow flightShow = loader.getController();
-            flightShow.setAll(flight, user);
+            flightShow.setAll(flight, user, AvailbleSeats);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -93,7 +94,7 @@ public class Multi_used_methods {
             System.out.println("Can't Open flightShow.fxml");
         }
     }
-    public static void GoToChooseSeat(ActionEvent event, Flight flight, Passenger user){
+    public static void GoToChooseSeat(ActionEvent event, Flight flight, Passenger user,int AvailbleSeats){
         try {
             FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("SeatSelection.fxml"));
             root = loader.load();
@@ -101,6 +102,7 @@ public class Multi_used_methods {
             SeatSelectionController seatSelectionController = loader.getController();
             seatSelectionController.passingFlight(flight);
             seatSelectionController.assignUser(user);
+            seatSelectionController.paasingTheAvailbleSeats(AvailbleSeats);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
