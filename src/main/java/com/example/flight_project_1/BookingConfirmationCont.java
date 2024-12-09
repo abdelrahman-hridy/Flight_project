@@ -76,8 +76,8 @@ public class BookingConfirmationCont  {
         }
         if (seats != null) {
             for (int i = 0; i < seats.size(); i++) {
-                seatLabel.setText(seatLabel.getText() +", "+seats.get(i).getSeatId());
-                classLabel.setText(classLabel.getText()+", "+seats.get(i).getSeatClass());
+                seatLabel.setText(seatLabel.getText() +" "+seats.get(i).getSeatId());
+                classLabel.setText(classLabel.getText()+" "+seats.get(i).getSeatClass());
             }
         }else {
             seatLabel.setText("Null value");

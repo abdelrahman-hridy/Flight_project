@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="dea871e6-0e98-4b7d-8fbc-c8c6e6ff4629" name="Changes" comment="Payment first phase">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Passenger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Passenger.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/BookingConfirmationCont.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/BookingConfirmationCont.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/BookingConfrimScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/BookingConfrimScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/Payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/Payment.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/SeatSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/SeatSelection.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/Payment.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/SeatSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/SeatSelection.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -74,42 +74,42 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="fromLabel" alignment="CENTER" layoutX="377.0" layoutY="202.0" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+      <Label fx:id="fromLabel" alignment="CENTER" layoutX="377.0" layoutY="202.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="seatLabel" alignment="CENTER" layoutX="375.0" layoutY="348.0" prefHeight="43.0" prefWidth="216.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+      <Label fx:id="seatLabel" alignment="CENTER" layoutX="375.0" layoutY="348.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="dDateLabel" alignment="CENTER" layoutX="382.0" layoutY="488.0" prefHeight="43.0" prefWidth="217.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+      <Label fx:id="dDateLabel" alignment="CENTER" layoutX="382.0" layoutY="488.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
          <font>
-            <Font size="22.0" />
+            <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="methodLabel" alignment="CENTER" layoutX="382.0" layoutY="624.0" prefHeight="43.0" prefWidth="217.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="toLabel" alignment="CENTER" layoutX="1174.0" layoutY="202.0" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+      <Label fx:id="methodLabel" alignment="CENTER" layoutX="382.0" layoutY="624.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="classLabel" alignment="CENTER" layoutX="1180.0" layoutY="346.0" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+      <Label fx:id="toLabel" alignment="CENTER" layoutX="1147.0" layoutY="202.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="aDateLabel" alignment="CENTER" layoutX="1171.0" layoutY="488.0" prefHeight="43.0" prefWidth="216.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+      <Label fx:id="classLabel" alignment="CENTER" layoutX="1146.0" layoutY="347.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
          <font>
-            <Font size="22.0" />
+            <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="priceLabel" alignment="CENTER" layoutX="1176.0" layoutY="622.0" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+      <Label fx:id="aDateLabel" alignment="CENTER" layoutX="1147.0" layoutY="488.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="priceLabel" alignment="CENTER" layoutX="1145.0" layoutY="622.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
