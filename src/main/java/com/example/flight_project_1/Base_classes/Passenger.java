@@ -34,6 +34,7 @@ public class Passenger implements Serializable {
     public String getPassword() {
         return password;
     }
+    public void setPassword(String password){this.password = password;}
 
     public Passenger(String name, String phone,String password) {
         this.name = name;

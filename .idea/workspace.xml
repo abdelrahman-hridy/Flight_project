@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dea871e6-0e98-4b7d-8fbc-c8c6e6ff4629" name="Changes" comment="Payment first phase">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/editProfileScene.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/BookingConfirmationCont.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/BookingConfirmationCont.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/BookingConfrimScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/BookingConfrimScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/SeatSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/SeatSelection.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/SeatSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/SeatSelection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Passenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Passenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/UserProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/userProfileScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/flight_project_1/userProfileScene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -36,7 +36,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/sohaib213/Flight_project.git&quot;,
-    &quot;accountId&quot;: &quot;df7fc3a0-2a8b-4ad3-b31c-b4db548aa1cd&quot;
+    &quot;accountId&quot;: &quot;d835d24c-2cd0-4b65-a1bd-063aeec9c896&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -62,7 +62,7 @@
     &quot;Shell Script.main.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sheha/Downloads/openjfx-23.0.1_windows-x64_bin-sdk/javafx-sdk-23.0.1/lib&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hp/Flight_project&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -146,17 +146,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Payment first phase" />
     <option name="LAST_COMMIT_MESSAGE" value="Payment first phase" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java</url>
-          <line>191</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Flight_project$Main.ic" NAME="Main Coverage Results" MODIFIED="1733232999201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
