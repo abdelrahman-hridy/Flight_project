@@ -124,7 +124,6 @@ public class BookingConfirmationCont  {
                     if(seats.get(k).getSeatId().equals(flight.getSeats().get(i).get(j).getSeatId())){
 
                            flight.getSeats().get(i).get(j).setSeatStatus(false);
-
                         break;
 //                        this.flight.getSeats().get(i).get(j).setSeatStatus(false);
 //                        break;
@@ -132,6 +131,9 @@ public class BookingConfirmationCont  {
                 }
             }
         }
+        Booking booking = new Booking(user, flight, seats);
+        Ticket ticket = new Ticket(booking);
+        user.getTickets().add(ticket);
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeatSelection.fxml"));
             root = fxmlLoader.load();
