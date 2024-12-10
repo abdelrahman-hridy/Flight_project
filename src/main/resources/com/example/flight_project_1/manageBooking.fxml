@@ -15,6 +15,7 @@
             <TableColumn minWidth="0.0" prefWidth="160.0" text="Arival Airport" />
             <TableColumn prefWidth="160.0" text="Seat" />
             <TableColumn prefWidth="160.0" text="Expences" />
+            <TableColumn prefWidth="160.0" text="Class" />
         </columns>
       </TableView>
       <Label layoutX="551.0" layoutY="98.0" text="Registered Tickets">
