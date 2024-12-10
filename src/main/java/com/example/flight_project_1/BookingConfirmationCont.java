@@ -1,9 +1,6 @@
 package com.example.flight_project_1;
 
-import com.example.flight_project_1.Base_classes.Flight;
-import com.example.flight_project_1.Base_classes.Passenger;
-import com.example.flight_project_1.Base_classes.Payment;
-import com.example.flight_project_1.Base_classes.Seat;
+import com.example.flight_project_1.Base_classes.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +17,7 @@ import javax.print.DocFlavor;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.SortedMap;
 
 public class BookingConfirmationCont  {
 
@@ -75,9 +73,16 @@ public class BookingConfirmationCont  {
             dDateLabel.setText("Null value");
         }
         if (seats != null) {
+            seatLabel.setText("");
             for (int i = 0; i < seats.size(); i++) {
-                seatLabel.setText(seatLabel.getText() +" "+seats.get(i).getSeatId());
-                classLabel.setText(classLabel.getText()+" "+seats.get(i).getSeatClass());
+                if(i != 0) {
+                    seatLabel.setText(seatLabel.getText() + ", " + seats.get(i).getSeatId());
+                    classLabel.setText(classLabel.getText() + ", " + seats.get(i).getSeatClass());
+                }
+                else {
+                    seatLabel.setText(seats.get(i).getSeatId());
+                    classLabel.setText(seats.get(i).getSeatClass());
+                }
             }
         }else {
             seatLabel.setText("Null value");
@@ -117,7 +122,9 @@ public class BookingConfirmationCont  {
             for(int j=0;j<6;j++){
                 for(int k=0;k<seats.size();k++){
                     if(seats.get(k).getSeatId().equals(flight.getSeats().get(i).get(j).getSeatId())){
-                        flight.getSeats().get(i).get(j).setSeatStatus(false);
+
+                           flight.getSeats().get(i).get(j).setSeatStatus(false);
+
                         break;
 //                        this.flight.getSeats().get(i).get(j).setSeatStatus(false);
 //                        break;

@@ -66,11 +66,11 @@ public class Main extends Application implements Serializable {
         try {
             FileInputStream fis = new FileInputStream("AllSeats.txt");
             ois = new ObjectInputStream(fis);
-            Files.setSeats((ArrayList<Seat>) ois.readObject());
+            Files.setSeats((ArrayList<ArrayList<Seat>>) ois.readObject());
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
+//
 
 //        for(int i = 0; i < Files.getAdmins().size(); i++)
 //            System.out.println(Files.getAdmins().get(i).getUsername());
@@ -178,7 +178,7 @@ public class Main extends Application implements Serializable {
 //            e.printStackTrace();
 //        }
 //        ArrayList <ArrayList<String>> AllSeatsIds=new ArrayList<>();
-//
+////
 //        for(int i=0;i<10;i++){
 //            ArrayList<String> row1=new ArrayList<>();
 //            for(int j=0;j<6;j++){
@@ -294,20 +294,20 @@ public class Main extends Application implements Serializable {
 //        passengers[2] = new Passenger("Tony", "01225641027", "123");
 //
 //
-//        ArrayList<Airport> airports = new ArrayList<>();
-//        airports.add(new Airport(1, "Cairo", "Egypt"));
-//        airports.add(new Airport(2, "London", "England"));
-//        airports.add(new Airport(3, "Los Angles", "USA"));
-//        airports.add(new Airport(4, "Berlin", "England"));
-//        try {
-//            File file1 = new File("Airports.txt");
-//            ObjectOutputStream oos90 = new ObjectOutputStream(new FileOutputStream(file1));
-//            oos90.writeObject(airports);
-//            oos90.flush();
-//            oos90.close();
-//        }catch (Exception e){
-//            System.out.println("Cant add Airports");
-//        }
+        ArrayList<Airport> airports = new ArrayList<>();
+        airports.add(new Airport(1, "Cairo", "Egypt"));
+        airports.add(new Airport(2, "London", "England"));
+        airports.add(new Airport(3, "Los Angles", "USA"));
+        airports.add(new Airport(4, "Berlin", "England"));
+        try {
+            File file1 = new File("Airports.txt");
+            ObjectOutputStream oos90 = new ObjectOutputStream(new FileOutputStream(file1));
+            oos90.writeObject(airports);
+            oos90.flush();
+            oos90.close();
+        }catch (Exception e){
+            System.out.println("Cant add Airports");
+        }
 ////
 //          ArrayList<ArrayList<Seat>>AllFlightSeats=null;
 //          try {
@@ -322,16 +322,18 @@ public class Main extends Application implements Serializable {
 //          }catch (Exception ex){
 //              System.out.println("Error cant Read The Seats For the flights");
 //          }
-//
+
+
 //        ArrayList<Flight> flights_to_Write = new ArrayList<>();
 //        flights_to_Write.add(new Flight(1, airports.get(0), airports.get(1), new Date(2024 - 1900, Calendar.NOVEMBER, 4, 6, 0),
-//                new Date(2024 - 1900, Calendar.NOVEMBER, 4, 7, 20), AllFlightSeats, 2000));
+//                new Date(2024 - 1900, Calendar.NOVEMBER, 4, 7, 20), new ArrayList<>(new ArrayList<>(Files.getSeats())), 2000));
 //        flights_to_Write.add(new Flight(2, airports.get(1), airports.get(2), new Date(2024 - 1900, Calendar.NOVEMBER, 5, 5, 0),
-//                new Date(2024 - 1900, Calendar.NOVEMBER, 5, 7, 0), AllFlightSeats, 3000));
+//                new Date(2024 - 1900, Calendar.NOVEMBER, 5, 7, 0), new ArrayList<>(new ArrayList<>(Files.getSeats())) , 3000));
 //        flights_to_Write.add(new Flight(3, airports.get(2), airports.get(3), new Date(2024 - 1900, Calendar.NOVEMBER, 6, 8, 0),
-//                new Date(2024 - 1900, Calendar.NOVEMBER, 6, 10, 0), AllFlightSeats, 4000));
+//                new Date(2024 - 1900, Calendar.NOVEMBER, 6, 10, 0), Files.getSeats() , 4000));
 //        flights_to_Write.add(new Flight(4, airports.get(3), airports.get(0), new Date(2024 - 1900, Calendar.NOVEMBER, 5, 2, 0),
-//                new Date(2024 - 1900, Calendar.NOVEMBER, 5, 5, 0), AllFlightSeats, 1000));
+//                new Date(2024 - 1900, Calendar.NOVEMBER, 5, 5, 0), new ArrayList<>(new ArrayList<>(Files.getSeats())), 1000));
+//
 //
 //        try {
 //            ObjectOutputStream oos7 = new ObjectOutputStream(new FileOutputStream("Flights.txt"));
@@ -341,6 +343,7 @@ public class Main extends Application implements Serializable {
 //        }catch (Exception e){
 //            System.out.println("Cant write The Flights");
 //        }
+
 //
 //
 //

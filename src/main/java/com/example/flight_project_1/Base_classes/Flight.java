@@ -89,7 +89,26 @@ public class Flight implements Serializable {
         this.arrivalAirport = arrivalAirport;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
-        this.seats = seats;
+
+            ArrayList<ArrayList<Seat>> seats1 = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                ArrayList<Seat> row = new ArrayList<>();
+                for (int j = 0; j < 6; j++) {
+                    {
+                        if(i < 2)
+                             row.add(new FirstSeat(Files.getSeats().get(i).get(j).getSeatId(), true));
+                        else if(i < 5){
+                            row.add(new BusinessSeat(Files.getSeats().get(i).get(j).getSeatId(), true));
+                        }
+                        else{
+                            row.add(new EconomySeat(Files.getSeats().get(i).get(j).getSeatId(), true));
+                        }
+                    }
+                }
+                seats1.add(row);
+            }
+
+        this.seats = seats1;
         this.price = price;
     }
 }
