@@ -294,20 +294,20 @@ public class Main extends Application implements Serializable {
 //        passengers[2] = new Passenger("Tony", "01225641027", "123");
 //
 //
-        ArrayList<Airport> airports = new ArrayList<>();
-        airports.add(new Airport(1, "Cairo", "Egypt"));
-        airports.add(new Airport(2, "London", "England"));
-        airports.add(new Airport(3, "Los Angles", "USA"));
-        airports.add(new Airport(4, "Berlin", "England"));
-        try {
-            File file1 = new File("Airports.txt");
-            ObjectOutputStream oos90 = new ObjectOutputStream(new FileOutputStream(file1));
-            oos90.writeObject(airports);
-            oos90.flush();
-            oos90.close();
-        }catch (Exception e){
-            System.out.println("Cant add Airports");
-        }
+//        ArrayList<Airport> airports = new ArrayList<>();
+//        airports.add(new Airport(1, "Cairo", "Egypt"));
+//        airports.add(new Airport(2, "London", "England"));
+//        airports.add(new Airport(3, "Los Angles", "USA"));
+//        airports.add(new Airport(4, "Berlin", "England"));
+//        try {
+//            File file1 = new File("Airports.txt");
+//            ObjectOutputStream oos90 = new ObjectOutputStream(new FileOutputStream(file1));
+//            oos90.writeObject(airports);
+//            oos90.flush();
+//            oos90.close();
+//        }catch (Exception e){
+//            System.out.println("Cant add Airports");
+//        }
 ////
 //          ArrayList<ArrayList<Seat>>AllFlightSeats=null;
 //          try {
