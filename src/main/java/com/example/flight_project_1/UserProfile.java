@@ -131,12 +131,6 @@ public class UserProfile {
                 try {
                     System.out.println(passengers.size());
                     Files.getPassengers().get(pass_index).setName(username);
-                    //passengers.get(pass_index).setName(username);
-                    //File file=new File("Passenger.txt");
-                    //FileOutputStream fos = new FileOutputStream(file);
-                    //ObjectOutputStream oos = new ObjectOutputStream(fos);
-                    //oos.writeObject(passengers);
-                    //oos.flush();
                     user_edit.setText("Username edit done!");
                     System.out.println(passengers.size());
                 }
@@ -165,12 +159,6 @@ public class UserProfile {
             try {
                 System.out.println(passengers.size());
                 Files.getPassengers().get(pass_index).setPassword(password);
-                //passengers.get(pass_index).setPassword(password);
-                //File file=new File("Passenger.txt");
-                //FileOutputStream fos = new FileOutputStream(file);
-                //ObjectOutputStream oos = new ObjectOutputStream(fos);
-                //oos.writeObject(passengers);
-                //oos.flush();
                 pass_edit.setText("Password edit done!");
                 System.out.println(passengers.size());
             }
@@ -192,12 +180,6 @@ public class UserProfile {
             try {
                 System.out.println(passengers.size());
                 Files.getPassengers().get(pass_index).setPassword(contact);
-                //passengers.get(pass_index).setPassword(contact);
-                //File file=new File("Passenger.txt");
-                //FileOutputStream fos = new FileOutputStream(file);
-                //ObjectOutputStream oos = new ObjectOutputStream(fos);
-                //oos.writeObject(passengers);
-                //oos.flush();
                 contact_edit.setText("Contact edit done!");
                 System.out.println(passengers.size());
             }
@@ -206,81 +188,6 @@ public class UserProfile {
             }
         }
     }
-    /*public void editProfile(ActionEvent e){
-        String username = user_edit.getText();
-        String password = pass_edit.getText();
-        String contact = contact_edit.getText();
-        if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty() || contact == null || contact.trim().isEmpty()) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Username ,Contact Info Or Password Are Empty");
-            alert.setContentText("Username ,Contact Info and Password are Required");
-            alert.showAndWait();
-        } else if (password.length() < 6) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Password is less than 6 characters");
-            alert.setContentText("Password is required more than 6 chars");
-            alert.showAndWait();
-        }
-        else {
-            boolean NameNotFound = true;
-            try {
-                File file=new File("Passenger.txt");
-                FileInputStream fis=new FileInputStream(file);
-                ObjectInputStream ois=new ObjectInputStream(fis);
-                if(file.length() > 0) {
-                    passengers = (ArrayList<Passenger>) ois.readObject();
-                    int size = passengers.size();
-                    for (int i = 0; i < size; i++) {
-                        if (username.toLowerCase().equals(passengers.get(i).getName().toLowerCase())) {
-                            NameNotFound = false;
-                            break;
-                        }
-                    }
-                }
-            }
-            catch (Exception EA) {
-                System.out.println("Error when searching for a unique user"+EA);
-            }
-            if (!NameNotFound) {
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Username is used ");
-                alert.setContentText("Username must be unique");
-                alert.showAndWait();
-            } else {
-                try {
-                    System.out.println(passengers.size());
-                    passengers.get(pass_index).setName(username);
-                    passengers.get(pass_index).setPassword(password);
-                    passengers.get(pass_index).setPhone(contact);
-                    File file=new File("Passenger.txt");
-                    FileOutputStream fos = new FileOutputStream(file);
-                    ObjectOutputStream oos = new ObjectOutputStream(fos);
-                    oos.writeObject(passengers);
-                    oos.flush();
-                    System.out.println(passengers.size());
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
-                        root = loader.load();
-                    } catch (IOException exe) {
-                        System.out.println("Can't Open userSign.fxml"+exe);
-                    }
-                    stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-                    scene = new Scene(root);
-                    scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
-                    stage.setScene(scene);
-                    stage.show();
-
-                }
-                catch (Exception exception) {
-                    System.out.println("Error in adding user: " + exception);
-                }
-
-            }
-        }
-    }*/
     public void backFromUserProfile(ActionEvent e) {
         // To Flight Search scene
         if(sceneId == 1)
