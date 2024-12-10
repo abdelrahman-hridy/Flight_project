@@ -6,7 +6,7 @@ public class Files {
     private static ArrayList<Flight> flights = new ArrayList<>();
     private static ArrayList<Admin> admins = new ArrayList<>();
     private static ArrayList<Airport> airports = new ArrayList<>();
-    private static ArrayList<Seat> seats = new ArrayList<>();
+    private static ArrayList<ArrayList<Seat>> seats = new ArrayList<>();
     private static ArrayList<Passenger> passengers = new ArrayList<>();
 
     public static ArrayList<Flight> getFlights() {
@@ -41,11 +41,11 @@ public class Files {
         Files.passengers = passengers;
     }
 
-    public static ArrayList<Seat> getSeats() {
+    public static ArrayList<ArrayList<Seat>> getSeats() {
         return seats;
     }
 
-    public static void setSeats(ArrayList<Seat> seats) {
+    public static void setSeats(ArrayList<ArrayList<Seat>> seats) {
         Files.seats = seats;
     }
 }

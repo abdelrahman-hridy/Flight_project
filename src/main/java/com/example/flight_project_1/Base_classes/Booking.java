@@ -1,18 +1,17 @@
 package com.example.flight_project_1.Base_classes;
 
-public class Booking {
-    private int booking_ID;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Booking implements Serializable {
+    private static int booking_ID = 0;
     private Passenger passenger;
     private Flight flight;
-    private Seat seat;
+    private ArrayList<Seat> seats;
     private String bookingStatus;
 
     public int getBooking_ID() {
         return booking_ID;
-    }
-
-    public void setBooking_ID(int booking_ID) {
-        this.booking_ID = booking_ID;
     }
 
     public Flight getFlight() {
@@ -39,20 +38,19 @@ public class Booking {
         this.bookingStatus = bookingStatus;
     }
 
-    public Seat getSeat() {
-        return seat;
+    public ArrayList<Seat> getSeat() {
+        return seats;
     }
 
-    public void setSeat(Seat seat) {
-        this.seat = seat;
+    public void setSeat(ArrayList<Seat> seat) {
+        this.seats = seat;
     }
 
-    public Booking(int booking_ID, Passenger passenger, Flight flight, Seat seat, String bookingStatus) {
-        this.booking_ID = booking_ID;
+    public Booking( Passenger passenger, Flight flight, ArrayList<Seat> seats) {
+        booking_ID = booking_ID++;
         this.passenger = passenger;
         this.flight = flight;
-        this.seat = seat;
-        this.bookingStatus = bookingStatus;
+        this.seats = seats;
     }
     public Booking() {
 

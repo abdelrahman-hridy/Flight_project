@@ -10,6 +10,15 @@ public class Passenger implements Serializable {
     private String password;
     private final int passenger_ID;
     private static int counterPassId=0;
+    private ArrayList<Ticket> tickets = new ArrayList<>();
+
+    public ArrayList<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(ArrayList<Ticket> tickets) {
+        this.tickets = tickets;
+    }
 
     public String getName() {
         return name;

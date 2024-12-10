@@ -1,5 +1,6 @@
 package com.example.flight_project_1;
 
+import com.example.flight_project_1.Base_classes.Files;
 import com.example.flight_project_1.Base_classes.Flight;
 import com.example.flight_project_1.Base_classes.Passenger;
 import com.example.flight_project_1.Base_classes.Seat;
@@ -15,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -27,10 +29,14 @@ import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import static java.awt.Color.red;
+
 public class SeatSelectionController  {
 //    private static final long serialVersionUID = 3362544085469329324L;
 //    private final ArrayList<String> seatSelected = new ArrayList<>();
 //    private ArrayList<ArrayList<Seat>> AllSeats=new ArrayList<>();
+    @FXML
+    private GridPane myGridPane;
     private ArrayList<String> seatsIDSelected = new ArrayList<>();
     private Flight flight;
     private Passenger user;
@@ -50,6 +56,7 @@ public class SeatSelectionController  {
 
     public void passingFlight(Flight flight){
         this.flight = flight;
+        excludeAvailableButtons();
     }
     public void paasingTheAvailbleSeats(int AvailbleSeats){
         this.AvailbleSeats=AvailbleSeats;
@@ -66,26 +73,59 @@ public class SeatSelectionController  {
         Multi_used_methods.GoToFlightShow(event,this.flight,this.user,this.AvailbleSeats);
     }
 
+//    public void seatsSelected(ActionEvent event){
+//        for(int i=0;i<)
+//    }
+
+    public void excludeAvailableButtons() {
+        for(int i=0;i<10;i++){
+            for(int j=0;j<6;j++){
+                if(!flight.getSeats().get(i).get(j).isSeatStatus()){
+                    for (int k = 0; k < 80; k++)
+                    {
+                        System.out.println(flight.getSeats().get(i).get(j).getSeatId() + "  " + myGridPane.getChildren().get(k).getId());
+                        if(flight.getSeats().get(i).get(j).getSeatId().equals(myGridPane.getChildren().get(k).getId()))
+                        {
+                            ToggleButton button;
+                            button = (ToggleButton) myGridPane.getChildren().get(k);
+                            button.setStyle("-fx-background-color: red;");
+                        }
+                    }
+                }
+            }
+        }
+    }
     public void toggleSeat(ActionEvent event){
-//        System.out.println(this.flight.toString());
 
          {
             ToggleButton toggledButton = (ToggleButton) event.getSource();
-//        toggleButtonSelectedBefore=toggledButton;
+            boolean SeatStatus=true;
+            Seat seat = null;
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    if(flight.getSeats().get(i).get(j).getSeatId().equals(toggledButton.getId()))
+                    {
+                        seat = flight.getSeats().get(i).get(j);
+                    }
+                }
+            }
+            if(!seat.isSeatStatus())
+                SeatStatus = false;
 
-            if ((toggledButton.isSelected())) {
-                if(numberOfSeatSelected < 4) {
+            if ((toggledButton.isSelected()) && SeatStatus) {
+                if (numberOfSeatSelected < 4) {
 //                    System.out.println(toggledButton.getId() + " is selected");
                     toggledButton.setStyle("-fx-background-color:yellow;");
                     seatsIDSelected.add(toggledButton.getId());
                     numberOfSeatSelected++;
-                }
-                else {
+                } else if (numberOfSeatSelected >= 4) {
                     toggledButton.setSelected(false);
                     return;
                 }
-
-            } else {
+            }
+            else if(!(toggledButton.isSelected()) && SeatStatus) {
 //                System.out.println(toggledButton.getId() + "is deselected");
                 numberOfSeatSelected--;
                 if (toggledButton.getId().endsWith("F")) {
@@ -106,37 +146,44 @@ public class SeatSelectionController  {
 //            AllSeats=(ArrayList<ArrayList<Seat>>) ois.readObject();
 //            System.out.println("Cols: "+AllSeats.get(0).size());
 //            System.out.println("Rows: "+AllSeats.size());
-            ArrayList <Seat> seatsSelected = new ArrayList<>();
-            for(int i=0;i<10;i++){
-                for(int j=0;j<6;j++){
-                    for (int k = 0; k < seatsIDSelected.size(); k++) {
-                        if (seatsIDSelected.get(k).equals(flight.getSeats().get(i).get(j).getSeatId())) {
-                            seatsSelected.add(flight.getSeats().get(i).get(j));
-                            break;
+            if(numberOfSeatSelected>0) {
+                ArrayList<Seat> seatsSelected = new ArrayList<>();
+                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        for (int k = 0; k < seatsIDSelected.size(); k++) {
+                            if (seatsIDSelected.get(k).equals(flight.getSeats().get(i).get(j).getSeatId()) && flight.getSeats().get(i).get(j).isSeatStatus()) {
+                                seatsSelected.add(flight.getSeats().get(i).get(j));
+                                break;
+                            }
                         }
                     }
                 }
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowSeatDetail.fxml"));
+                root = loader.load();
+
+                ShowSeatDetail showSeatDetail = loader.getController();  // IMPPPPORTAANTT!!!!
+                showSeatDetail.passingFlight(flight);
+                showSeatDetail.assignUser(user);
+                showSeatDetail.passingAvailbleSeats(AvailbleSeats);
+                showSeatDetail.passingTheSeats(seatsSelected);
+                showSeatDetail.SetDataOfTheSeat(event);
+
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
             }
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowSeatDetail.fxml"));
-            root = loader.load();
+            else{
+                AvailableSeatLabel.setText("No Seat Selected");
+                AvailableSeatLabel.setStyle("-fx-text-fill:red;");
 
-            ShowSeatDetail showSeatDetail = loader.getController();  // IMPPPPORTAANTT!!!!
-            showSeatDetail.passingFlight(flight);
-            showSeatDetail.assignUser(user);
-            showSeatDetail.passingTheSeats(seatsSelected);
-            showSeatDetail.SetDataOfTheSeat(event);
-
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-
-
-
+            }
             }catch(Exception e){
                 System.out.println("Error in recordSeat: "+e);
             }
     }
+
 
 
 }

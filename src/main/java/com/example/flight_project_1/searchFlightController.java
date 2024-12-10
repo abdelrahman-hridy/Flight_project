@@ -52,14 +52,13 @@ public class searchFlightController implements Initializable, Serializable {
     private Button brofileButton;
 
 
-
     ArrayList<Flight>flightsFiltered = new ArrayList<>();
 
     private Stage stage;
     private Scene scene;
     private Parent root;
     Passenger user;
-    private int AvailbleSeats=60;
+    private int AvailbleSeats=0;
 
     public void assignUser(Passenger p){
         this.user = p;
@@ -134,7 +133,13 @@ public class searchFlightController implements Initializable, Serializable {
     }
     // Move to Show Flight Show Scene
     public void handleButtonClick(ActionEvent event) {
-
+        for(int i=0;i<10;i++){
+            for(int j=0;j<6;j++){
+                if(flightsFiltered.get(Integer.parseInt(((Button) event.getSource()).getId())).getSeats().get(i).get(j).isSeatStatus()){
+                    AvailbleSeats++;
+                }
+            }
+        }
         Multi_used_methods.GoToFlightShow(event, flightsFiltered.get(Integer.parseInt(((Button) event.getSource()).getId())), user,AvailbleSeats);
     }
 

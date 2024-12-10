@@ -34,19 +34,13 @@ public class FlightShow{
     public void setAll(Flight flight, Passenger user,int AvailbleSeats){
         this.flight = flight;
         this.user = user;
+        this.AvailbleSeats = AvailbleSeats;
         departureAirportLabel.setText(departureAirportLabel.getText() + flight.getDeapartureAirport().getAirport_Name());
         arrivalAirportLabel.setText(arrivalAirportLabel.getText() + flight.getArrivalAirport().getAirport_Name());
         departureTimeLabel.setText(departureTimeLabel.getText() + flight.getDepartureTime().toString());
         arrivalTimeLabel.setText(arrivalTimeLabel.getText() + flight.getArrivalTime().toString());
         priceLabel.setText(priceLabel.getText() + flight.getPrice() + "$");
-        this.AvailbleSeats = AvailbleSeats;
-//        for (int i = 0; i < 3; i++)
-//        {
-//            if((flight.getSeats()).get(i).isSeatStatus())
-//                n++;
-//        }
         seatsLabel.setText(seatsLabel.getText() + AvailbleSeats);
-
         departureAirportLabel.getStyleClass().add("custom-label");
         arrivalAirportLabel.getStyleClass().add("custom-label");
         departureTimeLabel.getStyleClass().add("custom-label");
@@ -60,7 +54,7 @@ public class FlightShow{
 
 
     public void backToSearch(ActionEvent event) {
-        Multi_used_methods.openFlightSearch(event, user,AvailbleSeats);
+        Multi_used_methods.openFlightSearch(event, user);
     }
     public void transferToChooseSeat(ActionEvent event){
         Multi_used_methods.GoToChooseSeat(event, flight, user,AvailbleSeats);
