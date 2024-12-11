@@ -89,12 +89,13 @@ public class PaymentSceneController implements Initializable {
 
     private String[] methods = {"Credit card", "Debit card", "Digital wallets"};
     private String[] addtionalServices={"Seat Upgrades"," addtional Packages"," Wi-Fi Access"};
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         paymentMethod.getItems().addAll(methods);
-        paymentMethod.setValue(methods[0]); // Default selection
+        paymentMethod.setValue(null); // Default selection
         addtional_Services.getItems().addAll(addtionalServices);
-        addtional_Services.setValue(addtionalServices[0]);
+        addtional_Services.setValue(null);
 
       setPaymentFieldsVisibility(false, false);
        paymentMethod.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
@@ -141,7 +142,7 @@ public class PaymentSceneController implements Initializable {
         System.out.println("Submit button clicked!");
         try {
 
-            int paymentamont= Integer.parseInt(paymentAmount.getText());
+            double paymentamont= user.getPocket();
 
             if ((Card_Number.getText().isEmpty() || Expairy_Date.getText().isEmpty() || CVV.getText().isEmpty())
                     && (PayPal_mail.getText().isEmpty() || PayPal_Num.getText().isEmpty())) {
@@ -162,10 +163,13 @@ public class PaymentSceneController implements Initializable {
 
 
             if (paymentamont >= totalCost ) {
+                System.out.println(user.getPocket());
                 total_cost.setText("Total Cost: $" + totalCost);
                 mylabeltoAlert.setText("Processing payment...");
                 payment_status.setText("Payment Completed!");
                 mylabeltoAlert.setStyle("-fx-text-fill: green;");
+                user.setPocket(user.getPocket() - totalCost);
+                System.out.println(user.getPocket());
 //                payment_successful=true;
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BookingConfrimScene.fxml"));

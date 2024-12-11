@@ -38,6 +38,24 @@ public class Multi_used_methods {
             System.out.println("Can't Open serchFlightScene.fxml"+exe);
         }
     }
+    //from EditProfile
+//    public static void GoToProfile(ActionEvent event, Passenger user){
+//        try {
+//            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("userProfileScene.fxml"));
+//            root = loader.load();
+//            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//
+//            UserProfile Up = loader.getController();
+//            Up.assignUser_sceneId(user, 50);
+//
+//            scene = new Scene(root);
+//            stage.setScene(scene);
+//            stage.show();
+//        } catch (
+//                IOException e) {
+//            System.out.println("Can't Open userProfileScene.fxml");
+//        }
+//    }
     // From FlightSearch
     public static void GoToProfile(ActionEvent event, Passenger user, int sceneId){
         try {
@@ -66,6 +84,25 @@ public class Multi_used_methods {
             UserProfile Up = loader.getController();
             Up.assignUser_sceneId(user, sceneId);
             Up.assignFlight(flight);
+
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (
+                IOException e) {
+            System.out.println("Can't Open userProfileScene.fxml");
+        }
+    }
+    public static void GoToProfile(ActionEvent event, Passenger user, int sceneId, Flight flight, int AvailbleSeats){
+        try {
+            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("userProfileScene.fxml"));
+            root = loader.load();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+            UserProfile Up = loader.getController();
+            Up.assignUser_sceneId(user, sceneId);
+            Up.assignFlight(flight);
+            Up.assignAvailbleSeats(AvailbleSeats);
 
             scene = new Scene(root);
             stage.setScene(scene);

@@ -29,21 +29,21 @@ public class ShowSeatDetail implements Serializable {
     private int AvailbleSeats;
     public String allprice;
     @FXML
-    TextField SeatId=new TextField();
+    TextField SeatId;
     @FXML
-    TextField SeatClass=new TextField();
+    TextField SeatClass;
     @FXML
-    TextField SeatPrice=new TextField();
+    TextField SeatPrice;
     @FXML
-    TextField Service=new TextField();
+    TextField Service;
     @FXML
-    TextField AllPrice=new TextField();
+    TextField AllPrice;
     @FXML
-    TextField UserName=new TextField();
+    TextField UserName;
     @FXML
-    TextField UserId=new TextField();
+    TextField UserId;
     @FXML
-    TextField UserPhone=new TextField();
+    TextField UserPhone;
 
     public void assignUser(Passenger user){
         this.user = user;
@@ -125,6 +125,7 @@ public class ShowSeatDetail implements Serializable {
         UserId.setEditable(false);
         UserPhone.setText(user.getPhone());
         UserPhone.setEditable(false);
+        SeatClass.setEditable(false);
     }
 
     public void BackToSeats(ActionEvent event){

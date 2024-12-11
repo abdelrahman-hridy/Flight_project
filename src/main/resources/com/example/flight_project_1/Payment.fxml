@@ -34,18 +34,14 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <ChoiceBox fx:id="paymentMethod" layoutX="131.0" layoutY="325.0" prefWidth="150.0" />
-      <Label fx:id="mylabeltoAlert" layoutX="14.0" layoutY="617.0" prefHeight="30.0" prefWidth="469.0" text="Click To Confirm Booking" textFill="#0e92f0">
+      <Label fx:id="mylabeltoAlert" layoutX="57.0" layoutY="565.0" prefHeight="30.0" prefWidth="584.0" textFill="#0e92f0">
          <font>
             <Font size="20.0" />
          </font></Label>
-      <Label fx:id="mylabeltoShow1" layoutX="40.0" layoutY="281.0" prefHeight="34.0" prefWidth="406.0" text="Choice The Payment Method &amp; add Services :" textFill="#02cdf5">
+      <Label fx:id="mylabeltoShow1" layoutX="131.0" layoutY="292.0" prefHeight="34.0" prefWidth="160.0" text="Payment Method" textFill="#02cdf5">
          <font>
             <Font size="20.0" />
          </font></Label>
-      <TextField fx:id="paymentAmount" layoutX="104.0" layoutY="528.0" prefHeight="43.0" prefWidth="298.0" promptText="Enter Your PaymentAmount">
-         <font>
-            <Font size="20.0" />
-         </font></TextField>
       <TextArea fx:id="payment_status" layoutX="984.0" layoutY="325.0" prefHeight="64.0" prefWidth="200.0" promptText="Payment Status">
          <font>
             <Font size="16.0" />
@@ -65,11 +61,6 @@
          </font>
       </Label>
       <ChoiceBox fx:id="addtional_Services" layoutX="304.0" layoutY="325.0" prefWidth="150.0" />
-      <Label fx:id="mylabeltoShow2" layoutX="41.0" layoutY="480.0" prefHeight="34.0" prefWidth="382.0" text="Enter  PaymentAmount TO Booking :" textFill="#0e88f0">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Label>
       <TextField fx:id="Card_Number" layoutX="115.0" layoutY="374.0" promptText="Card Number" />
       <TextField fx:id="Expairy_Date" layoutX="115.0" layoutY="413.0" promptText="Expairy Date" />
       <TextField fx:id="CVV" layoutX="115.0" layoutY="446.0" promptText="CVV" />
@@ -81,6 +72,11 @@
          </font>
       </Label>
       <TextArea fx:id="paymentID" layoutX="174.0" layoutY="178.0" prefHeight="26.0" prefWidth="82.0" />
+      <Label fx:id="mylabeltoShow11" layoutX="313.0" layoutY="292.0" prefHeight="34.0" prefWidth="118.0" text="add Services " textFill="#02cdf5">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
 
 
 

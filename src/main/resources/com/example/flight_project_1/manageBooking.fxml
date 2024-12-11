@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.ManageBooking">
+   <children>
+      <TableView layoutX="10.0" layoutY="222.0" prefHeight="549.0" prefWidth="1514.0">
+        <columns>
+          <TableColumn prefWidth="160.0" text="Ticket ID" />
+          <TableColumn prefWidth="160.0" text="Departure Airport" />
+            <TableColumn minWidth="0.0" prefWidth="160.0" text="Arival Airport" />
+            <TableColumn prefWidth="160.0" text="Seat" />
+            <TableColumn prefWidth="160.0" text="Expences" />
+            <TableColumn prefWidth="160.0" text="Class" />
+        </columns>
+      </TableView>
+      <Label layoutX="551.0" layoutY="98.0" text="Registered Tickets">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

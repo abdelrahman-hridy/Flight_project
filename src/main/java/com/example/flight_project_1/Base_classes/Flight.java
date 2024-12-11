@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Flight implements Serializable {
+    private static int FlightNumberStatic = 0;
     private int FlightNumber;
+
     private Airport deapartureAirport;
     private Airport arrivalAirport;
     private Date departureTime;
@@ -81,10 +83,11 @@ public class Flight implements Serializable {
     public Flight() {
     }
 
-    public Flight(int flightNumber, Airport deapartureAirport, Airport arrivalAirport, Date departureTime,
+    public Flight(Airport deapartureAirport, Airport arrivalAirport, Date departureTime,
                   Date arrivalTime, ArrayList<ArrayList<Seat>> seats, int price)
     {
-        FlightNumber = flightNumber;
+        FlightNumber = FlightNumberStatic;
+        FlightNumberStatic++;
         this.deapartureAirport = deapartureAirport;
         this.arrivalAirport = arrivalAirport;
         this.departureTime = departureTime;

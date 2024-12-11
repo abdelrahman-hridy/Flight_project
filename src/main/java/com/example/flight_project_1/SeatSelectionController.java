@@ -88,7 +88,6 @@ public class SeatSelectionController  {
                         {
                             ToggleButton button;
                             button = (ToggleButton) myGridPane.getChildren().get(k);
-                            System.out.println(button.getId());
                             button.setStyle("-fx-background-color: red;");
                         }
                     }
@@ -184,7 +183,5 @@ public class SeatSelectionController  {
                 System.out.println("Error in recordSeat: "+e);
             }
     }
-
-
 
 }
