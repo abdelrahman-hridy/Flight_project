@@ -74,18 +74,31 @@ public class UserProfile {
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             //ActionEvent e = null;
-
             EditProfileController ep = loader.getController();
             ep.standBy(user,pass_index);
             //Up.editProfile(e);
             //Up.assignFlight(flight);
-
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         }
         catch (IOException e) {
             System.out.println("Can't Open editProfileScene.fxml");
+        }
+    }
+    public void GoToManageBooking(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("manageBooking.fxml"));
+            root = loader.load();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            ManageBooking mb = loader.getController();
+            mb.StandBy();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (IOException e) {
+            System.out.println("Can't Open manageBooking.fxml");
         }
     }
     /*public void editUsername(){

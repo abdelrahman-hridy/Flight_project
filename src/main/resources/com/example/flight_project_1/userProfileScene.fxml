@@ -31,7 +31,12 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Button fx:id="open_edit" layoutX="647.0" layoutY="630.0" mnemonicParsing="false" onAction="#GoToEditProfile" text="Edit Profile">
+      <Button fx:id="open_edit" layoutX="1169.0" layoutY="657.0" mnemonicParsing="false" onAction="#GoToEditProfile" text="Edit Profile">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Button>
+      <Button fx:id="go_to_manage_booking" layoutX="93.0" layoutY="663.0" mnemonicParsing="false" onAction="#GoToManageBooking" text="Manage Booking">
          <font>
             <Font size="40.0" />
          </font>

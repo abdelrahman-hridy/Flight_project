@@ -24,6 +24,7 @@ public class EditProfileController {
     public Button edit_username;
     public Button edit_password;
     public Button edit_contact;
+    public Button back_to_edit;
     @FXML
     private TextField user_edit;
     @FXML
@@ -40,77 +41,60 @@ public class EditProfileController {
         this.user = user;
         this.pass_index = pass_index;
     }*/
-    public void standBy(Passenger user,int pass_index){}
+    public void standBy(Passenger user,int pass_index){
+        this.user = user;
+        this.pass_index = pass_index;
+    }
     public void editUsername(ActionEvent e){
         String username = user_edit.getText();
         if (username == null || username.trim().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("Username ,Contact Info Or Password Are Empty");
-            alert.setContentText("Username ,Contact Info and Password are Required");
+            alert.setHeaderText("Username Is Empty");
+            alert.setContentText("Username Is Required");
+            alert.showAndWait();
+        }
+        else if(!EditProfileController.checkValid(0, username)) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Username is used ");
+            alert.setContentText("Username must be unique");
             alert.showAndWait();
         }
         else {
-            /*boolean NameNotFound = true;
             try {
-                for(int i = 0; i < Files.getPassengers().size(); i++){
-                    if(username.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase())){
-                        NameNotFound = false;
-                        break;
-                    }
-                }
-                File file=new File("Passenger.txt");
-                FileInputStream fis=new FileInputStream(file);
-                ObjectInputStream ois=new ObjectInputStream(fis);
-                if(file.length() > 0) {
-                    passengers = (ArrayList<Passenger>) ois.readObject();
-                    int size = passengers.size();
-                    for (int i = 0; i < size; i++) {
-                        if (username.toLowerCase().equals(passengers.get(i).getName().toLowerCase())) {
-                            NameNotFound = false;
-                            break;
-                        }
-                    }
-                }
+                System.out.println(passengers.size());
+                Files.getPassengers().get(pass_index).setName(username);
+                user_edit.setText("Username edit done!");
+                System.out.println(passengers.size());
             }
-            catch (Exception EA) {
-                System.out.println("Error when searching for a unique user"+EA);
-            }*/
-            if ( !EditProfileController.checkValid(0, username)) {
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Username is used ");
-                alert.setContentText("Username must be unique");
-                alert.showAndWait();
-            } else {
-                try {
-                    System.out.println(passengers.size());
-                    Files.getPassengers().get(pass_index).setName(username);
-                    user_edit.setText("Username edit done!");
-                    System.out.println(passengers.size());
-                }
-                catch (Exception exception) {
-                    System.out.println("Error in editing username: " + exception);
-                }
+            catch (Exception exception) {
+                System.out.println("Error in editing username: " + exception);
             }
         }
+
     }
     public void editPassword(ActionEvent e){
         String password = pass_edit.getText();
         if (password == null || password.trim().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("Username ,Contact Info Or Password Are Empty");
-            alert.setContentText("Username ,Contact Info and Password are Required");
+            alert.setHeaderText("Password Is Empty");
+            alert.setContentText("Password Is Required");
             alert.showAndWait();
         } else if (password.length() < 6) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Password Is Used");
+            alert.setContentText("Password Must Be Unique");
+            alert.showAndWait();
+        } else if (!EditProfileController.checkValid(1, password)) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Password is less than 6 characters");
             alert.setContentText("Password is required more than 6 chars");
             alert.showAndWait();
-        }
-        else {
+        } else {
             try {
                 System.out.println(passengers.size());
                 Files.getPassengers().get(pass_index).setPassword(password);
@@ -118,7 +102,7 @@ public class EditProfileController {
                 System.out.println(passengers.size());
             }
             catch (Exception exception) {
-                System.out.println("Error in adding user: " + exception);
+                System.out.println("Error in editing password: " + exception);
             }
         }
     }
@@ -127,11 +111,12 @@ public class EditProfileController {
         if (contact == null || contact.trim().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("Username ,Contact Info Or Password Are Empty");
-            alert.setContentText("Username ,Contact Info and Password are Required");
+            alert.setHeaderText("Contact Is Empty");
+            alert.setContentText("Contact Is Required");
             alert.showAndWait();
-        }
-        else {
+        } else if (!EditProfileController.checkValid(2, contact)) {
+
+        } else {
             try {
                 System.out.println(passengers.size());
                 Files.getPassengers().get(pass_index).setPassword(contact);
@@ -139,7 +124,7 @@ public class EditProfileController {
                 System.out.println(passengers.size());
             }
             catch (Exception exception) {
-                System.out.println("Error in adding user: " + exception);
+                System.out.println("Error in editing contact: " + exception);
             }
         }
     }
@@ -155,7 +140,7 @@ public class EditProfileController {
         }
         else if(op==1){
             for(int i = 0; i < Files.getPassengers().size(); i++){
-                if(compare.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase())){
+                if(compare.toLowerCase().equals(Files.getPassengers().get(i).getPassword().toLowerCase())){
                     NotFound = false;
                     break;
                 }
@@ -163,7 +148,7 @@ public class EditProfileController {
         }
         else{
             for(int i = 0; i < Files.getPassengers().size(); i++){
-                if(compare.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase())){
+                if(compare.toLowerCase().equals(Files.getPassengers().get(i).getPhone().toLowerCase())){
                     NotFound = false;
                     break;
                 }
@@ -172,8 +157,8 @@ public class EditProfileController {
         return NotFound;
     }
     public void backToUserProfil(ActionEvent event){
-        Multi_used_methods M;
-
+        ActionEvent e = new ActionEvent();
+        Multi_used_methods.GoToProfile(e, user);
         /*try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("userProfileScene.fxml"));
             root = loader.load();
