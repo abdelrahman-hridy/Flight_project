@@ -32,7 +32,6 @@ public class UserProfile {
    public void assignUser_sceneId(Passenger user, int sceneId){
        this.sceneId = sceneId;
        this.user = user;
-
    }
     public void backFromUserProfile(ActionEvent e) {
        // To Flight Search scene
