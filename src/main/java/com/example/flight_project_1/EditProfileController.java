@@ -7,88 +7,41 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.EventObject;
 
-public class UserProfile {
-    public Button open_edit;
-
-    private Parent root;
-    private Scene scene;
-    private Stage stage;
+public class EditProfileController {
+    public Button edit_username;
+    public Button edit_password;
+    public Button edit_contact;
     @FXML
-    private Label pass_username;
+    private TextField user_edit;
     @FXML
-    private Label pass_phone;
+    private PasswordField pass_edit;
     @FXML
-    private Label pass_Id;
-    @FXML
-
+    private TextField contact_edit;
+    Alert alert;
     private Passenger user;
     private int sceneId;
     private int pass_index;
     Flight flight;
     ArrayList<Passenger> passengers=new ArrayList<>();
-
-    public void assignFlight(Flight flight){
-        this.flight = flight;
-    }
-
-    public void assignUser_sceneId(Passenger user, int sceneId){
-        this.sceneId = sceneId;
+    /*public EditProfileController(Passenger user,int pass_index){
         this.user = user;
-        pass_username.setText("Username: "+user.getName());
-        pass_phone.setText("Contact: "+user.getPhone());
-        pass_Id.setText("Passenger ID: "+user.getPassenger_ID());
-
-        //get passenger index in passenger.txt
-        try {
-            pass_index = Files.getPassengers().indexOf(user);
-            /*File file=new File("Passenger.txt");
-            FileInputStream fis=new FileInputStream(file);
-            ObjectInputStream ois=new ObjectInputStream(fis);
-            if(file.length() > 0) {
-                passengers = (ArrayList<Passenger>) ois.readObject();
-                int size = passengers.size();
-                for (int i = 0; i < size; i++) {
-                    if (user.getName().toLowerCase().equals(passengers.get(i).getName().toLowerCase())) {
-                        pass_index = i;
-                        break;
-                    }
-                }
-            }*/
-        }
-        catch (Exception exe) {
-            System.out.println("Error when searching for a unique user"+exe);
-        }
-    }
-    public void GoToEditProfile(ActionEvent event){
-        try {
-            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("editProfileScene.fxml"));
-            root = loader.load();
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            //ActionEvent e = null;
-
-            EditProfileController ep = loader.getController();
-            ep.standBy(user,pass_index);
-            //Up.editProfile(e);
-            //Up.assignFlight(flight);
-
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }
-        catch (IOException e) {
-            System.out.println("Can't Open editProfileScene.fxml");
-        }
-    }
-    /*public void editUsername(){
+        this.pass_index = pass_index;
+    }*/
+    public void standBy(Passenger user,int pass_index){}
+    public void editUsername(ActionEvent e){
         String username = user_edit.getText();
         if (username == null || username.trim().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
@@ -98,8 +51,14 @@ public class UserProfile {
             alert.showAndWait();
         }
         else {
-            boolean NameNotFound = true;
+            /*boolean NameNotFound = true;
             try {
+                for(int i = 0; i < Files.getPassengers().size(); i++){
+                    if(username.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase())){
+                        NameNotFound = false;
+                        break;
+                    }
+                }
                 File file=new File("Passenger.txt");
                 FileInputStream fis=new FileInputStream(file);
                 ObjectInputStream ois=new ObjectInputStream(fis);
@@ -116,8 +75,8 @@ public class UserProfile {
             }
             catch (Exception EA) {
                 System.out.println("Error when searching for a unique user"+EA);
-            }
-            if (!NameNotFound) {
+            }*/
+            if ( !EditProfileController.checkValid(0, username)) {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText("Username is used ");
@@ -136,7 +95,7 @@ public class UserProfile {
             }
         }
     }
-    public void editPassword(){
+    public void editPassword(ActionEvent e){
         String password = pass_edit.getText();
         if (password == null || password.trim().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
@@ -163,7 +122,7 @@ public class UserProfile {
             }
         }
     }
-    public void editContact(){
+    public void editContact(ActionEvent e){
         String contact = contact_edit.getText();
         if (contact == null || contact.trim().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
@@ -183,18 +142,48 @@ public class UserProfile {
                 System.out.println("Error in adding user: " + exception);
             }
         }
-    }*/
-    public void backFromUserProfile(ActionEvent e) {
-        // To Flight Search scene
-        if(sceneId == 1)
-            Multi_used_methods.openFlightSearch(e, user);
-            // To Flight Show scene
-        else if(sceneId == 2)
-            Multi_used_methods.GoToFlightShow(e, flight, user,1);
-            // To Flight Seat Selection scene
-        else if (sceneId == 3)
-            Multi_used_methods.GoToChooseSeat(e, flight, user,1);
+    }
+    public static boolean checkValid(int op,String compare){
+        boolean NotFound = true;
+        if(op==0){
+            for(int i = 0; i < Files.getPassengers().size(); i++){
+                if(compare.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase())){
+                    NotFound = false;
+                    break;
+                }
+            }
+        }
+        else if(op==1){
+            for(int i = 0; i < Files.getPassengers().size(); i++){
+                if(compare.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase())){
+                    NotFound = false;
+                    break;
+                }
+            }
+        }
+        else{
+            for(int i = 0; i < Files.getPassengers().size(); i++){
+                if(compare.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase())){
+                    NotFound = false;
+                    break;
+                }
+            }
+        }
+        return NotFound;
+    }
+    public void backToUserProfil(ActionEvent event){
+        Multi_used_methods M;
 
+        /*try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("userProfileScene.fxml"));
+            root = loader.load();
+        } catch (IOException e) {
+            System.out.println("Can't Open userSign.fxml");
+        }
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();*/
     }
 
 }
