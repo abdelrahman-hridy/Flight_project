@@ -29,6 +29,7 @@ public class UserProfile {
     @FXML
     private Label pass_Id;
     @FXML
+    private int AvailbleSeats;
 
     private Passenger user;
     private int sceneId;
@@ -38,6 +39,10 @@ public class UserProfile {
 
     public void assignFlight(Flight flight){
         this.flight = flight;
+    }
+
+    public void assignAvailbleSeats(int AvailbleSeats){
+        this.AvailbleSeats = AvailbleSeats;
     }
 
     public void assignUser_sceneId(Passenger user, int sceneId){
@@ -199,14 +204,15 @@ public class UserProfile {
     }*/
     public void backFromUserProfile(ActionEvent e) {
         // To Flight Search scene
+
         if(sceneId == 1)
             Multi_used_methods.openFlightSearch(e, user);
             // To Flight Show scene
         else if(sceneId == 2)
-            Multi_used_methods.GoToFlightShow(e, flight, user,1);
+            Multi_used_methods.GoToFlightShow(e, flight, user, AvailbleSeats);
             // To Flight Seat Selection scene
         else if (sceneId == 3)
-            Multi_used_methods.GoToChooseSeat(e, flight, user,1);
+            Multi_used_methods.GoToChooseSeat(e, flight, user, AvailbleSeats);
 
     }
 
