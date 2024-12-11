@@ -11,6 +11,7 @@ public class Passenger implements Serializable {
     private final int passenger_ID;
     private static int counterPassId=0;
     private ArrayList<Ticket> tickets = new ArrayList<>();
+    private double pocket = 30000;
 
     public ArrayList<Ticket> getTickets() {
         return tickets;
@@ -18,6 +19,14 @@ public class Passenger implements Serializable {
 
     public void setTickets(ArrayList<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+    public double getPocket() {
+        return pocket;
+    }
+
+    public void setPocket(double pocket) {
+        this.pocket = pocket;
     }
 
     public String getName() {

@@ -71,6 +71,7 @@ public class UserSignUp implements Serializable{
                 alert.showAndWait();
             } else {
                 try {
+                    Passenger passenger = new Passenger();
                     Files.getPassengers().add(new Passenger(username, contact, password));
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));

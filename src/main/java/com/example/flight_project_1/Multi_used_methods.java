@@ -75,6 +75,25 @@ public class Multi_used_methods {
             System.out.println("Can't Open userProfileScene.fxml");
         }
     }
+    public static void GoToProfile(ActionEvent event, Passenger user, int sceneId, Flight flight, int AvailbleSeats){
+        try {
+            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("userProfileScene.fxml"));
+            root = loader.load();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+            UserProfile Up = loader.getController();
+            Up.assignUser_sceneId(user, sceneId);
+            Up.assignFlight(flight);
+            Up.assignAvailbleSeats(AvailbleSeats);
+
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (
+                IOException e) {
+            System.out.println("Can't Open userProfileScene.fxml");
+        }
+    }
     public static void GoToFlightShow(ActionEvent event, Flight flight, Passenger user,int AvailbleSeats){
         try {
             FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("flightShow.fxml"));

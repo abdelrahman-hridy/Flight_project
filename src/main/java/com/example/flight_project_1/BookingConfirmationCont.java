@@ -134,24 +134,25 @@ public class BookingConfirmationCont  {
         Booking booking = new Booking(user, flight, seats);
         Ticket ticket = new Ticket(booking);
         user.getTickets().add(ticket);
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeatSelection.fxml"));
-            root = fxmlLoader.load();
-
-            SeatSelectionController seatSelectionController= fxmlLoader.getController();
-            seatSelectionController.paasingTheAvailbleSeats(AvailbleSeats-seats.size());
-            seatSelectionController.passingFlight(flight);
-            seatSelectionController.assignUser(user);
-//            Multi_used_methods.GoToFlightShow(event,flight,user,AvailbleSeats);
-
-
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }catch (Exception ex){
-            System.out.println("Error When Confirm The FlightBooking "+ex);
-        }
+        Multi_used_methods.openFlightSearch(event, user);
+//        try {
+//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeatSelection.fxml"));
+//            root = fxmlLoader.load();
+//
+//            SeatSelectionController seatSelectionController= fxmlLoader.getController();
+//            seatSelectionController.paasingTheAvailbleSeats(AvailbleSeats-seats.size());
+//            seatSelectionController.passingFlight(flight);
+//            seatSelectionController.assignUser(user);
+////            Multi_used_methods.GoToFlightShow(event,flight,user,AvailbleSeats);
+//
+//
+//            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//            scene = new Scene(root);
+//            stage.setScene(scene);
+//            stage.show();
+//        }catch (Exception ex){
+//            System.out.println("Error When Confirm The FlightBooking "+ex);
+//        }
     }
 
 }

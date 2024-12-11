@@ -42,6 +42,7 @@ public class UserProfile {
     Flight flight;
     Alert alert;
     ArrayList<Passenger> passengers=new ArrayList<>();
+    private int AvailbleSeats;
 
     public void assignFlight(Flight flight){
         this.flight = flight;
@@ -73,6 +74,9 @@ public class UserProfile {
         catch (Exception exe) {
             System.out.println("Error when searching for a unique user"+exe);
         }
+    }
+    public void assignAvailbleSeats(int AvailbleSeats){
+        this.AvailbleSeats = AvailbleSeats;
     }
     public void GoToEditProfile(ActionEvent event){
         try {
@@ -194,10 +198,10 @@ public class UserProfile {
             Multi_used_methods.openFlightSearch(e, user);
             // To Flight Show scene
         else if(sceneId == 2)
-            Multi_used_methods.GoToFlightShow(e, flight, user);
+            Multi_used_methods.GoToFlightShow(e, flight, user, AvailbleSeats);
             // To Flight Seat Selection scene
         else if (sceneId == 3)
-            Multi_used_methods.GoToChooseSeat(e, flight, user);
+            Multi_used_methods.GoToChooseSeat(e, flight, user, AvailbleSeats);
 
     }
     public void backToUserProfil(ActionEvent event){
