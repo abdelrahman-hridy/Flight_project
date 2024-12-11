@@ -32,9 +32,6 @@ public class UserSignIn {
     private Parent root;
     int AvailbleSeats;
 
-
-
-
     public void submitLogin(ActionEvent e)  {
         Passenger user = null;
         String username = userin.getText();

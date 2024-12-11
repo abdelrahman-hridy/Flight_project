@@ -50,7 +50,7 @@ public class UserSignUp implements Serializable{
             alert.setContentText("Password is required more than 6 chars");
             alert.showAndWait();
         } else {
-//            Passenger passenger;
+            Passenger user;
             boolean flagOfNameNotFound = true;
            try {
                 int size = Files.getPassengers().size();
@@ -71,7 +71,8 @@ public class UserSignUp implements Serializable{
                 alert.showAndWait();
             } else {
                 try {
-                    Files.getPassengers().add(new Passenger(username, contact, password));
+                    user=new Passenger(username,contact,password);
+                    Files.getPassengers().add(user);
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
                         root = loader.load();

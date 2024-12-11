@@ -135,6 +135,7 @@ public class ShowSeatDetail implements Serializable {
             SeatSelectionController seatSelectionController = fxmlLoader.getController();
             seatSelectionController.assignUser(user);
             seatSelectionController.passingFlight(flight);
+            seatSelectionController.paasingTheAvailbleSeats(AvailbleSeats);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
