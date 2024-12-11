@@ -18,9 +18,7 @@ import java.util.EventObject;
 
 public class UserProfile {
     public Button open_edit;
-    public Button edit_username;
-    public Button edit_password;
-    public Button edit_contact;
+
     private Parent root;
     private Scene scene;
     private Stage stage;
@@ -31,18 +29,12 @@ public class UserProfile {
     @FXML
     private Label pass_Id;
     @FXML
-    private TextField user_edit;
-    @FXML
-    private PasswordField pass_edit;
-    @FXML
-    private TextField contact_edit;
+
     private Passenger user;
     private int sceneId;
     private int pass_index;
     Flight flight;
-    Alert alert;
     ArrayList<Passenger> passengers=new ArrayList<>();
-    private int AvailbleSeats;
 
     public void assignFlight(Flight flight){
         this.flight = flight;
@@ -57,7 +49,8 @@ public class UserProfile {
 
         //get passenger index in passenger.txt
         try {
-            File file=new File("Passenger.txt");
+            pass_index = Files.getPassengers().indexOf(user);
+            /*File file=new File("Passenger.txt");
             FileInputStream fis=new FileInputStream(file);
             ObjectInputStream ois=new ObjectInputStream(fis);
             if(file.length() > 0) {
@@ -69,25 +62,22 @@ public class UserProfile {
                         break;
                     }
                 }
-            }
+            }*/
         }
         catch (Exception exe) {
             System.out.println("Error when searching for a unique user"+exe);
         }
-    }
-    public void assignAvailbleSeats(int AvailbleSeats){
-        this.AvailbleSeats = AvailbleSeats;
     }
     public void GoToEditProfile(ActionEvent event){
         try {
             FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("editProfileScene.fxml"));
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            ActionEvent e = null;
-            UserProfile Up = loader.getController();
+            //ActionEvent e = null;
+            EditProfileController ep = loader.getController();
+            ep.standBy(user,pass_index);
             //Up.editProfile(e);
-            Up.assignFlight(flight);
-
+            //Up.assignFlight(flight);
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -96,7 +86,22 @@ public class UserProfile {
             System.out.println("Can't Open editProfileScene.fxml");
         }
     }
-    public void editUsername(){
+    public void GoToManageBooking(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("manageBooking.fxml"));
+            root = loader.load();
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            ManageBooking mb = loader.getController();
+            mb.StandBy();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (IOException e) {
+            System.out.println("Can't Open manageBooking.fxml");
+        }
+    }
+    /*public void editUsername(){
         String username = user_edit.getText();
         if (username == null || username.trim().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
@@ -191,29 +196,18 @@ public class UserProfile {
                 System.out.println("Error in adding user: " + exception);
             }
         }
-    }
+    }*/
     public void backFromUserProfile(ActionEvent e) {
         // To Flight Search scene
         if(sceneId == 1)
             Multi_used_methods.openFlightSearch(e, user);
             // To Flight Show scene
         else if(sceneId == 2)
-            Multi_used_methods.GoToFlightShow(e, flight, user, AvailbleSeats);
+            Multi_used_methods.GoToFlightShow(e, flight, user,1);
             // To Flight Seat Selection scene
         else if (sceneId == 3)
-            Multi_used_methods.GoToChooseSeat(e, flight, user, AvailbleSeats);
+            Multi_used_methods.GoToChooseSeat(e, flight, user,1);
 
     }
-    public void backToUserProfil(ActionEvent event){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("userProfileScene.fxml"));
-            root = loader.load();
-        } catch (IOException e) {
-            System.out.println("Can't Open userSign.fxml");
-        }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+
 }
