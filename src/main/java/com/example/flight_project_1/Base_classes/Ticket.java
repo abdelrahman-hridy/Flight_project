@@ -3,12 +3,18 @@ package com.example.flight_project_1.Base_classes;
 import java.io.Serializable;
 
 public class Ticket implements Serializable {
-    private static int ticketNumber = 0;
+    private static int ticketNumbercounter = 0;
+    private int ticketNumber;
     private double fare;
     private Booking bookingTicket;
 
+
+    public static void setTicketNumbercounter(int ticketNumbercounter) {
+        Ticket.ticketNumbercounter = ticketNumbercounter;
+    }
+
     public Ticket(Booking bookingTicket){
-        ticketNumber = ticketNumber++;
+        ticketNumber = ticketNumbercounter++;
         this.bookingTicket = bookingTicket;
     }
 

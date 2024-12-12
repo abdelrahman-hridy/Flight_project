@@ -86,10 +86,8 @@ public class searchFlightController implements Initializable, Serializable {
         myTable.setStyle("-fx-font-size: 16px;");
 
 
-
         ArrayList<String> airportsName = new ArrayList<>();
-        for(int i = 0; i < Files.getAirports().size(); i++)
-        {
+        for (int i = 0; i < Files.getAirports().size(); i++) {
             airportsName.add(Files.getAirports().get(i).getAirport_Name());
         }
         departureAirportChoiceBox.getItems().add("~All~");
@@ -109,12 +107,12 @@ public class searchFlightController implements Initializable, Serializable {
         try {
             flightsFiltered = Passenger.flightSearch("~All~", "~All~",
                     0, 0, 0,
-                    0, 0,0);
+                    0, 0, 0);
         } catch (Exception e) {
             System.out.println("Can't do flight search function");
         }
         FlightString row;
-        for(int i = 0; i < flightsFiltered.size(); i++) {
+        for (int i = 0; i < flightsFiltered.size(); i++) {
             long duration = flightsFiltered.get(i).getArrivalTime().getTime() - flightsFiltered.get(i).getDepartureTime().getTime();
             long minutes = (duration / (1000 * 60)) % 60;
             long hours = duration / (1000 * 60 * 60);
@@ -128,7 +126,6 @@ public class searchFlightController implements Initializable, Serializable {
             row.getButton().setOnAction(this::handleButtonClick);
             row.getButton().setCursor(Cursor.HAND);
         }
-
 
     }
     // Move to Show Flight Show Scene

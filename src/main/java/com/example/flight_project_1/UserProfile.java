@@ -29,6 +29,8 @@ public class UserProfile {
     @FXML
     private Label pass_Id;
     @FXML
+    private Label pocketLabel;
+    @FXML
     private int AvailbleSeats;
 
     private Passenger user;
@@ -57,6 +59,7 @@ public class UserProfile {
         pass_username.setText("Username: "+user.getName());
         pass_phone.setText("Contact: "+user.getPhone());
         pass_Id.setText("Passenger ID: "+user.getPassenger_ID());
+        pocketLabel.setText(pocketLabel.getText() + user.getPocket());
 
         //get passenger index in passenger.txt
         try {
@@ -104,7 +107,9 @@ public class UserProfile {
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             ManageBooking mb = loader.getController();
             mb.StandBy();
+            mb.passUser(user);
             scene = new Scene(root);
+            scene.getStylesheets().add(Multi_used_methods.class.getResource("style.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         }

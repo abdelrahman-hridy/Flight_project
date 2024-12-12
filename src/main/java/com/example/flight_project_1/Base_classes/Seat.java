@@ -5,8 +5,17 @@ public abstract class Seat implements Serializable {
     protected String seatId;
     protected String seatClass;
     protected boolean seatStatus;
+    private int Seatservice;
 
-    public Seat(String seatId,String seatClass,boolean seatStatus){
+    public int getSeatservice() {
+        return Seatservice;
+    }
+
+    public void setSeatservice(int seatservice) {
+        Seatservice = seatservice;
+    }
+
+    public Seat(String seatId, String seatClass, boolean seatStatus){
         this.seatId=seatId;
         this.seatStatus=seatStatus;
         this.seatClass=seatClass;

@@ -86,6 +86,7 @@ public class ShowSeatDetail implements Serializable {
             int Seatservice;
             if (seats.get(i).getSeatId().startsWith("A") || seats.get(i).getSeatId().startsWith("F")) {
                 Seatservice = 500;
+                seats.get(i).setSeatservice(Seatservice);
                 service += Seatservice;
                 if (i != seats.size() - 1)
                     ServiceString += "Window Seat: " + Seatservice + ", ";
@@ -96,6 +97,7 @@ public class ShowSeatDetail implements Serializable {
             else if(seats.get(i).getSeatId().startsWith("B") || seats.get(i).getSeatId().startsWith("E")){
                 Seatservice = 300;
                 service += Seatservice;
+                seats.get(i).setSeatservice(Seatservice);
                 if (i != seats.size() - 1)
                     ServiceString += "Middle Seat: " + Seatservice + ", ";
                 else
@@ -103,6 +105,7 @@ public class ShowSeatDetail implements Serializable {
                 allPriceValue += seats.get(i).calcSeatPrice(flight) + Seatservice;            }
             else{
                 Seatservice = 100;
+                seats.get(i).setSeatservice(Seatservice);
                 service += Seatservice;
                 if (i != seats.size() - 1)
                     ServiceString += "Way Seat: " + Seatservice + ", ";

@@ -39,6 +39,7 @@ public class BookingConfirmationCont  {
     private Stage stage;
     private Scene scene;
     private static int AvailbleSeats;
+
 //    private String allPrice;
 
 
@@ -106,7 +107,7 @@ public class BookingConfirmationCont  {
             root = fxmlLoader.load();
 
             PaymentSceneController paymentSceneController = fxmlLoader.getController();
-            paymentSceneController.PassingSeatDetailsValues(user,flight,seats,payment.getPaymentAmount(),payment,AvailbleSeats);
+            paymentSceneController.PassingSeatDetailsValues(user,flight,seats, String.valueOf(payment.getPaymentAmount()),payment,AvailbleSeats);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -131,7 +132,7 @@ public class BookingConfirmationCont  {
                 }
             }
         }
-        Booking booking = new Booking(user, flight, seats);
+        Booking booking = new Booking(user, flight, seats, payment.getPaymentAmount());
         Ticket ticket = new Ticket(booking);
         user.getTickets().add(ticket);
         Multi_used_methods.openFlightSearch(event, user);

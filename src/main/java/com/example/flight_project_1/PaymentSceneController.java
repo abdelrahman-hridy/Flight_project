@@ -80,7 +80,7 @@ public class PaymentSceneController implements Initializable {
         this.flight = flight;
         this.seats = seats;
         this.user = user;
-        payment.setPaymentAmount(allPrice);
+        payment.setPaymentAmount(Double.parseDouble(allPrice));
         this.payment=payment;
         this.AvailbleSeats=AvailbleSeats;
         paymentID.setText(String.valueOf(payment.getpaymentId()));
@@ -158,12 +158,11 @@ public class PaymentSceneController implements Initializable {
 //            double baseFare = Double.parseDouble( flight_Price+seat.calcSeatPrice(flight));
 //
 //            double fees = 50;
-            double totalCost = Double.parseDouble(payment.getPaymentAmount());
+            double totalCost = payment.getPaymentAmount();
 //            System.out.println(seat.calcSeatPrice(flight));
 
 
-            if (paymentamont >= totalCost ) {
-                System.out.println(user.getPocket());
+            if (user.getPocket() >= totalCost ) {
                 total_cost.setText("Total Cost: $" + totalCost);
                 mylabeltoAlert.setText("Processing payment...");
                 payment_status.setText("Payment Completed!");

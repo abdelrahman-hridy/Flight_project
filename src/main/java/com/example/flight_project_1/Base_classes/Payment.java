@@ -2,13 +2,13 @@ package com.example.flight_project_1.Base_classes;
 
 public class Payment {
     private final int paymentId;
-    private String paymentAmount;
+    private double paymentAmount;
     private String paymentMethod;
     private String paymentStatus;
-    private static int counterPaymentId=0;
+    private static int counterPaymentId = 0;
 
     // Constructor
-    public Payment(String paymentAmount, String paymentMethod, String paymentStatus) {
+    public Payment(double paymentAmount, String paymentMethod, String paymentStatus) {
         this.paymentId = ++counterPaymentId;
         this.paymentAmount = paymentAmount;
         this.paymentMethod = paymentMethod;
@@ -24,11 +24,11 @@ public class Payment {
         return paymentId;
     }
 
-    public String getPaymentAmount() {
+    public double getPaymentAmount() {
         return paymentAmount;
     }
 
-    public void setPaymentAmount(String paymentAmount) {
+    public void setPaymentAmount(double paymentAmount) {
         this.paymentAmount = paymentAmount;
     }
 

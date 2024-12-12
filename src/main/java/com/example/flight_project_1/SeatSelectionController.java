@@ -83,7 +83,6 @@ public class SeatSelectionController  {
                 if(!flight.getSeats().get(i).get(j).isSeatStatus()){
                     for (int k = 0; k < 80; k++)
                     {
-                        System.out.println(flight.getSeats().get(i).get(j).getSeatId() + "  " + myGridPane.getChildren().get(k).getId());
                         if(flight.getSeats().get(i).get(j).getSeatId().equals(myGridPane.getChildren().get(k).getId()))
                         {
                             ToggleButton button;

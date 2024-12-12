@@ -50,7 +50,7 @@
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Button fx:id="backButton" mnemonicParsing="false" onAction="#backToSignIn" prefHeight="51.0" prefWidth="118.0" text="Logout" textFill="#318ef2">
+      <Button fx:id="backButton" layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToSignIn" prefHeight="51.0" prefWidth="118.0" text="Logout">
          <font>
             <Font size="25.0" />
          </font>

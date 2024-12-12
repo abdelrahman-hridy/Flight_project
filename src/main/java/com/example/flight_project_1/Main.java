@@ -45,6 +45,8 @@ public class Main extends Application implements Serializable {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        // assign counter number in flight by flights number after reading it
+        Flight.setFlightNumberStatic(Files.getFlights().size());
 
         // Read Admins
         try {
@@ -62,14 +64,9 @@ public class Main extends Application implements Serializable {
         }catch (Exception exe){
             System.out.println("Error when login"+exe);
         }
-        // Read Seats
-        try {
-            FileInputStream fis = new FileInputStream("AllSeats.txt");
-            ois = new ObjectInputStream(fis);
-            Files.setSeats((ArrayList<ArrayList<Seat>>) ois.readObject());
-        } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        Passenger.setCounterPassId(Files.getPassengers().size());
+
+
 //
 
 //        for(int i = 0; i < Files.getAdmins().size(); i++)
@@ -177,106 +174,113 @@ public class Main extends Application implements Serializable {
 //        }catch (Exception e){
 //            e.printStackTrace();
 //        }
-//        ArrayList <ArrayList<String>> AllSeatsIds=new ArrayList<>();
-////
+
+//        ArrayList <ArrayList<Seat>> AllSeats=new ArrayList<>();
 //        for(int i=0;i<10;i++){
-//            ArrayList<String> row1=new ArrayList<>();
+//            ArrayList<Seat> row1=new ArrayList<>();
 //            for(int j=0;j<6;j++){
 //                if(i<2){
 //                    if(j==0){
 //                        String id="A"+(i+1)+"F";
-//                        row1.add(id);
+//                        row1.add(new FirstSeat(id,true));
 //                    }
 //                    else if(j==1){
 //                        String id="B"+(i+1)+"F";
-//                        row1.add(id);
+//                        row1.add(new FirstSeat(id,true));
 //                    }
 //                    else if(j==2){
 //                        String id="C"+(i+1)+"F";
-//                        row1.add(id);
+//                        row1.add(new FirstSeat(id,true));
 //                    }
 //                    else if(j==3){
 //                        String id="D"+(i+1)+"F";
-//                        row1.add(id);
+//                        row1.add(new FirstSeat(id,true));
 //                    }
 //                    else if(j==4){
 //                        String id="E"+(i+1)+"F";
-//                        row1.add(id);
+//                        row1.add(new FirstSeat(id,true));
 //                    }
 //                    else{
 //                        String id="F"+(i+1)+"F";
-//                        row1.add(id);
+//                        row1.add(new FirstSeat(id,true));
 //                    }
 //                }
 //                else if(i<5){
 //                    if(j==0){
 //                        String id="A"+(i+1)+"B";
-//                        row1.add(id);
+//                        row1.add(new BusinessSeat(id,true));
 //                    }
 //                    else if(j==1){
 //                        String id="B"+(i+1)+"B";
-//                        row1.add(id);
+//                        row1.add(new BusinessSeat(id,true));
 //                    }
 //                    else if(j==2){
 //                        String id="C"+(i+1)+"B";
-//                        row1.add(id);
+//                        row1.add(new BusinessSeat(id,true));
 //                    }
 //                    else if(j==3){
 //                        String id="D"+(i+1)+"B";
-//                        row1.add(id);
+//                        row1.add(new BusinessSeat(id,true));
 //                    }
 //                    else if(j==4){
 //                        String id="E"+(i+1)+"B";
-//                        row1.add(id);
+//                        row1.add(new BusinessSeat(id,true));
 //                    }
 //                    else{
 //                        String id="F"+(i+1)+"B";
-//                        row1.add(id);
+//                        row1.add(new BusinessSeat(id,true));
 //                    }
 //                }
 //                else{
 //                    if(j==0){
 //                        String id="A"+(i+1)+"E";
-//                        row1.add(id);
+//                        row1.add(new EconomySeat(id,true));
 //                    }
 //                    else if(j==1){
 //                        String id="B"+(i+1)+"E";
-//                        row1.add(id);
+//                        row1.add(new EconomySeat(id,true));
 //                    }
 //                    else if(j==2){
 //                        String id="C"+(i+1)+"E";
-//                        row1.add(id);
+//                        row1.add(new EconomySeat(id,true));
 //                    }
 //                    else if(j==3){
 //                        String id="D"+(i+1)+"E";
-//                        row1.add(id);
+//                        row1.add(new EconomySeat(id,true));
 //                    }
 //                    else if(j==4){
 //                        String id="E"+(i+1)+"E";
-//                        row1.add(id);
+//                        row1.add(new EconomySeat(id,true));
 //                    }
 //                    else {
 //                        String id="F"+(i+1)+"E";
-//                        row1.add(id);
+//                        row1.add(new EconomySeat(id,true));
 //                    }
 //                }
 //            }
-//            AllSeatsIds.add(row1);
+//            AllSeats.add(row1);
 //        }
 //
-//      for(int i=0;i<10;i++){
-//          for (int j=0;j<6;j++){
-//              System.out.print(AllSeatsIds.get(i).get(j)+"  ");
-//          }
-//          System.out.println("\n==============================================");
-//      }
+//        File file1 =new File("AllSeats.txt");
+//        FileOutputStream fileOutputStream = null;
+//        ObjectOutputStream objectOutputStream = null;
+//        try {
+//            fileOutputStream = new FileOutputStream(file1);
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
+//        try {
+//            objectOutputStream = new ObjectOutputStream(fileOutputStream);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        try {
+//            objectOutputStream.writeObject(AllSeats);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 
 
-////
-//      File file =new File("test.txt");
-//      FileOutputStream fileOutputStream = new FileOutputStream(file);
-//      ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-//      objectOutputStream.writeObject(AllSeatsIds);
 //
 //
 ////====
@@ -376,6 +380,14 @@ public class Main extends Application implements Serializable {
 //        }
 
 
+        // Read Seats
+        try {
+            FileInputStream fis = new FileInputStream("AllSeats.txt");
+            ois = new ObjectInputStream(fis);
+            Files.setSeats((ArrayList<ArrayList<Seat>>) ois.readObject());
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         launch(args);
 
@@ -457,6 +469,7 @@ public class Main extends Application implements Serializable {
             }catch (Exception exe){
                 System.out.println("Error when login"+exe);
             }
+
 
 //        for(int i = 0; i < Files.getAdmins().size(); i++)
 //            System.out.println(Files.getAdmins().get(i).getUsername());

@@ -2,6 +2,7 @@ package com.example.flight_project_1;
 
 import com.example.flight_project_1.Base_classes.Files;
 import com.example.flight_project_1.Base_classes.Passenger;
+import com.example.flight_project_1.Base_classes.Ticket;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,6 +56,7 @@ public class UserSignIn {
                 }
                 if (flag) {
                     Multi_used_methods.openFlightSearch(e, user);
+                    Ticket.setTicketNumbercounter(user.getTickets().size());
                 }
                 else {
                     alert = new Alert(Alert.AlertType.ERROR);

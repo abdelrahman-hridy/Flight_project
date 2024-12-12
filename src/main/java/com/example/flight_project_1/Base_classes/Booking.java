@@ -9,6 +9,15 @@ public class Booking implements Serializable {
     private Flight flight;
     private ArrayList<Seat> seats;
     private String bookingStatus;
+    private double bookingPrice;
+
+    public double getBookingPrice() {
+        return bookingPrice;
+    }
+
+    public void setBookingPrice(double bookingPrice) {
+        this.bookingPrice = bookingPrice;
+    }
 
     public int getBooking_ID() {
         return booking_ID;
@@ -46,11 +55,12 @@ public class Booking implements Serializable {
         this.seats = seat;
     }
 
-    public Booking( Passenger passenger, Flight flight, ArrayList<Seat> seats) {
+    public Booking(Passenger passenger, Flight flight, ArrayList<Seat> seats, double bookingPrice) {
         booking_ID = booking_ID++;
         this.passenger = passenger;
         this.flight = flight;
         this.seats = seats;
+        this.bookingPrice = bookingPrice;
     }
     public Booking() {
 

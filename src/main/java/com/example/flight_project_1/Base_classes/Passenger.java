@@ -9,9 +9,13 @@ public class Passenger implements Serializable {
     private String phone;
     private String password;
     private final int passenger_ID;
-    private static int counterPassId=0;
+    private static int counterPassId;
     private ArrayList<Ticket> tickets = new ArrayList<>();
     private double pocket = 30000;
+
+    public static void setCounterPassId(int counterPassId) {
+        Passenger.counterPassId = counterPassId;
+    }
 
     public ArrayList<Ticket> getTickets() {
         return tickets;

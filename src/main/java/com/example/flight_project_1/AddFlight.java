@@ -138,7 +138,6 @@ public class AddFlight implements Initializable {
                 if(flightPrice <= 0) {
                     priceInvalidMessage.setVisible(true);
                     isValidDate = false;
-                    System.out.println("Zerooooo");
                 }else {
                     // The newValue is number and more than zero
                     if(priceInvalidMessage.isVisible())
@@ -159,7 +158,6 @@ public class AddFlight implements Initializable {
                 if(Files.getAirports().get(i).getAirport_Name().equals(arrivalAirportChoiceBox.getValue()))
                     arrivalAirport = Files.getAirports().get(i);
             }
-            System.out.println(isValidDate);
             // confirm Adding after check all inputs
             if(isValidDate){
                 System.out.println("Created Flight");
@@ -178,6 +176,8 @@ public class AddFlight implements Initializable {
                 arrivalMinuteTextField.setText(null);
 
                 flightAddedSuccessfulyMessage.setVisible(true);
+                departureDate = new Date();
+                arrivalDate = new Date();
             }
         }
     }
