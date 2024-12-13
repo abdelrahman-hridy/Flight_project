@@ -90,7 +90,7 @@ public class Flight implements Serializable {
     public Flight(Airport deapartureAirport, Airport arrivalAirport, Date departureTime,
                   Date arrivalTime, ArrayList<ArrayList<Seat>> seats, int price)
     {
-        FlightNumber = FlightNumberStatic;
+        FlightNumber = Integer.parseInt(String.valueOf(FlightNumberStatic));
         FlightNumberStatic++;
         this.deapartureAirport = deapartureAirport;
         this.arrivalAirport = arrivalAirport;

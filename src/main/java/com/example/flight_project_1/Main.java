@@ -285,11 +285,14 @@ public class Main extends Application implements Serializable {
 //
 ////====
 //        ArrayList<Admin> admins = new ArrayList<>();
+//        admins.add(new Admin("Shehab", "11223344"));
 //        admins.add(new Admin("Sohaib", "55435421"));
-//        admins.add(new Admin("Shehab", "123456"));
-//
-//        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Admins.txt"));
-//        oos.writeObject(admins);
+//        try {
+//            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Admins.txt"));
+//            oos.writeObject(admins);
+//        }catch (Exception exe){
+//            System.out.println("Error when login"+exe);
+//        }
 //>>>>>>> e69380d5760ff1ffcafe54f99369bfb909840b61
 
 //        Passenger passengers[] = new Passenger[3];
