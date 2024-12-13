@@ -409,15 +409,17 @@ public class Main extends Application implements Serializable {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginInterface.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("userSign.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
             stage.setScene(scene);
         }catch (Exception e)
         {
-            System.out.println("Can't see loginInterface");
+            System.out.println("Can't see userSign");
         }
+
+
         stage.setTitle("Hello GUI");
         try {
             stage.getIcons().add(new Image(String.valueOf(getClass().getResource("DALL·E-2024-12-01-20.54.png"))));

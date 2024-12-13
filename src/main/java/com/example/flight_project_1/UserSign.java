@@ -52,20 +52,5 @@ public class UserSign {
         }
 
     }
-    public void backToLoginInterface(ActionEvent event){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginInterface.fxml"));
-            root = loader.load();
-
-        } catch (IOException e) {
-            System.out.println("Can't Open loginInterface.fxml");
-        }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
-        stage.setScene(scene);
-        stage.show();
-    }
-
 
 }

@@ -38,6 +38,7 @@ public class UserSignIn {
         String username = userin.getText();
         String password = passin.getText();
         boolean flag = false;
+
         if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -46,27 +47,55 @@ public class UserSignIn {
             alert.showAndWait();
         } else {
             try {
-                int size= Files.getPassengers().size();
-                for(int i=0;i<size;i++) {
-                    if (username.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase()) && password.equals(Files.getPassengers().get(i).getPassword())) {
-                        flag = true;
-                        user = Files.getPassengers().get(i);
+                int size= Files.getAdmins().size();
+                for(int i=0;i<size;i++){
+                    if(username.equalsIgnoreCase(Files.getAdmins().get(i).getUsername()) && password.equalsIgnoreCase(Files.getAdmins().get(i).getPassword())){
+                        flag=true;
                         break;
                     }
                 }
-                if (flag) {
-                    Multi_used_methods.openFlightSearch(e, user);
-                    Ticket.setTicketNumbercounter(user.getTickets().size());
-                }
-                else {
-                    alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText("Login Failed");
-                    alert.setContentText("Login Failed");
-                    alert.showAndWait();
-                }
             }catch (Exception exe){
                 System.out.println("Error when login"+exe);
+            }
+            if (flag) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
+                    root = loader.load();
+                    stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    scene.getStylesheets().add(Multi_used_methods.class.getResource("style.css").toExternalForm());
+                    scene.getStylesheets().add(Multi_used_methods.class.getResource("buttonsStyle.css").toExternalForm());
+                    scene.getStylesheets().add(Multi_used_methods.class.getResource("airportDelete.css").toExternalForm());
+                    scene.getStylesheets().add(getClass().getResource("flightUpdate.css").toExternalForm());
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException exe) {
+                    System.out.println("Can't Open serchFlightScene.fxml"+exe);
+                }
+            } else {
+                try {
+                    int size= Files.getPassengers().size();
+                    for(int i=0;i<size;i++) {
+                        if (username.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase()) && password.equals(Files.getPassengers().get(i).getPassword())) {
+                            flag = true;
+                            user = Files.getPassengers().get(i);
+                            break;
+                        }
+                    }
+                    if (flag) {
+                        Multi_used_methods.openFlightSearch(e, user);
+                        Ticket.setTicketNumbercounter(user.getTickets().size());
+                    }
+                    else {
+                        alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("Login Failed");
+                        alert.setContentText("Login Failed");
+                        alert.showAndWait();
+                    }
+                }catch (Exception exe){
+                    System.out.println("Error when login"+exe);
+                }
             }
         }
     }

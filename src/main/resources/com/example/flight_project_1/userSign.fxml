@@ -15,12 +15,12 @@
             <Image url="@FlightViewBaseScene.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="977.0" layoutY="561.0" scaleX="0.5" scaleY="0.5" text="You have an account already">
+      <Label layoutX="943.0" layoutY="343.0" scaleX="0.5" scaleY="0.5" text="You have an account already">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <Button fx:id="signInButton" layoutX="1082.0" layoutY="637.0" mnemonicParsing="false" onAction="#userSignIn" prefHeight="153.0" prefWidth="326.0" scaleX="0.5" scaleY="0.5" text="Sign in" textFill="#5984c9">
+      <Button fx:id="signInButton" layoutX="1058.0" layoutY="478.0" mnemonicParsing="false" onAction="#userSignIn" prefHeight="115.0" prefWidth="282.0" scaleX="0.5" scaleY="0.5" text="Sign in" textFill="#5984c9">
          <font>
             <Font size="42.0" />
          </font>
@@ -28,12 +28,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="993.0" layoutY="236.0" scaleX="0.5" scaleY="0.5" text="You don't have an account">
+      <Label layoutX="374.0" layoutY="343.0" scaleX="0.5" scaleY="0.5" text="You don't have an account">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <Button fx:id="signUpButton" layoutX="1106.0" layoutY="356.0" mnemonicParsing="false" onAction="#userSignUp" prefHeight="149.0" prefWidth="285.0" scaleX="0.5" scaleY="0.5" text="Sign up" textFill="#5984c9">
+      <Button fx:id="signUpButton" layoutX="497.0" layoutY="478.0" mnemonicParsing="false" onAction="#userSignUp" prefHeight="108.0" prefWidth="238.0" scaleX="0.5" scaleY="0.5" text="Sign up" textFill="#5984c9">
          <font>
             <Font size="42.0" />
          </font>
@@ -41,13 +41,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="backButton" layoutX="1391.0" layoutY="43.0" mnemonicParsing="false" onAction="#backToLoginInterface" prefHeight="81.0" prefWidth="148.0" scaleX="0.5" scaleY="0.5" text="Back" textFill="#5e8dd4">
+      <Label alignment="CENTER" layoutX="71.0" layoutY="105.0" prefHeight="78.0" prefWidth="1536.0" style="-fx-text-fill: Blue;" text="Welcome In Flight reservation system">
          <font>
-            <Font size="37.0" />
+            <Font size="53.0" />
          </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+      </Label>
    </children>
 </AnchorPane>
