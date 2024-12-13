@@ -85,11 +85,13 @@ public class AddFlight implements Initializable {
                 isValidDate = false;
             }
             if (isValidDate) {
-                if (hours1 < 0 || hours1 > 24)
+                if (hours1 < 0 || hours1 > 24) {
                     departureHourInvalidMessage.setVisible(true);
-                else if (minutes1 < 0 || minutes1 > 60)
+                    isValidDate = false;
+                }else if (minutes1 < 0 || minutes1 > 60) {
                     departureMinuteInvalidMessage.setVisible(true);
-                else {
+                    isValidDate = false;
+                }else {
                     departureHourInvalidMessage.setVisible(false);
                     departureMinuteInvalidMessage.setVisible(false);
                 }
@@ -115,11 +117,13 @@ public class AddFlight implements Initializable {
                 isValidDate = false;
             }
             if (isValidDate) {
-                if (hours2 < 0 || hours2 > 24)
+                if (hours2 < 0 || hours2 > 24) {
+                    isValidDate = false;
                     arrivalHourInvalidMessage.setVisible(true);
-                else if (minutes2 < 0 || minutes2 > 60)
+                }                else if (minutes2 < 0 || minutes2 > 60) {
+                    isValidDate = false;
                     arrivalMinuteInvalidMessage.setVisible(true);
-                else {
+                }else {
                     arrivalHourInvalidMessage.setVisible(false);
                     arrivalMinuteInvalidMessage.setVisible(false);
                 }

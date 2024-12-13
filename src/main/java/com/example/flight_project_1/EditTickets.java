@@ -137,6 +137,7 @@ public class EditTickets {
             mb.passUser(user);
             scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("buttonLogoutStyle.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         }

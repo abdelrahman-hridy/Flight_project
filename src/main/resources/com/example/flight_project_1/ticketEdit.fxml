@@ -154,25 +154,37 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="sellButton0" mnemonicParsing="false" prefHeight="6.0" prefWidth="78.0" text="Sell">
+            <Button fx:id="sellButton0" mnemonicParsing="false" prefHeight="46.0" prefWidth="91.0" text="cancel">
                <font>
                   <Font size="21.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="sellButton1" mnemonicParsing="false" prefHeight="6.0" prefWidth="78.0" text="Sell" GridPane.columnIndex="1">
+            <Button fx:id="sellButton1" mnemonicParsing="false" prefHeight="46.0" prefWidth="99.0" text="cancel" GridPane.columnIndex="1">
                <font>
                   <Font size="21.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="sellButton2" mnemonicParsing="false" prefHeight="6.0" prefWidth="78.0" text="Sell" GridPane.columnIndex="2">
+            <Button fx:id="sellButton2" mnemonicParsing="false" prefHeight="46.0" prefWidth="96.0" text="cancel" GridPane.columnIndex="2">
                <font>
                   <Font size="21.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="sellButton3" mnemonicParsing="false" prefHeight="6.0" prefWidth="78.0" text="Sell" GridPane.columnIndex="3">
+            <Button fx:id="sellButton3" mnemonicParsing="false" prefHeight="46.0" prefWidth="96.0" text="cancel" GridPane.columnIndex="3">
                <font>
                   <Font size="21.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </GridPane>

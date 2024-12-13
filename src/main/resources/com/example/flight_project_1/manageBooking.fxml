@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.ManageBooking">
+<AnchorPane maxHeight="800.0" maxWidth="1536.0" minHeight="800.0" minWidth="1536.0" prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.ManageBooking">
    <children>
+      <ImageView fitHeight="1049.0" fitWidth="1600.0" layoutX="-6.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@userProfileBackground.jpg" />
+         </image>
+      </ImageView>
       <TableView fx:id="myTable" fixedCellSize="40.0" layoutX="2.0" layoutY="231.0" prefHeight="354.0" prefWidth="1514.0">
         <columns>
           <TableColumn fx:id="ticketIdColumn" prefWidth="75.19997882843018" text="Ticket ID" />
@@ -31,6 +39,9 @@
          <font>
             <Font size="35.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
    </children>
 </AnchorPane>

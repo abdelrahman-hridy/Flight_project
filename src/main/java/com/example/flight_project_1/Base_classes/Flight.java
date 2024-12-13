@@ -20,6 +20,10 @@ public class Flight implements Serializable {
         FlightNumberStatic = flightNumberStatic;
     }
 
+    public static int getFlightNumberStatic() {
+        return FlightNumberStatic;
+    }
+
     public int getFlightNumber() {
         return FlightNumber;
     }

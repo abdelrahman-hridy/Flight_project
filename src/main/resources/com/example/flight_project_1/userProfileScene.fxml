@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.UserProfile">
+<AnchorPane maxHeight="800.0" maxWidth="1536.0" minHeight="800.0" minWidth="1536.0" prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.UserProfile">
    <children>
+      <ImageView fitHeight="1077.0" fitWidth="1608.0" layoutX="-10.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@userProfileBackground.jpg" />
+         </image>
+      </ImageView>
       <Button fx:id="backToSearchFlight" layoutX="54.0" layoutY="51.0" mnemonicParsing="false" onAction="#backFromUserProfile" text="Back">
          <font>
             <Font size="30.0" />
-         </font></Button>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Label layoutX="631.0" layoutY="116.0" text="User Profile">
          <font>
             <Font size="60.0" />
@@ -35,11 +46,17 @@
          <font>
             <Font size="40.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Button fx:id="go_to_manage_booking" layoutX="93.0" layoutY="663.0" mnemonicParsing="false" onAction="#GoToManageBooking" text="Manage Booking">
          <font>
             <Font size="40.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Label fx:id="pocketLabel" layoutX="536.0" layoutY="546.0" prefHeight="46.0" prefWidth="282.0" text="Pocket : ">
          <font>

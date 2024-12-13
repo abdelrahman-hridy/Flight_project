@@ -17,6 +17,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Main extends Application implements Serializable {
 
@@ -45,8 +46,17 @@ public class Main extends Application implements Serializable {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        File file = new File("counterVariables.txt");
+        Scanner scan = null;
+        int flightCounter;
+        try {
+            scan = new Scanner(file);
+            flightCounter = Integer.parseInt(scan.nextLine());
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         // assign counter number in flight by flights number after reading it
-        Flight.setFlightNumberStatic(Files.getFlights().size());
+        Flight.setFlightNumberStatic(flightCounter);
 
         // Read Admins
         try {
@@ -415,14 +425,15 @@ public class Main extends Application implements Serializable {
             System.out.println("Can't open plane picture");
         }
 
+
         stage.show();
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent windowEvent) {
-                Platform.exit();
-                System.exit(0);
-            }
-        });
+//        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+//            @Override
+//            public void handle(WindowEvent windowEvent) {
+//                Platform.exit();
+//                System.exit(0);
+//            }
+//        });
 
         stage.setOnCloseRequest(event ->{
             event.consume();
@@ -456,6 +467,17 @@ public class Main extends Application implements Serializable {
             } catch (IOException e) {
                 System.out.println("Cant't Find Flights.txt");
             }
+            PrintWriter pr = null;
+            try {
+                pr = new PrintWriter("counterVariables.txt");
+                pr.println(Flight.getFlightNumberStatic());
+                pr.flush();
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }finally {
+                pr.close();
+            }
+
             // Write Admins
             try {
                 File file = new File("Admins.txt");
@@ -472,18 +494,7 @@ public class Main extends Application implements Serializable {
             }catch (Exception exe){
                 System.out.println("Error when login"+exe);
             }
-
-
-//        for(int i = 0; i < Files.getAdmins().size(); i++)
-//            System.out.println(Files.getAdmins().get(i).getUsername());
-            System.out.println("");
-//        for(int i = 0; i < Files.getPassengers().size(); i++)
-//            System.out.println(Files.getPassengers().get(i).getName());
-
-//            for(int i = 0; i < Files.getAirports().size(); i++)
-//                System.out.println(Files.getAirports().get(i).getAirport_Name());
-//        for(int i = 0; i < Files.getFlights().size(); i++)
-//            System.out.println(Files.getFlights().get(i).getDeapartureAirport().getAirport_Name());
+            System.out.println("Ok");
             stage.close();
         }
 

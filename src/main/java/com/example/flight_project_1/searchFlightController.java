@@ -212,6 +212,7 @@ public class searchFlightController implements Initializable, Serializable {
                 root = loader.load();
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
+                scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
                 stage.setScene(scene);
                 stage.show();
             }

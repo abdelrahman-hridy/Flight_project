@@ -69,6 +69,7 @@ public class Multi_used_methods {
             Up.assignUser_sceneId(user, sceneId);
 
             scene = new Scene(root);
+            scene.getStylesheets().add(Multi_used_methods.class.getResource("buttonsStyle.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         } catch (
@@ -89,6 +90,7 @@ public class Multi_used_methods {
 
             scene = new Scene(root);
             stage.setScene(scene);
+            scene.getStylesheets().add(Multi_used_methods.class.getResource("buttonsStyle.css").toExternalForm());
             stage.show();
         } catch (
                 IOException e) {
@@ -107,6 +109,7 @@ public class Multi_used_methods {
             Up.assignAvailbleSeats(AvailbleSeats);
 
             scene = new Scene(root);
+            scene.getStylesheets().add(Multi_used_methods.class.getResource("buttonsStyle.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         } catch (

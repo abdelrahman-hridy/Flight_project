@@ -107,7 +107,8 @@ public class DeleteFlight implements Initializable {
                 flightDepartureLabel.setText("");
                 flightDepartureTimeLabel.setText("");
                 flightArrivalTimeLabel.setText("");
-                flightNumbers.remove(choosenFlight.getFlightNumber());
+                flightNumbers.remove(String.valueOf(choosenFlight.getFlightNumber()));
+                System.out.println("skipped");
                 flightNameChoiceBox.getItems().clear();
                 flightNameChoiceBox.getItems().addAll(flightNumbers);
 
