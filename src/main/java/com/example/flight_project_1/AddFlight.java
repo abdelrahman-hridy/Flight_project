@@ -173,6 +173,18 @@ public class AddFlight implements Initializable {
             else {
                 warningLabel.setVisible(false);
             }
+
+            Date currentDate = new Date();
+            if(departureDate.before(currentDate) ||  arrivalDate.before(currentDate))
+            {
+                isValidDate = false;
+                warningLabel.setText("Flight Time must be after current time");
+                warningLabel.setVisible(true);
+            }
+            else {
+                warningLabel.setVisible(false);
+            }
+
             // confirm Adding after check all inputs
 
             if(isValidDate){

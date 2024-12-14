@@ -196,17 +196,25 @@ public class UpdateFlight implements Initializable {
                     {
                         warningLabel.setText("The Arrival Time Must Be After Departure Time");
                         warningLabel.setVisible(true);
+                        isValidDate = false;
+                    }
+                    Date currentDate = new Date();
+                    if(Files.getFlights().get(index).getDepartureTime().before(currentDate) ||  Files.getFlights().get(index).getArrivalTime().before(currentDate))
+                    {
+                        isValidDate = false;
+                        warningLabel.setText("Flight Time must be after current time");
+                        warningLabel.setVisible(true);
                     }
                     else {
-                        Files.getFlights().get(index).setDepartureTime(newDate);
-                        changeFlightShown(event);
-                        setVisibility(0, false);
-                        newDepartureDate.setValue(null);
-                        newDepartureHour.setText(null);
-                        newDepartureMinute.setText(null);
                         warningLabel.setVisible(false);
                     }
-
+                    Files.getFlights().get(index).setDepartureTime(newDate);
+                    changeFlightShown(event);
+                    setVisibility(0, false);
+                    newDepartureDate.setValue(null);
+                    newDepartureHour.setText(null);
+                    newDepartureMinute.setText(null);
+                    warningLabel.setVisible(false);
                 }
             }
         }
