@@ -16,63 +16,60 @@
             <Image url="@seat5.png" />
          </image>
       </ImageView>
-      <Label layoutX="208.0" layoutY="47.0" text="Seats Id" textFill="#00ffe2">
+      <Label layoutX="467.0" layoutY="63.0" text="Seats Id" textFill="#00ffe2">
          <font>
-            <Font size="20.0" />
+            <Font size="28.0" />
          </font></Label>
-      <TextField fx:id="SeatId" layoutX="359.0" layoutY="50.0" prefHeight="26.0" prefWidth="185.0" />
-      <Label layoutX="202.0" layoutY="155.0" text="Seats Class" textFill="#00ffe2">
+      <TextField fx:id="SeatId" alignment="CENTER" layoutX="604.0" layoutY="60.0" prefHeight="26.0" prefWidth="185.0">
          <font>
-            <Font size="20.0" />
+            <Font size="22.0" />
+         </font></TextField>
+      <Label layoutX="47.0" layoutY="212.0" text="Seats Class" textFill="#00ffe2">
+         <font>
+            <Font size="31.0" />
          </font>
       </Label>
-      <TextField fx:id="SeatClass" layoutX="359.0" layoutY="158.0" prefHeight="26.0" prefWidth="193.0" />
+      <TextField fx:id="SeatClass" alignment="CENTER" layoutX="204.0" layoutY="215.0" prefHeight="26.0" prefWidth="219.0">
+         <font>
+            <Font size="22.0" />
+         </font></TextField>
       <Label layoutX="114.0" layoutY="197.0" textFill="#00ffe2">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="193.0" layoutY="278.0" text="Seats Price" textFill="#00ffe2">
+      <Label layoutX="38.0" layoutY="348.0" text="Seats Price" textFill="#00ffe2">
          <font>
-            <Font size="20.0" />
+            <Font size="31.0" />
          </font>
       </Label>
-      <TextField fx:id="SeatPrice" layoutX="359.0" layoutY="281.0" prefHeight="26.0" prefWidth="195.0" />
-      <Label layoutX="195.0" layoutY="412.0" text="Services" textFill="#00ffe2">
+      <TextField fx:id="SeatPrice" alignment="CENTER" layoutX="204.0" layoutY="348.0" prefHeight="46.0" prefWidth="105.0">
          <font>
-            <Font size="20.0" />
+            <Font size="22.0" />
+         </font></TextField>
+      <Label layoutX="725.0" layoutY="212.0" text="Services" textFill="#00ffe2">
+         <font>
+            <Font size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="Service" layoutX="359.0" layoutY="415.0" prefHeight="26.0" />
-      <Label layoutX="185.0" layoutY="534.0" text="All Price" textFill="#00ffe2">
+      <TextField fx:id="Service" alignment="CENTER" layoutX="874.0" layoutY="210.0" prefHeight="54.0" prefWidth="239.0">
          <font>
-            <Font size="20.0" />
+            <Font size="19.0" />
+         </font></TextField>
+      <Label layoutX="725.0" layoutY="346.0" prefHeight="46.0" prefWidth="120.0" text="All Price" textFill="#00ffe2">
+         <font>
+            <Font size="31.0" />
          </font>
       </Label>
-      <TextField fx:id="AllPrice" layoutX="359.0" layoutY="537.0" prefHeight="26.0" prefWidth="182.0" />
+      <TextField fx:id="AllPrice" alignment="CENTER" layoutX="883.0" layoutY="346.0" prefHeight="46.0" prefWidth="114.0">
+         <font>
+            <Font size="22.0" />
+         </font></TextField>
       <Button fx:id="Back" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#BackToSeats" prefHeight="26.0" prefWidth="49.0" text="Back" textFill="#005aff">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label layoutX="713.0" layoutY="47.0" text="User Name" textFill="#00ffe2">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="UserName" layoutX="847.0" layoutY="49.0" prefHeight="26.0" prefWidth="202.0" />
-      <Label layoutX="717.0" layoutY="154.0" text="User Id" textFill="#00ffe2">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="UserId" layoutX="854.0" layoutY="157.0" prefHeight="26.0" prefWidth="195.0" />
-      <Label layoutX="717.0" layoutY="279.0" text="Phone" textFill="#00ffe2">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="UserPhone" layoutX="854.0" layoutY="280.0" prefHeight="26.0" prefWidth="195.0" />
-      <Button layoutX="705.0" layoutY="618.0" mnemonicParsing="false" onAction="#ConfirmTheSeat" prefHeight="30.0" prefWidth="86.0" text="Confirm" textFill="#005aff">
+      <Button layoutX="705.0" layoutY="618.0" mnemonicParsing="false" onAction="#ConfirmTheSeat" prefHeight="40.0" prefWidth="95.0" text="Confirm" textFill="#005aff">
          <font>
             <Font size="15.0" />
          </font>

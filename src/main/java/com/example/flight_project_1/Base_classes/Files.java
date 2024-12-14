@@ -3,11 +3,11 @@ package com.example.flight_project_1.Base_classes;
 import java.util.ArrayList;
 
 public class Files {
-    private static ArrayList<Flight> flights = new ArrayList<>();
-    private static ArrayList<Admin> admins = new ArrayList<>();
-    private static ArrayList<Airport> airports = new ArrayList<>();
-    private static ArrayList<ArrayList<Seat>> seats = new ArrayList<>();
-    private static ArrayList<Passenger> passengers = new ArrayList<>();
+    private static ArrayList<Flight> flights;
+    private static ArrayList<Admin> admins;
+    private static ArrayList<Airport> airports;
+    private static ArrayList<ArrayList<Seat>> seats;
+    private static ArrayList<Passenger> passengers;
 
     public static ArrayList<Flight> getFlights() {
         return flights;

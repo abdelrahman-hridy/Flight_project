@@ -1,8 +1,6 @@
 package com.example.flight_project_1;
 
-import com.example.flight_project_1.Base_classes.Airport;
-import com.example.flight_project_1.Base_classes.Files;
-import com.example.flight_project_1.Base_classes.Flight;
+import com.example.flight_project_1.Base_classes.*;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -99,6 +97,34 @@ public class DeleteFlight implements Initializable {
                 confirm = false;
             }
             if (confirm) {
+
+                // Loop for passengers and return their mony
+                ArrayList<Ticket> ticketsBack = new ArrayList<>();
+                for (int i = 0; i < choosenFlight.getPassengers().size(); i++)
+                {
+                    Passenger passenger = null;
+                    for(int j = 0; j < Files.getPassengers().size(); j++)
+                    {
+                        if(Files.getPassengers().get(j).getPassenger_ID().equals(choosenFlight.getPassengers().get(i).getPassenger_ID()))
+                            passenger = Files.getPassengers().get(j);
+                    }
+                    for (int j = 0; j < passenger.getTickets().size(); j++)
+                    {
+                        Ticket ticket = passenger.getTickets().get(j);
+                        if(ticket.getBookingTicket().getFlight().getFlightNumber() == choosenFlight.getFlightNumber())
+                        {
+                            passenger.setPocket(passenger.getPocket() + ticket.getBookingTicket().getBookingPrice());
+                            ticketsBack.add(ticket);
+                        }
+                    }
+                    System.out.println(ticketsBack.size());
+                    for (int j = 0; j < ticketsBack.size(); j++) {
+                        System.out.println(ticketsBack.get(j).getTicketNumber());
+                        passenger.getTickets().remove(ticketsBack.get(j));
+                    }
+                }
+
+                // delete Flight
                 Files.getFlights().remove(choosenFlight);
                 flightNameChoiceBox.setValue("");
                 flightNumberLabel.setText("");
@@ -108,7 +134,6 @@ public class DeleteFlight implements Initializable {
                 flightDepartureTimeLabel.setText("");
                 flightArrivalTimeLabel.setText("");
                 flightNumbers.remove(String.valueOf(choosenFlight.getFlightNumber()));
-                System.out.println("skipped");
                 flightNameChoiceBox.getItems().clear();
                 flightNameChoiceBox.getItems().addAll(flightNumbers);
 

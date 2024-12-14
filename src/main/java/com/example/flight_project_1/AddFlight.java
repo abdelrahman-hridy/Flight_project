@@ -164,7 +164,6 @@ public class AddFlight implements Initializable {
             }
             // confirm Adding after check all inputs
             if(isValidDate){
-                System.out.println("Created Flight");
                 Flight flight = new Flight(departureAirport, arrivalAirport, departureDate, arrivalDate, Files.getSeats(), flightPrice);
                 Files.getFlights().add(flight);
 

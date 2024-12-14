@@ -14,7 +14,7 @@ public class Flight implements Serializable {
     private Date arrivalTime;
     private int price;
     private ArrayList<ArrayList<Seat>> seats;
-    private Passenger passengers[];
+    private ArrayList<Passenger> passengers = new ArrayList<>();
 
     public static void setFlightNumberStatic(int flightNumberStatic) {
         FlightNumberStatic = flightNumberStatic;
@@ -80,11 +80,11 @@ public class Flight implements Serializable {
         this.price = price;
     }
 
-    public Passenger[] getPassengers() {
+    public ArrayList<Passenger> getPassengers() {
         return passengers;
     }
 
-    public void setPassengers(Passenger[] passengers) {
+    public void setPassengers(ArrayList<Passenger> passengers) {
         this.passengers = passengers;
     }
 

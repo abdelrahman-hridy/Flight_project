@@ -40,33 +40,15 @@ public class Multi_used_methods {
             System.out.println("Can't Open serchFlightScene.fxml"+exe);
         }
     }
-    //from EditProfile
-//    public static void GoToProfile(ActionEvent event, Passenger user){
-//        try {
-//            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("userProfileScene.fxml"));
-//            root = loader.load();
-//            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//
-//            UserProfile Up = loader.getController();
-//            Up.assignUser_sceneId(user, 50);
-//
-//            scene = new Scene(root);
-//            stage.setScene(scene);
-//            stage.show();
-//        } catch (
-//                IOException e) {
-//            System.out.println("Can't Open userProfileScene.fxml");
-//        }
-//    }
-    // From FlightSearch
-    public static void GoToProfile(ActionEvent event, Passenger user, int sceneId){
+
+    public static void GoToProfile(ActionEvent event, Passenger user){
         try {
             FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("userProfileScene.fxml"));
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
             UserProfile Up = loader.getController();
-            Up.assignUser_sceneId(user, sceneId);
+            Up.assignUser_sceneId(user);
 
             scene = new Scene(root);
             scene.getStylesheets().add(Multi_used_methods.class.getResource("buttonsStyle.css").toExternalForm());
@@ -77,46 +59,7 @@ public class Multi_used_methods {
             System.out.println("Can't Open userProfileScene.fxml");
         }
     }
-    // From Flight Show Or Seat Selection
-    public static void GoToProfile(ActionEvent event, Passenger user, int sceneId, Flight flight){
-        try {
-            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("userProfileScene.fxml"));
-            root = loader.load();
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-            UserProfile Up = loader.getController();
-            Up.assignUser_sceneId(user, sceneId);
-            Up.assignFlight(flight);
-
-            scene = new Scene(root);
-            stage.setScene(scene);
-            scene.getStylesheets().add(Multi_used_methods.class.getResource("buttonsStyle.css").toExternalForm());
-            stage.show();
-        } catch (
-                IOException e) {
-            System.out.println("Can't Open userProfileScene.fxml");
-        }
-    }
-    public static void GoToProfile(ActionEvent event, Passenger user, int sceneId, Flight flight, int AvailbleSeats){
-        try {
-            FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("userProfileScene.fxml"));
-            root = loader.load();
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-            UserProfile Up = loader.getController();
-            Up.assignUser_sceneId(user, sceneId);
-            Up.assignFlight(flight);
-            Up.assignAvailbleSeats(AvailbleSeats);
-
-            scene = new Scene(root);
-            scene.getStylesheets().add(Multi_used_methods.class.getResource("buttonsStyle.css").toExternalForm());
-            stage.setScene(scene);
-            stage.show();
-        } catch (
-                IOException e) {
-            System.out.println("Can't Open userProfileScene.fxml");
-        }
-    }
     public static void GoToFlightShow(ActionEvent event, Flight flight, Passenger user,int AvailbleSeats){
         try {
             FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("flightShow.fxml"));
@@ -148,18 +91,12 @@ public class Multi_used_methods {
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
+            scene.getStylesheets().add(Multi_used_methods.class.getResource("buttonsStyle.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
             System.out.println("Can't Open SeatSelection.fxml"+e);
         }
     }
-//    public void assignUser(Passenger user){
-//        this.user = user;
-//    }
-//
-//    public void passingFlight(Flight flight){
-//        this.flight = flight;
-//    }
 
 }

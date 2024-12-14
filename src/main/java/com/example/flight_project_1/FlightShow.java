@@ -59,7 +59,4 @@ public class FlightShow{
     public void transferToChooseSeat(ActionEvent event){
         Multi_used_methods.GoToChooseSeat(event, flight, user,AvailbleSeats);
     }
-    public void goToProfile(ActionEvent event){
-        Multi_used_methods.GoToProfile(event, user, 2, flight, AvailbleSeats);
-    }
 }

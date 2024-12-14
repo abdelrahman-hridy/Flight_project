@@ -1,7 +1,6 @@
 package com.example.flight_project_1;
 
-import com.example.flight_project_1.Base_classes.Airport;
-import com.example.flight_project_1.Base_classes.Files;
+import com.example.flight_project_1.Base_classes.*;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -92,6 +91,37 @@ public class DeleteAirport implements Initializable {
             }
 
             if (confirm) {
+                // Delete All Flights
+                int flightSize = Files.getFlights().size();
+                ArrayList<Flight> deletedFlights = new ArrayList<>();
+                for (int k = 0; k < flightSize; k++)
+                {
+                    if(Files.getFlights().get(k).getDeapartureAirport().getAirport_code() == choosenAirport.getAirport_code() || Files.getFlights().get(k).getArrivalAirport().getAirport_code() == choosenAirport.getAirport_code())
+                    {
+                        Flight flight = Files.getFlights().get(k);
+                        for (int i = 0; i < flight.getPassengers().size(); i++)
+                        {
+                            Passenger passenger = null;
+                            for(int j = 0; j < Files.getPassengers().size(); j++) {
+                                if (Files.getPassengers().get(j).getPassenger_ID().equals(flight.getPassengers().get(i).getPassenger_ID()))
+                                    passenger = Files.getPassengers().get(j);
+                            }
+                            for (int j = 0; j < passenger.getTickets().size(); j++)
+                            {
+                                Ticket ticket = passenger.getTickets().get(j);
+                                passenger.setPocket(passenger.getPocket() + ticket.getBookingTicket().getBookingPrice());
+                                passenger.getTickets().remove(ticket);
+                            }
+                        }
+                        deletedFlights.add(flight);
+                    }
+                }
+                for(int i = 0; i < deletedFlights.size(); i++)
+                {
+                    Files.getFlights().remove(deletedFlights.get(i));
+                }
+
+
                 Files.getAirports().remove(choosenAirport);
                 airportNameChoiceBox.setValue("");
                 airportNameLabel.setText("");

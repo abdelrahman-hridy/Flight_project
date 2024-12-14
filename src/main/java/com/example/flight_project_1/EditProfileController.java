@@ -34,7 +34,6 @@ public class EditProfileController {
     private TextField contact_edit;
     Alert alert;
     private Passenger user;
-    private int sceneId;
     private int pass_index;
     private Parent root;
     private Stage stage;
@@ -48,10 +47,9 @@ public class EditProfileController {
         this.user = user;
         this.pass_index = pass_index;
     }*/
-    public void standBy(Passenger user,int pass_index,int sceneId){
+    public void standBy(Passenger user,int pass_index){
         this.user = user;
         this.pass_index = pass_index;
-        this.sceneId = sceneId;
     }
     public void editUsername(ActionEvent e){
         String username = user_edit.getText();
@@ -167,23 +165,8 @@ public class EditProfileController {
         }
         return NotFound;
     }
-    public void backToUserProfil(ActionEvent event) throws IOException {
-//        ActionEvent e = new ActionEvent();
-
-
-            Multi_used_methods.GoToProfile(event,this.user,this.sceneId);
-
-//        Multi_used_methods.GoToProfile(e, user);
-        /*try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("userProfileScene.fxml"));
-            root = loader.load();
-        } catch (IOException e) {
-            System.out.println("Can't Open userSign.fxml");
-        }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();*/
+    public void backToUserProfile(ActionEvent event) throws IOException {
+        Multi_used_methods.GoToProfile(event, user);
     }
 
 }

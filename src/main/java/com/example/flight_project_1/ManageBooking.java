@@ -88,7 +88,6 @@ public class ManageBooking {
                     seatsClass += user.getTickets().get(i).getBookingTicket().getSeat().get(j).getSeatClass();
                 }
             }
-            System.out.println(seats);
             row = new TicketsTable(user.getTickets().get(i).getTicketNumber(), user.getTickets().get(i).getBookingTicket().getFlight().getDeapartureAirport().getAirport_Name(), user.getTickets().get(i).getBookingTicket().getFlight().getArrivalAirport().getAirport_Name(),
                     seats, seatsClass,
                     user.getTickets().get(i).getBookingTicket().getFlight().getDepartureTime().toString(), user.getTickets().get(i).getBookingTicket().getFlight().getArrivalTime().toString()
@@ -130,7 +129,7 @@ public class ManageBooking {
         }
     }
     public void backToUserProfile(ActionEvent event){
-        Multi_used_methods.GoToProfile(event, user, 1);
+        Multi_used_methods.GoToProfile(event, user);
     }
 
 

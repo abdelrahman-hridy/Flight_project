@@ -229,6 +229,6 @@ public class searchFlightController implements Initializable, Serializable {
         arrivalDatePicker.setValue(null);
     }
     public void goToProfile(ActionEvent event){
-        Multi_used_methods.GoToProfile(event, user, 1);
+        Multi_used_methods.GoToProfile(event, user);
     }
 }

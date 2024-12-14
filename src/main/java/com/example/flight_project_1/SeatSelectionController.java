@@ -65,10 +65,6 @@ public class SeatSelectionController  {
 //
 //    }
 
-    public void goToProfile(ActionEvent event){
-        Multi_used_methods.GoToProfile(event, user, 3, flight);
-    }
-
     public void GoToFlightShow(ActionEvent event){
         Multi_used_methods.GoToFlightShow(event,this.flight,this.user,this.AvailbleSeats);
     }
@@ -170,6 +166,7 @@ public class SeatSelectionController  {
 
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
+                scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
                 stage.setScene(scene);
                 stage.show();
             }
