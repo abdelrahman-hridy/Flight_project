@@ -10,6 +10,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.Region;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -35,7 +36,7 @@ public class AddFlight implements Initializable {
     @FXML
     private Button  addButton;
     @FXML
-    Label flightAddedSuccessfulyMessage;
+    Label flightAddedSuccessfulyMessage, warningLabel;
     private Date departureDate = new Date();
     private Date arrivalDate = new Date();
 
@@ -162,7 +163,18 @@ public class AddFlight implements Initializable {
                 if(Files.getAirports().get(i).getAirport_Name().equals(arrivalAirportChoiceBox.getValue()))
                     arrivalAirport = Files.getAirports().get(i);
             }
+
+            if(departureDate.getTime() >= arrivalDate.getTime())
+            {
+                isValidDate = false;
+                warningLabel.setText("The Arrival Time Must Be After Departure Time");
+                warningLabel.setVisible(true);
+            }
+            else {
+                warningLabel.setVisible(false);
+            }
             // confirm Adding after check all inputs
+
             if(isValidDate){
                 Flight flight = new Flight(departureAirport, arrivalAirport, departureDate, arrivalDate, Files.getSeats(), flightPrice);
                 Files.getFlights().add(flight);
@@ -181,7 +193,12 @@ public class AddFlight implements Initializable {
                 flightAddedSuccessfulyMessage.setVisible(true);
                 departureDate = new Date();
                 arrivalDate = new Date();
+                warningLabel.setVisible(false);
             }
+        }
+        else {
+            warningLabel.setText("Complete All Data Required");
+            warningLabel.setVisible(true);
         }
     }
 

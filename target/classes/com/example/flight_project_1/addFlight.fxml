@@ -23,96 +23,96 @@
                 <Font size="66.0" />
             </font>
         </Label>
-        <Label fx:id="departureDateLabel" alignment="CENTER" layoutX="793.0" layoutY="519.0" text="Departure Date" textFill="#00d7ff" translateX="-50.0">
+        <Label fx:id="departureDateLabel" alignment="CENTER" layoutX="807.0" layoutY="250.0" text="Departure Date" textFill="#00d7ff" translateX="-50.0">
             <font>
                 <Font size="34.0" />
             </font>
         </Label>
-        <Label fx:id="arrivalDateLabel" alignment="CENTER" layoutX="1180.0" layoutY="519.0" text="Arrival Date" textFill="#00d7ff" translateX="-50.0">
+        <Label fx:id="arrivalDateLabel" alignment="CENTER" layoutX="1194.0" layoutY="250.0" text="Arrival Date" textFill="#00d7ff" translateX="-50.0">
             <font>
                 <Font size="34.0" />
             </font>
         </Label>
-        <Label fx:id="priceLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="674.0" layoutY="268.0" text="Price" textAlignment="CENTER" textFill="#00d7ff">
+        <Label fx:id="priceLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="401.0" layoutY="539.0" text="Price" textAlignment="CENTER" textFill="#00d7ff">
             <font>
                 <Font size="34.0" />
             </font>
         </Label>
-        <Label fx:id="priceInvalidMessage" layoutX="652.0" layoutY="334.0" text="The price is invalid" textFill="RED" visible="false">
+        <Label fx:id="priceInvalidMessage" layoutX="379.0" layoutY="605.0" text="The price is invalid" textFill="RED" visible="false">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="departureHourInvalidMessage" layoutX="749.0" layoutY="665.0" text="Invalid Number" textFill="RED" visible="false">
+        <Label fx:id="departureHourInvalidMessage" layoutX="762.0" layoutY="399.0" prefHeight="25.0" prefWidth="112.0" text="Invalid Number" textFill="RED" visible="false">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="departureMinuteInvalidMessage" layoutX="880.0" layoutY="665.0" text="Invalid Number" textFill="RED" visible="false">
+        <Label fx:id="departureMinuteInvalidMessage" layoutX="886.0" layoutY="398.0" text="Invalid Number" textFill="RED" visible="false">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="arrivalHourInvalidMessage" layoutX="1081.0" layoutY="665.0" text="Invalid Number" textFill="RED" visible="false">
+        <Label fx:id="arrivalHourInvalidMessage" layoutX="1101.0" layoutY="397.0" text="Invalid Number" textFill="RED" visible="false">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="arrivalMinuteInvalidMessage" layoutX="1227.0" layoutY="665.0" text="Invalid Number" textFill="RED" visible="false">
+        <Label fx:id="arrivalMinuteInvalidMessage" layoutX="1235.0" layoutY="398.0" text="Invalid Number" textFill="RED" visible="false">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
-      <Label fx:id="departureAirportLabel" alignment="CENTER" layoutX="141.0" layoutY="524.0" text="Departure Airport" textFill="#00d7ff">
+      <Label fx:id="departureAirportLabel" alignment="CENTER" layoutX="113.0" layoutY="250.0" text="Departure Airport" textFill="#00d7ff">
          <font>
             <Font size="34.0" />
          </font>
       </Label>
-      <Label fx:id="arrivalAirportLabel" alignment="CENTER" layoutX="457.0" layoutY="524.0" text="Arrival Airport" textFill="#00d7ff">
+      <Label fx:id="arrivalAirportLabel" alignment="CENTER" layoutX="429.0" layoutY="250.0" text="Arrival Airport" textFill="#00d7ff">
          <font>
             <Font size="34.0" />
          </font>
       </Label>
-      <DatePicker fx:id="departureDatePicker" layoutX="776.0" layoutY="634.0" />
-      <DatePicker fx:id="arrivalDatePicker" layoutX="1135.0" layoutY="631.0" />
-      <Label fx:id="newDepartureDateLabel" layoutX="842.0" layoutY="603.0" prefHeight="31.0" prefWidth="42.0" text="Day" textAlignment="CENTER" textFill="#c9f710">
+      <DatePicker fx:id="departureDatePicker" layoutX="790.0" layoutY="365.0" />
+      <DatePicker fx:id="arrivalDatePicker" layoutX="1149.0" layoutY="362.0" />
+      <Label fx:id="newDepartureDateLabel" layoutX="856.0" layoutY="334.0" prefHeight="31.0" prefWidth="42.0" text="Day" textAlignment="CENTER" textFill="#c9f710">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="newDepartureHourLabel" layoutX="721.0" layoutY="691.0" prefHeight="31.0" prefWidth="54.0" text="Hour" textAlignment="CENTER" textFill="#c9f710">
+      <Label fx:id="newDepartureHourLabel" layoutX="735.0" layoutY="422.0" prefHeight="31.0" prefWidth="54.0" text="Hour" textAlignment="CENTER" textFill="#c9f710">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="newDepartureMinuteLabel" layoutX="842.0" layoutY="691.0" prefHeight="31.0" prefWidth="77.0" text="Minute" textAlignment="CENTER" textFill="#c9f710">
+      <Label fx:id="newDepartureMinuteLabel" layoutX="856.0" layoutY="422.0" prefHeight="31.0" prefWidth="77.0" text="Minute" textAlignment="CENTER" textFill="#c9f710">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="newArrivalHourLabel" layoutX="1061.0" layoutY="688.0" prefHeight="31.0" prefWidth="54.0" text="Hour" textAlignment="CENTER" textFill="#c9f710">
+      <Label fx:id="newArrivalHourLabel" layoutX="1075.0" layoutY="419.0" prefHeight="31.0" prefWidth="54.0" text="Hour" textAlignment="CENTER" textFill="#c9f710">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="newArrivalMinuteLabel" layoutX="1183.0" layoutY="688.0" prefHeight="31.0" prefWidth="70.0" text="Minute" textAlignment="CENTER" textFill="#c9f710">
+      <Label fx:id="newArrivalMinuteLabel" layoutX="1197.0" layoutY="419.0" prefHeight="31.0" prefWidth="70.0" text="Minute" textAlignment="CENTER" textFill="#c9f710">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="newArrivalDateLabel" layoutX="1201.0" layoutY="600.0" prefHeight="31.0" prefWidth="42.0" text="Day" textAlignment="CENTER" textFill="#c9f710">
+      <Label fx:id="newArrivalDateLabel" layoutX="1215.0" layoutY="331.0" prefHeight="31.0" prefWidth="42.0" text="Day" textAlignment="CENTER" textFill="#c9f710">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <TextField fx:id="priceTextField" layoutX="643.0" layoutY="359.0" />
-      <TextField fx:id="departureHourTextField" layoutX="776.0" layoutY="694.0" prefHeight="25.0" prefWidth="54.0" />
-      <TextField fx:id="departureMinuteTextField" layoutX="908.0" layoutY="694.0" prefHeight="25.0" prefWidth="54.0" />
-      <TextField fx:id="arrivalHourTextField" layoutX="1115.0" layoutY="691.0" prefHeight="25.0" prefWidth="54.0" />
-      <TextField fx:id="arrivalMinuteTextField" layoutX="1255.0" layoutY="691.0" prefHeight="25.0" prefWidth="54.0" />
-      <ChoiceBox fx:id="departureAirportChoiceBox" layoutX="201.0" layoutY="619.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="arrivalAirportChoiceBox" layoutX="491.0" layoutY="619.0" prefWidth="150.0" />
-      <Button fx:id="addButton" layoutX="1018.0" layoutY="352.0" mnemonicParsing="false" onAction="#add" text="Add">
+      <TextField fx:id="priceTextField" layoutX="370.0" layoutY="630.0" />
+      <TextField fx:id="departureHourTextField" layoutX="790.0" layoutY="422.0" prefHeight="25.0" prefWidth="54.0" />
+      <TextField fx:id="departureMinuteTextField" layoutX="922.0" layoutY="425.0" prefHeight="25.0" prefWidth="54.0" />
+      <TextField fx:id="arrivalHourTextField" layoutX="1129.0" layoutY="422.0" prefHeight="25.0" prefWidth="54.0" />
+      <TextField fx:id="arrivalMinuteTextField" layoutX="1269.0" layoutY="422.0" prefHeight="25.0" prefWidth="54.0" />
+      <ChoiceBox fx:id="departureAirportChoiceBox" layoutX="179.0" layoutY="370.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="arrivalAirportChoiceBox" layoutX="469.0" layoutY="370.0" prefWidth="150.0" />
+      <Button fx:id="addButton" layoutX="733.0" layoutY="626.0" mnemonicParsing="false" onAction="#add" text="Add">
          <font>
             <Font size="19.0" />
          </font>
@@ -120,9 +120,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="flightAddedSuccessfulyMessage" layoutX="461.0" layoutY="202.0" text="Flight added successfuly" textFill="#00ff11" visible="false">
+      <Label fx:id="flightAddedSuccessfulyMessage" layoutX="451.0" layoutY="157.0" text="Flight added successfuly" textFill="#00ff11" visible="false">
          <font>
             <Font size="46.0" />
+         </font>
+      </Label>
+      <Label fx:id="warningLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="223.0" layoutY="147.0" prefHeight="65.0" prefWidth="948.0" text="The Arrival Time Must Be After Departure Time" textFill="RED" visible="false">
+         <font>
+            <Font size="44.0" />
          </font>
       </Label>
     </children>

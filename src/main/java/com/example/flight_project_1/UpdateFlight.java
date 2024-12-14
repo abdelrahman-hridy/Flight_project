@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class UpdateFlight implements Initializable {
@@ -38,6 +39,8 @@ public class UpdateFlight implements Initializable {
     private Label newDepartureDateLabel, newDepartureHourLabel, newDepartureMinuteLabel, newArrivalHourLabel, newArrivalMinuteLabel, newArrivalDateLabel, newPriceLabel;
     @FXML
     private Button  departureDateSubmitButton, arrivalDateSubmitButton, priceSubmitButton;
+    @FXML
+    private Label warningLabel;
 
     int index = 0;
 
@@ -128,6 +131,7 @@ public class UpdateFlight implements Initializable {
             arrivalHourInvalidMessage.setVisible(false);
             arrivalMinuteInvalidMessage.setVisible(false);
         }else {
+
             int currentYear = Files.getFlights().get(index).getArrivalTime().getYear() + 1900;
             int currentMonth = Files.getFlights().get(index).getArrivalTime().getMonth() + 1;
             int currentDay = Files.getFlights().get(index).getArrivalTime().getDate();
@@ -180,17 +184,29 @@ public class UpdateFlight implements Initializable {
                     departureHourInvalidMessage.setVisible(false);
                     departureMinuteInvalidMessage.setVisible(false);
 
-                    Files.getFlights().get(index).getDepartureTime().setHours(hours);
-                    Files.getFlights().get(index).getDepartureTime().setMinutes(minutes);
-                    Files.getFlights().get(index).getDepartureTime().setDate(newDepartureDate.getValue().getDayOfMonth());
-                    Files.getFlights().get(index).getDepartureTime().setMonth(newDepartureDate.getValue().getMonthValue() - 1);
-                    Files.getFlights().get(index).getDepartureTime().setYear(newDepartureDate.getValue().getYear() - 1900);
+                    Date newDate = new Date();
+                    newDate.setHours(hours);
+                    newDate.setMinutes(minutes);
+                    newDate.setDate(newDepartureDate.getValue().getDayOfMonth());
+                    newDate.setMonth(newDepartureDate.getValue().getMonthValue() - 1);
+                    newDate.setYear(newDepartureDate.getValue().getYear() - 1900);
+                    newDate.setSeconds(0);
 
-                    changeFlightShown(event);
-                    setVisibility(0, false);
-                    newDepartureDate.setValue(null);
-                    newDepartureHour.setText(null);
-                    newDepartureMinute.setText(null);
+                    if(newDate.getTime() >= Files.getFlights().get(index).getArrivalTime().getTime())
+                    {
+                        warningLabel.setText("The Arrival Time Must Be After Departure Time");
+                        warningLabel.setVisible(true);
+                    }
+                    else {
+                        Files.getFlights().get(index).setDepartureTime(newDate);
+                        changeFlightShown(event);
+                        setVisibility(0, false);
+                        newDepartureDate.setValue(null);
+                        newDepartureHour.setText(null);
+                        newDepartureMinute.setText(null);
+                        warningLabel.setVisible(false);
+                    }
+
                 }
             }
         }
@@ -224,17 +240,29 @@ public class UpdateFlight implements Initializable {
                     arrivalHourInvalidMessage.setVisible(false);
                     arrivalHourInvalidMessage.setVisible(false);
 
-                    Files.getFlights().get(index).getArrivalTime().setHours(hours1);
-                    Files.getFlights().get(index).getArrivalTime().setMinutes(minutes1);
-                    Files.getFlights().get(index).getArrivalTime().setDate(newArrivalDate.getValue().getDayOfMonth());
-                    Files.getFlights().get(index).getArrivalTime().setMonth(newArrivalDate.getValue().getMonthValue() - 1);
-                    Files.getFlights().get(index).getArrivalTime().setYear(newArrivalDate.getValue().getYear() - 1900);
+                    Date newDate = new Date();
+                    newDate.setHours(hours1);
+                    newDate.setMinutes(minutes1);
+                    newDate.setDate(newArrivalDate.getValue().getDayOfMonth());
+                    newDate.setMonth(newArrivalDate.getValue().getMonthValue() - 1);
+                    newDate.setYear(newArrivalDate.getValue().getYear() - 1900);
+                    newDate.setSeconds(0);
 
-                    changeFlightShown(event);
-                    setVisibility(1, false);
-                    newArrivalDate.setValue(null);
-                    newArrivalHour.setText(null);
-                    newArrivalMinute.setText(null);
+                    if(newDate.getTime() <= Files.getFlights().get(index).getDepartureTime().getTime())
+                    {
+                        warningLabel.setText("The Arrival Time Must Be After Departure Time");
+                        warningLabel.setVisible(true);
+                    }
+                    else {
+                        Files.getFlights().get(index).setArrivalTime(newDate);
+                        changeFlightShown(event);
+                        setVisibility(1, false);
+                        newArrivalDate.setValue(null);
+                        newArrivalHour.setText(null);
+                        newArrivalMinute.setText(null);
+                        warningLabel.setVisible(false);
+                    }
+
                 }
             }
         }

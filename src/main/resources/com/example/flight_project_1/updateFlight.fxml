@@ -18,8 +18,8 @@
             <Image url="@updateFlightPicture.jpg" />
          </image>
       </ImageView>
-      <ChoiceBox fx:id="flightCodeChoice" layoutX="615.0" layoutY="171.0" prefHeight="31.0" prefWidth="174.0" />
-      <Label layoutX="528.0" layoutY="123.0" text="choose the Flight code" textFill="#0011ff">
+      <ChoiceBox fx:id="flightCodeChoice" layoutX="615.0" layoutY="238.0" prefHeight="31.0" prefWidth="174.0" />
+      <Label layoutX="528.0" layoutY="190.0" text="choose the Flight code" textFill="#0011ff">
          <font>
             <Font size="34.0" />
          </font>
@@ -29,12 +29,12 @@
             <Font size="66.0" />
          </font>
       </Label>
-      <Label fx:id="departureDateL" alignment="CENTER" layoutX="142.0" layoutY="256.0" text="Departure Date" textFill="#00d7ff" translateX="-50.0">
+      <Label fx:id="departureDateL" alignment="CENTER" layoutX="142.0" layoutY="300.0" text="Departure Date" textFill="#00d7ff" translateX="-50.0">
          <font>
             <Font size="34.0" />
          </font>
       </Label>
-      <Label fx:id="arrivalDateL" alignment="CENTER" layoutX="646.0" layoutY="256.0" text="Arrival Date" textFill="#00d7ff" translateX="-50.0">
+      <Label fx:id="arrivalDateL" alignment="CENTER" layoutX="646.0" layoutY="300.0" text="Arrival Date" textFill="#00d7ff" translateX="-50.0">
          <font>
             <Font size="34.0" />
          </font>
@@ -103,17 +103,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="departureDateLabel" alignment="CENTER" layoutX="80.0" layoutY="354.0" prefHeight="47.0" prefWidth="389.0" textAlignment="CENTER" textFill="#009dff" translateX="-50.0">
+      <Label fx:id="departureDateLabel" alignment="CENTER" layoutX="80.0" layoutY="398.0" prefHeight="47.0" prefWidth="389.0" textAlignment="CENTER" textFill="#009dff" translateX="-50.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="arrivalDateLabel" alignment="CENTER" layoutX="539.0" layoutY="354.0" prefHeight="47.0" prefWidth="406.0" textAlignment="RIGHT" textFill="#009dff" translateX="-50.0">
+      <Label fx:id="arrivalDateLabel" alignment="CENTER" layoutX="539.0" layoutY="398.0" prefHeight="47.0" prefWidth="406.0" textAlignment="RIGHT" textFill="#009dff" translateX="-50.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="priceL" alignment="CENTER" contentDisplay="CENTER" layoutX="1118.0" layoutY="256.0" text="Price" textAlignment="CENTER" textFill="#00d7ff">
+      <Label fx:id="priceL" alignment="CENTER" contentDisplay="CENTER" layoutX="1118.0" layoutY="300.0" text="Price" textAlignment="CENTER" textFill="#00d7ff">
          <font>
             <Font size="34.0" />
          </font>
@@ -140,7 +140,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="priceLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1120.0" layoutY="354.0" prefHeight="47.0" prefWidth="90.0" textAlignment="CENTER" textFill="#009dff">
+      <Label fx:id="priceLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1120.0" layoutY="398.0" prefHeight="47.0" prefWidth="90.0" textAlignment="CENTER" textFill="#009dff">
          <font>
             <Font size="25.0" />
          </font>
@@ -172,6 +172,11 @@
       <Label fx:id="arrivalMinuteInvalidMessage" layoutX="717.0" layoutY="640.0" text="Invalid Number" textFill="RED" visible="false">
          <font>
             <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="warningLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="100.0" prefHeight="65.0" prefWidth="948.0" text="The Arrival Time Must Be After Departure Time" textFill="RED" visible="false">
+         <font>
+            <Font size="44.0" />
          </font>
       </Label>
    </children>

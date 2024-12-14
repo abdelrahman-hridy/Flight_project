@@ -117,9 +117,7 @@ public class DeleteFlight implements Initializable {
                             ticketsBack.add(ticket);
                         }
                     }
-                    System.out.println(ticketsBack.size());
                     for (int j = 0; j < ticketsBack.size(); j++) {
-                        System.out.println(ticketsBack.get(j).getTicketNumber());
                         passenger.getTickets().remove(ticketsBack.get(j));
                     }
                 }

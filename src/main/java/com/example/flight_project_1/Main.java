@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -49,9 +50,12 @@ public class Main extends Application implements Serializable {
         File file = new File("counterVariables.txt");
         Scanner scan = null;
         int flightCounter;
+        int userCounter;
         try {
             scan = new Scanner(file);
             flightCounter = Integer.parseInt(scan.nextLine());
+            userCounter = Integer.parseInt(scan.nextLine());
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -74,7 +78,7 @@ public class Main extends Application implements Serializable {
         }catch (Exception exe){
             System.out.println("Error when login"+exe);
         }
-        Passenger.setCounterPassId(Files.getPassengers().size());
+        Passenger.setCounterPassId(userCounter);
 
         // Read Seats
         try {
@@ -84,6 +88,11 @@ public class Main extends Application implements Serializable {
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+
+
+
+
 
 
 //<<<<<<< HEAD
@@ -357,9 +366,7 @@ public class Main extends Application implements Serializable {
         alert.showAndWait().ifPresent(response -> {
             if (response == OkButton) {
                 //Here We will write
-
                 ObjectOutputStream oos;
-
                 // Write Airport
                 try {
                     File file1 = new File("Airports.txt");
@@ -380,6 +387,7 @@ public class Main extends Application implements Serializable {
                 try {
                     pr = new PrintWriter("counterVariables.txt");
                     pr.println(Flight.getFlightNumberStatic());
+                    pr.println(Passenger.getCounterPassId());
                     pr.flush();
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException(e);
@@ -406,7 +414,6 @@ public class Main extends Application implements Serializable {
                 stage.close();
             } else if (response == NoButton) {
                 stage.close();
-            } else if (response == CancelButton) {
             }
         });
 
