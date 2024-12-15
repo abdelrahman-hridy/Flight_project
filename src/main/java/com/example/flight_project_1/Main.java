@@ -92,9 +92,6 @@ public class Main extends Application implements Serializable {
 
 
 
-
-
-
 //<<<<<<< HEAD
 //        ArrayList <ArrayList<Seat>> AllSeats=new ArrayList<>();
 //

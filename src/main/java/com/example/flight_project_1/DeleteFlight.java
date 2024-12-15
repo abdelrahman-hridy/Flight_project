@@ -19,7 +19,7 @@ public class DeleteFlight implements Initializable {
     @FXML
     private ChoiceBox flightNameChoiceBox;
     @FXML
-    private Label flightNumberLabel, flightDepartureLabel, flightArrivalLabel, flightPriceLabel,flightDepartureTimeLabel,flightArrivalTimeLabel,deleteFlightMessage;
+    private Label moneyPaid, flightDepartureLabel, flightArrivalLabel, flightPriceLabel,flightDepartureTimeLabel,flightArrivalTimeLabel,deleteFlightMessage;
 
     private ArrayList<String> flightNumbers = new ArrayList<>();
     private Flight choosenFlight;
@@ -51,15 +51,36 @@ public class DeleteFlight implements Initializable {
             }
         }
 
-        flightNumberLabel.setText("Airport Number: " + choosenFlight.getFlightNumber());
+        // calculate flight money collected
+        double collectedMoney = 0;
+        for (int i = 0; i < choosenFlight.getPassengers().size(); i++)
+        {
+            Passenger passenger = null;
+            // search for the user
+            for(int j = 0; j < Files.getPassengers().size(); j++)
+            {
+                if(Files.getPassengers().get(j).getPassenger_ID().equals(choosenFlight.getPassengers().get(i).getPassenger_ID()))
+                    passenger = Files.getPassengers().get(j);
+            }
+            for (int j = 0; j < passenger.getTickets().size(); j++)
+            {
+                Ticket ticket = passenger.getTickets().get(j);
+                if(ticket.getBookingTicket().getFlight().getFlightNumber() == choosenFlight.getFlightNumber())
+                {
+                    collectedMoney += ticket.getBookingTicket().getBookingPrice();
+                }
+            }
+
+        }
+        moneyPaid.setText("Flight Collected Money: " + collectedMoney);
         flightDepartureLabel.setText("Departure Airport: " + choosenFlight.getDeapartureAirport().getAirport_Name());
         flightArrivalLabel.setText("Arrival Airport: " + choosenFlight.getArrivalAirport().getAirport_Name());
         flightDepartureTimeLabel.setText("Departure Time:" + choosenFlight.getDepartureTime());
         flightArrivalTimeLabel.setText("Arrival Time:" + choosenFlight.getArrivalTime());
         flightPriceLabel.setText("Flight Price: "+choosenFlight.getPrice());
 
-        flightNumberLabel.setPrefWidth(Region.USE_COMPUTED_SIZE);
-        flightNumberLabel.setWrapText(true);
+        moneyPaid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        moneyPaid.setWrapText(true);
         flightDepartureLabel.setPrefWidth(Region.USE_COMPUTED_SIZE);
         flightDepartureLabel.setWrapText(true);
         flightArrivalLabel.setPrefWidth(Region.USE_COMPUTED_SIZE);
@@ -72,7 +93,7 @@ public class DeleteFlight implements Initializable {
         flightPriceLabel.setWrapText(true);
 
 
-        flightNumberLabel.getStyleClass().add("custom-label");
+        moneyPaid.getStyleClass().add("custom-label");
         flightDepartureLabel.getStyleClass().add("custom-label");
         flightArrivalLabel.getStyleClass().add("custom-label");
         flightDepartureTimeLabel.getStyleClass().add("custom-label");
@@ -125,7 +146,7 @@ public class DeleteFlight implements Initializable {
                 // delete Flight
                 Files.getFlights().remove(choosenFlight);
                 flightNameChoiceBox.setValue("");
-                flightNumberLabel.setText("");
+                moneyPaid.setText("");
                 flightPriceLabel.setText("");
                 flightArrivalLabel.setText("");
                 flightDepartureLabel.setText("");
@@ -135,7 +156,7 @@ public class DeleteFlight implements Initializable {
                 flightNameChoiceBox.getItems().clear();
                 flightNameChoiceBox.getItems().addAll(flightNumbers);
 
-                flightNumberLabel.getStyleClass().clear();
+                moneyPaid.getStyleClass().clear();
                 flightPriceLabel.getStyleClass().clear();
                 flightArrivalLabel.getStyleClass().clear();
                 flightDepartureLabel.getStyleClass().clear();
