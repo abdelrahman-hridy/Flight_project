@@ -103,8 +103,6 @@ public class Passenger implements Serializable {
                     }
                 }
             }
-            else
-                Files.getFlights().get(i).setFinished(false);
         }
 
         ArrayList<Flight> flightsToken = new ArrayList<>();

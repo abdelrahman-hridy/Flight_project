@@ -3,6 +3,8 @@ package com.example.flight_project_1;
 import com.example.flight_project_1.Base_classes.Airport;
 import com.example.flight_project_1.Base_classes.Files;
 import com.example.flight_project_1.Base_classes.Flight;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -11,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -203,6 +206,12 @@ public class AddFlight implements Initializable {
                 arrivalMinuteTextField.setText(null);
 
                 flightAddedSuccessfulyMessage.setVisible(true);
+
+                Timeline timeline = new Timeline(
+                        new KeyFrame(Duration.seconds(3), e -> flightAddedSuccessfulyMessage.setVisible(false))
+                );
+                timeline.setCycleCount(1); // Run only once
+                timeline.play();
                 departureDate = new Date();
                 arrivalDate = new Date();
                 warningLabel.setVisible(false);

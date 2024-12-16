@@ -91,7 +91,11 @@ public class Main extends Application implements Serializable {
 
 
 
-
+        Date date = new Date();
+        for(int i = 0; i < Files.getFlights().size(); i++)
+        {
+            System.out.println(Files.getFlights().get(i).isFinished());
+        }
 //<<<<<<< HEAD
 //        ArrayList <ArrayList<Seat>> AllSeats=new ArrayList<>();
 //

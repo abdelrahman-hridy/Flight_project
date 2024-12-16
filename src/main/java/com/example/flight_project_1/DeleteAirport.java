@@ -1,6 +1,8 @@
 package com.example.flight_project_1;
 
 import com.example.flight_project_1.Base_classes.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -10,6 +12,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
@@ -135,6 +138,11 @@ public class DeleteAirport implements Initializable {
                 airportCodeLabel.getStyleClass().clear();
                 airportLocationLabel.getStyleClass().clear();
                 deleteAirportMessage.setVisible(true);
+                Timeline timeline = new Timeline(
+                        new KeyFrame(Duration.seconds(3), e -> deleteAirportMessage.setVisible(false))
+                );
+                timeline.setCycleCount(1); // Run only once
+                timeline.play();
             }
         }
     }
