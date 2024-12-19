@@ -3,17 +3,18 @@ package com.example.flight_project_1;
 import com.example.flight_project_1.Base_classes.Files;
 import com.example.flight_project_1.Base_classes.Flight;
 import com.example.flight_project_1.Base_classes.Passenger;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -38,6 +39,9 @@ public class EditProfileController {
     private Parent root;
     private Stage stage;
     private Scene scene;
+
+    @FXML
+    private Label editedSuccessfullyLabel;
 //    private int sceneId;
 
 
@@ -68,16 +72,51 @@ public class EditProfileController {
             alert.showAndWait();
         }
         else {
-            try {
-                user.setName(username);
-                System.out.println(passengers.size());
-                Files.getPassengers().get(pass_index).setName(username);
-                user_edit.setText("Username edit done!");
-                System.out.println(passengers.size());
-            }
-            catch (Exception exception) {
-                System.out.println("Error in editing username: " + exception);
-            }
+                boolean flagOfNameNotFound = true;
+                try {
+                    int size = Files.getPassengers().size();
+                    for (int i = 0; i < size; i++) {
+                        if (username.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase())) {
+                            flagOfNameNotFound = false;
+                            break;
+                        }
+                    }
+                } catch (Exception exe) {
+                    System.out.println("Error when searching for a unique user"+exe);
+                }
+                try {
+                    int size = Files.getAdmins().size();
+                    for (int i = 0; i < size; i++) {
+                        if (username.toLowerCase().equals(Files.getAdmins().get(i).getUsername().toLowerCase())) {
+                            flagOfNameNotFound = false;
+                            break;
+                        }
+                    }
+                } catch (Exception exe) {
+                    System.out.println("Error when searching for a unique user"+exe);
+                }
+                if (!flagOfNameNotFound) {
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Username is used ");
+                    alert.setContentText("Username must be unique");
+                    alert.showAndWait();
+                } else {
+                    try {
+                        user.setName(username);
+                        Files.getPassengers().get(pass_index).setName(username);
+                        editedSuccessfullyLabel.setText("Username Edited Successfully");
+                        editedSuccessfullyLabel.setVisible(true);
+                        Timeline timeline = new Timeline(
+                                new KeyFrame(Duration.seconds(2), event -> editedSuccessfullyLabel.setVisible(false))
+                        );
+                        timeline.setCycleCount(1); // Run only once
+                        timeline.play();
+                        user_edit.clear();
+                    } catch (Exception exception) {
+                        System.out.println("Error in editing username: " + exception);
+                    }
+                }
         }
     }
     public void editPassword(ActionEvent e){
@@ -105,8 +144,15 @@ public class EditProfileController {
                 user.setPassword(password);
                 System.out.println(passengers.size());
                 Files.getPassengers().get(pass_index).setPassword(password);
-                pass_edit.setText("Password edit done!");
-                System.out.println(passengers.size());
+                editedSuccessfullyLabel.setText("Password Edited Successfully");
+                editedSuccessfullyLabel.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                editedSuccessfullyLabel.setVisible(true);
+                Timeline timeline = new Timeline(
+                        new KeyFrame(Duration.seconds(2), event -> editedSuccessfullyLabel.setVisible(false))
+                );
+                timeline.setCycleCount(1); // Run only once
+                timeline.play();
+                pass_edit.clear();
             }
             catch (Exception exception) {
                 System.out.println("Error in editing password: " + exception);
@@ -130,7 +176,14 @@ public class EditProfileController {
                 System.out.println(passengers.size());
                 Files.getPassengers().get(pass_index).setPassword(contact);
                 contact_edit.setText("Contact edit done!");
-                System.out.println(passengers.size());
+                editedSuccessfullyLabel.setText("Contact Edited Successfully");
+                editedSuccessfullyLabel.setVisible(true);
+                Timeline timeline = new Timeline(
+                        new KeyFrame(Duration.seconds(2), event -> editedSuccessfullyLabel.setVisible(false))
+                );
+                timeline.setCycleCount(1); // Run only once
+                timeline.play();
+                contact_edit.clear();
             }
             catch (Exception exception) {
                 System.out.println("Error in editing contact: " + exception);

@@ -35,9 +35,9 @@
             <Font size="60.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="163.0" layoutY="666.0" mnemonicParsing="false" onAction="#backToUserProfile" text="Back">
+      <Button fx:id="backButton" layoutX="201.0" layoutY="658.0" mnemonicParsing="false" onAction="#backToUserProfile" text="Back">
          <font>
-            <Font size="31.0" />
+            <Font size="30.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />

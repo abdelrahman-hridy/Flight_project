@@ -98,10 +98,10 @@ public class searchFlightController implements Initializable, Serializable {
         departureAirportChoiceBox.setValue("~All~");
         arrivalAirportChoiceBox.setValue("~All~");
 
-        departureAirportChoiceBox.setOnAction(this::changeDepartureAirport);
-        arrivalAirportChoiceBox.setOnAction(this::changeDepartureAirport);
-        departureDatePicker.setOnAction(this::changeDepartureAirport);
-        arrivalDatePicker.setOnAction(this::changeDepartureAirport);
+        departureAirportChoiceBox.setOnAction(this::chanceResults);
+        arrivalAirportChoiceBox.setOnAction(this::chanceResults);
+        departureDatePicker.setOnAction(this::chanceResults);
+        arrivalDatePicker.setOnAction(this::chanceResults);
 
 
         try {
@@ -140,7 +140,7 @@ public class searchFlightController implements Initializable, Serializable {
         Multi_used_methods.GoToFlightShow(event, flightsFiltered.get(Integer.parseInt(((Button) event.getSource()).getId())), user,AvailbleSeats);
     }
 
-    public void changeDepartureAirport(ActionEvent ec){
+    public void chanceResults(ActionEvent ec){
         data.clear();
         if(departureDatePicker.getValue() != null && arrivalDatePicker.getValue() != null) {
             try {

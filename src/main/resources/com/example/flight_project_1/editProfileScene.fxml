@@ -76,9 +76,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="back_to_edit" layoutX="113.0" layoutY="656.0" mnemonicParsing="false" onAction="#backToUserProfile" text="Back">
+      <Label fx:id="editedSuccessfullyLabel" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="610.0" layoutY="174.0" text="Labe " textFill="#06f700" visible="false">
          <font>
-            <Font size="25.0" />
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Button fx:id="back_to_edit" layoutX="201.0" layoutY="658.0" mnemonicParsing="false" onAction="#backToUserProfile" text="Back">
+         <font>
+            <Font size="30.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
