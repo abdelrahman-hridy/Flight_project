@@ -38,12 +38,6 @@ public class ShowSeatDetail implements Serializable {
     TextField Service;
     @FXML
     TextField AllPrice;
-    @FXML
-    TextField UserName;
-    @FXML
-    TextField UserId;
-    @FXML
-    TextField UserPhone;
 
     public void assignUser(Passenger user){
         this.user = user;
@@ -61,16 +55,17 @@ public class ShowSeatDetail implements Serializable {
         SeatId.setText("");
         for (int i = 0; i < seats.size(); i++) {
             if (i != seats.size() - 1)
-                SeatId.setText(SeatId.getText() + seats.get(i).getSeatId() + ", ");
+                SeatId.setText(SeatId.getText() + seats.get(i).getSeatId() + " - ");
             else {
                 SeatId.setText(SeatId.getText() + seats.get(i).getSeatId());
             }
         }
         SeatId.setEditable(false);
+        SeatId.setPrefWidth(SeatId.getText().length() * 10.5F + 40);
         SeatClass.setText("");
         for (int i = 0; i < seats.size(); i++) {
             if (i != seats.size() - 1)
-                SeatClass.setText(SeatClass.getText() + seats.get(i).getSeatClass() + ", ");
+                SeatClass.setText(SeatClass.getText() + seats.get(i).getSeatClass() + " - ");
             else
                 SeatClass.setText(SeatClass.getText() + seats.get(i).getSeatClass());
         }
@@ -89,7 +84,7 @@ public class ShowSeatDetail implements Serializable {
                 seats.get(i).setSeatservice(Seatservice);
                 service += Seatservice;
                 if (i != seats.size() - 1)
-                    ServiceString += "Window Seat: " + Seatservice + ", ";
+                    ServiceString += "Window Seat: " + Seatservice + " - ";
                 else
                     ServiceString += "Window Seat: " + Seatservice;
                 allPriceValue += seats.get(i).calcSeatPrice(flight) + Seatservice;
@@ -99,55 +94,36 @@ public class ShowSeatDetail implements Serializable {
                 service += Seatservice;
                 seats.get(i).setSeatservice(Seatservice);
                 if (i != seats.size() - 1)
-                    ServiceString += "Middle Seat: " + Seatservice + ", ";
+                    ServiceString += "Middle Seat: " + Seatservice + " - ";
                 else
                     ServiceString += "Middle Seat: " + Seatservice;
-                allPriceValue += seats.get(i).calcSeatPrice(flight) + Seatservice;            }
+                allPriceValue += seats.get(i).calcSeatPrice(flight) + Seatservice;
+            }
             else{
                 Seatservice = 100;
                 seats.get(i).setSeatservice(Seatservice);
                 service += Seatservice;
                 if (i != seats.size() - 1)
-                    ServiceString += "Way Seat: " + Seatservice + ", ";
+                    ServiceString += "Way Seat: " + Seatservice + " - ";
                 else
                     ServiceString += "Way Seat: " + Seatservice;
                 allPriceValue += seats.get(i).calcSeatPrice(flight) + Seatservice;
             }
         }
-        allprice= String.valueOf(allPriceValue);
         Service.setText(ServiceString);
-        Service.setPrefWidth(ServiceString.length() * 5.5F + 30);
+        Service.setPrefWidth(ServiceString.length() * 9F + 30);
         Service.setEditable(false);
 
-
-        AllPrice.setText(String.valueOf(allprice));
+        allprice= String.valueOf(allPriceValue);
+        AllPrice.setText(String.valueOf(allPriceValue));
         AllPrice.setEditable(false);
-        UserName.setText(user.getName());
-        UserName.setEditable(false);
-        UserId.setText(user.getPassenger_ID());
-        UserId.setEditable(false);
-        UserPhone.setText(user.getPhone());
-        UserPhone.setEditable(false);
+
+        SeatClass.setPrefWidth(SeatClass.getText().length() * 10.5F + 45);
         SeatClass.setEditable(false);
     }
 
     public void BackToSeats(ActionEvent event){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeatSelection.fxml"));
-            root = fxmlLoader.load();
-
-            SeatSelectionController seatSelectionController = fxmlLoader.getController();
-            seatSelectionController.assignUser(user);
-            seatSelectionController.passingFlight(flight);
-            seatSelectionController.paasingTheAvailbleSeats(AvailbleSeats);
-
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }catch (Exception ex){
-            System.out.println("Error In back to SeatSelection.fxml");
-        }
+        Multi_used_methods.GoToChooseSeat(event, flight, user, AvailbleSeats);
     }
     public void ConfirmTheSeat(ActionEvent event){
 //        System.out.println("Confirmed");

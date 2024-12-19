@@ -397,7 +397,7 @@
             </Label>
          </children>
       </GridPane>
-      <Button fx:id="confirmSeat" layoutX="715.0" layoutY="690.0" mnemonicParsing="false" onAction="#recordSeats" prefHeight="65.0" prefWidth="160.0" style="-fx-background-color: green;" text="Show" textFill="WHITE">
+      <Button fx:id="confirmSeat" layoutX="715.0" layoutY="690.0" mnemonicParsing="false" onAction="#recordSeats" prefHeight="65.0" prefWidth="160.0" text="Show">
          <font>
             <Font size="30.0" />
          </font>
@@ -405,12 +405,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="610.0" layoutY="60.0" text="Seat Selection" textFill="#00ffe2">
+      <Label layoutX="439.0" layoutY="51.0" text="Choose seat(s) you want" textFill="#00ffe2">
          <font>
             <Font size="61.0" />
          </font>
       </Label>
-      <Button fx:id="BackToFlightSearch" layoutX="16.0" layoutY="23.0" mnemonicParsing="false" onAction="#GoToFlightShow" prefHeight="34.0" prefWidth="59.0" style="-fx-background-color: #00ffe2;" text="Back">
+      <Button fx:id="BackToFlightSearch" layoutX="16.0" layoutY="23.0" mnemonicParsing="false" onAction="#GoToFlightShow" prefHeight="34.0" prefWidth="59.0" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -420,20 +420,20 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="98.0" layoutY="244.0" prefHeight="46.0" prefWidth="53.0" style="-fx-background-color: blue; -fx-background-radius: 5px;" textFill="RED" />
-      <Label layoutX="210.0" layoutY="244.0" style="-fx-background-radius: 5px;" text="First Class" textFill="BLUE">
+      <Label layoutX="103.0" layoutY="278.0" prefHeight="34.0" prefWidth="42.0" style="-fx-background-color: blue; -fx-background-radius: 5px;" textFill="RED" />
+      <Label layoutX="220.0" layoutY="272.0" style="-fx-background-radius: 5px;" text="First Class" textFill="BLUE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label layoutX="98.0" layoutY="364.0" prefHeight="46.0" prefWidth="53.0" style="-fx-background-color: violet; -fx-background-radius: 5px;" textFill="RED" />
-      <Label layoutX="210.0" layoutY="364.0" style="-fx-background-radius: 5px;" text="Business Class" textFill="VIOLET">
+      <Label layoutX="103.0" layoutY="381.0" prefHeight="38.0" prefWidth="42.0" style="-fx-background-color: violet; -fx-background-radius: 5px;" textFill="RED" />
+      <Label layoutX="211.0" layoutY="377.0" style="-fx-background-radius: 5px;" text="Business Class" textFill="VIOLET">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label layoutX="98.0" layoutY="486.0" prefHeight="46.0" prefWidth="53.0" style="-fx-background-color: lightGreen; -fx-background-radius: 5px;" textFill="RED" />
-      <Label layoutX="206.0" layoutY="486.0" style="-fx-bacground-radius: 5px;" text="Economy Class" textFill="LIGHTGREEN">
+      <Label layoutX="103.0" layoutY="479.0" prefHeight="34.0" prefWidth="42.0" style="-fx-background-color: lightGreen; -fx-background-radius: 5px;" textFill="RED" />
+      <Label layoutX="206.0" layoutY="473.0" style="-fx-bacground-radius: 5px;" text="Economy Class" textFill="LIGHTGREEN">
          <font>
             <Font size="31.0" />
          </font>
@@ -441,6 +441,12 @@
       <Label layoutX="652.0" layoutY="247.0">
          <font>
             <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="103.0" layoutY="577.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: red; -fx-background-radius: 5px;" textFill="RED" />
+      <Label layoutX="195.0" layoutY="572.0" style="-fx-background-radius: 5px;" text="Unavailable Seat" textFill="RED">
+         <font>
+            <Font size="31.0" />
          </font>
       </Label>
    </children>

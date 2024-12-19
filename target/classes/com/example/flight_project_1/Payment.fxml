@@ -34,7 +34,7 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <ChoiceBox fx:id="paymentMethod" layoutX="131.0" layoutY="325.0" prefWidth="150.0" />
-      <Label fx:id="mylabeltoAlert" layoutX="57.0" layoutY="565.0" prefHeight="30.0" prefWidth="584.0" textFill="#0e92f0">
+      <Label fx:id="mylabeltoAlert" layoutX="496.0" layoutY="558.0" prefHeight="30.0" prefWidth="584.0" textFill="#f00e0e">
          <font>
             <Font size="20.0" />
          </font></Label>
@@ -50,7 +50,7 @@
          <font>
             <Font size="16.0" />
          </font></TextArea>
-      <Label fx:id="mylabeltowelcome" alignment="CENTER" contentDisplay="CENTER" layoutX="399.0" layoutY="81.0" prefHeight="55.0" prefWidth="439.0" text="Finally! Payment&amp; Traval" textAlignment="CENTER" textFill="#00b1ec" underline="true">
+      <Label fx:id="mylabeltowelcome" alignment="CENTER" contentDisplay="CENTER" layoutX="568.0" layoutY="65.0" prefHeight="55.0" prefWidth="439.0" text="Payment" textAlignment="CENTER" textFill="#fffa00">
          <font>
             <Font size="38.0" />
          </font>

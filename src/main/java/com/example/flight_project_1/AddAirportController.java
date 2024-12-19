@@ -2,11 +2,14 @@ package com.example.flight_project_1;
 
 import com.example.flight_project_1.Base_classes.Airport;
 import com.example.flight_project_1.Base_classes.Files;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -71,6 +74,11 @@ public class AddAirportController {
                         airportAdded = new Airport(Integer.parseInt(codeTextField.getText()), nameTextField.getText(), locationTextField.getText());
                         Files.getAirports().add(airportAdded);
                         airportAddedSuccessfulyMessage.setVisible(true);
+                        Timeline timeline = new Timeline(
+                                new KeyFrame(Duration.seconds(3), e -> airportAddedSuccessfulyMessage.setVisible(false))
+                        );
+                        timeline.setCycleCount(1); // Run only once
+                        timeline.play();
                         codeTextField.clear();
                         nameTextField.clear();
                         locationTextField.clear();

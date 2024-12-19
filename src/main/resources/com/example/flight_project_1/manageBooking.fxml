@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.ManageBooking">
+<AnchorPane maxHeight="800.0" maxWidth="1536.0" minHeight="800.0" minWidth="1536.0" prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.ManageBooking">
    <children>
-      <TableView fx:id="myTable" fixedCellSize="40.0" layoutX="2.0" layoutY="231.0" prefHeight="354.0" prefWidth="1514.0">
+      <ImageView fitHeight="800.0" fitWidth="1536.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@5590457%20(1).jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="myTable" fixedCellSize="40.0" layoutX="7.0" layoutY="231.0" prefHeight="354.0" prefWidth="1516.0">
         <columns>
           <TableColumn fx:id="ticketIdColumn" prefWidth="75.19997882843018" text="Ticket ID" />
           <TableColumn fx:id="departureAirportColumn" prefWidth="205.6000518798828" text="Departure Airport" />
@@ -19,7 +27,7 @@
             <TableColumn fx:id="seatsClassColumn" prefWidth="237.5999755859375" text="Class" />
             <TableColumn fx:id="departureTimeColumn" editable="false" prefWidth="232.79998779296875" resizable="false" sortType="DESCENDING" text="Departure Time" />
             <TableColumn fx:id="arrivalTimeColumn" prefWidth="228.800048828125" resizable="false" text="Arrival Time" />
-            <TableColumn fx:id="editColumn" prefWidth="85.60009765625" />
+            <TableColumn fx:id="editColumn" prefWidth="84.800048828125" />
         </columns>
       </TableView>
       <Label layoutX="551.0" layoutY="98.0" text="Registered Tickets">
@@ -27,10 +35,13 @@
             <Font size="60.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="335.0" layoutY="672.0" mnemonicParsing="false" onAction="#backToUserProfile" text="Back">
+      <Button fx:id="backButton" layoutX="201.0" layoutY="658.0" mnemonicParsing="false" onAction="#backToUserProfile" text="Back">
          <font>
-            <Font size="35.0" />
+            <Font size="30.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
    </children>
 </AnchorPane>

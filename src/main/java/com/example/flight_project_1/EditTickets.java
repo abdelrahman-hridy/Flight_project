@@ -1,9 +1,6 @@
 package com.example.flight_project_1;
 
-import com.example.flight_project_1.Base_classes.Files;
-import com.example.flight_project_1.Base_classes.Passenger;
-import com.example.flight_project_1.Base_classes.Seat;
-import com.example.flight_project_1.Base_classes.Ticket;
+import com.example.flight_project_1.Base_classes.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -98,13 +95,20 @@ public class EditTickets {
 
 
         user.setPocket(user.getPocket() + seats.get(soldSeatIndex).calcSeatPrice(ticket.getBookingTicket().getFlight()) + seats.get(soldSeatIndex).getSeatservice());
+
+        int index = 0;
+        for (int l = 0; l < Files.getFlights().size(); l++)
+        {
+            if(Files.getFlights().get(l).getFlightNumber() == ticket.getBookingTicket().getFlight().getFlightNumber())
+                index = l;
+        }
         for (int i = 0; i < 10; i++)
         {
             for (int j = 0; j < 6; j++)
             {
                 if(ticket.getBookingTicket().getFlight().getSeats().get(i).get(j).getSeatId().equals(ticket.getBookingTicket().getSeat().get(soldSeatIndex).getSeatId()))
                 {
-                    ticket.getBookingTicket().getFlight().getSeats().get(i).get(j).setSeatStatus(true);
+                    Files.getFlights().get(index).getSeats().get(i).get(j).setSeatStatus(true);
                 }
             }
         }
@@ -137,6 +141,7 @@ public class EditTickets {
             mb.passUser(user);
             scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("buttonLogoutStyle.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         }
@@ -148,9 +153,24 @@ public class EditTickets {
     public void SellTicket(ActionEvent event) {
         user.setPocket(user.getPocket() + ticket.getBookingTicket().getBookingPrice());
 
+        int index = 0;
+        for (int l = 0; l < Files.getFlights().size(); l++)
+        {
+            if(Files.getFlights().get(l).getFlightNumber() == ticket.getBookingTicket().getFlight().getFlightNumber())
+                index = l;
+        }
         for(int k = 0; k  < ticket.getBookingTicket().getSeat().size(); k++)
         {
-            ticket.getBookingTicket().getSeat().get(k).setSeatStatus(true);
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    if(ticket.getBookingTicket().getFlight().getSeats().get(i).get(j).getSeatId().equals(ticket.getBookingTicket().getSeat().get(k).getSeatId()))
+                    {
+                        Files.getFlights().get(index).getSeats().get(i).get(j).setSeatStatus(true);
+                    }
+                }
+            }
         }
         user.getTickets().remove(ticket);
         backToTicketsShow(event);

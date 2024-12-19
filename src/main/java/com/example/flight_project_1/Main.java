@@ -14,9 +14,11 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Main extends Application implements Serializable {
 
@@ -45,8 +47,20 @@ public class Main extends Application implements Serializable {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        File file = new File("counterVariables.txt");
+        Scanner scan = null;
+        int flightCounter;
+        int userCounter;
+        try {
+            scan = new Scanner(file);
+            flightCounter = Integer.parseInt(scan.nextLine());
+            userCounter = Integer.parseInt(scan.nextLine());
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         // assign counter number in flight by flights number after reading it
-        Flight.setFlightNumberStatic(Files.getFlights().size());
+        Flight.setFlightNumberStatic(flightCounter);
 
         // Read Admins
         try {
@@ -64,20 +78,16 @@ public class Main extends Application implements Serializable {
         }catch (Exception exe){
             System.out.println("Error when login"+exe);
         }
-        Passenger.setCounterPassId(Files.getPassengers().size());
+        Passenger.setCounterPassId(userCounter);
 
-
-//
-
-//        for(int i = 0; i < Files.getAdmins().size(); i++)
-//            System.out.println(Files.getAdmins().get(i).getUsername());
-//        for(int i = 0; i < Files.getPassengers().size(); i++)
-//            System.out.println(Files.getPassengers().get(i).getName());
-//        for(int i = 0; i < Files.getAirports().size(); i++)
-//            System.out.println(Files.getAirports().get(i).getAirport_Name());
-//        for(int i = 0; i < Files.getFlights().size(); i++)
-//            System.out.println(Files.getFlights().get(i).getDeapartureAirport().getAirport_Name());
-
+        // Read Seats
+        try {
+            FileInputStream fis = new FileInputStream("AllSeats.txt");
+            ois = new ObjectInputStream(fis);
+            Files.setSeats((ArrayList<ArrayList<Seat>>) ois.readObject());
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
 
 //<<<<<<< HEAD
@@ -284,6 +294,7 @@ public class Main extends Application implements Serializable {
 //
 //
 ////====
+//<<<<<<< HEAD
         ArrayList<Admin> admins = new ArrayList<>();
         admins.add(new Admin("Shehab", "11223344"));
         admins.add(new Admin("Sohaib", "55435421"));
@@ -329,85 +340,39 @@ public class Main extends Application implements Serializable {
 //          }catch (Exception ex){
 //              System.out.println("Error cant Read The Seats For the flights");
 //          }
-
-
-//        ArrayList<Flight> flights_to_Write = new ArrayList<>();
-//        flights_to_Write.add(new Flight(1, airports.get(0), airports.get(1), new Date(2024 - 1900, Calendar.NOVEMBER, 4, 6, 0),
-//                new Date(2024 - 1900, Calendar.NOVEMBER, 4, 7, 20), new ArrayList<>(new ArrayList<>(Files.getSeats())), 2000));
-//        flights_to_Write.add(new Flight(2, airports.get(1), airports.get(2), new Date(2024 - 1900, Calendar.NOVEMBER, 5, 5, 0),
-//                new Date(2024 - 1900, Calendar.NOVEMBER, 5, 7, 0), new ArrayList<>(new ArrayList<>(Files.getSeats())) , 3000));
-//        flights_to_Write.add(new Flight(3, airports.get(2), airports.get(3), new Date(2024 - 1900, Calendar.NOVEMBER, 6, 8, 0),
-//                new Date(2024 - 1900, Calendar.NOVEMBER, 6, 10, 0), Files.getSeats() , 4000));
-//        flights_to_Write.add(new Flight(4, airports.get(3), airports.get(0), new Date(2024 - 1900, Calendar.NOVEMBER, 5, 2, 0),
-//                new Date(2024 - 1900, Calendar.NOVEMBER, 5, 5, 0), new ArrayList<>(new ArrayList<>(Files.getSeats())), 1000));
-//
-//
+//=======
+//        ArrayList<Admin> admins = new ArrayList<>();
+//        admins.add(new Admin("Shehab", "11223344"));
+//        admins.add(new Admin("Sohaib", "55435421"));
 //        try {
-//            ObjectOutputStream oos7 = new ObjectOutputStream(new FileOutputStream("Flights.txt"));
-//            oos7.writeObject(flights_to_Write);
-//            oos7.flush();
-//            oos7.close();
-//        }catch (Exception e){
-//            System.out.println("Cant write The Flights");
+//            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Admins.txt"));
+//            oos.writeObject(admins);
+//        }catch (Exception exe){
+//            System.out.println("Error when login"+exe);
 //        }
-
-//
-//
-//
-//
-//
-//        ArrayList<Flight> flights=null;
-//        try {
-//            ObjectInputStream ois11 = new ObjectInputStream(new FileInputStream("Flights.txt"));
-//            flights = (ArrayList<Flight>) ois11.readObject();
-//            System.out.println("==================================");
-//            for(int i=0;i<flights.size();i++){
-//            System.out.println(flights.get(i).getPrice());
-//            }
-//        }catch (Exception ex){
-//            System.out.println("Error cant Read The Flights");
-//        }
-//        Files.setFlights(flights);
-
-//            Flight flight = new Flight(5, airports.get(3), airports.get(1), new Date(2024 - 1900, Calendar.JULY, 4, 12, 0),
-//                    new Date(2024 - 1900, Calendar.JULY, 4, 14, 0), AllFlightSeats, 20000);
-//            flights.add(flight);
-//            try{
-//                ObjectOutputStream oos44 = new ObjectOutputStream(new FileOutputStream("Admins.txt"));
-//            oos44 = new ObjectOutputStream(new FileOutputStream(file));
-//            oos44.writeObject(flights);
-//            oos44.flush();
-//            oos44.close();
-//        }catch (Exception e){
-//            System.out.println("Cant write The Flights");
-//        }
+//>>>>>>> 939142d11406a96c3ffd5a14503e9817bcb4d17b
 
 
-        // Read Seats
-        try {
-            FileInputStream fis = new FileInputStream("AllSeats.txt");
-            ois = new ObjectInputStream(fis);
-            Files.setSeats((ArrayList<ArrayList<Seat>>) ois.readObject());
-        } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
 
         launch(args);
 
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginInterface.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("userSign.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
             stage.setScene(scene);
         }catch (Exception e)
         {
-            System.out.println("Can't see loginInterface");
+            System.out.println("Can't see userSign");
         }
+
+
         stage.setTitle("Hello GUI");
         try {
             stage.getIcons().add(new Image(String.valueOf(getClass().getResource("DALL·E-2024-12-01-20.54.png"))));
@@ -415,77 +380,86 @@ public class Main extends Application implements Serializable {
             System.out.println("Can't open plane picture");
         }
 
+
         stage.show();
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent windowEvent) {
-                Platform.exit();
-                System.exit(0);
-            }
-        });
+
 
         stage.setOnCloseRequest(event ->{
-            event.consume();
             logout(stage);
+            event.consume();
         });
+
     }
     public void logout(Stage stage){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logut");
-        alert.setHeaderText("You 're about to logout");
-        alert.setContentText("Do you want to save before exiting?: ");
 
-        if(alert.showAndWait().get() == ButtonType.OK){
-            //Here We will write
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Close");
+        alert.setHeaderText("You Are About To Leaving The Application");
+        alert.setContentText("Do you want to save changes ? ");
 
-            ObjectOutputStream oos;
+        // Create custom buttons
+        ButtonType OkButton = new ButtonType("OK");
+        ButtonType NoButton = new ButtonType("No");
+        ButtonType CancelButton = new ButtonType("Cancel");
 
-            // Write Airport
-            try {
-                File file1 = new File("Airports.txt");
-                oos = new ObjectOutputStream(new FileOutputStream(file1));
-                oos.writeObject(Files.getAirports());
-            } catch (IOException e) {
-                System.out.println("Can't Find Airport.txt");
+        // Set the buttons to the alert
+        alert.getButtonTypes().setAll(OkButton, NoButton, CancelButton);
+
+        // Show the alert and wait for a response
+        alert.showAndWait().ifPresent(response -> {
+            if (response == OkButton) {
+                //Here We will write
+                ObjectOutputStream oos;
+                // Write Airport
+                try {
+                    File file1 = new File("Airports.txt");
+                    oos = new ObjectOutputStream(new FileOutputStream(file1));
+                    oos.writeObject(Files.getAirports());
+                } catch (IOException e) {
+                    System.out.println("Can't Find Airport.txt");
+                }
+                // Write Flights
+                try {
+                    File file = new File("Flights.txt");
+                    oos = new ObjectOutputStream(new FileOutputStream(file));
+                    oos.writeObject(Files.getFlights());
+                } catch (IOException e) {
+                    System.out.println("Cant't Find Flights.txt");
+                }
+                PrintWriter pr = null;
+                try {
+                    pr = new PrintWriter("counterVariables.txt");
+                    pr.println(Flight.getFlightNumberStatic());
+                    pr.println(Passenger.getCounterPassId());
+                    pr.flush();
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }finally {
+                    pr.close();
+                }
+
+                // Write Admins
+                try {
+                    File file = new File("Admins.txt");
+                    oos = new ObjectOutputStream(new FileOutputStream(file));
+                    oos.writeObject(Files.getAdmins());
+                }catch (Exception exe){
+                    System.out.println("Error when login"+exe);
+                }
+                // Write Passengers
+                try {
+                    File file = new File("Passenger.txt");
+                    oos = new ObjectOutputStream(new FileOutputStream(file));
+                    oos.writeObject(Files.getPassengers());
+                }catch (Exception exe){
+                    System.out.println("Error when login"+exe);
+                }
+                stage.close();
+            } else if (response == NoButton) {
+                stage.close();
             }
-            // Write Flights
-            try {
-                File file = new File("Flights.txt");
-                oos = new ObjectOutputStream(new FileOutputStream(file));
-                oos.writeObject(Files.getFlights());
-            } catch (IOException e) {
-                System.out.println("Cant't Find Flights.txt");
-            }
-            // Write Admins
-            try {
-                File file = new File("Admins.txt");
-                oos = new ObjectOutputStream(new FileOutputStream(file));
-                oos.writeObject(Files.getAdmins());
-            }catch (Exception exe){
-                System.out.println("Error when login"+exe);
-            }
-            // Write Passengers
-            try {
-                File file = new File("Passenger.txt");
-                oos = new ObjectOutputStream(new FileOutputStream(file));
-                oos.writeObject(Files.getPassengers());
-            }catch (Exception exe){
-                System.out.println("Error when login"+exe);
-            }
+        });
 
-
-//        for(int i = 0; i < Files.getAdmins().size(); i++)
-//            System.out.println(Files.getAdmins().get(i).getUsername());
-            System.out.println("");
-//        for(int i = 0; i < Files.getPassengers().size(); i++)
-//            System.out.println(Files.getPassengers().get(i).getName());
-
-//            for(int i = 0; i < Files.getAirports().size(); i++)
-//                System.out.println(Files.getAirports().get(i).getAirport_Name());
-//        for(int i = 0; i < Files.getFlights().size(); i++)
-//            System.out.println(Files.getFlights().get(i).getDeapartureAirport().getAirport_Name());
-            stage.close();
-        }
 
     }
 }

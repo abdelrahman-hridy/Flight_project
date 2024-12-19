@@ -77,8 +77,8 @@ public class BookingConfirmationCont  {
             seatLabel.setText("");
             for (int i = 0; i < seats.size(); i++) {
                 if(i != 0) {
-                    seatLabel.setText(seatLabel.getText() + ", " + seats.get(i).getSeatId());
-                    classLabel.setText(classLabel.getText() + ", " + seats.get(i).getSeatClass());
+                    seatLabel.setText(seatLabel.getText() + " - " + seats.get(i).getSeatId());
+                    classLabel.setText(classLabel.getText() + " - " + seats.get(i).getSeatClass());
                 }
                 else {
                     seatLabel.setText(seats.get(i).getSeatId());
@@ -132,6 +132,7 @@ public class BookingConfirmationCont  {
                 }
             }
         }
+        flight.getPassengers().add(user);
         Booking booking = new Booking(user, flight, seats, payment.getPaymentAmount());
         Ticket ticket = new Ticket(booking);
         user.getTickets().add(ticket);

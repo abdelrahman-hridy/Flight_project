@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -14,7 +15,7 @@
             <Image url="@seat9.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="88.0" layoutY="325.0" prefHeight="89.0" prefWidth="100.0" text="Seat : " textFill="BLUE">
+      <Label alignment="CENTER" layoutX="88.0" layoutY="325.0" prefHeight="89.0" prefWidth="100.0" text="Seats : " textFill="BLUE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -34,7 +35,7 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="821.0" layoutY="316.0" prefHeight="104.0" prefWidth="231.0" text="Seat Class :" textFill="BLUE">
+      <Label alignment="CENTER" layoutX="821.0" layoutY="316.0" prefHeight="104.0" prefWidth="231.0" text="Seats Class :" textFill="BLUE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -59,15 +60,21 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="confirmButton" layoutX="727.0" layoutY="708.0" mnemonicParsing="false" onAction="#confirmTheFlight" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: lightGreen; -fx-background-radius: 20;" text="Confirm">
+      <Button fx:id="confirmButton" layoutX="727.0" layoutY="708.0" mnemonicParsing="false" onAction="#confirmTheFlight" prefHeight="67.0" prefWidth="144.0" text="Confirm">
          <font>
             <Font size="27.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Button fx:id="BackTo" layoutX="53.0" layoutY="30.0" mnemonicParsing="false" onAction="#BackToPaymentGate" text="Back" textFill="#253ad7">
          <font>
             <Font size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Label fx:id="userLabel" alignment="CENTER" layoutX="767.0" layoutY="101.0" prefHeight="43.0" prefWidth="191.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
          <font>
@@ -99,9 +106,9 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="classLabel" alignment="CENTER" layoutX="1146.0" layoutY="347.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
+      <Label fx:id="classLabel" alignment="CENTER" layoutX="1146.0" layoutY="347.0" prefHeight="43.0" prefWidth="365.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">
          <font>
-            <Font size="25.0" />
+            <Font size="20.0" />
          </font>
       </Label>
       <Label fx:id="aDateLabel" alignment="CENTER" layoutX="1147.0" layoutY="488.0" prefHeight="43.0" prefWidth="295.0" style="-fx-background-color: rgba(0, 0, 139, 0.7); -fx-background-radius: 5px;" textFill="WHITE">

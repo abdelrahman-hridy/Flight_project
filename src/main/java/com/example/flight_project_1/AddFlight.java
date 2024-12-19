@@ -3,6 +3,8 @@ package com.example.flight_project_1;
 import com.example.flight_project_1.Base_classes.Airport;
 import com.example.flight_project_1.Base_classes.Files;
 import com.example.flight_project_1.Base_classes.Flight;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -10,6 +12,8 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.Region;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -35,7 +39,7 @@ public class AddFlight implements Initializable {
     @FXML
     private Button  addButton;
     @FXML
-    Label flightAddedSuccessfulyMessage;
+    Label flightAddedSuccessfulyMessage, warningLabel;
     private Date departureDate = new Date();
     private Date arrivalDate = new Date();
 
@@ -85,11 +89,13 @@ public class AddFlight implements Initializable {
                 isValidDate = false;
             }
             if (isValidDate) {
-                if (hours1 < 0 || hours1 > 24)
+                if (hours1 < 0 || hours1 > 24) {
                     departureHourInvalidMessage.setVisible(true);
-                else if (minutes1 < 0 || minutes1 > 60)
+                    isValidDate = false;
+                }else if (minutes1 < 0 || minutes1 > 60) {
                     departureMinuteInvalidMessage.setVisible(true);
-                else {
+                    isValidDate = false;
+                }else {
                     departureHourInvalidMessage.setVisible(false);
                     departureMinuteInvalidMessage.setVisible(false);
                 }
@@ -115,11 +121,13 @@ public class AddFlight implements Initializable {
                 isValidDate = false;
             }
             if (isValidDate) {
-                if (hours2 < 0 || hours2 > 24)
+                if (hours2 < 0 || hours2 > 24) {
+                    isValidDate = false;
                     arrivalHourInvalidMessage.setVisible(true);
-                else if (minutes2 < 0 || minutes2 > 60)
+                }                else if (minutes2 < 0 || minutes2 > 60) {
+                    isValidDate = false;
                     arrivalMinuteInvalidMessage.setVisible(true);
-                else {
+                }else {
                     arrivalHourInvalidMessage.setVisible(false);
                     arrivalMinuteInvalidMessage.setVisible(false);
                 }
@@ -158,9 +166,31 @@ public class AddFlight implements Initializable {
                 if(Files.getAirports().get(i).getAirport_Name().equals(arrivalAirportChoiceBox.getValue()))
                     arrivalAirport = Files.getAirports().get(i);
             }
+
+            if(departureDate.getTime() >= arrivalDate.getTime())
+            {
+                isValidDate = false;
+                warningLabel.setText("The Arrival Time Must Be After Departure Time");
+                warningLabel.setVisible(true);
+            }
+            else {
+                warningLabel.setVisible(false);
+            }
+
+            Date currentDate = new Date();
+            if(departureDate.before(currentDate) ||  arrivalDate.before(currentDate))
+            {
+                isValidDate = false;
+                warningLabel.setText("Flight Time must be after current time");
+                warningLabel.setVisible(true);
+            }
+            else {
+                warningLabel.setVisible(false);
+            }
+
             // confirm Adding after check all inputs
+
             if(isValidDate){
-                System.out.println("Created Flight");
                 Flight flight = new Flight(departureAirport, arrivalAirport, departureDate, arrivalDate, Files.getSeats(), flightPrice);
                 Files.getFlights().add(flight);
 
@@ -176,9 +206,20 @@ public class AddFlight implements Initializable {
                 arrivalMinuteTextField.setText(null);
 
                 flightAddedSuccessfulyMessage.setVisible(true);
+
+                Timeline timeline = new Timeline(
+                        new KeyFrame(Duration.seconds(3), e -> flightAddedSuccessfulyMessage.setVisible(false))
+                );
+                timeline.setCycleCount(1); // Run only once
+                timeline.play();
                 departureDate = new Date();
                 arrivalDate = new Date();
+                warningLabel.setVisible(false);
             }
+        }
+        else {
+            warningLabel.setText("Complete All Data Required");
+            warningLabel.setVisible(true);
         }
     }
 

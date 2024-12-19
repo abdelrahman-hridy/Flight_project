@@ -2,6 +2,7 @@ package com.example.flight_project_1.Base_classes;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Passenger implements Serializable {
 
@@ -15,6 +16,10 @@ public class Passenger implements Serializable {
 
     public static void setCounterPassId(int counterPassId) {
         Passenger.counterPassId = counterPassId;
+    }
+
+    public static int getCounterPassId() {
+        return counterPassId;
     }
 
     public ArrayList<Ticket> getTickets() {
@@ -70,8 +75,35 @@ public class Passenger implements Serializable {
 
     public static ArrayList<Flight> flightSearch(String dearture_Airport, String arrival_Airport, int departure_Date_year, int departure_Date_month, int departure_Date_day, int arrival_Date_year, int arrival_Date_month, int arrival_Date_day) throws IOException, ClassNotFoundException {
 
-
-
+        // check of finished flights
+        Date date = new Date();
+        for(int i = 0; i < Files.getFlights().size(); i++)
+        {
+            if(date.after(Files.getFlights().get(i).getArrivalTime())) {
+                Files.getFlights().get(i).setFinished(true);
+                ArrayList<Ticket> ticketsBack = new ArrayList<>();
+                for (int j = 0; j < Files.getFlights().get(i).getPassengers().size(); j++)
+                {
+                    Passenger passenger = null;
+                    for(int k = 0; k < Files.getPassengers().size(); k++)
+                    {
+                        if(Files.getPassengers().get(k).getPassenger_ID().equals(Files.getFlights().get(i).getPassengers().get(j).getPassenger_ID()))
+                            passenger = Files.getPassengers().get(k);
+                    }
+                    for (int k = 0; k < passenger.getTickets().size(); k++)
+                    {
+                        Ticket ticket = passenger.getTickets().get(k);
+                        if(ticket.getBookingTicket().getFlight().getFlightNumber() == Files.getFlights().get(i).getFlightNumber())
+                        {
+                            ticketsBack.add(ticket);
+                        }
+                    }
+                    for (int k = 0; k < ticketsBack.size(); k++) {
+                        passenger.getTickets().remove(ticketsBack.get(k));
+                    }
+                }
+            }
+        }
 
         ArrayList<Flight> flightsToken = new ArrayList<>();
         int counter = 0;
@@ -87,6 +119,7 @@ public class Passenger implements Serializable {
                         &&
                         (((arrival_Date_year == Files.getFlights().get(i).getArrivalTime().getYear() + 1900) && (arrival_Date_month ==  Files.getFlights().get(i).getArrivalTime().getMonth() + 1) && (arrival_Date_day ==  Files.getFlights().get(i).getArrivalTime().getDate())) ||
                         ((arrival_Date_year == 0) && (arrival_Date_month == 0) && (arrival_Date_day == 0))
+                        && !Files.getFlights().get(i).isFinished()
                         )
 
                 ) {

@@ -34,7 +34,6 @@ public class UserProfile {
     private int AvailbleSeats;
 
     private Passenger user;
-    private int sceneId;
     private int pass_index;
     Flight flight;
     ArrayList<Passenger> passengers=new ArrayList<>();
@@ -53,8 +52,7 @@ public class UserProfile {
         this.AvailbleSeats = AvailbleSeats;
     }
 
-    public void assignUser_sceneId(Passenger user, int sceneId){
-        this.sceneId = sceneId;
+    public void assignUser_sceneId(Passenger user){
         this.user = user;
         pass_username.setText("Username: "+user.getName());
         pass_phone.setText("Contact: "+user.getPhone());
@@ -62,37 +60,19 @@ public class UserProfile {
         pocketLabel.setText(pocketLabel.getText() + user.getPocket());
 
         //get passenger index in passenger.txt
-        try {
-            pass_index = Files.getPassengers().indexOf(user);
-            /*File file=new File("Passenger.txt");
-            FileInputStream fis=new FileInputStream(file);
-            ObjectInputStream ois=new ObjectInputStream(fis);
-            if(file.length() > 0) {
-                passengers = (ArrayList<Passenger>) ois.readObject();
-                int size = passengers.size();
-                for (int i = 0; i < size; i++) {
-                    if (user.getName().toLowerCase().equals(passengers.get(i).getName().toLowerCase())) {
-                        pass_index = i;
-                        break;
-                    }
-                }
-            }*/
-        }
-        catch (Exception exe) {
-            System.out.println("Error when searching for a unique user"+exe);
-        }
+        pass_index = Files.getPassengers().indexOf(user);
     }
     public void GoToEditProfile(ActionEvent event){
         try {
             FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("editProfileScene.fxml"));
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            //ActionEvent e = null;
+
             EditProfileController ep = loader.getController();
-            ep.standBy(user,pass_index,this.sceneId);
-            //Up.editProfile(e);
-            //Up.assignFlight(flight);
+            ep.standBy(user,pass_index);
+
             scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         }
@@ -109,7 +89,8 @@ public class UserProfile {
             mb.StandBy();
             mb.passUser(user);
             scene = new Scene(root);
-            scene.getStylesheets().add(Multi_used_methods.class.getResource("style.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("buttonLogoutStyle.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         }
@@ -217,14 +198,7 @@ public class UserProfile {
     public void backFromUserProfile(ActionEvent e) {
         // To Flight Search scene
 
-        if(sceneId == 1)
-            Multi_used_methods.openFlightSearch(e, user);
-            // To Flight Show scene
-        else if(sceneId == 2)
-            Multi_used_methods.GoToFlightShow(e, flight, user, AvailbleSeats);
-            // To Flight Seat Selection scene
-        else if (sceneId == 3)
-            Multi_used_methods.GoToChooseSeat(e, flight, user, AvailbleSeats);
+        Multi_used_methods.openFlightSearch(e, user);
 
     }
 

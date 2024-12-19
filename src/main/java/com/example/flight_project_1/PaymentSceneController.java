@@ -139,7 +139,6 @@ public class PaymentSceneController implements Initializable {
 //    }
     @FXML
     public void handleSubmit(ActionEvent event) {
-        System.out.println("Submit button clicked!");
         try {
 
             double paymentamont= user.getPocket();
@@ -168,7 +167,6 @@ public class PaymentSceneController implements Initializable {
                 payment_status.setText("Payment Completed!");
                 mylabeltoAlert.setStyle("-fx-text-fill: green;");
                 user.setPocket(user.getPocket() - totalCost);
-                System.out.println(user.getPocket());
 //                payment_successful=true;
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BookingConfrimScene.fxml"));
@@ -179,6 +177,7 @@ public class PaymentSceneController implements Initializable {
 
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
+                    scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
                     stage.setScene(scene);
                     stage.show();
                 }catch (Exception e){
@@ -236,6 +235,7 @@ public class PaymentSceneController implements Initializable {
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         }catch (Exception ex){

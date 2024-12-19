@@ -63,6 +63,17 @@ public class UserSignUp implements Serializable{
             } catch (Exception exe) {
                 System.out.println("Error when searching for a unique user"+exe);
             }
+            try {
+                int size = Files.getAdmins().size();
+                for (int i = 0; i < size; i++) {
+                    if (username.toLowerCase().equals(Files.getAdmins().get(i).getUsername().toLowerCase())) {
+                        flagOfNameNotFound = false;
+                        break;
+                    }
+                }
+            } catch (Exception exe) {
+                System.out.println("Error when searching for a unique user"+exe);
+            }
             if (!flagOfNameNotFound) {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");

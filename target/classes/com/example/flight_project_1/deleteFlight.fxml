@@ -37,7 +37,7 @@
                   <Font size="47.0" />
                </font>
             </Label>
-            <Label fx:id="flightNumberLabel" layoutX="616.0" layoutY="104.0" prefHeight="73.0" prefWidth="724.0">
+            <Label fx:id="moneyPaid" layoutX="616.0" layoutY="104.0" prefHeight="73.0" prefWidth="724.0">
                <font>
                   <Font size="16.0" />
                </font>

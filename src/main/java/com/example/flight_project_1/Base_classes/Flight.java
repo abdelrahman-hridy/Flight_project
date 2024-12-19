@@ -14,10 +14,23 @@ public class Flight implements Serializable {
     private Date arrivalTime;
     private int price;
     private ArrayList<ArrayList<Seat>> seats;
-    private Passenger passengers[];
+    private ArrayList<Passenger> passengers = new ArrayList<>();
+    private boolean isFinished;
+
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public void setFinished(boolean finished) {
+        isFinished = finished;
+    }
 
     public static void setFlightNumberStatic(int flightNumberStatic) {
         FlightNumberStatic = flightNumberStatic;
+    }
+
+    public static int getFlightNumberStatic() {
+        return FlightNumberStatic;
     }
 
     public int getFlightNumber() {
@@ -76,11 +89,11 @@ public class Flight implements Serializable {
         this.price = price;
     }
 
-    public Passenger[] getPassengers() {
+    public ArrayList<Passenger> getPassengers() {
         return passengers;
     }
 
-    public void setPassengers(Passenger[] passengers) {
+    public void setPassengers(ArrayList<Passenger> passengers) {
         this.passengers = passengers;
     }
 
@@ -90,6 +103,7 @@ public class Flight implements Serializable {
     public Flight(Airport deapartureAirport, Airport arrivalAirport, Date departureTime,
                   Date arrivalTime, ArrayList<ArrayList<Seat>> seats, int price)
     {
+        isFinished = false;
         FlightNumber = Integer.parseInt(String.valueOf(FlightNumberStatic));
         FlightNumberStatic++;
         this.deapartureAirport = deapartureAirport;

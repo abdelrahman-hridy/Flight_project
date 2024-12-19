@@ -3,6 +3,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,6 +13,11 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.EditTickets">
    <children>
+      <ImageView fitHeight="800.0" fitWidth="1536.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@5590457%20(1).jpg" />
+         </image>
+      </ImageView>
       <GridPane fx:id="seatNumberGrid" alignment="CENTER" layoutX="1.0" layoutY="60.0" prefHeight="70.0" prefWidth="1535.0">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -22,22 +29,22 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="seatLabel1" alignment="CENTER" prefHeight="40.0" prefWidth="81.0" text="Seat 1" textAlignment="CENTER">
+            <Label fx:id="seatLabel1" alignment="CENTER" prefHeight="40.0" prefWidth="81.0" text="Seat 1" textAlignment="CENTER" textFill="#00e8ff">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label fx:id="seatLabel11" alignment="CENTER" prefHeight="40.0" prefWidth="78.0" text="Seat 2" GridPane.columnIndex="1">
+            <Label fx:id="seatLabel11" alignment="CENTER" prefHeight="40.0" prefWidth="78.0" text="Seat 2" textFill="#00e8ff" GridPane.columnIndex="1">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label fx:id="seatLabel12" alignment="CENTER" prefHeight="40.0" prefWidth="81.0" text="Seat 3" GridPane.columnIndex="2">
+            <Label fx:id="seatLabel12" alignment="CENTER" prefHeight="40.0" prefWidth="81.0" text="Seat 3" textFill="#00e8ff" GridPane.columnIndex="2">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label fx:id="seatLabel121" alignment="CENTER" prefHeight="40.0" prefWidth="77.0" text="Seat 4" GridPane.columnIndex="3">
+            <Label fx:id="seatLabel121" alignment="CENTER" prefHeight="40.0" prefWidth="77.0" text="Seat 4" textFill="#00e8ff" GridPane.columnIndex="3">
                <font>
                   <Font size="28.0" />
                </font>
@@ -55,22 +62,22 @@
             <RowConstraints maxHeight="64.79999389648438" minHeight="10.0" prefHeight="23.20002441406249" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="113.0" text="ID :  ">
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="113.0" text="ID :  " textFill="#00e8ff">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="112.0" text="ID :  " GridPane.columnIndex="1">
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="112.0" text="ID :  " textFill="#00e8ff" GridPane.columnIndex="1">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="118.0" text="ID :  " GridPane.columnIndex="2">
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="118.0" text="ID :  " textFill="#00e8ff" GridPane.columnIndex="2">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="118.0" text="ID :  " GridPane.columnIndex="3">
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="118.0" text="ID :  " textFill="#00e8ff" GridPane.columnIndex="3">
                <font>
                   <Font size="28.0" />
                </font>
@@ -88,22 +95,22 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="231.0" text="Class : ">
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="231.0" text="Class : " textFill="#00e8ff">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="231.0" text="Class : " GridPane.columnIndex="1">
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="231.0" text="Class : " textFill="#00e8ff" GridPane.columnIndex="1">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="231.0" text="Class : " GridPane.columnIndex="2">
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="231.0" text="Class : " textFill="#00e8ff" GridPane.columnIndex="2">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="231.0" text="Class : " GridPane.columnIndex="3">
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="231.0" text="Class : " textFill="#00e8ff" GridPane.columnIndex="3">
                <font>
                   <Font size="28.0" />
                </font>
@@ -121,22 +128,22 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="231.0" text="Price : " textAlignment="CENTER">
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="231.0" text="Price : " textAlignment="CENTER" textFill="#00e8ff">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label alignment="TOP_CENTER" prefHeight="40.0" prefWidth="231.0" text="Price : " GridPane.columnIndex="1">
+            <Label alignment="TOP_CENTER" prefHeight="40.0" prefWidth="231.0" text="Price : " textFill="#00e8ff" GridPane.columnIndex="1">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label alignment="TOP_CENTER" prefHeight="40.0" prefWidth="231.0" text="Price : " GridPane.columnIndex="2">
+            <Label alignment="TOP_CENTER" prefHeight="40.0" prefWidth="231.0" text="Price : " textFill="#00e8ff" GridPane.columnIndex="2">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="231.0" text="Price : " GridPane.columnIndex="3">
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="231.0" text="Price : " textFill="#00e8ff" GridPane.columnIndex="3">
                <font>
                   <Font size="28.0" />
                </font>
@@ -154,29 +161,41 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="sellButton0" mnemonicParsing="false" prefHeight="6.0" prefWidth="78.0" text="Sell">
+            <Button fx:id="sellButton0" mnemonicParsing="false" prefHeight="46.0" prefWidth="91.0" text="cancel">
                <font>
                   <Font size="21.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="sellButton1" mnemonicParsing="false" prefHeight="6.0" prefWidth="78.0" text="Sell" GridPane.columnIndex="1">
+            <Button fx:id="sellButton1" mnemonicParsing="false" prefHeight="46.0" prefWidth="99.0" text="cancel" GridPane.columnIndex="1">
                <font>
                   <Font size="21.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="sellButton2" mnemonicParsing="false" prefHeight="6.0" prefWidth="78.0" text="Sell" GridPane.columnIndex="2">
+            <Button fx:id="sellButton2" mnemonicParsing="false" prefHeight="46.0" prefWidth="96.0" text="cancel" GridPane.columnIndex="2">
                <font>
                   <Font size="21.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="sellButton3" mnemonicParsing="false" prefHeight="6.0" prefWidth="78.0" text="Sell" GridPane.columnIndex="3">
+            <Button fx:id="sellButton3" mnemonicParsing="false" prefHeight="46.0" prefWidth="96.0" text="cancel" GridPane.columnIndex="3">
                <font>
                   <Font size="21.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </GridPane>
-      <Button fx:id="backButton" layoutX="314.0" layoutY="627.0" mnemonicParsing="false" onAction="#backToTicketsShow" prefHeight="73.0" prefWidth="139.0" text="Back">
+      <Button fx:id="sellTicketButton" layoutX="1030.0" layoutY="627.0" mnemonicParsing="false" onAction="#SellTicket" prefHeight="74.0" prefWidth="203.0" text="Sell Ticket">
          <font>
             <Font size="34.0" />
          </font>
@@ -184,9 +203,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="sellTicketButton" layoutX="1030.0" layoutY="627.0" mnemonicParsing="false" onAction="#SellTicket" prefHeight="74.0" prefWidth="203.0" text="Sell Ticket">
+      <Button fx:id="backButton" layoutX="201.0" layoutY="658.0" mnemonicParsing="false" onAction="#backFromUserProfile" text="Back">
          <font>
-            <Font size="34.0" />
+            <Font size="30.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
