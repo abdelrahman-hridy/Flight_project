@@ -123,7 +123,6 @@ public class PaymentSceneController implements Initializable {
     }
 
    private void setPaymentFieldsVisibility(boolean showCardFields, boolean showWalletFields) {
-
       Card_Number.setVisible(showCardFields);
       Expairy_Date.setVisible(showCardFields);
      CVV.setVisible(showCardFields);
@@ -142,13 +141,38 @@ public class PaymentSceneController implements Initializable {
         try {
 
             double paymentamont= user.getPocket();
-
-            if ((Card_Number.getText().isEmpty() || Expairy_Date.getText().isEmpty() || CVV.getText().isEmpty())
-                    && (PayPal_mail.getText().isEmpty() || PayPal_Num.getText().isEmpty())) {
-                mylabeltoAlert.setText("Invalid Data. Please check your Card Info.");
+            // Check if either PayPal or Card information is provided
+            if ((PayPal_mail.getText().isEmpty() || PayPal_Num.getText().isEmpty()) &&
+                    (Card_Number.getText().isEmpty() || Expairy_Date.getText().isEmpty())) {
+                mylabeltoAlert.setText("Invalid Data. Please check your Payment Info.");
                 payment_status.setText("Payment Failed!");
                 return;
             }
+
+// Check if Card information is valid
+            if (!PayPal_mail.getText().isEmpty() || !PayPal_Num.getText().isEmpty()) {
+                // If PayPal details are filled, skip card validation
+                if (PayPal_Num.getText().length() != 15 || !PayPal_mail.getText().contains("@mail.com")) {
+                    mylabeltoAlert.setText("Invalid Data. Please check your PayPal Info.");
+                    payment_status.setText("Payment Failed!");
+                    return;
+                }
+            }
+
+// Check if Card details are valid
+            if (!Card_Number.getText().isEmpty() || !Expairy_Date.getText().isEmpty()) {
+                if (Card_Number.getText().length() != 15 || CVV.getText().length() != 3) {
+                    mylabeltoAlert.setText("Invalid Data. Please check your Card Info.");
+                    payment_status.setText("Payment Failed!");
+                    return;
+                }
+            }
+
+//            else if(){
+//                mylabeltoAlert.setText("Invalid Data. Please check your Paypal Info.");
+//                payment_status.setText("Payment Failed!");
+//                return;
+//            }
 
 
 //double baseFare = Double.parseDouble(price.allprice );

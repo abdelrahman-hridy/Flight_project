@@ -9,8 +9,8 @@
       <change beforePath="$PROJECT_DIR$/Flights.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Flights.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Passenger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Passenger.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/counterVariables.txt" beforeDir="false" afterPath="$PROJECT_DIR$/counterVariables.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Base_classes/Seat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/PaymentSceneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flight_project_1/PaymentSceneController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,26 +55,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Shell Script.main.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sheha/Desktop/Flight_project&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Shell Script.main.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sheha/Downloads/openjfx-23.0.1_windows-x64_bin-sdk/javafx-sdk-23.0.1/lib",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HP\Documents\Flight_project" />
@@ -200,7 +200,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/flight_project_1/PaymentSceneController.java</url>
-          <line>189</line>
+          <line>249</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
