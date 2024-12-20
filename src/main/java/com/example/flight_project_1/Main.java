@@ -373,7 +373,7 @@ public class Main extends Application implements Serializable {
         }
 
 
-        stage.setTitle("Hello GUI");
+        stage.setTitle("Flight System");
         try {
             stage.getIcons().add(new Image(String.valueOf(getClass().getResource("DALL·E-2024-12-01-20.54.png"))));
         } catch (Exception e) {
