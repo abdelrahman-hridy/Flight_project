@@ -21,10 +21,7 @@ public abstract class Seat implements Serializable {
         this.seatClass=seatClass;
     }
 
-    public String getSeatNumber() {
-        return seatId;
-    }
-
+    
     public void setSeatId(String seatId) {
         this.seatId = seatId;
     }

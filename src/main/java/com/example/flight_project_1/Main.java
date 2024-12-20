@@ -294,6 +294,53 @@ public class Main extends Application implements Serializable {
 //
 //
 ////====
+//<<<<<<< HEAD
+        ArrayList<Admin> admins = new ArrayList<>();
+        admins.add(new Admin("Shehab", "11223344"));
+        admins.add(new Admin("Sohaib", "55435421"));
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Admins.txt"));
+            oos.writeObject(admins);
+        }catch (Exception exe){
+            System.out.println("Error when login"+exe);
+        }
+//>>>>>>> e69380d5760ff1ffcafe54f99369bfb909840b61
+
+//        Passenger passengers[] = new Passenger[3];
+//        passengers[0] = new Passenger("Sohaib", "01067700658", "123");
+//        passengers[1] = new Passenger("Shehab", "01151692506", "123");
+//        passengers[2] = new Passenger("Tony", "01225641027", "123");
+//
+//
+//        ArrayList<Airport> airports = new ArrayList<>();
+//        airports.add(new Airport(1, "Cairo", "Egypt"));
+//        airports.add(new Airport(2, "London", "England"));
+//        airports.add(new Airport(3, "Los Angles", "USA"));
+//        airports.add(new Airport(4, "Berlin", "England"));
+//        try {
+//            File file1 = new File("Airports.txt");
+//            ObjectOutputStream oos90 = new ObjectOutputStream(new FileOutputStream(file1));
+//            oos90.writeObject(airports);
+//            oos90.flush();
+//            oos90.close();
+//        }catch (Exception e){
+//            System.out.println("Cant add Airports");
+//        }
+////
+//          ArrayList<ArrayList<Seat>>AllFlightSeats=null;
+//          try {
+//              ObjectInputStream ois123 = new ObjectInputStream (new FileInputStream("AllSeats.txt"));
+//              AllFlightSeats= (ArrayList<ArrayList<Seat>>) ois123.readObject();
+//              for(int i=0;i<10;i++){
+//                  for(int j=0;j<6;j++){
+//                      System.out.println();
+//                  }
+//                  System.out.println();
+//              }
+//          }catch (Exception ex){
+//              System.out.println("Error cant Read The Seats For the flights");
+//          }
+//=======
 //        ArrayList<Admin> admins = new ArrayList<>();
 //        admins.add(new Admin("Shehab", "11223344"));
 //        admins.add(new Admin("Sohaib", "55435421"));
@@ -303,6 +350,7 @@ public class Main extends Application implements Serializable {
 //        }catch (Exception exe){
 //            System.out.println("Error when login"+exe);
 //        }
+//>>>>>>> 939142d11406a96c3ffd5a14503e9817bcb4d17b
 
 
 
