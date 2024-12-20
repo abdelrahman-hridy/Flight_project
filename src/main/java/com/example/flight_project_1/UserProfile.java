@@ -31,12 +31,10 @@ public class UserProfile {
     @FXML
     private Label pocketLabel;
     @FXML
-    private int AvailbleSeats;
 
     private Passenger user;
     private int pass_index;
-    Flight flight;
-    ArrayList<Passenger> passengers=new ArrayList<>();
+    private ArrayList<Passenger> passengers=new ArrayList<>();
 
 //<<<<<<< HEAD
 //   public void assignUser_sceneId(Passenger user, int sceneId){
@@ -44,13 +42,6 @@ public class UserProfile {
 //       this.user = user;
 //   }
 //=======
-    public void assignFlight(Flight flight){
-        this.flight = flight;
-    }
-
-    public void assignAvailbleSeats(int AvailbleSeats){
-        this.AvailbleSeats = AvailbleSeats;
-    }
 
     public void assignUser_sceneId(Passenger user){
         this.user = user;

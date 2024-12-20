@@ -106,15 +106,17 @@ public class DeleteAirport implements Initializable {
                         {
                             Passenger passenger = null;
                             for(int j = 0; j < Files.getPassengers().size(); j++) {
-                                if (Files.getPassengers().get(j).getPassenger_ID().equals(flight.getPassengers().get(i).getPassenger_ID()))
+                                if (Files.getPassengers().get(j).getPassenger_ID().equals(flight.getPassengers().get(i).getPassenger_ID())) {
                                     passenger = Files.getPassengers().get(j);
+                                    for (int l = 0; l < passenger.getTickets().size(); l++)
+                                    {
+                                        Ticket ticket = passenger.getTickets().get(l);
+                                        passenger.setPocket(passenger.getPocket() + ticket.getBookingTicket().getBookingPrice());
+                                        passenger.getTickets().remove(ticket);
+                                    }
+                                }
                             }
-                            for (int j = 0; j < passenger.getTickets().size(); j++)
-                            {
-                                Ticket ticket = passenger.getTickets().get(j);
-                                passenger.setPocket(passenger.getPocket() + ticket.getBookingTicket().getBookingPrice());
-                                passenger.getTickets().remove(ticket);
-                            }
+
                         }
                         deletedFlights.add(flight);
                     }

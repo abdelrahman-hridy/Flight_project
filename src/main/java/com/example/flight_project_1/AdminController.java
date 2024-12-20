@@ -77,11 +77,11 @@ public class AdminController implements Initializable {
     }
     public void backToSignIn(ActionEvent event){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("userSign.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("buttonsStyleSignIn.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

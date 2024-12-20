@@ -62,17 +62,20 @@ public class DeleteFlight implements Initializable {
             // search for the user
             for(int j = 0; j < Files.getPassengers().size(); j++)
             {
-                if(Files.getPassengers().get(j).getPassenger_ID().equals(choosenFlight.getPassengers().get(i).getPassenger_ID()))
+                if(Files.getPassengers().get(j).getPassenger_ID().equals(choosenFlight.getPassengers().get(i).getPassenger_ID())) {
                     passenger = Files.getPassengers().get(j);
-            }
-            for (int j = 0; j < passenger.getTickets().size(); j++)
-            {
-                Ticket ticket = passenger.getTickets().get(j);
-                if(ticket.getBookingTicket().getFlight().getFlightNumber() == choosenFlight.getFlightNumber())
-                {
-                    collectedMoney += ticket.getBookingTicket().getBookingPrice();
+                    for (int k = 0; k < passenger.getTickets().size(); k++)
+                    {
+                        Ticket ticket = passenger.getTickets().get(k);
+                        if(ticket.getBookingTicket().getFlight().getFlightNumber() == choosenFlight.getFlightNumber())
+                        {
+                            collectedMoney += ticket.getBookingTicket().getBookingPrice();
+                        }
+                    }
                 }
+
             }
+
 
         }
         moneyPaid.setText("Flight Collected Money: " + collectedMoney);
@@ -129,21 +132,23 @@ public class DeleteFlight implements Initializable {
                     Passenger passenger = null;
                     for(int j = 0; j < Files.getPassengers().size(); j++)
                     {
-                        if(Files.getPassengers().get(j).getPassenger_ID().equals(choosenFlight.getPassengers().get(i).getPassenger_ID()))
+                        if(Files.getPassengers().get(j).getPassenger_ID().equals(choosenFlight.getPassengers().get(i).getPassenger_ID())) {
                             passenger = Files.getPassengers().get(j);
-                    }
-                    for (int j = 0; j < passenger.getTickets().size(); j++)
-                    {
-                        Ticket ticket = passenger.getTickets().get(j);
-                        if(ticket.getBookingTicket().getFlight().getFlightNumber() == choosenFlight.getFlightNumber())
-                        {
-                            passenger.setPocket(passenger.getPocket() + ticket.getBookingTicket().getBookingPrice());
-                            ticketsBack.add(ticket);
-                        }
-                    }
-                    for (int j = 0; j < ticketsBack.size(); j++) {
-                        passenger.getTickets().remove(ticketsBack.get(j));
-                    }
+
+                            for (int k = 0; k < passenger.getTickets().size(); k++)
+                            {
+                                Ticket ticket = passenger.getTickets().get(k);
+                                if(ticket.getBookingTicket().getFlight().getFlightNumber() == choosenFlight.getFlightNumber())
+                                {
+                                    passenger.setPocket(passenger.getPocket() + ticket.getBookingTicket().getBookingPrice());
+                                    ticketsBack.add(ticket);
+                                }
+                            }
+                            for (int k = 0; k < ticketsBack.size(); k++) {
+                                passenger.getTickets().remove(ticketsBack.get(k));
+                            }
+                        }                    }
+
                 }
 
                 // delete Flight

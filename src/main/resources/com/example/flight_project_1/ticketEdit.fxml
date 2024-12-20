@@ -203,7 +203,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="backButton" layoutX="201.0" layoutY="658.0" mnemonicParsing="false" onAction="#backFromUserProfile" text="Back">
+      <Button fx:id="backButton" layoutX="201.0" layoutY="658.0" mnemonicParsing="false" onAction="#backToTicketsShow" text="Back">
          <font>
             <Font size="30.0" />
          </font>

@@ -22,14 +22,11 @@ public class FlightShow{
     @FXML
     Label flightDetails, departureAirportLabel, departureTimeLabel, arrivalAirportLabel, arrivalTimeLabel, priceLabel, seatsLabel;
     @FXML
-    Button backButton;
-    Flight flight;
+    private Button backButton;
+    private Flight flight;
     private Passenger user;
     private int AvailbleSeats;
 
-    Stage stage;
-    Scene scene;
-    Parent root;
 
     public void setAll(Flight flight, Passenger user,int AvailbleSeats){
         this.flight = flight;
@@ -51,7 +48,6 @@ public class FlightShow{
         flightDetails.setStyle("-fx-font-weight: bold;");
 
     }
-
 
     public void backToSearch(ActionEvent event) {
         Multi_used_methods.openFlightSearch(event, user);

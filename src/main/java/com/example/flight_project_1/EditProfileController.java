@@ -128,12 +128,7 @@ public class EditProfileController {
             alert.setContentText("Password Is Required");
             alert.showAndWait();
         } else if (password.length() < 6) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Password Is Used");
-            alert.setContentText("Password Must Be Unique");
-            alert.showAndWait();
-        } else if (!EditProfileController.checkValid(1, password)) {
+            System.out.println(password);
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Password is less than 6 characters");
@@ -173,8 +168,6 @@ public class EditProfileController {
         } else {
             try {
                 user.setPhone(contact);
-                System.out.println(passengers.size());
-                Files.getPassengers().get(pass_index).setPassword(contact);
                 contact_edit.setText("Contact edit done!");
                 editedSuccessfullyLabel.setText("Contact Edited Successfully");
                 editedSuccessfullyLabel.setVisible(true);
@@ -195,14 +188,6 @@ public class EditProfileController {
         if(op==0){
             for(int i = 0; i < Files.getPassengers().size(); i++){
                 if(compare.toLowerCase().equals(Files.getPassengers().get(i).getName().toLowerCase())){
-                    NotFound = false;
-                    break;
-                }
-            }
-        }
-        else if(op==1){
-            for(int i = 0; i < Files.getPassengers().size(); i++){
-                if(compare.toLowerCase().equals(Files.getPassengers().get(i).getPassword().toLowerCase())){
                     NotFound = false;
                     break;
                 }
