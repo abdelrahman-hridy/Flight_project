@@ -183,6 +183,12 @@ public class AddFlight implements Initializable {
                 warningLabel.setVisible(true);
             }
 
+            if(departureAirport.getAirport_code() == arrivalAirport.getAirport_code())
+            {
+                isValidDate = false;
+                warningLabel.setText("Departure Airport Is The Same As Arrival Airport");
+                warningLabel.setVisible(true);
+            }
             // confirm Adding after check all inputs
 
             if(isValidDate){
