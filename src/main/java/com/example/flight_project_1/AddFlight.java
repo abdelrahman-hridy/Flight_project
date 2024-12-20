@@ -39,7 +39,7 @@ public class AddFlight implements Initializable {
     @FXML
     private Button  addButton;
     @FXML
-    Label flightAddedSuccessfulyMessage, warningLabel;
+    private Label flightAddedSuccessfulyMessage, warningLabel;
     private Date departureDate = new Date();
     private Date arrivalDate = new Date();
 
@@ -173,9 +173,7 @@ public class AddFlight implements Initializable {
                 warningLabel.setText("The Arrival Time Must Be After Departure Time");
                 warningLabel.setVisible(true);
             }
-            else {
-                warningLabel.setVisible(false);
-            }
+
 
             Date currentDate = new Date();
             if(departureDate.before(currentDate) ||  arrivalDate.before(currentDate))
@@ -183,9 +181,6 @@ public class AddFlight implements Initializable {
                 isValidDate = false;
                 warningLabel.setText("Flight Time must be after current time");
                 warningLabel.setVisible(true);
-            }
-            else {
-                warningLabel.setVisible(false);
             }
 
             // confirm Adding after check all inputs

@@ -173,8 +173,6 @@ public class EditProfileController {
         } else {
             try {
                 user.setPhone(contact);
-                System.out.println(passengers.size());
-                Files.getPassengers().get(pass_index).setPassword(contact);
                 contact_edit.setText("Contact edit done!");
                 editedSuccessfullyLabel.setText("Contact Edited Successfully");
                 editedSuccessfullyLabel.setVisible(true);

@@ -13,12 +13,9 @@ import java.io.IOException;
 
 public class Multi_used_methods {
 
-    static Stage stage;
-    static Scene scene;
-    static Parent root;
-    private Flight flight;
-    private Passenger user;
-    private int AvailbleSeats;
+    private static Stage stage;
+    private static Scene scene;
+    private static Parent root;
 
 
     public static void openFlightSearch(ActionEvent event, Passenger user) {
@@ -79,6 +76,7 @@ public class Multi_used_methods {
             System.out.println("Can't Open flightShow.fxml");
         }
     }
+
     public static void GoToChooseSeat(ActionEvent event, Flight flight, Passenger user,int AvailbleSeats){
         try {
             FXMLLoader loader = new FXMLLoader(Multi_used_methods.class.getResource("SeatSelection.fxml"));

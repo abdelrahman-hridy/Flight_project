@@ -314,10 +314,10 @@ public class Main extends Application implements Serializable {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("userSign.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("buttonsStyleSignIn.css").toExternalForm());
             stage.setScene(scene);
         }catch (Exception e)
         {

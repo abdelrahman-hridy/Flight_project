@@ -105,16 +105,18 @@ public class UserSignUp implements Serializable{
             }
         }
     }
-    public void backToSign(ActionEvent event){
+    public void backToSignIn(ActionEvent event){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("userSign.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("signInForm.fxml"));
             root = loader.load();
-        } catch (IOException e) {
-            System.out.println("Can't Open userSign.fxml");
+
+        } catch (
+                IOException e) {
+            System.out.println("Can't Open signInForm.fxml");
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("buttonsStyleSignIn.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

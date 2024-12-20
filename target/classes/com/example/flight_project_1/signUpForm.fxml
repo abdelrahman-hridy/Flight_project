@@ -17,44 +17,44 @@
             <Image url="@FlightViewBaseScene.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="Submit" layoutX="1119.0" layoutY="615.0" mnemonicParsing="false" onAction="#submitSignUp" prefHeight="26.0" prefWidth="112.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" text="Sign Up" textFill="#1b97fd">
+      <Button fx:id="Submit" layoutX="1021.0" layoutY="645.0" mnemonicParsing="false" onAction="#submitSignUp" prefHeight="26.0" prefWidth="112.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" text="Sign Up" textFill="#1b97fd">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <TextField fx:id="userup" layoutX="1214.0" layoutY="241.0">
+      <TextField fx:id="userup" layoutX="726.0" layoutY="266.0" prefHeight="38.0" prefWidth="247.0">
          <font>
-            <Font size="20.0" />
+            <Font size="17.0" />
          </font></TextField>
-      <PasswordField fx:id="passup" layoutX="1221.0" layoutY="442.0" prefHeight="41.0" prefWidth="253.0">
+      <PasswordField fx:id="passup" layoutX="726.0" layoutY="514.0" prefHeight="40.0" prefWidth="247.0">
          <font>
-            <Font size="19.0" />
+            <Font size="15.0" />
          </font></PasswordField>
-      <Label fx:id="UserNameLabel" layoutX="1048.0" layoutY="251.0" scaleX="2.0" scaleY="2.0" text="UserName" textFill="#71a9d9">
+      <Label fx:id="UserNameLabel" layoutX="604.0" layoutY="274.0" prefHeight="19.0" prefWidth="72.0" scaleX="2.0" scaleY="2.0" text="UserName" textFill="#71a9d9">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font></Label>
-      <Label fx:id="PasswordLabel" layoutX="1053.0" layoutY="446.0" prefHeight="30.0" prefWidth="90.0" scaleX="2.0" scaleY="2.0" text="Password" textFill="#63a3e0">
+      <Label fx:id="PasswordLabel" layoutX="604.0" layoutY="523.0" prefHeight="21.0" prefWidth="72.0" scaleX="2.0" scaleY="2.0" text="Password" textFill="#63a3e0">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font></Label>
-      <Label fx:id="WelcomLabel" layoutX="725.0" layoutY="66.0" scaleX="2.0" scaleY="2.0" text="Welcome To Sign Page" textFill="#000102">
+      <Label fx:id="WelcomLabel" layoutX="647.0" layoutY="64.0" scaleX="2.0" scaleY="2.0" text="Welcome To SignUp Page" textFill="#000102">
          <font>
             <Font size="25.0" />
          </font></Label>
-      <Button fx:id="backToSign" layoutX="500.0" layoutY="609.0" mnemonicParsing="false" onAction="#backToSign" text="Back">
+      <Button fx:id="backToSign" layoutX="484.0" layoutY="640.0" mnemonicParsing="false" onAction="#backToSignIn" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font size="21.0" />
          </font></Button>
-      <TextField fx:id="contactUp" layoutX="1221.0" layoutY="337.0">
+      <TextField fx:id="contactUp" layoutX="726.0" layoutY="390.0" prefHeight="31.0" prefWidth="247.0">
          <font>
-            <Font size="20.0" />
+            <Font size="17.0" />
          </font></TextField>
-      <Label fx:id="PasswordLabel1" layoutX="1042.0" layoutY="341.0" prefHeight="30.0" prefWidth="112.0" scaleX="2.0" scaleY="2.0" text="Contact Info" textFill="#63a3e0">
+      <Label fx:id="PasswordLabel1" layoutX="590.0" layoutY="398.0" prefHeight="16.0" prefWidth="85.0" scaleX="2.0" scaleY="2.0" text="Contact Info" textFill="#63a3e0">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font></Label>
 
    </children>

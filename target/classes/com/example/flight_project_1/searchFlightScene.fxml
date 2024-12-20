@@ -59,7 +59,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="1434.0" layoutY="29.0" prefHeight="46.0" prefWidth="87.0" text="User Profile" />
+      <Label layoutX="1434.0" layoutY="29.0" prefHeight="46.0" prefWidth="87.0" text="User Profile">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
       <TableView fx:id="myTable" fixedCellSize="40.0" layoutX="3.0" layoutY="497.0" prefHeight="295.0" prefWidth="1530.0">
          <columns>
             <TableColumn fx:id="departureAirport" prefWidth="239.19995421171188" resizable="false" text="Departure Airport" />
@@ -71,5 +74,13 @@
             <TableColumn fx:id="Action" minWidth="0.0" prefWidth="124.800048828125" />
          </columns>
       </TableView>
+      <Button layoutX="1427.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToProfile" opacity="0.0" prefHeight="18.0" prefWidth="95.0" text="Profile">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="8.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

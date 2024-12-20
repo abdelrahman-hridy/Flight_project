@@ -25,13 +25,12 @@ public class UserSignIn {
     private TextField userin;
     @FXML
     private PasswordField passin;
-    @FXML
+
     Alert alert;
 
     private Stage stage;
     private Scene scene;
     private Parent root;
-    int AvailbleSeats;
 
     public void submitLogin(ActionEvent e)  {
         Passenger user = null;
@@ -100,18 +99,21 @@ public class UserSignIn {
         }
     }
 
-    public void backToSign(ActionEvent event) {
+    public void goToSignUp(ActionEvent event) {
+        System.out.println("Clicked Button");
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("userSign.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("signUpForm.fxml"));
             root = loader.load();
-        } catch (IOException e) {
-            System.out.println("Can't Open userSign.fxml");
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
+            stage.setScene(scene);
+            stage.show();
+        } catch (
+                IOException e) {
+            System.out.println("Can't Open signUpForm.fxml");
         }
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("buttonsStyle.css").toExternalForm());
-        stage.setScene(scene);
-        stage.show();
     }
+
 }
 

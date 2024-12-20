@@ -16,9 +16,9 @@ import java.util.ArrayList;
 
 public class AddAirportController {
     @FXML
-    TextField nameTextField, codeTextField, locationTextField;
+    private TextField nameTextField, codeTextField, locationTextField;
     @FXML
-    Label codeInvalidMessage, nameInvalidMessage, airportAddedSuccessfulyMessage, codeInvalidMessage1;
+    private Label codeInvalidMessage, nameInvalidMessage, airportAddedSuccessfulyMessage, codeInvalidMessage1;
     private boolean isValid;
     private Airport airportAdded = null;
 
@@ -93,7 +93,7 @@ public class AddAirportController {
         }
     }
 
-    private void checkNameLabel() {
+    public void checkNameLabel() {
         isValid = true;
         codeInvalidMessage1.setVisible(false);
         try {
