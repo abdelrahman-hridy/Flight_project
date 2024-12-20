@@ -8,6 +8,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.EditProfileController">
@@ -17,10 +20,26 @@
             <Image url="@5590457%20(1).jpg" />
          </image>
       </ImageView>
-      <Label layoutX="648.0" layoutY="49.0" text="Edit Profile" textFill="#1500ff">
+      <Label layoutX="645.0" layoutY="98.0" text="Edit Profile">
          <font>
             <Font size="50.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="0.4962121266307253" endY="1.0" startX="0.5009469696969696" startY="0.2878788023283988">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color green="0.2043144255876541" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
       <Label layoutX="414.0" layoutY="280.0" text="Edit Username :" textFill="#1500ff">
          <font>

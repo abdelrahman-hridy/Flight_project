@@ -101,22 +101,6 @@ public class BookingConfirmationCont  {
 
     }
 
-    public void BackToPaymentGate(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Payment.fxml"));
-            root = fxmlLoader.load();
-
-            PaymentSceneController paymentSceneController = fxmlLoader.getController();
-            paymentSceneController.PassingSeatDetailsValues(user,flight,seats, String.valueOf(payment.getPaymentAmount()),payment,AvailbleSeats);
-
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }catch (Exception ex){
-            System.out.println("Error When Go to payment Gate"+ex);
-        }
-    }
     public void confirmTheFlight(ActionEvent event) {
 //        seat.setSeatStatus(false);
         for(int i=0;i<10;i++){
@@ -136,6 +120,7 @@ public class BookingConfirmationCont  {
         Booking booking = new Booking(user, flight, seats, payment.getPaymentAmount());
         Ticket ticket = new Ticket(booking);
         user.getTickets().add(ticket);
+        user.setPocket(user.getPocket() - payment.getPaymentAmount());
         Multi_used_methods.openFlightSearch(event, user);
 //        try {
 //            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeatSelection.fxml"));
@@ -155,6 +140,23 @@ public class BookingConfirmationCont  {
 //        }catch (Exception ex){
 //            System.out.println("Error When Confirm The FlightBooking "+ex);
 //        }
+    }
+    public void BackToPaymentGate(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Payment.fxml"));
+            root = fxmlLoader.load();
+
+            PaymentSceneController paymentSceneController = fxmlLoader.getController();
+            paymentSceneController.PassingSeatDetailsValues(user,flight,seats, String.valueOf(payment.getPaymentAmount()),payment,AvailbleSeats);
+
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("PaymentStyle.css").toExternalForm());
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception ex){
+            System.out.println("Error When Go to payment Gate"+ex);
+        }
     }
 
 }

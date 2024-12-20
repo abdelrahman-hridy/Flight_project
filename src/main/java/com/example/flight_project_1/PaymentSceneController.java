@@ -159,9 +159,9 @@ public class PaymentSceneController implements Initializable {
                 }
             }
 
-// Check if Card details are valid
+            // Check if Card details are valid
             if (!Card_Number.getText().isEmpty() || !Expairy_Date.getText().isEmpty()) {
-                if (Card_Number.getText().length() != 15 || CVV.getText().length() != 3) {
+                if (Card_Number.getText().length() != 16 || CVV.getText().length() != 3) {
                     mylabeltoAlert.setText("Invalid Data. Please check your Card Info.");
                     payment_status.setText("Payment Failed!");
                     return;
@@ -190,7 +190,6 @@ public class PaymentSceneController implements Initializable {
                 mylabeltoAlert.setText("Processing payment...");
                 payment_status.setText("Payment Completed!");
                 mylabeltoAlert.setStyle("-fx-text-fill: green;");
-                user.setPocket(user.getPocket() - totalCost);
 //                payment_successful=true;
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BookingConfrimScene.fxml"));

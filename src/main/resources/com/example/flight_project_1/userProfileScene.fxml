@@ -9,6 +9,9 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="800.0" maxWidth="1536.0" minHeight="800.0" minWidth="1536.0" prefHeight="800.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flight_project_1.UserProfile">
@@ -25,10 +28,46 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label layoutX="610.0" layoutY="68.0" text="User Profile" textFill="#2200ff">
+      <Label layoutX="610.0" layoutY="68.0" text="User Profile">
          <font>
             <Font size="60.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="0.5198863419619475" endY="1.0" startX="0.5303030303030303">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.046341463414634146">
+                     <color>
+                        <Color red="0.13333334028720856" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.05365853658536584">
+                     <color>
+                        <Color red="0.13333334028720856" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.0926829268292683">
+                     <color>
+                        <Color red="0.13333334028720856" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.17804878048780487">
+                     <color>
+                        <Color red="0.13333334028720856" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
       <Button fx:id="open_edit" layoutX="1183.0" layoutY="649.0" mnemonicParsing="false" onAction="#GoToEditProfile" text="Edit Profile">
          <font>

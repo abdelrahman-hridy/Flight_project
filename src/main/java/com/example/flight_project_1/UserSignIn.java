@@ -3,28 +3,36 @@ package com.example.flight_project_1;
 import com.example.flight_project_1.Base_classes.Files;
 import com.example.flight_project_1.Base_classes.Passenger;
 import com.example.flight_project_1.Base_classes.Ticket;
+import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.SequentialTransition;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class UserSignIn {
+public class UserSignIn implements Initializable {
 
 
     @FXML
     private TextField userin;
     @FXML
     private PasswordField passin;
+    @FXML
+    private Label welcomeLabel;
 
     Alert alert;
 
@@ -114,6 +122,31 @@ public class UserSignIn {
             System.out.println("Can't Open signUpForm.fxml");
         }
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // Call the animation method when the UI is initialized
+        playLetterByLetterAnimation("Welcome In Flight reservation system!");
+    }
+
+    public void playLetterByLetterAnimation(String text) {
+        // Clear any existing text
+        welcomeLabel.setText("");
+        // StringBuilder to update text dynamically
+        StringBuilder currentText = new StringBuilder();
+
+        // Timeline to animate each character
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), event -> {
+            if (currentText.length() < text.length()) {
+                // Add the next character to the label
+                currentText.append(text.charAt(currentText.length()));
+                welcomeLabel.setText(currentText.toString());
+            }
+        }));
+        timeline.setCycleCount(text.length());
+        timeline.play();
+    }
+
 
 }
 

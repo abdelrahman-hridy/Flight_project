@@ -126,7 +126,6 @@ public class ShowSeatDetail implements Serializable {
         Multi_used_methods.GoToChooseSeat(event, flight, user, AvailbleSeats);
     }
     public void ConfirmTheSeat(ActionEvent event){
-//        System.out.println("Confirmed");
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Payment.fxml"));
             root = fxmlLoader.load();
@@ -143,8 +142,5 @@ public class ShowSeatDetail implements Serializable {
             System.out.println("Error when to go the payment"+e);
         }
     }
-
-//    private Payment payment() {
-//    }
 
 }
